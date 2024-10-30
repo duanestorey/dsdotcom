@@ -1,0 +1,6 @@
+[submodule "duane/themes/ananke"]
+	path = duane/themes/ananke
+	url = https://github.com/theNewDynamic/gohugo-theme-ananke.git
+[submodule "lib/latte"]
+	path = lib/latte
+	url = https://github.com/nette/latte.git
