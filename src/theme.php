@@ -25,6 +25,20 @@ class Theme {
         return false;
     }
 
+    public function get_asset_hash() {
+        $hash_value = 0;
+
+        if ( isset( $this->config[ 'theme' ][ 'assets' ] ) ) {
+            foreach( $this->config[ 'theme' ][ 'assets' ] as $dest_name => $sources ) {
+                if ( file_exists( CROSSROAD_PUBLIC_DIR . '/assets/' . $dest_name ) ) {
+                    $hash_value = $hash_value . filesize( CROSSROAD_PUBLIC_DIR . '/assets/' . $dest_name );
+                }
+            }
+        }
+
+        return md5( $hash_value );
+    }
+
     public function load_config() {
         if ( $this->config == null && file_exists( $this->theme_dir . '/theme.yaml' ) ) {
             $this->config = YAML::parse_file( $this->theme_dir . '/theme.yaml' );

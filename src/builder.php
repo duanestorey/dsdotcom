@@ -51,6 +51,7 @@ class Builder {
 
                             $params->page = new \stdClass;
                             $params->page->asset_url = '../assets';
+                            $params->page->asset_hash = $this->theme->get_asset_hash();
                             $params->page->body_classes_raw = array( $content_type, 'slug-' . pathinfo( $markdown_file, PATHINFO_FILENAME ), 'blog' );
                             $params->page->body_classses = implode( ' ', $params->page->body_classes_raw );
 
@@ -71,7 +72,7 @@ class Builder {
                                 }
                             }
 
-                            $template_name = $this->template_engine->locate_template( [ $content_type . '-single', $content_type ] );
+                            $template_name = $this->template_engine->locate_template( [ $content_type . '-single', $content_type, 'index' ] );
                             if ( $template_name ) {
                                 $rendered_html = $this->template_engine->render( $template_name, $params );
                                 file_put_contents( $output_file, $rendered_html );
@@ -89,17 +90,17 @@ class Builder {
     }
 
     private function _setup_theme() {
-        $theme = new Theme( $this->config[ 'site' ][ 'theme' ], CROSSROAD_THEME_DIR );
-        echo "..attemping to load theme [" . $theme->name() . "]\n";
+        $this->theme = new Theme( $this->config[ 'site' ][ 'theme' ], CROSSROAD_THEME_DIR );
+        echo "..attemping to load theme [" . $this->theme->name() . "]\n";
 
-        if ( !$theme->is_sane() ) {
+        if ( !$this->theme->is_sane() ) {
             throw new ThemeException( 'Broken theme' );
         }
 
-        $theme->load_config();
+        $this->theme->load_config();
         echo "....theme successfully loaded\n";
 
-        $theme->process_assets( CROSSROAD_PUBLIC_DIR . '/assets' );
+        $this->theme->process_assets( CROSSROAD_PUBLIC_DIR . '/assets' );
     }
 
     private function _find_markdown_files( $directory ) {
