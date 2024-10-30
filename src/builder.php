@@ -31,6 +31,9 @@ class Builder {
                 echo "....processing content type [" . $content_type . "]\n";
 
                 @mkdir( CROSSROAD_PUBLIC_DIR . '/' . $content_type );
+
+                $image_destination_path = CROSSROAD_PUBLIC_DIR . '/assets/' . $content_type;
+                @mkdir( $image_destination_path );
                
                 $content_directory = \CROSSROAD_BASE_DIR . '/content/' . $content_type;
 
@@ -67,6 +70,33 @@ class Builder {
                             }
 
                             $params->page->title = $params->content->title;
+
+                            // let's do image processing here, it's going to be ugly
+                            $regexp = '<img[^>]+src=(?:\"|\')\K(.[^">]+?)(?=\"|\')';
+                            if( preg_match_all("/$regexp/", $params->content->markdown_html, $matches, PREG_SET_ORDER)) {
+                                foreach( $matches as $images ) {
+                                    $image_file = $images[ 0 ];
+                                    $image_filename_only = pathinfo( $image_file, PATHINFO_BASENAME );
+
+                                    $current_path = pathinfo( $markdown_file, PATHINFO_DIRNAME );
+                                    $image_destination_path_with_date = $image_destination_path . '/' . date( 'Y', $params->content->publish_date );
+                                    @mkdir( $image_destination_path_with_date );
+
+                                    if ( file_exists( $current_path . '/' . $image_file ) ) {
+                                        $destination_file = $image_destination_path_with_date . '/' . $image_filename_only;
+
+                                        if ( !file_exists( $destination_file ) ) {
+                                            echo "........copying image [" . $image_filename_only . "] to [" . $destination_file . "]\n";
+                                            Utils::copy_file( $current_path . '/' . $image_file, $destination_file );
+                                        }
+                                    }
+
+                                    // change out image
+                                    $dest_url = '../assets/' . $content_type . '/' . date( 'Y', $params->content->publish_date ) . '/' . $image_filename_only;
+                                    $params->content->markdown_html = str_replace( $image_file, $dest_url, $params->content->markdown_html );
+                                }
+                            }
+                            
 
                             $template_name = $this->template_engine->locate_template( [ $content_type . '-single', $content_type, 'index' ] );
                             if ( $template_name ) {
