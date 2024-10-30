@@ -44,10 +44,13 @@ class Builder {
                             $output_file = CROSSROAD_PUBLIC_DIR . '/' . $content_type . '/' . pathinfo( $markdown_file, PATHINFO_FILENAME ) . '.html';
 
                             $params = new \stdClass;
+                            $params->site = new \stdClass;
+                            $params->site->title = $this->config[ 'site' ][ 'name' ];
+
                             $params->markdown_html = $markdown->html();
-                            $params->title = '';
+                            
                             $params->publish_date = time();
-                            $params->asset_url = '../../';
+                            $params->asset_url = '../assets';
                             $params->body_classes_raw = array( $content_type, 'slug-' . pathinfo( $markdown_file, PATHINFO_FILENAME ), 'blog' );
                             $params->body_classses = implode( ' ', $params->body_classes_raw );
 
@@ -87,7 +90,6 @@ class Builder {
         echo "....theme successfully loaded\n";
 
         $theme->process_assets( CROSSROAD_PUBLIC_DIR . '/assets' );
-        die;
     }
 
     private function _find_markdown_files( $directory ) {

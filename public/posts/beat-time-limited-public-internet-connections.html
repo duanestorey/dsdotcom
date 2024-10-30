@@ -1,116 +1,45 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="../..//themes/ds/assets/bundle.css?v=1">
+        <link rel="stylesheet" href="../assets/lumen.css?v=1"></link>
+        <script type="text/javascript" src="../assets/lumen.min.js?v=1" async></script>
         <title>How To Beat Time Or Bandwidth Limited Internet Connections</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body class="posts slug-beat-time-limited-public-internet-connections blog">
-<nav class="navbar is-black" role="navigation" aria-label="main navigation">
-    <div class="container">
-        <div class="navbar-brand">
-            <a class="navbar-item" href="/">Home</a>
-            
-            <a role="button" class="navbar-burger" data-target="primary-menu" aria-label="menu" aria-expanded="false">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-            </a>
-        </div>
-
-        <div class="navbar-menu" id="primary-menu">
-
-        </div>
-    </div>
-</nav>
-
-<header class="hero is-primary">   
-    <div class="hero-body">
-        <div class="container">
-            <h2 class="title is-2">Hola, I'm Duane</h2>
-            <h3 class="subtitle is-5">A few interesting things about me:</h3>
-
-            <div class="columns has-text-centered">
-                <div class="column">
-                    <div class="fas fa-code"> </div> 
-                    <p class="desc">I've developed software used by over 40 million people, including the previous media engine in Yahoo! Messenger.</p>
-                    <p><a class="button is-primary is-small" href="/topic/code/">More Software</a></p> 
-                </div>
-                <div class="column is-hidden-touch">
-                    <div class="fas fa-wrench"> </div> 
-                    <p class="desc">I engineer lots of cool things such as hi-fi audio amplifiers and solar batteries for camping.</p>
-                    <p><a class="button is-primary is-small"  href="/topic/projects/">More Projects</a></p> 
-                </div>
-                <div class="column">
-                    <div class="fas fa-chart-bar"> </div> 
-                    <p class="desc">I co-wrote the previous #1 plugin for WordPress (out of 20,000), WPtouch, and eventually sold it.</p>
-                    <p><a class="button is-primary is-small" href="/topic/business/">More Business</a></p> 
-                </div>
-                <div class="column">
-                    <div class="fas fa-plane-departure"> </div> 
-                    <p class="desc">I've visited 44 countries in the last seven years and currently live in Valencia on the eastern coast of Spain.</p><p>
-                    <a class="button is-primary is-small" href="/topic/travel/">More Travel</a></p>
-                </div>
-                <div class="column is-hidden-mobile">
-                    <div class="fas fa-camera-retro"> </div> 
-                    <p class="desc">I am a published concert, travel, portrait, and landscape photographer; I currently shoot Fuji XT lenses.</p>
-                    <p><a class="button is-primary is-small"  href="/topic/photography/">More Photography</a></p> 
-                </div>
-            </div>
-        </div>
-
-        <div class="container newsletter">
-            <div class="has-text-centered">
-                <p>Sign-up to my exclusive business-oriented mailing list for occassional updates:</p>
-                <form action="//migratorynerd.us7.list-manage.com/subscribe/post?u=80cbf36c84f738b5623a02a85&amp;id=97101f05dd" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-                    <div id="mc_embed_signup_scroll">
-                        <div class="mc-field-group">
-                            <input type="email" placeholder="Enter your email address...." name="EMAIL" class="required email" id="mce-EMAIL"><input type="submit" value="Join 725 Subscribers" name="subscribe" id="mc-embedded-subscribe" class="button is-info"><input type="submit" value="Sign-up" name="subscribe" id="mc-embedded-subscribe-mobile" class="button is-info">
-                        </div>
-                        <div id="mce-responses" class="clear">
-                            <div class="response" id="mce-error-response" style="display:none"></div>
-                            <div class="response" id="mce-success-response" style="display:none"></div>
-                        </div>   
-                        <div style="position: absolute; left: -5000px;" aria-hidden="true">
-                            <input type="text" name="b_80cbf36c84f738b5623a02a85_97101f05dd" tabindex="-1" value="">
-                        </div>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="/">The Duane Storey</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-item nav-link" href="#">Features</a>
+                        <a class="nav-item nav-link" href="#">Pricing</a>
+                        <a class="nav-item nav-link disabled" href="#">Disabled</a>
                     </div>
-                </form>
+                </div>
             </div>
-        </div>
-    </div>
-</header>
+        </nav>
 
 
-
-    <article class="main section content">
-        <div class="container">
+    <div class="container mt-4">
+        <article class="content">    
             <p>One of the hardest parts of working remotely and traveling is the need to find reliable internet from time to time. In some countries free internet is almost as ubiquitous as beer, and often advertised as prominently. But in some countries (I'm looking directly at you Australia and New Zealand) almost all the internet you will find in the wild is either time limited or bandwidth limited. It's not unusual to be in a coffee shop on only be given 10MB or so, which is hardly enough to check your email or Facebook feed.</p>
 <h3>The Solution</h3>
 <p>If you're using a Mac computer (and I'm sure the procedure is fairly similar on Linux) and have root access, you can easily work around these types of internet connections by changing your network adapter's MAC address. Since these services usually tie the time or bandwidth consumption to your computer's MAC address (which is really the only way to identify a particular piece of hardware), most of the time a new MAC address will trick the system into thinking there is a brand new user on the system.</p>
 <p>The command to switch to a randomly generated MAC address is as follows:</p>
 <p><code>openssl rand -hex 1 | tr '[:lower:]' '[:upper:]' | xargs echo "obase=2;ibase=16;" | bc | cut -c1-6 | sed 's/$/00/' | xargs echo "obase=16;ibase=2;" | bc | sed "s/$/:$(openssl rand -hex 5 | sed 's/\(..\)/\1:/g; s/.$//' | tr '[:lower:]' '[:upper:]')/" | xargs sudo ifconfig en0 ether`  It's probably a good idea to write down your old MAC address as well (you can execute 'ifconfig' from Terminal to find it) so that you can always set it back to the old setting once you are done. But if you find yourself using a public internet terminal that is time or bandwidth limited, simply switch your MAC address when your session expires and you should be good to go all over again.  I've tried this a few different times now in a few different countries, and it works flawlessly - as soon as you hit your time limit at a coffee shop or airport, just change your MAC address and you should be recognized as a new user.  ### Play Nice  Also remember that in some parts of the world people actually pay for the bandwidth they use, so bear that in mind if you use that trick. I see no harm in using this occasionally if you are just checking email, or in a some huge place with a big budget like an airport. But it's probably not a good idea to use this trick excessively, just in case some small business owner gets hit with a bill long after you are gone.`</code></p>
-        </div>
-    </article>
+        </article>
+    </div>
 
-            <div class="footer has-text-centered">
-           <div class="level">
-                <div class="level-left">
-                   
-                </div>
-                <div class="level-right">
-                    All content &copy; Copyright 2009 by Duane Storey &amp; Lindell Media Solutions Inc.
-                </div>
+
+        <footer class="bg-dark pt-4 pb-4 mt-4 mb-4">
+            <div class="container text-center text-white">
+                All content copyright &copy; 2024
             </div>
-        </div>
-        
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-2124361-1"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){ dataLayer.push(arguments); }
-            gtag('js', new Date());
-
-            gtag('config', 'UA-2124361-1');
-        </script>
+        </footer>   
     </body>
 </html>

@@ -1,115 +1,44 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="../..//themes/ds/assets/bundle.css?v=1">
+        <link rel="stylesheet" href="../assets/lumen.css?v=1"></link>
+        <script type="text/javascript" src="../assets/lumen.min.js?v=1" async></script>
         <title>Redundant Web Architectures</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body class="posts slug-redundant-web-architectures blog">
-<nav class="navbar is-black" role="navigation" aria-label="main navigation">
-    <div class="container">
-        <div class="navbar-brand">
-            <a class="navbar-item" href="/">Home</a>
-            
-            <a role="button" class="navbar-burger" data-target="primary-menu" aria-label="menu" aria-expanded="false">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-            </a>
-        </div>
-
-        <div class="navbar-menu" id="primary-menu">
-
-        </div>
-    </div>
-</nav>
-
-<header class="hero is-primary">   
-    <div class="hero-body">
-        <div class="container">
-            <h2 class="title is-2">Hola, I'm Duane</h2>
-            <h3 class="subtitle is-5">A few interesting things about me:</h3>
-
-            <div class="columns has-text-centered">
-                <div class="column">
-                    <div class="fas fa-code"> </div> 
-                    <p class="desc">I've developed software used by over 40 million people, including the previous media engine in Yahoo! Messenger.</p>
-                    <p><a class="button is-primary is-small" href="/topic/code/">More Software</a></p> 
-                </div>
-                <div class="column is-hidden-touch">
-                    <div class="fas fa-wrench"> </div> 
-                    <p class="desc">I engineer lots of cool things such as hi-fi audio amplifiers and solar batteries for camping.</p>
-                    <p><a class="button is-primary is-small"  href="/topic/projects/">More Projects</a></p> 
-                </div>
-                <div class="column">
-                    <div class="fas fa-chart-bar"> </div> 
-                    <p class="desc">I co-wrote the previous #1 plugin for WordPress (out of 20,000), WPtouch, and eventually sold it.</p>
-                    <p><a class="button is-primary is-small" href="/topic/business/">More Business</a></p> 
-                </div>
-                <div class="column">
-                    <div class="fas fa-plane-departure"> </div> 
-                    <p class="desc">I've visited 44 countries in the last seven years and currently live in Valencia on the eastern coast of Spain.</p><p>
-                    <a class="button is-primary is-small" href="/topic/travel/">More Travel</a></p>
-                </div>
-                <div class="column is-hidden-mobile">
-                    <div class="fas fa-camera-retro"> </div> 
-                    <p class="desc">I am a published concert, travel, portrait, and landscape photographer; I currently shoot Fuji XT lenses.</p>
-                    <p><a class="button is-primary is-small"  href="/topic/photography/">More Photography</a></p> 
-                </div>
-            </div>
-        </div>
-
-        <div class="container newsletter">
-            <div class="has-text-centered">
-                <p>Sign-up to my exclusive business-oriented mailing list for occassional updates:</p>
-                <form action="//migratorynerd.us7.list-manage.com/subscribe/post?u=80cbf36c84f738b5623a02a85&amp;id=97101f05dd" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-                    <div id="mc_embed_signup_scroll">
-                        <div class="mc-field-group">
-                            <input type="email" placeholder="Enter your email address...." name="EMAIL" class="required email" id="mce-EMAIL"><input type="submit" value="Join 725 Subscribers" name="subscribe" id="mc-embedded-subscribe" class="button is-info"><input type="submit" value="Sign-up" name="subscribe" id="mc-embedded-subscribe-mobile" class="button is-info">
-                        </div>
-                        <div id="mce-responses" class="clear">
-                            <div class="response" id="mce-error-response" style="display:none"></div>
-                            <div class="response" id="mce-success-response" style="display:none"></div>
-                        </div>   
-                        <div style="position: absolute; left: -5000px;" aria-hidden="true">
-                            <input type="text" name="b_80cbf36c84f738b5623a02a85_97101f05dd" tabindex="-1" value="">
-                        </div>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="/">The Duane Storey</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-item nav-link" href="#">Features</a>
+                        <a class="nav-item nav-link" href="#">Pricing</a>
+                        <a class="nav-item nav-link disabled" href="#">Disabled</a>
                     </div>
-                </form>
+                </div>
             </div>
-        </div>
-    </div>
-</header>
+        </nav>
 
 
-
-    <article class="main section content">
-        <div class="container">
+    <div class="container mt-4">
+        <article class="content">    
             <p><a href="http://www.migratorynerd.com/wordpress/wp-content/uploads/2010/06/2379600590_bf110b0d85.jpg"><img src="images/2379600590_bf110b0d85-250x300.jpg" alt="" title="2379600590_bf110b0d85" /></a> So I realize this could potentially be a pretty deep rabbit hole, but I thought I'd ask the question here. I'm in the process of trying to put together a simple web server configuration that is more robust than a single server configuration. Truthfully, I've never set something like this up, but for what I'm after I'm not looking for something amazingly complex or expensive.</p>
 <p>The server needs to basically handle HTTP requests, and interface with a database. In my mind, this would require two servers in separate co-location centres (which would help if one centre went down and not the other). One machine would be the primary web/database server, and the second machine would be the slave. A cron job would synchronize the files on the slave every 5 minutes or so to make sure it stays up to date, and the database would be set up in a master/slave scenario.</p>
 <p>All of that basically makes sense to me so far, but if you know of a better configuration let me know. I know some people purposefully put the database server on its own machine, but to keep redundancy I believe I'd need four machines in that scenario, and not two, which is more complicated than I want to start out.</p>
 <p>The piece of the puzzle I don't really understand is how to check for a failure and how to recover from one. In my mind this would require some kind of external DNS service that would ping the primary web server and alter the DNS record for when the primary stopped responding. As these machines are in separate co-location facilities, I don't think I can do any type of IP takeover (at least, not that I'm aware of). Can anyone recommend a way to solve this piece of the puzzle, or suggest another way of doing this?</p>
-        </div>
-    </article>
+        </article>
+    </div>
 
-            <div class="footer has-text-centered">
-           <div class="level">
-                <div class="level-left">
-                   
-                </div>
-                <div class="level-right">
-                    All content &copy; Copyright 2009 by Duane Storey &amp; Lindell Media Solutions Inc.
-                </div>
+
+        <footer class="bg-dark pt-4 pb-4 mt-4 mb-4">
+            <div class="container text-center text-white">
+                All content copyright &copy; 2024
             </div>
-        </div>
-        
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-2124361-1"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){ dataLayer.push(arguments); }
-            gtag('js', new Date());
-
-            gtag('config', 'UA-2124361-1');
-        </script>
+        </footer>   
     </body>
 </html>

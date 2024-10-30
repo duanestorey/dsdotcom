@@ -1,90 +1,32 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="../..//themes/ds/assets/bundle.css?v=1">
+        <link rel="stylesheet" href="../assets/lumen.css?v=1"></link>
+        <script type="text/javascript" src="../assets/lumen.min.js?v=1" async></script>
         <title>Entry #23: Acid3 Tests And Web Browsing</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body class="posts slug-entry-23-acid3-tests-and-web-browsing blog">
-<nav class="navbar is-black" role="navigation" aria-label="main navigation">
-    <div class="container">
-        <div class="navbar-brand">
-            <a class="navbar-item" href="/">Home</a>
-            
-            <a role="button" class="navbar-burger" data-target="primary-menu" aria-label="menu" aria-expanded="false">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-            </a>
-        </div>
-
-        <div class="navbar-menu" id="primary-menu">
-
-        </div>
-    </div>
-</nav>
-
-<header class="hero is-primary">   
-    <div class="hero-body">
-        <div class="container">
-            <h2 class="title is-2">Hola, I'm Duane</h2>
-            <h3 class="subtitle is-5">A few interesting things about me:</h3>
-
-            <div class="columns has-text-centered">
-                <div class="column">
-                    <div class="fas fa-code"> </div> 
-                    <p class="desc">I've developed software used by over 40 million people, including the previous media engine in Yahoo! Messenger.</p>
-                    <p><a class="button is-primary is-small" href="/topic/code/">More Software</a></p> 
-                </div>
-                <div class="column is-hidden-touch">
-                    <div class="fas fa-wrench"> </div> 
-                    <p class="desc">I engineer lots of cool things such as hi-fi audio amplifiers and solar batteries for camping.</p>
-                    <p><a class="button is-primary is-small"  href="/topic/projects/">More Projects</a></p> 
-                </div>
-                <div class="column">
-                    <div class="fas fa-chart-bar"> </div> 
-                    <p class="desc">I co-wrote the previous #1 plugin for WordPress (out of 20,000), WPtouch, and eventually sold it.</p>
-                    <p><a class="button is-primary is-small" href="/topic/business/">More Business</a></p> 
-                </div>
-                <div class="column">
-                    <div class="fas fa-plane-departure"> </div> 
-                    <p class="desc">I've visited 44 countries in the last seven years and currently live in Valencia on the eastern coast of Spain.</p><p>
-                    <a class="button is-primary is-small" href="/topic/travel/">More Travel</a></p>
-                </div>
-                <div class="column is-hidden-mobile">
-                    <div class="fas fa-camera-retro"> </div> 
-                    <p class="desc">I am a published concert, travel, portrait, and landscape photographer; I currently shoot Fuji XT lenses.</p>
-                    <p><a class="button is-primary is-small"  href="/topic/photography/">More Photography</a></p> 
-                </div>
-            </div>
-        </div>
-
-        <div class="container newsletter">
-            <div class="has-text-centered">
-                <p>Sign-up to my exclusive business-oriented mailing list for occassional updates:</p>
-                <form action="//migratorynerd.us7.list-manage.com/subscribe/post?u=80cbf36c84f738b5623a02a85&amp;id=97101f05dd" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-                    <div id="mc_embed_signup_scroll">
-                        <div class="mc-field-group">
-                            <input type="email" placeholder="Enter your email address...." name="EMAIL" class="required email" id="mce-EMAIL"><input type="submit" value="Join 725 Subscribers" name="subscribe" id="mc-embedded-subscribe" class="button is-info"><input type="submit" value="Sign-up" name="subscribe" id="mc-embedded-subscribe-mobile" class="button is-info">
-                        </div>
-                        <div id="mce-responses" class="clear">
-                            <div class="response" id="mce-error-response" style="display:none"></div>
-                            <div class="response" id="mce-success-response" style="display:none"></div>
-                        </div>   
-                        <div style="position: absolute; left: -5000px;" aria-hidden="true">
-                            <input type="text" name="b_80cbf36c84f738b5623a02a85_97101f05dd" tabindex="-1" value="">
-                        </div>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="/">The Duane Storey</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-item nav-link" href="#">Features</a>
+                        <a class="nav-item nav-link" href="#">Pricing</a>
+                        <a class="nav-item nav-link disabled" href="#">Disabled</a>
                     </div>
-                </form>
+                </div>
             </div>
-        </div>
-    </div>
-</header>
+        </nav>
 
 
-
-    <article class="main section content">
-        <div class="container">
+    <div class="container mt-4">
+        <article class="content">    
             <p>Anyone who has attempted to design a website before knows that not all browsers are created equal. In terms of web development, a lot of my time goes into making a website work on Internet Explorer 6, since many people still used it even though it is hopeless broken with regards to being standards compliant.</p>
 <p>To help make browsers more compliant, several initiates have emerged over the last few years. The first is an effort by the Worldwide Web Consortium (W3C) to have the source code for websites validate against W3C standards. While several exist, most developers attempt to conform to TRANSITIONAL or STRICT XHTML document types in their code.</p>
 <p>While that definitely helps cross-browser support, it still does not account for browsers that inherently perform differently. To address that problem, a group of developers came up with the <a href="http://acid3.acidtests.org/">Acid3 Tests</a>. These tests are meant to do an exhaustive measure of a browsers performance in many real-world like situations. Around March of this last year it became a virtual fight amongst web developers to attempt to hit 100% on the Acid3 tests. And while several of them managed to hit that mark, none of those browsers are available to end users yet.</p>
@@ -98,27 +40,14 @@
 <p><img src="http://farm4.static.flickr.com/3101/2695421630_93f9593fd5.jpg?v=0" alt="Opera" /></p>
 <p>Opera</p>
 <p>As you can see, the best browser on the Mac (with regards to Acid3 test compliance) is Opera, which I actually found a bit surprising (thinking that it would obviously be Safari). Hopefully most of these will converge on 100% as they continue doing updates. If you want to test the score of your current browser, feel free to head on <a href="http://acid3.acidtests.org/">over to the Acid3 tests</a>. If you do, post a comment and let everyone know what browser you were on, and what score it achieved.</p>
-        </div>
-    </article>
+        </article>
+    </div>
 
-            <div class="footer has-text-centered">
-           <div class="level">
-                <div class="level-left">
-                   
-                </div>
-                <div class="level-right">
-                    All content &copy; Copyright 2009 by Duane Storey &amp; Lindell Media Solutions Inc.
-                </div>
+
+        <footer class="bg-dark pt-4 pb-4 mt-4 mb-4">
+            <div class="container text-center text-white">
+                All content copyright &copy; 2024
             </div>
-        </div>
-        
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-2124361-1"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){ dataLayer.push(arguments); }
-            gtag('js', new Date());
-
-            gtag('config', 'UA-2124361-1');
-        </script>
+        </footer>   
     </body>
 </html>
