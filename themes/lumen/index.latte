@@ -10,7 +10,9 @@
                 {$item->excerpt()|noescape}
             </div>
 
-            <a href="{$item->url}" class="btn btn-primary mt-2">Read More</a>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <a href="{$item->url}" class="btn btn-primary mt-2">Read More</a>
+            </div>
         </article>
     {/foreach} 
 
