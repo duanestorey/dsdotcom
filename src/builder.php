@@ -122,7 +122,7 @@ class Builder {
                             $params->pagination->next_page_link = '';
                         }
 
-                        $params->content = array_slice( $all_content, ( $params->pagination->current_page ) * $content_per_page, $content_per_page );
+                        $params->content = array_slice( $all_content, ( $params->pagination->current_page - 1 ) * $content_per_page, $content_per_page );
   
                         $rendered_html = $this->template_engine->render( $template_name, $params );
                         file_put_contents( $filename, $rendered_html );  
