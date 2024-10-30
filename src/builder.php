@@ -73,7 +73,7 @@ class Builder {
 
                             // let's do image processing here, it's going to be ugly
                             $regexp = '<img[^>]+src=(?:\"|\')\K(.[^">]+?)(?=\"|\')';
-                            if( preg_match_all("/$regexp/", $params->content->markdown_html, $matches, PREG_SET_ORDER)) {
+                            if( preg_match_all( "/$regexp/", $params->content->markdown_html, $matches, PREG_SET_ORDER ) ) {
                                 foreach( $matches as $images ) {
                                     $image_file = $images[ 0 ];
                                     $image_filename_only = pathinfo( $image_file, PATHINFO_BASENAME );
@@ -96,7 +96,16 @@ class Builder {
                                     $params->content->markdown_html = str_replace( $image_file, $dest_url, $params->content->markdown_html );
                                 }
                             }
-                            
+
+                            // Remove stupid captions
+                            if ( preg_match_all( '#(\[caption\b[^\]]*\](.*)\[\/caption])#iU', $params->content->markdown_html, $matches, PREG_SET_ORDER ) ) {
+                                foreach( $matches as $key => $match ) {
+                                  //  print_r( $match ); die;
+                                    $replace = str_replace( '</a>', '</a><p class="caption text-center fst-italic">', $match[ 2 ] . '</p>' );
+                                    $replace = str_replace( '/>', '/><p class="caption text-center fst-italic">', $match[ 2 ] . '</p>' );
+                                    $params->content->markdown_html = str_replace( $match[ 0 ], $replace, $params->content->markdown_html );
+                                }
+                            }    
 
                             $template_name = $this->template_engine->locate_template( [ $content_type . '-single', $content_type, 'index' ] );
                             if ( $template_name ) {
