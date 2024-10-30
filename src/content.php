@@ -24,4 +24,8 @@ class Content {
     public function set_title( $title ) {
         $this->title = $title;
     }
+
+    public function excerpt() {
+        return substr( strip_tags( $this->markdown_html ), 0, 500 ) . '...';
+    }
 }

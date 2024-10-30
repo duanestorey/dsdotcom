@@ -9,4 +9,6 @@ content:
     pages:
 themes:
   dir: themes
+options:
+  content_per_page: 20
 

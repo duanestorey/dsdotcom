@@ -45,20 +45,14 @@ class Builder {
 
                             $output_file = CROSSROAD_PUBLIC_DIR . '/' . $content_type . '/' . pathinfo( $markdown_file, PATHINFO_FILENAME ) . '.html';
 
-                            $params = new \stdClass;
-                            $params->site = new \stdClass;
-                            $params->site->title = $this->config[ 'site' ][ 'name' ];
-
-                            $params->page = new \stdClass;
-                            $params->page->asset_url = '../assets';
-                            $params->page->asset_hash = $this->theme->get_asset_hash();
-                            $params->page->body_classes_raw = array( $content_type, 'slug-' . pathinfo( $markdown_file, PATHINFO_FILENAME ), 'blog' );
-                            $params->page->body_classses = implode( ' ', $params->page->body_classes_raw );
+                            $params = $this->_get_default_render_params( 
+                                array( $content_type, $content_type . '-' . pathinfo( $markdown_file, PATHINFO_FILENAME ) ) 
+                            );
 
                             $params->content = new Content;
                             $params->content->markdown_html = $markdown->html();
                             $params->content->markdown_file = $markdown_file;
-                            $params->content->url = $content_type . '/' . pathinfo( $markdown_file, PATHINFO_FILENAME ) . '.html';
+                            $params->content->url = '/' . $content_type . '/' . pathinfo( $markdown_file, PATHINFO_FILENAME ) . '.html';
 
                             $all_content[] = $params->content;
 
@@ -72,6 +66,8 @@ class Builder {
                                 }
                             }
 
+                            $params->page->title = $params->content->title;
+
                             $template_name = $this->template_engine->locate_template( [ $content_type . '-single', $content_type, 'index' ] );
                             if ( $template_name ) {
                                 $rendered_html = $this->template_engine->render( $template_name, $params );
@@ -83,10 +79,52 @@ class Builder {
 
                 // process all content
                 usort( $all_content, 'CR\cr_sort' );
+
+                $params = $this->_get_default_render_params( 
+                    array( $content_type . '-' . pathinfo( $markdown_file, PATHINFO_FILENAME ) ) 
+                );
+
+                $content_per_page = 10;
+                if ( isset( $this->config[ 'options' ][ 'content_per_page' ] ) ) {
+                    $content_per_page = $this->config[ 'options' ][ 'content_per_page' ];
+                }
+
+                $params->page->title = 'index';
+
+                $params->pagination = new \stdClass;
+                $params->pagination->current_page = 1;
+               
+                if ( count( $all_content ) % $content_per_page == 0 ) {
+                    $params->pagination->total_pages = intdiv( count( $all_content ), $content_per_page );
+                } else {    
+                    $params->pagination->total_pages = intdiv( count( $all_content ), $content_per_page ) + 1;
+                }
+
+                $params->content = array_slice( $all_content, 0, $content_per_page );
+
+                $template_name = $this->template_engine->locate_template( [ 'index' ] );
+                if ( $template_name ) {
+                    $rendered_html = $this->template_engine->render( $template_name, $params );
+                    file_put_contents( CROSSROAD_PUBLIC_DIR . '/' . $content_type . '/index.html', $rendered_html );
+                }
             }
         }
         $total_time = microtime( true ) - $this->start_time;
         echo "..total page(s) generated, " . $this->total_pages . " - build completed in " . sprintf( "%0.4f", $total_time ) . "s\n";
+    }
+
+    private function _get_default_render_params( $body_classes_raw ) {
+        $params = new \stdClass;
+        $params->site = new \stdClass;
+        $params->site->title = $this->config[ 'site' ][ 'name' ];
+
+        $params->page = new \stdClass;
+        $params->page->asset_url = '../assets';
+        $params->page->asset_hash = $this->theme->get_asset_hash();
+        $params->page->body_classes_raw = $body_classes_raw;
+        $params->page->body_classses = implode( ' ', $params->page->body_classes_raw );    
+
+        return $params;
     }
 
     private function _setup_theme() {
