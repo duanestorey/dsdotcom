@@ -1,4 +1,12 @@
 site:
   name: 'The Duane Storey'
   url: 'https://duanestorey.com'
-  desc: 'The home of engineer and world traveller, Duane Storey';
+  desc: 'The home of engineer and world traveller, Duane Storey'
+  theme: ds
+content:
+  types: 
+    posts:
+    pages:
+themes:
+  dir: themes
+

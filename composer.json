@@ -1,5 +1,6 @@
 {
     "require": {
-        "symfony/yaml": "^7.1"
+        "symfony/yaml": "^7.1",
+        "latte/latte": "^3.0"
     }
 }

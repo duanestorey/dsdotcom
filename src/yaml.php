@@ -17,4 +17,16 @@ class YAML {
         
         return $value;
     }
+
+    static function parse( $data ) {
+        $value = false;
+
+        try {
+            $value = \Symfony\Component\Yaml\Yaml::parse( $data );
+        } catch( \Symfony\Component\Yaml\Exception\ParseException $exception ) {
+            // do somethign here
+        }
+        
+        return $value;    
+    }
 }

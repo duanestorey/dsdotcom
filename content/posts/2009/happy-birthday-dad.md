@@ -1,0 +1,18 @@
+---
+title: "Happy Birthday Dad"
+date: "2009-07-31T15:55:03.000Z"
+categories: 
+  - "journal"
+tags: 
+  - "birthday"
+  - "chilliwack"
+  - "dad"
+---
+
+I'll admit, keeping up with birthdays on my blog is pretty hard to do. I have a hard enough time remembering dates and making phone calls when they roll around, something I'm thankful my sister helps me out with. That being said, I missed blogging about one on Sunday, probably because I was so exhausted from Blogathon.
+
+[![Dad](images/151402425_ea5eab7e77.jpg)](http://www.flickr.com/photos/duanestorey/151402425/)
+
+It was my dad's birthday this last Sunday, and I just wanted to wish him a happy belated birthday from my website here. I managed to remember to call him on Sunday, but somehow this blog entry got missed (sorry bud).
+
+Hopefully we can get together for a quick drink sometime in the near future.

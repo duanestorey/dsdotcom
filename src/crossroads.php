@@ -5,7 +5,10 @@ namespace CR;
 define( 'CROSSROADS_VERSION', '1.00' );
 
 require_once( 'src/builder.php' );
+require_once( 'src/markdown.php' );
+require_once( 'src/template-engine.php' );
 require_once( 'src/yaml.php' );
+require_once( 'lib/parsedown/Parsedown.php' );
 
 class Engine {
     var $builder = null;
