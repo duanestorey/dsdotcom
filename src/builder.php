@@ -93,6 +93,8 @@ class Builder {
 
                 $params->pagination = new \stdClass;
                 $params->pagination->current_page = 1;
+                $params->pagination->prev_page_link = '';
+                $params->pagination->next_page_link = '';
                
                 if ( count( $all_content ) % $content_per_page == 0 ) {
                     $params->pagination->total_pages = intdiv( count( $all_content ), $content_per_page );
@@ -100,12 +102,34 @@ class Builder {
                     $params->pagination->total_pages = intdiv( count( $all_content ), $content_per_page ) + 1;
                 }
 
-                $params->content = array_slice( $all_content, 0, $content_per_page );
-
                 $template_name = $this->template_engine->locate_template( [ 'index' ] );
                 if ( $template_name ) {
-                    $rendered_html = $this->template_engine->render( $template_name, $params );
-                    file_put_contents( CROSSROAD_PUBLIC_DIR . '/' . $content_type . '/index.html', $rendered_html );
+                    while ( $params->pagination->current_page <= $params->pagination->total_pages ) {
+                        if ( $params->pagination->current_page == 1 ) {
+                            $filename = CROSSROAD_PUBLIC_DIR . '/' . $content_type . '/index.html';
+                        } else {
+                            $filename = CROSSROAD_PUBLIC_DIR . '/' . $content_type . '/index-page-' . $params->pagination->current_page . '.html';
+                        }
+
+                        if ( $params->pagination->current_page > 1 ) {
+                            $params->pagination->prev_page_link = $params->pagination->next_page_link;
+                        } else {
+                            $params->pagination->prev_page_link = '';
+                        }
+
+                        if ( $params->pagination->current_page != $params->pagination->total_pages ) {
+                            $params->pagination->next_page_link = '/' . $content_type . '/index-page-' . ( $params->pagination->current_page + 1 ). '.html';
+                        } else {
+                            $params->pagination->next_page_link = '';
+                        }
+
+                        $params->content = array_slice( $all_content, ( $params->pagination->current_page ) * $content_per_page, $content_per_page );
+  
+                        $rendered_html = $this->template_engine->render( $template_name, $params );
+                        file_put_contents( $filename, $rendered_html );  
+
+                        $params->pagination->current_page++;
+                    }
                 }
             }
         }

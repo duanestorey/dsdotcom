@@ -13,6 +13,18 @@
             <a href="{$item->url}" class="btn btn-primary mt-2">Read More</a>
         </article>
     {/foreach} 
+
+    <nav aria-label="page navigation">
+        <ul class="pagination">
+            {if $pagination->prev_page_link}
+            <li class="page-item"><a class="page-link" href="{$pagination->prev_page_link}">Previous</a></li>
+            {/if}
+
+            {if $pagination->next_page_link}
+            <li class="page-item"><a class="page-link" href="{$pagination->next_page_link}">Next</a></li>
+            {/if}
+        </ul>
+        </nav>
     </div>
 
 {include 'footer.latte'}
