@@ -93,6 +93,7 @@ class Builder {
 
                 $params->pagination = new \stdClass;
                 $params->pagination->current_page = 1;
+                $params->pagination->cur_page_link = '';
                 $params->pagination->prev_page_link = '';
                 $params->pagination->next_page_link = '';
                
@@ -107,14 +108,10 @@ class Builder {
                     while ( $params->pagination->current_page <= $params->pagination->total_pages ) {
                         if ( $params->pagination->current_page == 1 ) {
                             $filename = CROSSROAD_PUBLIC_DIR . '/' . $content_type . '/index.html';
+                            $params->pagination->cur_page_link = '/' . $content_type . '/index.html';
                         } else {
                             $filename = CROSSROAD_PUBLIC_DIR . '/' . $content_type . '/index-page-' . $params->pagination->current_page . '.html';
-                        }
-
-                        if ( $params->pagination->current_page > 1 ) {
-                            $params->pagination->prev_page_link = $params->pagination->next_page_link;
-                        } else {
-                            $params->pagination->prev_page_link = '';
+                            $params->pagination->cur_page_link = '/' . $content_type . '/index-page-' . $params->pagination->current_page . '.html';
                         }
 
                         if ( $params->pagination->current_page != $params->pagination->total_pages ) {
@@ -129,6 +126,8 @@ class Builder {
                         file_put_contents( $filename, $rendered_html );  
 
                         $params->pagination->current_page++;
+
+                        $params->pagination->prev_page_link = $params->pagination->cur_page_link;
                     }
                 }
             }
