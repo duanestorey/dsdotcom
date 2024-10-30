@@ -10,5 +10,5 @@ content:
 themes:
   dir: themes
 options:
-  content_per_page: 20
+  content_per_page: 100
 

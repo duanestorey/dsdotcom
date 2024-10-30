@@ -103,6 +103,8 @@ class Builder {
                     $params->pagination->total_pages = intdiv( count( $all_content ), $content_per_page ) + 1;
                 }
 
+                $params->pagination->links = $this->_get_pagination_links( $content_type, $params->pagination->total_pages );
+
                 $template_name = $this->template_engine->locate_template( [ 'index' ] );
                 if ( $template_name ) {
                     while ( $params->pagination->current_page <= $params->pagination->total_pages ) {
@@ -134,6 +136,21 @@ class Builder {
         }
         $total_time = microtime( true ) - $this->start_time;
         echo "..total page(s) generated, " . $this->total_pages . " - build completed in " . sprintf( "%0.4f", $total_time ) . "s\n";
+    }
+
+    private function _get_pagination_links( $content_type, $total_pages ) {
+        $links = array();
+
+        for ( $i = 0; $i < $total_pages; $i++ ) {
+            $page = new \stdClass;
+
+            $page->num = $i + 1;
+            $page->url = $i == 0 ? '/' . $content_type . '/index.html' : '/' . $content_type . '/index-page-' . ( $i+1 ) . '.html';
+
+            $links[] = $page;
+        }
+
+        return $links;
     }
 
     private function _get_default_render_params( $body_classes_raw ) {

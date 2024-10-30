@@ -15,10 +15,14 @@
     {/foreach} 
 
     <nav aria-label="page navigation">
-        <ul class="pagination">
+        <ul class="pagination justify-content-center">
             {if $pagination->prev_page_link}
             <li class="page-item"><a class="page-link" href="{$pagination->prev_page_link}">Previous</a></li>
             {/if}
+
+            {foreach $pagination->links as $link}
+            <li class="page-item"><a class="page-link" href="{$link->url}">{$link->num}</a></li>
+            {/foreach} 
 
             {if $pagination->next_page_link}
             <li class="page-item"><a class="page-link" href="{$pagination->next_page_link}">Next</a></li>
