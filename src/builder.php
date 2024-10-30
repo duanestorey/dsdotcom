@@ -3,8 +3,13 @@
 namespace CR;
 
 class Builder {
-    public function __construct() {}
+    var $config = null;
+
+    public function __construct( $config ) {
+        $this->config = $config;
+    }
 
     public function run() {
+
     }
 }
