@@ -7,7 +7,11 @@ define( 'CROSSROADS_VERSION', '1.00' );
 require_once( 'src/builder.php' );
 require_once( 'src/markdown.php' );
 require_once( 'src/template-engine.php' );
+require_once( 'src/exception.php' );
 require_once( 'src/yaml.php' );
+require_once( 'src/theme.php' );
+require_once( 'src/utils.php' );
+
 require_once( 'lib/parsedown/Parsedown.php' );
 
 class Engine {
@@ -17,9 +21,9 @@ class Engine {
     public function __construct() {}
 
     public function run( $argc, $argv ) {
-        $this->_load_config();
-
         $this->_branding();
+
+        $this->_load_config();
 
         if ( $argc == 1 ) {
             $this->_usage();
@@ -39,6 +43,10 @@ class Engine {
         $this->config = YAML::parse_file( 'config/site.yaml' );
     }
 
+    private function _check_config() {
+        // check to make sure everything we need is here
+    }
+
     private function _branding() {
         echo "Crossroads " . CROSSROADS_VERSION . " starting up\n";
     }
@@ -53,7 +61,13 @@ class Engine {
         echo "..building website\n";
 
         $this->builder = new Builder( $this->config );
-        $this->builder->run();
+
+        try {
+            $this->builder->run();
+        } catch( Exception $e ) {
+            echo "..build stopped due to exception [" . $e->name() . "] with message [" . $e->msg() . "]\n";
+        }
+        
     }
 
     private function _serve() {

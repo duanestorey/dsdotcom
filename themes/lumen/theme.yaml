@@ -1,0 +1,7 @@
+theme:
+  name: 'Lumen'
+  assets:
+    lumen.css:
+      - bootstrap.min.css
+    lumen.min.js:
+      - bootstrap.bundle.min.js

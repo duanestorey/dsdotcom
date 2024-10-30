@@ -7,6 +7,7 @@ class Builder {
     var $start_time = null;
     var $total_pages = 0;
     var $template_engine = null;
+    var $theme = null;
 
     public function __construct( $config ) {
         $this->config = $config;
@@ -17,6 +18,9 @@ class Builder {
 
     public function run() {
         @mkdir( CROSSROAD_PUBLIC_DIR );
+        @mkdir( CROSSROAD_PUBLIC_DIR . '/assets' );
+
+        $this->_setup_theme();
 
         $this->start_time = microtime( true );
 
@@ -25,7 +29,7 @@ class Builder {
                 echo "....processing content type [" . $content_type . "]\n";
 
                 @mkdir( CROSSROAD_PUBLIC_DIR . '/' . $content_type );
-
+               
                 $content_directory = \CROSSROAD_BASE_DIR . '/content/' . $content_type;
 
                 $all_markdown_files = $this->_find_markdown_files( $content_directory );
@@ -69,6 +73,21 @@ class Builder {
         }
         $total_time = microtime( true ) - $this->start_time;
         echo "..total page(s) generated, " . $this->total_pages . " - build completed in " . sprintf( "%0.4f", $total_time ) . "s\n";
+    }
+
+    private function _setup_theme() {
+        $theme = new Theme( $this->config[ 'site' ][ 'theme' ], CROSSROAD_THEME_DIR );
+        echo "..attemping to load theme [" . $theme->name() . "]\n";
+
+        if ( !$theme->is_sane() ) {
+            throw new ThemeException( 'Broken theme' );
+        }
+
+        $theme->load_config();
+        echo "....theme successfully loaded\n";
+
+        $theme->process_assets( CROSSROAD_PUBLIC_DIR . '/assets' );
+        die;
     }
 
     private function _find_markdown_files( $directory ) {
