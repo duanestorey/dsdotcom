@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../..//themes/ds/assets/bundle.css?v=1">
+        <title>Wordpress Without Borders, Round Two</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body class="posts slug-without-borders-round-two blog">
+<nav class="navbar is-black" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="/">Home</a>
+            
+            <a role="button" class="navbar-burger" data-target="primary-menu" aria-label="menu" aria-expanded="false">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div class="navbar-menu" id="primary-menu">
+
+        </div>
+    </div>
+</nav>
+
+<header class="hero is-primary">   
+    <div class="hero-body">
+        <div class="container">
+            <h2 class="title is-2">Hola, I'm Duane</h2>
+            <h3 class="subtitle is-5">A few interesting things about me:</h3>
+
+            <div class="columns has-text-centered">
+                <div class="column">
+                    <div class="fas fa-code"> </div> 
+                    <p class="desc">I've developed software used by over 40 million people, including the previous media engine in Yahoo! Messenger.</p>
+                    <p><a class="button is-primary is-small" href="/topic/code/">More Software</a></p> 
+                </div>
+                <div class="column is-hidden-touch">
+                    <div class="fas fa-wrench"> </div> 
+                    <p class="desc">I engineer lots of cool things such as hi-fi audio amplifiers and solar batteries for camping.</p>
+                    <p><a class="button is-primary is-small"  href="/topic/projects/">More Projects</a></p> 
+                </div>
+                <div class="column">
+                    <div class="fas fa-chart-bar"> </div> 
+                    <p class="desc">I co-wrote the previous #1 plugin for WordPress (out of 20,000), WPtouch, and eventually sold it.</p>
+                    <p><a class="button is-primary is-small" href="/topic/business/">More Business</a></p> 
+                </div>
+                <div class="column">
+                    <div class="fas fa-plane-departure"> </div> 
+                    <p class="desc">I've visited 44 countries in the last seven years and currently live in Valencia on the eastern coast of Spain.</p><p>
+                    <a class="button is-primary is-small" href="/topic/travel/">More Travel</a></p>
+                </div>
+                <div class="column is-hidden-mobile">
+                    <div class="fas fa-camera-retro"> </div> 
+                    <p class="desc">I am a published concert, travel, portrait, and landscape photographer; I currently shoot Fuji XT lenses.</p>
+                    <p><a class="button is-primary is-small"  href="/topic/photography/">More Photography</a></p> 
+                </div>
+            </div>
+        </div>
+
+        <div class="container newsletter">
+            <div class="has-text-centered">
+                <p>Sign-up to my exclusive business-oriented mailing list for occassional updates:</p>
+                <form action="//migratorynerd.us7.list-manage.com/subscribe/post?u=80cbf36c84f738b5623a02a85&amp;id=97101f05dd" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                    <div id="mc_embed_signup_scroll">
+                        <div class="mc-field-group">
+                            <input type="email" placeholder="Enter your email address...." name="EMAIL" class="required email" id="mce-EMAIL"><input type="submit" value="Join 725 Subscribers" name="subscribe" id="mc-embedded-subscribe" class="button is-info"><input type="submit" value="Sign-up" name="subscribe" id="mc-embedded-subscribe-mobile" class="button is-info">
+                        </div>
+                        <div id="mce-responses" class="clear">
+                            <div class="response" id="mce-error-response" style="display:none"></div>
+                            <div class="response" id="mce-success-response" style="display:none"></div>
+                        </div>   
+                        <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                            <input type="text" name="b_80cbf36c84f738b5623a02a85_97101f05dd" tabindex="-1" value="">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+    <article class="main section content">
+        <div class="container">
+            <p>Thanks to everyone who left some <a href="http://www.migratorynerd.com/2008/03/wordpress-without-borders/">feedback the other day about the new translation plugin</a>. I've had some really great comments about it, and even the odd person that's really anxious to test it out. I'm hoping to put a version up online tonight for people to download and try for themselves.</p>
+<p>For those people who didn't catch it, what I did was write a Wordpress plugin that takes advantage of the Google AJAX language API to dynamically translate the content of my blog into whatever language you as a reader ask for (by adjusting your browser settings). This works in both directions: blog entries will be converted into other languages, and comments left in other languages will be converted as well. So basically, as a reader of this blog you can read it in whatever language you want, and comment in whatever language you want. Check out the comments below for an example.</p>
+<p>A couple of the new changes I made are:</p>
+<ul>
+<li>You can now enable and disable the translation via a menu bar that magically appears at the top of the browser window</li>
+<li>Comments will be translated into whatever language you request them to be in</li>
+<li>If there is no direct conversion available between two languages (for example, chinese to french), english is used as a proxy language to assist with the translation</li>
+<li>All menus are in the requested language as well</li>
+</ul>
+<p><img src="images/picture-38.png" alt="" /></p>
+<p>As you can see in the above photo, a menu will appear at the top of the screen if a translation can be performed on the page. Simply click the link if it appears and it will translate the content for you. The menu will also hover up top as you scroll down the page so you can switch back and forth between translated content.</p>
+<p>If you are viewing the content in a different language, the menu will adjust to reflect that. For example, here's how the menu looks on an english site when the viewer has their default language set to chinese.</p>
+<p><img src="images/picture-39.png" alt="" /></p>
+<p>I encourage everyone to try it out on my blog. If you know a second language, feel free to post a comment in that language. Also, if you have Firefox or any other browser that lets you adjust the language, try switching it to something else and trying it out. If you notice a menu at the top of your browser window, make sure you click on it to see what happens!</p>
+<h2>Alpha Version Now Available</h2>
+<p>If you want to try installing this on your own blog, here's how. First, download the alpha version (this is as alpha as it gets folks) by <a href="http://www.migratorynerd.com/data/noborders.tar.gz">clicking this link</a>. Install it by unzipping the file into your plugins directory and activating it in your menu.</p>
+<p>The good news is that it will translate categories and tags for you just like that. The bad news is that comments, content and excerpts require small changes to your theme (I worked hard to try and avoid this, but it's simply not possible if you want it to play nice with the rest of your blog). It's a really easy change, so don't be afraid to try it. Just replace the following:</p>
+<ul>
+<li>replace <strong>the_content()</strong> with <strong>bnc_the_content()</strong></li>
+<li>replace <strong>the_title()</strong> with <strong>bnc_the_title()</strong></li>
+<li>replace <strong>comment_text()</strong> with <strong>bnc_comment_text()</strong></li>
+<li>replace <strong>the_excerpt()</strong> with <strong>bnc_the_excerpt()</strong></li>
+</ul>
+<p>For <strong>the_title()</strong> only replace those instances that are used to show something to the viewer. That is, if you have <strong>the_title()</strong> being used to populate an ALT or TITLE tag in a hyperlink, just leave it as <strong>the_title()</strong>. If you've ever been inside a theme, that should take you no more than 2 minutes to change over.</p>
+<p>If you have other content that you'd like to be translated (i.e. things in your menu), you can wrap the text with <strong>bnc_translate_start()</strong> and <strong>bnc_translate_stop()</strong>. Whatever is between those two functions will be translated along with the rest of the content.</p>
+<p>If you manage to get it working on your blog, please drop a comment here so other people can head on over and take a look.</p>
+        </div>
+    </article>
+
+            <div class="footer has-text-centered">
+           <div class="level">
+                <div class="level-left">
+                   
+                </div>
+                <div class="level-right">
+                    All content &copy; Copyright 2009 by Duane Storey &amp; Lindell Media Solutions Inc.
+                </div>
+            </div>
+        </div>
+        
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-2124361-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){ dataLayer.push(arguments); }
+            gtag('js', new Date());
+
+            gtag('config', 'UA-2124361-1');
+        </script>
+    </body>
+</html>

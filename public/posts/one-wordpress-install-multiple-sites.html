@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../..//themes/ds/assets/bundle.css?v=1">
+        <title>One WordPress Install, Multiple Sites</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body class="posts slug-one-wordpress-install-multiple-sites blog">
+<nav class="navbar is-black" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="/">Home</a>
+            
+            <a role="button" class="navbar-burger" data-target="primary-menu" aria-label="menu" aria-expanded="false">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div class="navbar-menu" id="primary-menu">
+
+        </div>
+    </div>
+</nav>
+
+<header class="hero is-primary">   
+    <div class="hero-body">
+        <div class="container">
+            <h2 class="title is-2">Hola, I'm Duane</h2>
+            <h3 class="subtitle is-5">A few interesting things about me:</h3>
+
+            <div class="columns has-text-centered">
+                <div class="column">
+                    <div class="fas fa-code"> </div> 
+                    <p class="desc">I've developed software used by over 40 million people, including the previous media engine in Yahoo! Messenger.</p>
+                    <p><a class="button is-primary is-small" href="/topic/code/">More Software</a></p> 
+                </div>
+                <div class="column is-hidden-touch">
+                    <div class="fas fa-wrench"> </div> 
+                    <p class="desc">I engineer lots of cool things such as hi-fi audio amplifiers and solar batteries for camping.</p>
+                    <p><a class="button is-primary is-small"  href="/topic/projects/">More Projects</a></p> 
+                </div>
+                <div class="column">
+                    <div class="fas fa-chart-bar"> </div> 
+                    <p class="desc">I co-wrote the previous #1 plugin for WordPress (out of 20,000), WPtouch, and eventually sold it.</p>
+                    <p><a class="button is-primary is-small" href="/topic/business/">More Business</a></p> 
+                </div>
+                <div class="column">
+                    <div class="fas fa-plane-departure"> </div> 
+                    <p class="desc">I've visited 44 countries in the last seven years and currently live in Valencia on the eastern coast of Spain.</p><p>
+                    <a class="button is-primary is-small" href="/topic/travel/">More Travel</a></p>
+                </div>
+                <div class="column is-hidden-mobile">
+                    <div class="fas fa-camera-retro"> </div> 
+                    <p class="desc">I am a published concert, travel, portrait, and landscape photographer; I currently shoot Fuji XT lenses.</p>
+                    <p><a class="button is-primary is-small"  href="/topic/photography/">More Photography</a></p> 
+                </div>
+            </div>
+        </div>
+
+        <div class="container newsletter">
+            <div class="has-text-centered">
+                <p>Sign-up to my exclusive business-oriented mailing list for occassional updates:</p>
+                <form action="//migratorynerd.us7.list-manage.com/subscribe/post?u=80cbf36c84f738b5623a02a85&amp;id=97101f05dd" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                    <div id="mc_embed_signup_scroll">
+                        <div class="mc-field-group">
+                            <input type="email" placeholder="Enter your email address...." name="EMAIL" class="required email" id="mce-EMAIL"><input type="submit" value="Join 725 Subscribers" name="subscribe" id="mc-embedded-subscribe" class="button is-info"><input type="submit" value="Sign-up" name="subscribe" id="mc-embedded-subscribe-mobile" class="button is-info">
+                        </div>
+                        <div id="mce-responses" class="clear">
+                            <div class="response" id="mce-error-response" style="display:none"></div>
+                            <div class="response" id="mce-success-response" style="display:none"></div>
+                        </div>   
+                        <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                            <input type="text" name="b_80cbf36c84f738b5623a02a85_97101f05dd" tabindex="-1" value="">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+    <article class="main section content">
+        <div class="container">
+            <p>A while ago I started messing around with trying to get a single WordPress installation to host multiple blogs. If you read that and think WordPress MU, you're not far off. What I don't like about WordPress MU though is that the system administrator chooses the themes and the plugins that are available to the end user -- ideally, I would want each user to control that themselves, such that it basically has the same functionality as a normal WordPress installation.</p>
+<p>There are a lot of other reasons why you might want a single WordPress install for multiple blogs. First, if you make backups of each blog's data from time to time, you might end up with a complete WordPress package for each website you host, even though ultimately 90% of those files are identical (basically only themes, plugins and custom content vary). Second, if you run a hosting server with a PHP caching engine (which most do), it's likely that the cache keeps track of data using the complete path to the file, which ultimately means the cache effectiveness will decrease proportional to the number of sites (aka WordPress installations). If all the installations on a server shared one common WordPress install, you'd only have to cache that one set of PHP files -- effectively you could keep WordPress in a compiled state in memory for all of your sites.</p>
+<p>The first thing I did was install a fresh WordPress into a directory on my server called wp_install. Normally an end user would go through the installation process and configure that one installation, and then they'd have one blog. We're trying to make one installation work for many blogs.</p>
+<p>Next, I created a wp_domains directory at the same level as wp_install. Inside wp_install, I then created a symbolic link called "domains" which points to the wp_domains directory (you could also just put everything in the wp_install/domains directory, but I want to keep them separated slightly). So we have wp_install/domains symbolically linking to wp_domains.</p>
+<p>In order to make one installation work for many sites, you basically need to have a dynamic wp-config.php file that can change depending on which site is being accessed. So I started messing with wp-config.php to try and come up with something that would work. The end goal was to change the parameters in the wp-config.php ssuch that we can use site-specific content in the wp_domains directory.</p>
+<p>I ended up with something like this:</p>
+<p><code>$website = strtolower( str_replace( "www.", "", $_SERVER["SERVER_NAME"] ) ); $website = preg_replace('[^a-z0-9\.-]', '', $website );  define( 'WP_CONTENT_DIR', dirname(__FILE__) . '/domains/' . $website . '/wp-content' ); define( 'WP_CONTENT_URL', 'http://' . $_SERVER["SERVER_NAME"] . '/domains/' . $website . '/wp-content' );  if ( file_exists( dirname(__FILE__) . "/../wp_domains/$website/db.config" ) ) { require_once( dirname(__FILE__) . "/../wp_domains/$website/db.config" ); } else { echo "Sorry, no configuration defined." die; }</code></p>
+<p>Several things happen in the code, so let me try to explain. First, the destination website is determined using the HTTP server name which is passed in the address. For this website, that becomes www.duanestorey.com. I strip off the www just so that there's a bit of consistency between sites. Next, I tell WordPress to change its default wp-content directory to the domains/WEBSITE_NAME/wp-content directory, which in my case is domains/duanestorey.com/wp-content.</p>
+<p>In the next section of code, I check for domains/WEBSITE_NAME/db.config, which is a site-specific file that will set the database information on a per-site basis. If it exists, we load it up such that the username, password, hostname, and database name for that particular site.</p>
+<p>An example of db.config for my site is:</p>
+<p><code>&lt;?php define( 'DB_NAME', 'duanestorey-com' ); define( 'DB_HOST', 'localhost' ); define( 'DB_PASSWORD', 'user' ); define( 'DB_USER', 'password' ); ?&gt;</code></p>
+<p>At this point, everything worked fine, and I had a base WordPress installation where the wp-content directory and database information could be split out dynamically. From a hosting perspective, you could conceivably only grant access to that one directory (i.e. wp_domains/duanestorey.com), which would allow the user to modify their plugins and themes for their site only (even though the core WordPress files are being shared).</p>
+<p>It's at this point I actually decided to do a Google search to see if anyone else had tried this approach before. I found <a href="http://striderweb.com/nerdaphernalia/features/virtual-multiblog/">this article on Virtual Multiblogs</a> which is based on a similar approach. It looks like he used a bunch of different directories all mapped to one WordPress directory. In the approach I've taken, I point everything to the same directory (in the HTTP virtualhost section), and simply rely on the HTTP_HOST/SERVER_NAME that's sent with each request. In addition, I'm doing the wp-content remapping, which I don't think was done with the Virtual Multiblogs approach. I also did a bit more, as you'll see next.</p>
+<p>You might be asking why I didn't just do away with the wp-content directory although, and simply remap it to wp_domains/duanestorey.com -- it's a good question.</p>
+<p>There are a few problems with the current approach. First, remapping the wp-content directory often breaks plugins because many plugin developers hardcode the URLs as /wp-content in the code (it's sloppy, but I've done it previously as well). So as soon as you move your wp-content directory, all those plugins start showing errors. Second, some javascript libraries and statistics programs (the popular Mint program, for example) must be installed in the root of the website. With this model, you really wouldn't want users to mess with any core WordPress files or directories, so they really shouldn't have access to the root installation. So what do we do?</p>
+<p>Well, I came up with a little .htaccess hack such that anything that isn't found in the core WordPress path is automatically redirected to the domains/WEBSITE_NAME directory. That means if <a href="http://www.migratorynerd.com/test.html">http://www.migratorynerd.com/test.html</a> isn't found on disk in wp_install/test.html (which is the base WordPress installation, so it definitely won't be there), the .htaccess redirect will send it to wp_domains/WEBSITE_NAME/test.html (or in my case, wp_domains/duanestorey.com/test.html). The redirect is internal, which means that from the user's perspective they are really looking at <a href="http://www.migratorynerd.com/test.html">http://www.migratorynerd.com/test.html</a> (but on disk they are actually viewing the file in wp_domains/duanestorey.com/test.html).</p>
+<p>This approach should fix most of the plugin problems since it uses URL remapping to trick the website into thinking everything actually is in the <a href="http://somedomain.com/wp-content">http://somedomain.com/wp-content</a> directory, even though there's nothing really there. It also should allow users to install whatever they want in their directory (mint, javascript, whatever), since anything not actually found in wp_install will redirect to their site-specific domain files in wp_domains.</p>
+<p>In fact, once you do the .htaccess change, there's no need to define WP_CONTENT_URL in wp-config.php anymore, since the htaccess will take care of all of that automagically. So, feel free to remove:</p>
+<p><code>define( 'WP_CONTENT_URL', 'http://' . $_SERVER["SERVER_NAME"] . '/domains/' . $website . '/wp-content' );</code></p>
+<p>Internally, <a href="http://www.migratorynerd.com/wp-content/themes/duane-apr09/style.css">http://www.migratorynerd.com/wp-content/themes/duane-apr09/style.css</a> is actually mapping to <a href="http://www.migratorynerd.com/domains/duanestorey.com/wp-content/themes/duane-apr09/style.css">http://www.migratorynerd.com/domains/duanestorey.com/wp-content/themes/duane-apr09/style.css</a>, but since .htaccess is hiding all of that, plugins with hardcoded elements should work normally.</p>
+<p>I've currently moved this website over to this new approach, and will probably move a few more tomorrow and test it out further. Ultimately I can stop backing up whole directories with WordPress installations, and simply backup my wp_domains directory nightly. So far, things appear to be working quite smoothly (even old images that were inserted into posts using relative /wp-content/ URLs work properly thanks to the .htaccess trick).</p>
+<p>The current structure of my wp_domains directory is:</p>
+<ul>
+<li>/duanestorey.com</li>
+<li>/duanestorey.com/mint/*</li>
+<li>/duanestorey.com/wp-content/*</li>
+<li>/duanestorey.com/db.config</li>
+</ul>
+<p>The .htaccess hack I came up with is below:</p>
+<p><code># BEGIN WordPress &lt;IfModule mod_rewrite.c&gt; RewriteEngine On RewriteBase /  RewriteCond %{REQUEST_FILENAME} !-f RewriteCond %{REQUEST_URI} !(.*)/$ RewriteRule ^(.*)$ http://%{HTTP_HOST}/$1/ [L,R=301]  RewriteCond %{REQUEST_FILENAME} !-f RewriteCond %{REQUEST_FILENAME} !-d RewriteRule ^(.*)$ domains/%{HTTP_HOST}/$1 [L]  RewriteCond %{REQUEST_FILENAME} !-f RewriteCond %{REQUEST_FILENAME} !-d RewriteRule . /index.php [L] &lt;/IfModule&gt;  # END WordPress</code></p>
+<p>I'm by no means a .htaccess expert, so if you see anything wrong with it, please let me know. It seems to be working though (I have Mint working).</p>
+        </div>
+    </article>
+
+            <div class="footer has-text-centered">
+           <div class="level">
+                <div class="level-left">
+                   
+                </div>
+                <div class="level-right">
+                    All content &copy; Copyright 2009 by Duane Storey &amp; Lindell Media Solutions Inc.
+                </div>
+            </div>
+        </div>
+        
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-2124361-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){ dataLayer.push(arguments); }
+            gtag('js', new Date());
+
+            gtag('config', 'UA-2124361-1');
+        </script>
+    </body>
+</html>

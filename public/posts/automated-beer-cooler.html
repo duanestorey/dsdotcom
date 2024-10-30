@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../..//themes/ds/assets/bundle.css?v=1">
+        <title>Automated Beer Cooler</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body class="posts slug-automated-beer-cooler blog">
+<nav class="navbar is-black" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="/">Home</a>
+            
+            <a role="button" class="navbar-burger" data-target="primary-menu" aria-label="menu" aria-expanded="false">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div class="navbar-menu" id="primary-menu">
+
+        </div>
+    </div>
+</nav>
+
+<header class="hero is-primary">   
+    <div class="hero-body">
+        <div class="container">
+            <h2 class="title is-2">Hola, I'm Duane</h2>
+            <h3 class="subtitle is-5">A few interesting things about me:</h3>
+
+            <div class="columns has-text-centered">
+                <div class="column">
+                    <div class="fas fa-code"> </div> 
+                    <p class="desc">I've developed software used by over 40 million people, including the previous media engine in Yahoo! Messenger.</p>
+                    <p><a class="button is-primary is-small" href="/topic/code/">More Software</a></p> 
+                </div>
+                <div class="column is-hidden-touch">
+                    <div class="fas fa-wrench"> </div> 
+                    <p class="desc">I engineer lots of cool things such as hi-fi audio amplifiers and solar batteries for camping.</p>
+                    <p><a class="button is-primary is-small"  href="/topic/projects/">More Projects</a></p> 
+                </div>
+                <div class="column">
+                    <div class="fas fa-chart-bar"> </div> 
+                    <p class="desc">I co-wrote the previous #1 plugin for WordPress (out of 20,000), WPtouch, and eventually sold it.</p>
+                    <p><a class="button is-primary is-small" href="/topic/business/">More Business</a></p> 
+                </div>
+                <div class="column">
+                    <div class="fas fa-plane-departure"> </div> 
+                    <p class="desc">I've visited 44 countries in the last seven years and currently live in Valencia on the eastern coast of Spain.</p><p>
+                    <a class="button is-primary is-small" href="/topic/travel/">More Travel</a></p>
+                </div>
+                <div class="column is-hidden-mobile">
+                    <div class="fas fa-camera-retro"> </div> 
+                    <p class="desc">I am a published concert, travel, portrait, and landscape photographer; I currently shoot Fuji XT lenses.</p>
+                    <p><a class="button is-primary is-small"  href="/topic/photography/">More Photography</a></p> 
+                </div>
+            </div>
+        </div>
+
+        <div class="container newsletter">
+            <div class="has-text-centered">
+                <p>Sign-up to my exclusive business-oriented mailing list for occassional updates:</p>
+                <form action="//migratorynerd.us7.list-manage.com/subscribe/post?u=80cbf36c84f738b5623a02a85&amp;id=97101f05dd" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                    <div id="mc_embed_signup_scroll">
+                        <div class="mc-field-group">
+                            <input type="email" placeholder="Enter your email address...." name="EMAIL" class="required email" id="mce-EMAIL"><input type="submit" value="Join 725 Subscribers" name="subscribe" id="mc-embedded-subscribe" class="button is-info"><input type="submit" value="Sign-up" name="subscribe" id="mc-embedded-subscribe-mobile" class="button is-info">
+                        </div>
+                        <div id="mce-responses" class="clear">
+                            <div class="response" id="mce-error-response" style="display:none"></div>
+                            <div class="response" id="mce-success-response" style="display:none"></div>
+                        </div>   
+                        <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                            <input type="text" name="b_80cbf36c84f738b5623a02a85_97101f05dd" tabindex="-1" value="">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+    <article class="main section content">
+        <div class="container">
+            <p>Almost ten years ago, I started playing around with some microprocessor hobby kits at home. At the time they main ones were called STAMPS and you programmed them with BASIC. You could make them run motors, measure temperature, pretty much whatever you wanted them to do.</p>
+<p>A few weeks ago I ran into my friend John, and he was telling me about a similar thing called the <a href="http://www.arduino.cc/">Arduino</a>. It's basically a small little microprocessor kit that has basic inputs and outputs that you can use to do arbitrary things. Given that I'm an electrical engineer by education and that I haven't really done anything electrical in years, I thought it would be fun to try and build something small over the winter.</p>
+<p>So, I came up with a random idea involving an automated beer cooler. The idea would be to have a device that could cool a beer in a very short amount of time. I've been doing some hand calculations to figure out just what I can get away with, but I won't know for sure until I put it all together. But I'm hoping it'll be on the order of 1.5 to 3 minutes to go from a warm beer to one that's nearly perfect temperature.</p>
+<p>The technology I'm going to use will involve Peltier coolers. These are semiconductor devices that essentially act like a heat pump -- the remove heat from one side and transfer it to the other side. The main use for these nowadays is to cool CPU chips off on overclocked machines, but there's no reason it can't be adapted to cool beer in a hurry.</p>
+<p>So today after work I set about soldering the LCD so that I could hook it up to the Arduino. I then wrote a quick program to transfer to the unit to fire up the LCD, and presto:</p>
+<p><a href="http://www.migratorynerd.com/wordpress/wp-content/uploads/2010/10/73704_10150302835555637_626915636_15308525_267232_n.jpg"><img src="images/73704_10150302835555637_626915636_15308525_267232_n.jpg" alt="" title="73704_10150302835555637_626915636_15308525_267232_n" /></a></p>
+<p>There's still a lot to do, and I have to do a napkin schematic to figure out how it's going to work. Unlike the microcontroller, the actual Peltier coolers take a lot of juice to run properly, so I need to create a secondary power supply to run them. I picked up a simple relay to do the switching of the current, which of course the microcontroller will operate. I also need to close the loop, which means monitoring the temperature of the beer using a few thermistors. But, hopefully sometime this winter I'll be able to test out my first beer, cooling from room temperature down to around 8C or so.</p>
+        </div>
+    </article>
+
+            <div class="footer has-text-centered">
+           <div class="level">
+                <div class="level-left">
+                   
+                </div>
+                <div class="level-right">
+                    All content &copy; Copyright 2009 by Duane Storey &amp; Lindell Media Solutions Inc.
+                </div>
+            </div>
+        </div>
+        
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-2124361-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){ dataLayer.push(arguments); }
+            gtag('js', new Date());
+
+            gtag('config', 'UA-2124361-1');
+        </script>
+    </body>
+</html>

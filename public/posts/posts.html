@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../..//themes/ds/assets/bundle.css?v=1">
+        <title>Posts</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body class="posts slug-posts blog">
+<nav class="navbar is-black" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="/">Home</a>
+            
+            <a role="button" class="navbar-burger" data-target="primary-menu" aria-label="menu" aria-expanded="false">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div class="navbar-menu" id="primary-menu">
+
+        </div>
+    </div>
+</nav>
+
+<header class="hero is-primary">   
+    <div class="hero-body">
+        <div class="container">
+            <h2 class="title is-2">Hola, I'm Duane</h2>
+            <h3 class="subtitle is-5">A few interesting things about me:</h3>
+
+            <div class="columns has-text-centered">
+                <div class="column">
+                    <div class="fas fa-code"> </div> 
+                    <p class="desc">I've developed software used by over 40 million people, including the previous media engine in Yahoo! Messenger.</p>
+                    <p><a class="button is-primary is-small" href="/topic/code/">More Software</a></p> 
+                </div>
+                <div class="column is-hidden-touch">
+                    <div class="fas fa-wrench"> </div> 
+                    <p class="desc">I engineer lots of cool things such as hi-fi audio amplifiers and solar batteries for camping.</p>
+                    <p><a class="button is-primary is-small"  href="/topic/projects/">More Projects</a></p> 
+                </div>
+                <div class="column">
+                    <div class="fas fa-chart-bar"> </div> 
+                    <p class="desc">I co-wrote the previous #1 plugin for WordPress (out of 20,000), WPtouch, and eventually sold it.</p>
+                    <p><a class="button is-primary is-small" href="/topic/business/">More Business</a></p> 
+                </div>
+                <div class="column">
+                    <div class="fas fa-plane-departure"> </div> 
+                    <p class="desc">I've visited 44 countries in the last seven years and currently live in Valencia on the eastern coast of Spain.</p><p>
+                    <a class="button is-primary is-small" href="/topic/travel/">More Travel</a></p>
+                </div>
+                <div class="column is-hidden-mobile">
+                    <div class="fas fa-camera-retro"> </div> 
+                    <p class="desc">I am a published concert, travel, portrait, and landscape photographer; I currently shoot Fuji XT lenses.</p>
+                    <p><a class="button is-primary is-small"  href="/topic/photography/">More Photography</a></p> 
+                </div>
+            </div>
+        </div>
+
+        <div class="container newsletter">
+            <div class="has-text-centered">
+                <p>Sign-up to my exclusive business-oriented mailing list for occassional updates:</p>
+                <form action="//migratorynerd.us7.list-manage.com/subscribe/post?u=80cbf36c84f738b5623a02a85&amp;id=97101f05dd" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                    <div id="mc_embed_signup_scroll">
+                        <div class="mc-field-group">
+                            <input type="email" placeholder="Enter your email address...." name="EMAIL" class="required email" id="mce-EMAIL"><input type="submit" value="Join 725 Subscribers" name="subscribe" id="mc-embedded-subscribe" class="button is-info"><input type="submit" value="Sign-up" name="subscribe" id="mc-embedded-subscribe-mobile" class="button is-info">
+                        </div>
+                        <div id="mce-responses" class="clear">
+                            <div class="response" id="mce-error-response" style="display:none"></div>
+                            <div class="response" id="mce-success-response" style="display:none"></div>
+                        </div>   
+                        <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                            <input type="text" name="b_80cbf36c84f738b5623a02a85_97101f05dd" tabindex="-1" value="">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+    <article class="main section content">
+        <div class="container">
+            <p>I realized this morning that I haven't really written a blog entry in quite a few days. Truth is, I've just been feeling a little under the weather with the surgery and everything. I'm definitely healing, even though my face is a weird shade of yellow now. I don't really feel that much pain since the left side of my face is still completely numb, but my eye socket hurts from time to time. The last few days I've woken up in the morning with extremely itchy eyes, and have spent the better part of 20 minutes just trying to get them to stop watering. I'm not sure what causes that (probably the body's natural response to suddenly having a foreign body implanted in it).</p>
+<p>The drugs are keeping me rather level, although I don't really have any mental capacity right now (I tend to drift in and out of sleep throughout the day). I don't think I'll be back up to par for at least another week or so, which matches roughly when I get my stitches out.</p>
+<p>I've been including the odd photo into my RSS stream for people interested in how I'm looking, but for those that don't subscribe to RSS, here's a shot of me last night down at Jer's place in Gastown.</p>
+<p><img src="http://farm1.static.flickr.com/219/507360797_8af200c79a.jpg?v=0" alt="" /></p>
+<p>As you can see, I still look tired and dopey, but I'm healing slowly. I lost a piece of tape on my face, so I had to improvise and split the other piece in half. If that doesn't work, I'm gonna have to resort to putting duct tape or some other shit on my face to hold it all together.</p>
+<p>In the few hours I'm actually awake, I've been trying to figure out how to write standalone applications on the Mac. <a href="http://www.matthewgood.org/2007/05/matthewgoodorg-mac-os-x-rss-widget/">Matthew Good</a> recently released a custom Mac RSS Dashboard widget for his blog, which I think is a rather cool idea. So, I've spent some time reading up on how to make Dashboard widgets, and how to make standalone apps on the Mac (since I've developed many on Windows).</p>
+<p>Which is sort of interesting in itself, because developing on a Mac hasn't been very straightforward for me. The first hurdle is understanding the difference between the two Mac frameworks, Carbon and Cocoa. Carbon is a bit dated, but allows developers to do development in C++ using Carbon APIs. This is the route I first started to go down but then I realized that Apple recommends that most new applications use Cocoa. Unfortunately for me, Cocoa is Objective C, and not C++, which presents a rather unusual learning curve (considering I know both C and C++). If I feel up to it, I may head down to Chapters later and pick up a book on Cocoa and Objective C. I have a simple idea in my head for a neat social networking application that would piggyback Facebook, Twitter and Flickr, but I don't have the know-how to put it together on the Mac yet (and I just can't be bothered to fire up my Windows machine ever again). If I feel up to it, I might stroll down to <a href="http://www.rolandtanglao.com/tags/democamp-vancouver">DemoCamp</a> on Thursday night and pitch the idea.</p>
+<p>Other than that, I think I'll be at home for most of the week sleeping. Speaking of sleep, I think it's that time again.</p>
+        </div>
+    </article>
+
+            <div class="footer has-text-centered">
+           <div class="level">
+                <div class="level-left">
+                   
+                </div>
+                <div class="level-right">
+                    All content &copy; Copyright 2009 by Duane Storey &amp; Lindell Media Solutions Inc.
+                </div>
+            </div>
+        </div>
+        
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-2124361-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){ dataLayer.push(arguments); }
+            gtag('js', new Date());
+
+            gtag('config', 'UA-2124361-1');
+        </script>
+    </body>
+</html>

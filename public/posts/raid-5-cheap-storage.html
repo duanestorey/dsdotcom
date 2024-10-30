@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../..//themes/ds/assets/bundle.css?v=1">
+        <title>Raid 5 &amp;amp; Cheap Storage</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body class="posts slug-raid-5-cheap-storage blog">
+<nav class="navbar is-black" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="/">Home</a>
+            
+            <a role="button" class="navbar-burger" data-target="primary-menu" aria-label="menu" aria-expanded="false">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div class="navbar-menu" id="primary-menu">
+
+        </div>
+    </div>
+</nav>
+
+<header class="hero is-primary">   
+    <div class="hero-body">
+        <div class="container">
+            <h2 class="title is-2">Hola, I'm Duane</h2>
+            <h3 class="subtitle is-5">A few interesting things about me:</h3>
+
+            <div class="columns has-text-centered">
+                <div class="column">
+                    <div class="fas fa-code"> </div> 
+                    <p class="desc">I've developed software used by over 40 million people, including the previous media engine in Yahoo! Messenger.</p>
+                    <p><a class="button is-primary is-small" href="/topic/code/">More Software</a></p> 
+                </div>
+                <div class="column is-hidden-touch">
+                    <div class="fas fa-wrench"> </div> 
+                    <p class="desc">I engineer lots of cool things such as hi-fi audio amplifiers and solar batteries for camping.</p>
+                    <p><a class="button is-primary is-small"  href="/topic/projects/">More Projects</a></p> 
+                </div>
+                <div class="column">
+                    <div class="fas fa-chart-bar"> </div> 
+                    <p class="desc">I co-wrote the previous #1 plugin for WordPress (out of 20,000), WPtouch, and eventually sold it.</p>
+                    <p><a class="button is-primary is-small" href="/topic/business/">More Business</a></p> 
+                </div>
+                <div class="column">
+                    <div class="fas fa-plane-departure"> </div> 
+                    <p class="desc">I've visited 44 countries in the last seven years and currently live in Valencia on the eastern coast of Spain.</p><p>
+                    <a class="button is-primary is-small" href="/topic/travel/">More Travel</a></p>
+                </div>
+                <div class="column is-hidden-mobile">
+                    <div class="fas fa-camera-retro"> </div> 
+                    <p class="desc">I am a published concert, travel, portrait, and landscape photographer; I currently shoot Fuji XT lenses.</p>
+                    <p><a class="button is-primary is-small"  href="/topic/photography/">More Photography</a></p> 
+                </div>
+            </div>
+        </div>
+
+        <div class="container newsletter">
+            <div class="has-text-centered">
+                <p>Sign-up to my exclusive business-oriented mailing list for occassional updates:</p>
+                <form action="//migratorynerd.us7.list-manage.com/subscribe/post?u=80cbf36c84f738b5623a02a85&amp;id=97101f05dd" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                    <div id="mc_embed_signup_scroll">
+                        <div class="mc-field-group">
+                            <input type="email" placeholder="Enter your email address...." name="EMAIL" class="required email" id="mce-EMAIL"><input type="submit" value="Join 725 Subscribers" name="subscribe" id="mc-embedded-subscribe" class="button is-info"><input type="submit" value="Sign-up" name="subscribe" id="mc-embedded-subscribe-mobile" class="button is-info">
+                        </div>
+                        <div id="mce-responses" class="clear">
+                            <div class="response" id="mce-error-response" style="display:none"></div>
+                            <div class="response" id="mce-success-response" style="display:none"></div>
+                        </div>   
+                        <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                            <input type="text" name="b_80cbf36c84f738b5623a02a85_97101f05dd" tabindex="-1" value="">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+    <article class="main section content">
+        <div class="container">
+            <p>I finally got around to finishing off a little project of mine at home. As everyone knows, I take a pile of photos. So many in fact that I have a hard time finding places to store them all. In the old days I would just make a DVD every few weeks and be done with it, but now that my digital camera is 10.2 MP, I can easily fill up a DVDs worth of photos in a few hours.</p>
+<p>Of course, I don't need to keep all of these, and routinely I don't. But for the ones I do want to keep it's getting hard to manage them all. About six months ago I picked up a 320 GB external drive to use for backups and started using that. Now that I have time machine going as well, that drive is pretty much full.</p>
+<p>There are various off-site storage facilities I looked into, but many of them become cost-prohibiting once you start talking the amount of data I have. So, since I have a linux box running at home, I decided to make myself a RAID array for storage.</p>
+<p>For those of you not familiar with the term, RAID stands for "redundant array of inexpensive drives." It is a way to organize data such that the risk of your data being destroyed due to a mechanical failure is practically zero.</p>
+<p>There are several different ways to do this. One popular technique is known as RAID 1, or drive mirroring. In this system, data is duplicated automatically between two disks. Should one of them fail, you are left with a complete working copy on the other disk. Once you pop in a new drive, most RAID 1 systems (either hardware or software) will rebuild the second drive automatically and put you back into a "safe" state by having duplicate data.</p>
+<p>There are several disadvantages to a RAID 1 system. First, the cost of storage is 50%. That is, if you want 500 GB of RAID 1 storage, you have to have 1 TB worth of drives. Secondly, writing to the drives can potentially be slow since data has to be mirrored. On the plus side, reads have the potential to be faster since the controller can read have the data from each drive to help speed things up.</p>
+<p>RAID 1 is typically used for mission critical areas such as root operating systems and boot partitions. Since the drives are simply mirrored, there's no real logic needed to boot the OS from a RAID 1 partition, which is why they are popular for operating system installs. Apple's Time Machine is also fairly similar to a RAID 1 system, although it's more like RAID 1 over time.</p>
+<p>Next, let's talk about the bad boy of the RAID group, RAID 5. RAID 5 (sometimes called striping) requires at least three drives to obtain. Instead of duplicating content on each drive like RAID 1, what it does is split the blocks up and adds error correcting information to them. The end result is that in a 3 drive RAID 5 configuration, you can rebuild the entire data set with <strong>any</strong> two out of the three drives. So if a drive fails, you can not only continue to access your data as usual, but you can also simply replace it and have the controller or the operating system rebuild the drive automatically using the data from the other ones. Pretty cool stuff.</p>
+<p><img src="images/675px-RAID_5.svg.png" alt="" />RAID 5, From Wikipedia</p>
+<p>As you can see in the photo, the parity blocks (denoted with the subscript p) are distributed over all the drives. In this way, a rebuild is possible if any one particular drive fails.</p>
+<p>Doing this at home in the old days would typically have required expensive hardware. But thanks to the falling price of computers and the increasing complexity of operating systems, it's fairly simple these days. In fact, while my motherboard supports RAID, I purposefully choose to do it in software, since most forum postings seem to think this is the better approach these days (if you use hardware, you're often relying on proprietary methods for doing RAID, where as if you do it in software, your drives should work with any Linux flavor, not locking you into a particular vendor).</p>
+<p>So I went out last week and picked up three 500 GB drives for about $90/ea. I put them into my Linux box in the corner, and configured them as RAID 5. I now seem to have 1 full TB available for all my photos (and probably some movies). If I run out of space, I can simply pop in another $90 drive and the RAID array will adjust itself to compensate. The added benefit is that I no longer have to think about backing anything up (of course, one could argue about needing full offsite backups, but I simple don't have the time to handle that, and have never, cross my fingers, had an incident that required data offsite).</p>
+<p>The first thing I did when it was all configured was to simulate a full drive failure. You can do this by physically removing the drive, but I did it via software. If you mark the drive as dead using the RAID configuration tools, you'll get notification (via email) that a drive has failed and you are now operating in a degraded mode (since one drive is totally gone, the operating system has to use the error information to reconstruct the data on each read, so this will bog your system down -- but at least you're still running). I then brought the drive back online and added it back into the RAID array. Linux, being the smart beast that it is, immediately started reconstructing the drive from scratch. In about 90 minutes the entire drive was rebuilt, and my data was safe once again.</p>
+<p>So, for the cost of around $270, I now have 1 TB of fault tolerant, RAID 5 storage at home. Every drive I bought (and I purposefully picked different drives to avoid batch manufacturing problems) has a five year warranty on it, so the cost of this data is $54/year (neglecting energy costs), or about $4.50/mo (one big Starbucks latte people).</p>
+<p>Not bad if you think about it.</p>
+        </div>
+    </article>
+
+            <div class="footer has-text-centered">
+           <div class="level">
+                <div class="level-left">
+                   
+                </div>
+                <div class="level-right">
+                    All content &copy; Copyright 2009 by Duane Storey &amp; Lindell Media Solutions Inc.
+                </div>
+            </div>
+        </div>
+        
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-2124361-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){ dataLayer.push(arguments); }
+            gtag('js', new Date());
+
+            gtag('config', 'UA-2124361-1');
+        </script>
+    </body>
+</html>

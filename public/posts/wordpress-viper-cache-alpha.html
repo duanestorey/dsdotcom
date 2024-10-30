@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../..//themes/ds/assets/bundle.css?v=1">
+        <title>Wordpress Viper Cache Alpha</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body class="posts slug-wordpress-viper-cache-alpha blog">
+<nav class="navbar is-black" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="/">Home</a>
+            
+            <a role="button" class="navbar-burger" data-target="primary-menu" aria-label="menu" aria-expanded="false">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div class="navbar-menu" id="primary-menu">
+
+        </div>
+    </div>
+</nav>
+
+<header class="hero is-primary">   
+    <div class="hero-body">
+        <div class="container">
+            <h2 class="title is-2">Hola, I'm Duane</h2>
+            <h3 class="subtitle is-5">A few interesting things about me:</h3>
+
+            <div class="columns has-text-centered">
+                <div class="column">
+                    <div class="fas fa-code"> </div> 
+                    <p class="desc">I've developed software used by over 40 million people, including the previous media engine in Yahoo! Messenger.</p>
+                    <p><a class="button is-primary is-small" href="/topic/code/">More Software</a></p> 
+                </div>
+                <div class="column is-hidden-touch">
+                    <div class="fas fa-wrench"> </div> 
+                    <p class="desc">I engineer lots of cool things such as hi-fi audio amplifiers and solar batteries for camping.</p>
+                    <p><a class="button is-primary is-small"  href="/topic/projects/">More Projects</a></p> 
+                </div>
+                <div class="column">
+                    <div class="fas fa-chart-bar"> </div> 
+                    <p class="desc">I co-wrote the previous #1 plugin for WordPress (out of 20,000), WPtouch, and eventually sold it.</p>
+                    <p><a class="button is-primary is-small" href="/topic/business/">More Business</a></p> 
+                </div>
+                <div class="column">
+                    <div class="fas fa-plane-departure"> </div> 
+                    <p class="desc">I've visited 44 countries in the last seven years and currently live in Valencia on the eastern coast of Spain.</p><p>
+                    <a class="button is-primary is-small" href="/topic/travel/">More Travel</a></p>
+                </div>
+                <div class="column is-hidden-mobile">
+                    <div class="fas fa-camera-retro"> </div> 
+                    <p class="desc">I am a published concert, travel, portrait, and landscape photographer; I currently shoot Fuji XT lenses.</p>
+                    <p><a class="button is-primary is-small"  href="/topic/photography/">More Photography</a></p> 
+                </div>
+            </div>
+        </div>
+
+        <div class="container newsletter">
+            <div class="has-text-centered">
+                <p>Sign-up to my exclusive business-oriented mailing list for occassional updates:</p>
+                <form action="//migratorynerd.us7.list-manage.com/subscribe/post?u=80cbf36c84f738b5623a02a85&amp;id=97101f05dd" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                    <div id="mc_embed_signup_scroll">
+                        <div class="mc-field-group">
+                            <input type="email" placeholder="Enter your email address...." name="EMAIL" class="required email" id="mce-EMAIL"><input type="submit" value="Join 725 Subscribers" name="subscribe" id="mc-embedded-subscribe" class="button is-info"><input type="submit" value="Sign-up" name="subscribe" id="mc-embedded-subscribe-mobile" class="button is-info">
+                        </div>
+                        <div id="mce-responses" class="clear">
+                            <div class="response" id="mce-error-response" style="display:none"></div>
+                            <div class="response" id="mce-success-response" style="display:none"></div>
+                        </div>   
+                        <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                            <input type="text" name="b_80cbf36c84f738b5623a02a85_97101f05dd" tabindex="-1" value="">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+    <article class="main section content">
+        <div class="container">
+            <p>I've been dabbling with a new caching engine for Wordpress over the last few weeks. While WP-Cache does a pretty decent job, it falls short in a few areas, and it's something I've been trying to fix. In particular, here's what I don't like about it:</p>
+<ol>
+<li>It relies on the entire Wordpress engine to do it's caching</li>
+<li>It doesn't make use of proper HTTP caching headers</li>
+</ol>
+<p>The problem with the first item is that even if you have a cache hit, the entire Wordpress PHP core is parsed and partially executed. What that means is the caching system will always be limited by how fast the PHP parser is on the host machine, and how bloated the Wordpress code-base is.</p>
+<p>The second item is a little more subtle. If you request a page from a website using WP-Cache and it registers as a cache hit, basically WP-Cache reads a file from the disk and transmits it to you. This is a big gain, since you don't have to do all the database queries over again to generate the original page. However, it's sort of unnecessary to transmit the data to a browser if the data already exists already in the local machine's cache. In order to take advantage of that, you have to do a bit more bookkeeping and set proper HTTP headers at various stages of the requests, something that WP-Cache hasn't tackled yet.</p>
+<p>With the caching engine I've been working on (called Viper Cache for now), I have basically solved both of those problems. To solve the first I removed the caching engine from Wordpress and made it stand-alone, relying only on PHP itself. So when you register a cache hit, Wordpress isn't instantiated at all and an optimized PHP script serves the proper content. This works together with a Wordpress plugin that manages invalidating parts of the cache whenever content on the blog changes.</p>
+<p>In addition, proper HTTP caching headers are sent, so for most browsers, no data is even transmitted the second time a page is requested (what happens is the browser asks if the content has changed using an If-Modified-Since header, and the Viper Cache will respond with a 304 Not Modified if the local copy is the same as the remote copy). This results in a CPU and bandwidth savings. If the copy on the server has been modified, and the local cache doesn't match the remote copy, the entire page is served again from the website cache.</p>
+<p>I've been running it on my blog for about a week now, slowly ironing out the major bugs (and there have a been a few related to Wordpress cookies and improper Content-Types). I did a fairly exhaustive benchmark a few minutes ago, and using my configuration on Media Temple, Viper Cache is about 2.5x - 3.0x faster then WP-Cache for serving pages (and that's not even taking into account items that are already in the browser's cache).</p>
+<p>What I need now is a few guinea pigs to help iron out the last bugs. Is anyone interested in putting it on their blog and testing it out for a week or so? If so, drop me a comment.</p>
+        </div>
+    </article>
+
+            <div class="footer has-text-centered">
+           <div class="level">
+                <div class="level-left">
+                   
+                </div>
+                <div class="level-right">
+                    All content &copy; Copyright 2009 by Duane Storey &amp; Lindell Media Solutions Inc.
+                </div>
+            </div>
+        </div>
+        
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-2124361-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){ dataLayer.push(arguments); }
+            gtag('js', new Date());
+
+            gtag('config', 'UA-2124361-1');
+        </script>
+    </body>
+</html>

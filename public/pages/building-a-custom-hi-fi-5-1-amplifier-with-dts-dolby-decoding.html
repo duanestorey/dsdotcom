@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../..//themes/ds/assets/bundle.css?v=1">
+        <title>Building A Hi-Fi 5.1 Amplifier With Dolby Decoding</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body class="pages slug-building-a-custom-hi-fi-5-1-amplifier-with-dts-dolby-decoding blog">
+<nav class="navbar is-black" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="/">Home</a>
+            
+            <a role="button" class="navbar-burger" data-target="primary-menu" aria-label="menu" aria-expanded="false">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div class="navbar-menu" id="primary-menu">
+
+        </div>
+    </div>
+</nav>
+
+<header class="hero is-primary">   
+    <div class="hero-body">
+        <div class="container">
+            <h2 class="title is-2">Hola, I'm Duane</h2>
+            <h3 class="subtitle is-5">A few interesting things about me:</h3>
+
+            <div class="columns has-text-centered">
+                <div class="column">
+                    <div class="fas fa-code"> </div> 
+                    <p class="desc">I've developed software used by over 40 million people, including the previous media engine in Yahoo! Messenger.</p>
+                    <p><a class="button is-primary is-small" href="/topic/code/">More Software</a></p> 
+                </div>
+                <div class="column is-hidden-touch">
+                    <div class="fas fa-wrench"> </div> 
+                    <p class="desc">I engineer lots of cool things such as hi-fi audio amplifiers and solar batteries for camping.</p>
+                    <p><a class="button is-primary is-small"  href="/topic/projects/">More Projects</a></p> 
+                </div>
+                <div class="column">
+                    <div class="fas fa-chart-bar"> </div> 
+                    <p class="desc">I co-wrote the previous #1 plugin for WordPress (out of 20,000), WPtouch, and eventually sold it.</p>
+                    <p><a class="button is-primary is-small" href="/topic/business/">More Business</a></p> 
+                </div>
+                <div class="column">
+                    <div class="fas fa-plane-departure"> </div> 
+                    <p class="desc">I've visited 44 countries in the last seven years and currently live in Valencia on the eastern coast of Spain.</p><p>
+                    <a class="button is-primary is-small" href="/topic/travel/">More Travel</a></p>
+                </div>
+                <div class="column is-hidden-mobile">
+                    <div class="fas fa-camera-retro"> </div> 
+                    <p class="desc">I am a published concert, travel, portrait, and landscape photographer; I currently shoot Fuji XT lenses.</p>
+                    <p><a class="button is-primary is-small"  href="/topic/photography/">More Photography</a></p> 
+                </div>
+            </div>
+        </div>
+
+        <div class="container newsletter">
+            <div class="has-text-centered">
+                <p>Sign-up to my exclusive business-oriented mailing list for occassional updates:</p>
+                <form action="//migratorynerd.us7.list-manage.com/subscribe/post?u=80cbf36c84f738b5623a02a85&amp;id=97101f05dd" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                    <div id="mc_embed_signup_scroll">
+                        <div class="mc-field-group">
+                            <input type="email" placeholder="Enter your email address...." name="EMAIL" class="required email" id="mce-EMAIL"><input type="submit" value="Join 725 Subscribers" name="subscribe" id="mc-embedded-subscribe" class="button is-info"><input type="submit" value="Sign-up" name="subscribe" id="mc-embedded-subscribe-mobile" class="button is-info">
+                        </div>
+                        <div id="mce-responses" class="clear">
+                            <div class="response" id="mce-error-response" style="display:none"></div>
+                            <div class="response" id="mce-success-response" style="display:none"></div>
+                        </div>   
+                        <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                            <input type="text" name="b_80cbf36c84f738b5623a02a85_97101f05dd" tabindex="-1" value="">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+    <article class="main section content">
+        <div class="container">
+            <p>In the winter of 2022, I decided to finally realize a 20 year dream by constructing, mostly from scratch, an audio amplifier to use in my living room. Back in my university days, I remember this guy in residence built a simple tube amplifier over the summer and brought it back to residence the following year. Everyone was in awe that something a person could make at home could sound so good.</p>
+<p>Since around that time, I also have been dreaming about building a tube amplifier, and even bought most of the components to build a tube amplifier system. The problem is of course that I am no longer a starving student, and listening to only two channel audio, while great in itself, doesn't really fit with how I mostly use my current living room music setup or my love for movies, which are often in 5.1.</p>
+<p>So I decided to abandon (or at least postpone for a few years) the tube amplifier build, and instead focus on building a high fidelity 5.1 system that I could use at home.</p>
+<p>I have my master's degree in electrical and computer engineering, but almost all my real world experience in engineering has been in software. I remember classes on transistor amplifier design and various other difficult subjects, but we never really broke past the theory stage. So I really have no experience as an electrical engineer.</p>
+<p>So while my main goal was to end up with a great audio system that I made myself, I also wanted the process to bring me up a few rungs on the engineering ladder in terms of what I feel like I'm able to do. With that in mind, I knew I would have to do a ton of research, and live with the idea that the entire process would be two steps forward followed by one or more steps back, over and over.</p>
+<p>These posts document the process and end result of my build. While most of the build is in the rear view mirror now, I'll try to point out mistakes I made along the way and potential pitfalls for other people attempting this build. At some point in the near future, I'll post all the PCB designs on Github along with the software I wrote to control it all. But until then, follow along with these posts if you're interested in the process or the build.</p>
+<p>If you want to receive email updates whenever I post new content, feel free to add your name to the mailing list below for updates - you can remove yourself at any time:</p>
+<p><a href="https://mailchi.mp/4ab6ec26c7a3/custom-51-hi-fi-amplifier">Sign-up for updates now.</a></p>
+<h2>Continue Reading</h2>
+<p>The sections that aren't links yet are sections I intend to write, but haven't gotten around to it yet. So over the next few weeks, I'll slowly complete each one as I do a new build and write about it.</p>
+<p>a { color: #369; }</p>
+<ul>
+<li>Overview<ul>
+<li><a href="/building-a-custom-hi-fi-5-1-amplifier-with-dts-dolby-decoding/project-goals/">Project Goals</a></li>
+<li><a href="https://www.duanestorey.com/building-a-custom-hi-fi-5-1-amplifier-with-dts-dolby-decoding/power-amplification/">Power Amplification</a></li>
+<li><a href="/building-a-custom-hi-fi-5-1-amplifier-with-dts-dolby-decoding/the-microprocessor/">The Microprocessor</a></li>
+<li>5.1 Digital Decoding</li>
+<li><a href="/building-a-custom-hi-fi-5-1-amplifier-with-dts-dolby-decoding/connectors-and-interconnects/">Connectors and Interconnects</a></li>
+</ul>
+</li>
+<li>The Designs &amp; Build<ul>
+<li><a href="/building-a-custom-hi-fi-5-1-amplifier-with-dts-dolby-decoding/chassis/">Chassis</a></li>
+<li><a href="https://www.duanestorey.com/building-a-custom-hi-fi-5-1-amplifier-with-dts-dolby-decoding/iec-input-connector-fuse/">IEC Input Connector &amp; Fuse</a></li>
+<li><a href="/building-a-custom-hi-fi-5-1-amplifier-with-dts-dolby-decoding/primary-safety-connection/">Primary Safety Connection</a></li>
+<li>Main Power Transformer</li>
+<li>Rectifier Board</li>
+<li>Fuses and Capacitor Bank</li>
+<li>Speaker Binding Posts</li>
+<li>LM3886 Single Channel</li>
+<li>LM3886 Dual Channel</li>
+<li>Heatsinks and Power Amp Installation</li>
+<li>Power Amp Cables</li>
+<li>Speaker Cable Connections</li>
+<li>Front Plate &amp; Knobs</li>
+<li>Digital Power Supply</li>
+<li>Opamp Power Supply</li>
+<li>Digital Decoder + DAC Board</li>
+<li>STM32 Microprocessor Board</li>
+<li>STM32 Programming</li>
+<li>Post-DAC filters</li>
+<li>Analog Inputs</li>
+<li>Channel Selector Board</li>
+</ul>
+</li>
+<li>Final Assembly<ul>
+<li>PCB Interconnects</li>
+<li>Ground Testing</li>
+<li>Basic Audio Testing</li>
+<li>SPDIF Connections And Tests</li>
+</ul>
+</li>
+<li>Have A Listening Party With Friends</li>
+</ul>
+        </div>
+    </article>
+
+            <div class="footer has-text-centered">
+           <div class="level">
+                <div class="level-left">
+                   
+                </div>
+                <div class="level-right">
+                    All content &copy; Copyright 2009 by Duane Storey &amp; Lindell Media Solutions Inc.
+                </div>
+            </div>
+        </div>
+        
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-2124361-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){ dataLayer.push(arguments); }
+            gtag('js', new Date());
+
+            gtag('config', 'UA-2124361-1');
+        </script>
+    </body>
+</html>

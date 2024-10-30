@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../..//themes/ds/assets/bundle.css?v=1">
+        <title>The Microprocessor</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body class="pages slug-the-microprocessor blog">
+<nav class="navbar is-black" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="/">Home</a>
+            
+            <a role="button" class="navbar-burger" data-target="primary-menu" aria-label="menu" aria-expanded="false">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div class="navbar-menu" id="primary-menu">
+
+        </div>
+    </div>
+</nav>
+
+<header class="hero is-primary">   
+    <div class="hero-body">
+        <div class="container">
+            <h2 class="title is-2">Hola, I'm Duane</h2>
+            <h3 class="subtitle is-5">A few interesting things about me:</h3>
+
+            <div class="columns has-text-centered">
+                <div class="column">
+                    <div class="fas fa-code"> </div> 
+                    <p class="desc">I've developed software used by over 40 million people, including the previous media engine in Yahoo! Messenger.</p>
+                    <p><a class="button is-primary is-small" href="/topic/code/">More Software</a></p> 
+                </div>
+                <div class="column is-hidden-touch">
+                    <div class="fas fa-wrench"> </div> 
+                    <p class="desc">I engineer lots of cool things such as hi-fi audio amplifiers and solar batteries for camping.</p>
+                    <p><a class="button is-primary is-small"  href="/topic/projects/">More Projects</a></p> 
+                </div>
+                <div class="column">
+                    <div class="fas fa-chart-bar"> </div> 
+                    <p class="desc">I co-wrote the previous #1 plugin for WordPress (out of 20,000), WPtouch, and eventually sold it.</p>
+                    <p><a class="button is-primary is-small" href="/topic/business/">More Business</a></p> 
+                </div>
+                <div class="column">
+                    <div class="fas fa-plane-departure"> </div> 
+                    <p class="desc">I've visited 44 countries in the last seven years and currently live in Valencia on the eastern coast of Spain.</p><p>
+                    <a class="button is-primary is-small" href="/topic/travel/">More Travel</a></p>
+                </div>
+                <div class="column is-hidden-mobile">
+                    <div class="fas fa-camera-retro"> </div> 
+                    <p class="desc">I am a published concert, travel, portrait, and landscape photographer; I currently shoot Fuji XT lenses.</p>
+                    <p><a class="button is-primary is-small"  href="/topic/photography/">More Photography</a></p> 
+                </div>
+            </div>
+        </div>
+
+        <div class="container newsletter">
+            <div class="has-text-centered">
+                <p>Sign-up to my exclusive business-oriented mailing list for occassional updates:</p>
+                <form action="//migratorynerd.us7.list-manage.com/subscribe/post?u=80cbf36c84f738b5623a02a85&amp;id=97101f05dd" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                    <div id="mc_embed_signup_scroll">
+                        <div class="mc-field-group">
+                            <input type="email" placeholder="Enter your email address...." name="EMAIL" class="required email" id="mce-EMAIL"><input type="submit" value="Join 725 Subscribers" name="subscribe" id="mc-embedded-subscribe" class="button is-info"><input type="submit" value="Sign-up" name="subscribe" id="mc-embedded-subscribe-mobile" class="button is-info">
+                        </div>
+                        <div id="mce-responses" class="clear">
+                            <div class="response" id="mce-error-response" style="display:none"></div>
+                            <div class="response" id="mce-success-response" style="display:none"></div>
+                        </div>   
+                        <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                            <input type="text" name="b_80cbf36c84f738b5623a02a85_97101f05dd" tabindex="-1" value="">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+    <article class="main section content">
+        <div class="container">
+            <p>While I don't have a ton of experience making PCBs or designing hardware, I do have a small amount. During the COVID lockdowns I started playing with some tube amplifier designs, and to make them more interesting, I threw in some digital logic to control a display and what not.</p>
+<p>At the time, my only hardware experience was using the Arduino platform. But since them I've played a tiny bit with both Raspberry Pi and the STM32 ecosystem. Arduino is great for tinkering around, but the general consensus is that it's mostly for just tinkering at home, and not used in anything serious.</p>
+<p>As I stated previously, one of the goals of this entire endeavour was to improve my skills in the domain of electrical engineering. So I figured if I'm pushing my boundaries, I may as well push all of them at the same time. So I figured I might as well get some real world experience using the STM32 family of microprocessors, even though it would involve a bit of a learning curve.</p>
+<p>Unlike Arduinos, where the Arduino editor does a lot of the work for you in making things work, the STM32 is a much more complicated processor that involves a ton of bootsrapping code to configure clocks, pins, timers, etc. While you can do simple programs with it using the Arduino tools, there's no way to unlock any of the more sophisticated functionality without diving right into some of the STM32 tools like the Cube IDE.</p>
+<p>[caption id="attachment_14625" align="aligncenter" width="768"]<a href="https://www.duanestorey.com/wp-content/uploads/2023/01/IMG_3216-2-Large-e1674943414317.jpeg"><img src="images/IMG_3216-2-Large-768x1024.jpeg" alt="" /></a> STM32 Microprocessor Board[/caption]</p>
+<p>A few of the core features I liked in the STM32 ecosystem that I figured I may need to utilize were:</p>
+<ul>
+<li>Timers that support an encoder mode - basically the hardware would handle increasing and decreasing an internal counter based on a rotary encoder input. I figured this would probably be useful for a volume knob.</li>
+<li>I2C &amp; SMP buses - to communicate with any other hardware, you need to support either the I2C or the SPI bus interfaces, and most chips support both</li>
+<li>I2S bus - 1 in the cheaper chips, 4 in the more expensive chips. I2S is the hardware format for digital audio. I liked right away that these chips could communicate over an I2S bus. Not without issues, of course, since doing high end audio is pretty difficult, but I figured it might come in handy.</li>
+<li>Multiple pin configurations - some of the smaller chips only have 64 pins, but you go all the way up to 200 pin variants if you need more GPIO pins</li>
+</ul>
+<p>To start getting acquainted with the ecosystem further, I bought a few Nucleo test boards to play with. It took some getting used to, but in a few hours I managed to write my first simple "blink" program to toggle a few LEDs. Knowing that I could write code and get it onto the chip was enough for me to plunge forward, and I decided to just roll with the STM32 architecture.</p>
+        </div>
+    </article>
+
+            <div class="footer has-text-centered">
+           <div class="level">
+                <div class="level-left">
+                   
+                </div>
+                <div class="level-right">
+                    All content &copy; Copyright 2009 by Duane Storey &amp; Lindell Media Solutions Inc.
+                </div>
+            </div>
+        </div>
+        
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-2124361-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){ dataLayer.push(arguments); }
+            gtag('js', new Date());
+
+            gtag('config', 'UA-2124361-1');
+        </script>
+    </body>
+</html>

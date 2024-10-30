@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../..//themes/ds/assets/bundle.css?v=1">
+        <title>Consolidation</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body class="posts slug-consolidation blog">
+<nav class="navbar is-black" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="/">Home</a>
+            
+            <a role="button" class="navbar-burger" data-target="primary-menu" aria-label="menu" aria-expanded="false">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div class="navbar-menu" id="primary-menu">
+
+        </div>
+    </div>
+</nav>
+
+<header class="hero is-primary">   
+    <div class="hero-body">
+        <div class="container">
+            <h2 class="title is-2">Hola, I'm Duane</h2>
+            <h3 class="subtitle is-5">A few interesting things about me:</h3>
+
+            <div class="columns has-text-centered">
+                <div class="column">
+                    <div class="fas fa-code"> </div> 
+                    <p class="desc">I've developed software used by over 40 million people, including the previous media engine in Yahoo! Messenger.</p>
+                    <p><a class="button is-primary is-small" href="/topic/code/">More Software</a></p> 
+                </div>
+                <div class="column is-hidden-touch">
+                    <div class="fas fa-wrench"> </div> 
+                    <p class="desc">I engineer lots of cool things such as hi-fi audio amplifiers and solar batteries for camping.</p>
+                    <p><a class="button is-primary is-small"  href="/topic/projects/">More Projects</a></p> 
+                </div>
+                <div class="column">
+                    <div class="fas fa-chart-bar"> </div> 
+                    <p class="desc">I co-wrote the previous #1 plugin for WordPress (out of 20,000), WPtouch, and eventually sold it.</p>
+                    <p><a class="button is-primary is-small" href="/topic/business/">More Business</a></p> 
+                </div>
+                <div class="column">
+                    <div class="fas fa-plane-departure"> </div> 
+                    <p class="desc">I've visited 44 countries in the last seven years and currently live in Valencia on the eastern coast of Spain.</p><p>
+                    <a class="button is-primary is-small" href="/topic/travel/">More Travel</a></p>
+                </div>
+                <div class="column is-hidden-mobile">
+                    <div class="fas fa-camera-retro"> </div> 
+                    <p class="desc">I am a published concert, travel, portrait, and landscape photographer; I currently shoot Fuji XT lenses.</p>
+                    <p><a class="button is-primary is-small"  href="/topic/photography/">More Photography</a></p> 
+                </div>
+            </div>
+        </div>
+
+        <div class="container newsletter">
+            <div class="has-text-centered">
+                <p>Sign-up to my exclusive business-oriented mailing list for occassional updates:</p>
+                <form action="//migratorynerd.us7.list-manage.com/subscribe/post?u=80cbf36c84f738b5623a02a85&amp;id=97101f05dd" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                    <div id="mc_embed_signup_scroll">
+                        <div class="mc-field-group">
+                            <input type="email" placeholder="Enter your email address...." name="EMAIL" class="required email" id="mce-EMAIL"><input type="submit" value="Join 725 Subscribers" name="subscribe" id="mc-embedded-subscribe" class="button is-info"><input type="submit" value="Sign-up" name="subscribe" id="mc-embedded-subscribe-mobile" class="button is-info">
+                        </div>
+                        <div id="mce-responses" class="clear">
+                            <div class="response" id="mce-error-response" style="display:none"></div>
+                            <div class="response" id="mce-success-response" style="display:none"></div>
+                        </div>   
+                        <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                            <input type="text" name="b_80cbf36c84f738b5623a02a85_97101f05dd" tabindex="-1" value="">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+    <article class="main section content">
+        <div class="container">
+            <p>This weekend was pretty uneventful. I wasn't feeling overly ambitious, so I hung out close to home mostly and rented a few movies. I'm not sure if there really are no movies, or if Apple TV is exceptionally crappy right now, but I hardly found anything to watch at all.</p>
+<p>Back in <a href="http://www.migratorynerd.com/blog/2009/server-beach-dedicated-hosting/">September</a> I wrote a post about switching to <a href="http://serverbeach.com">Server Beach</a>. For the most part, it's been pretty rock solid. We have a dual core server there with cPanel on it, and it's been relatively pain-free. One of the reasons we opted for a dedicated server was to make our lives a lot easier. Prior to setting it up, Dale and I realized we had about four or five hosting accounts combined, many of which had old sites on them. Unfortunately, keeping everything running smoothly in that scenario is a challenge, especially when you're also trying to develop (and backup) sites for clients. So, we decided to migrate everything onto one server.</p>
+<p>We're about 80% of the way now, and have shut down a few hosting accounts already (including my old Rimu hosting VPS). I'm about to finally pull the plug on my Media Temple account as well, which I've been trying to do for about six months now.</p>
+<p>One of the two tools Dale and I use fairly religiously is <a href="https://www.getdropbox.com/referrals/NTI2NzQ3Mjk5">DropBox</a>. DropBox allows Dale and I to share a virtual hard drive up in the cloud. Whenever either of us updates a file, it automatically synchronizes the other person's machine. Last night I also found a Linux based client for it, so I set that up on our server and tied it into Apache. That means Dale and I can basically modify live sites just by dragging files into folders on our local machines. Conversely, I configured some of our backup scripts to store various files (such as MySQL backups) in DropBox as well, which means Dale and I both automatically get server backups on our local machines every night. I think it works pretty slick actually, and I think we'll be able to do a few more cool things with that setup.</p>
+<p>My personal goal is to make it so that developing a site on my local machine is nearly identical to developing a site on a remote machine. Having everything on one server facilitates that quite nicely. For example, the Server Beach MySQL server is configured as a master, and my personal laptop machine is configured as as MySQL slave. So whenever I do a posting to duanestorey.com (which resides on Server Beach), the database is automatically synchronized with my laptop. The next step will be to synchronize the files (through some combination of SVN and DropBox), at which point I'll have pretty much an exact replica of the live sites on my laptop (and so will Dale hopefully), which means I can develop without an internet connection, and simply synchronize everything to the live server whenever I'm plugged in.</p>
+<p>So, hopefully by the end of this week we'll have shut down all our other hosting accounts. If anyone is considering moving to Server Beach, feel free to use our referral code: SXHH4BQ82M. I believe you'll save $100 on your first month's bill, and we'll also get a kickback to help us out as well.</p>
+        </div>
+    </article>
+
+            <div class="footer has-text-centered">
+           <div class="level">
+                <div class="level-left">
+                   
+                </div>
+                <div class="level-right">
+                    All content &copy; Copyright 2009 by Duane Storey &amp; Lindell Media Solutions Inc.
+                </div>
+            </div>
+        </div>
+        
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-2124361-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){ dataLayer.push(arguments); }
+            gtag('js', new Date());
+
+            gtag('config', 'UA-2124361-1');
+        </script>
+    </body>
+</html>

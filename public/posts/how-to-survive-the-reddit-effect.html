@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../..//themes/ds/assets/bundle.css?v=1">
+        <title>How To Survive The Reddit Effect</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body class="posts slug-how-to-survive-the-reddit-effect blog">
+<nav class="navbar is-black" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="/">Home</a>
+            
+            <a role="button" class="navbar-burger" data-target="primary-menu" aria-label="menu" aria-expanded="false">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div class="navbar-menu" id="primary-menu">
+
+        </div>
+    </div>
+</nav>
+
+<header class="hero is-primary">   
+    <div class="hero-body">
+        <div class="container">
+            <h2 class="title is-2">Hola, I'm Duane</h2>
+            <h3 class="subtitle is-5">A few interesting things about me:</h3>
+
+            <div class="columns has-text-centered">
+                <div class="column">
+                    <div class="fas fa-code"> </div> 
+                    <p class="desc">I've developed software used by over 40 million people, including the previous media engine in Yahoo! Messenger.</p>
+                    <p><a class="button is-primary is-small" href="/topic/code/">More Software</a></p> 
+                </div>
+                <div class="column is-hidden-touch">
+                    <div class="fas fa-wrench"> </div> 
+                    <p class="desc">I engineer lots of cool things such as hi-fi audio amplifiers and solar batteries for camping.</p>
+                    <p><a class="button is-primary is-small"  href="/topic/projects/">More Projects</a></p> 
+                </div>
+                <div class="column">
+                    <div class="fas fa-chart-bar"> </div> 
+                    <p class="desc">I co-wrote the previous #1 plugin for WordPress (out of 20,000), WPtouch, and eventually sold it.</p>
+                    <p><a class="button is-primary is-small" href="/topic/business/">More Business</a></p> 
+                </div>
+                <div class="column">
+                    <div class="fas fa-plane-departure"> </div> 
+                    <p class="desc">I've visited 44 countries in the last seven years and currently live in Valencia on the eastern coast of Spain.</p><p>
+                    <a class="button is-primary is-small" href="/topic/travel/">More Travel</a></p>
+                </div>
+                <div class="column is-hidden-mobile">
+                    <div class="fas fa-camera-retro"> </div> 
+                    <p class="desc">I am a published concert, travel, portrait, and landscape photographer; I currently shoot Fuji XT lenses.</p>
+                    <p><a class="button is-primary is-small"  href="/topic/photography/">More Photography</a></p> 
+                </div>
+            </div>
+        </div>
+
+        <div class="container newsletter">
+            <div class="has-text-centered">
+                <p>Sign-up to my exclusive business-oriented mailing list for occassional updates:</p>
+                <form action="//migratorynerd.us7.list-manage.com/subscribe/post?u=80cbf36c84f738b5623a02a85&amp;id=97101f05dd" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                    <div id="mc_embed_signup_scroll">
+                        <div class="mc-field-group">
+                            <input type="email" placeholder="Enter your email address...." name="EMAIL" class="required email" id="mce-EMAIL"><input type="submit" value="Join 725 Subscribers" name="subscribe" id="mc-embedded-subscribe" class="button is-info"><input type="submit" value="Sign-up" name="subscribe" id="mc-embedded-subscribe-mobile" class="button is-info">
+                        </div>
+                        <div id="mce-responses" class="clear">
+                            <div class="response" id="mce-error-response" style="display:none"></div>
+                            <div class="response" id="mce-success-response" style="display:none"></div>
+                        </div>   
+                        <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                            <input type="text" name="b_80cbf36c84f738b5623a02a85_97101f05dd" tabindex="-1" value="">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+    <article class="main section content">
+        <div class="container">
+            <p>Yesterday I was casually flipping around some apps on my iPhone and opened up my Adsense application which shows me how much I've made from Google Adsense each day. I noticed almost immediately that there was an anomaly - for the current day I had served almost 4,000 ad impressions, when normally it would have been more like 200 around that time of day. I then followed up by logging into Google Analytics to see if I had been mentioned somewhere, and sure enough I noticed that my number one referrer was Reddit.com at the time. Reddit gets around one billion page views a month I believe, so any mention on that website can be enough to completely cripple a website with new visitors.</p>
+<p>Apparently someone had shared a recent post of mine on Reddit discussing how to cut a SIM into a Micro or Nano SIM. It's not exactly rocket science, as many others pointed out in the comments. But it generated a lot of discussion from people who said it does indeed work (which it does) and people who didn't think it would work at all.</p>
+<p>But for me I wasn't really interested in the comments on Reddit, but rather whether or not my website was going to be able to handle the load of all those new users. At the time Google Analytics was showing around 300 active users, and the CPU for my $20/mo VPS unit was sitting around 35%. I tried to log into the admin panel for WordPress, but I couldn't get to it from Amsterdam due to my slow internet connection and the massive amount of traffic my website was serving.</p>
+<p>My website is actually fairly well-tuned for a WordPress based website, but I've never had to face a traffic spike like this. I wrote a post a few weeks ago talking about <a href="http://www.migratorynerd.com/tips/wordpress/5-ways-to-speed-up-your-wordpress-website/">how to speed up your WordPress website</a>, and I thankfully completed all those same optimizations on my own website prior to the Reddit mention.</p>
+<p>First, I had the APC PHP cache installed on my server which greatly reduces the load for PHP scripts. Second, I had W3 total cache installed which essentially removes PHP and WordPress from the equation for spikes like this, since Apache will simply serve static html files after they are cached. I also had Infinity Cache installed, which is a soon-to-be-released mobile caching solution for WPtouch. And lastly, I serve all of my static website assets from MaxCDN, which is a global content delivery system.</p>
+<p>So in terms my site's ability to actually be able to survive the Reddit Effect, I was in pretty good shape.</p>
+<p>But since I couldn't log into my admin panel, I decided to try and optimize Apache and PHP a bit further to try and make my server a bit more responsive.</p>
+<h3>httpd.conf Adjustments</h3>
+<p>One of the first adjustments I did was to increase the MaxServers for httpd up to 20 from 10. Since the VPS is memory limited, I left it at 10 simply because I didn't see much point raising it higher. But I figured doubling the amount of processes available to handle the incoming requests would help, and it did.</p>
+<p>Another quick adjustment I made was to disable KeepAlive connections. Normally KeepAlive connections are good because clients can request multiple items in essentially the same request. But often an Apache process will continue waiting around for more requests, even after the client is finish. That means that particular Apache process isn't available to serve any more requests until it essentially times out. So I disabled KeepAlives and then rebooted Apache from the command line.</p>
+<p>After my changes Apache stabilized at serving over 100 page views per minute, with approximately 500 visitors active at any time.</p>
+<p>[caption id="attachment_11914" align="aligncenter" width="800"]<img src="images/reddit-spike.jpg" alt="Reddit Traffic Spike" /> Reddit Traffic Spike[/caption]</p>
+<h3>Final Results</h3>
+<p>The total traffic onslaught lasted about eight hours, during which time my website served close to 20,000 page views. During the most intensive hour, there were almost 6,000 page views.</p>
+<p>[caption id="attachment_11917" align="aligncenter" width="800"]<img src="images/traffic-spike.jpg" alt="Traffic Spike" /> Traffic Spike[/caption]</p>
+<p>I logged into <a href="http://www.kqzyfj.com/click-4154459-11373487">MaxCDN</a> after it was over to check the traffic stats, and they showed approximately 50 GB worth of data transferred during that time period, which is about 5% of the total amount I'm allocated <em>for an entire year</em>. That's a substantial amount of traffic. I haven't done the math, but I suspect my little VPS would have basically fallen over had I not used the CDN, simply because it wouldn't have been able to keep up with the bandwidth requirements of all those requests.</p>
+<p>[caption id="attachment_11919" align="aligncenter" width="800"]<img src="images/maxcdn.jpg" alt="MaxCDN During The Spike" /> MaxCDN During The Spike[/caption]</p>
+<h3>Key Takeaways</h3>
+<p>For the most part my little $20 <a href="https://www.digitalocean.com/?refcode=c62a4d3586fc">DigitalOcean VPS</a> stayed active during the eight hour assault on it by Reddit users. It amounted to nearly 20,000 unique page views during that period of time, with almost 50GB worth of data transferred. I'm quite pleased the VPS didn't fall over, and I owe that mostly to the various caching systems I had in place, as well as my choice for serving most of my static content from a CDN.</p>
+<p>A few people on Reddit commented that my site was down during that period, which was my experience at the beginning as well. This was simply the result of having so many people try to view that particular webpage that Apache couldn't keep up with the requests. But after making a few quick Apache adjustments, Apache's ability to handle webpages nearly doubled, which allowed me to log back into my site and seemed to make the website in general more responsive for everyone.</p>
+<p>So even if you have a small VPS, by installing W3 Total Cache and utilizing a CDN like <a href="http://www.kqzyfj.com/click-4154459-11373487">MaxCDN</a>, you should be able to handle the Reddit Effect if it happens to you too.</p>
+<p>I'm in the process of setting up another small $5/mo VPS with a Varnish instance in case it ever happens again. With that addition to the mix I don't think I'll have any issues at all with being mentioned on Reddit again in the future.</p>
+        </div>
+    </article>
+
+            <div class="footer has-text-centered">
+           <div class="level">
+                <div class="level-left">
+                   
+                </div>
+                <div class="level-right">
+                    All content &copy; Copyright 2009 by Duane Storey &amp; Lindell Media Solutions Inc.
+                </div>
+            </div>
+        </div>
+        
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-2124361-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){ dataLayer.push(arguments); }
+            gtag('js', new Date());
+
+            gtag('config', 'UA-2124361-1');
+        </script>
+    </body>
+</html>
