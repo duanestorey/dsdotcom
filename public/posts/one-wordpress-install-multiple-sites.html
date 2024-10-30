@@ -15,7 +15,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-item nav-link active" href="/">Home</a>
                         <a class="nav-item nav-link" href="#">Features</a>
                         <a class="nav-item nav-link" href="#">Pricing</a>
                         <a class="nav-item nav-link disabled" href="#">Disabled</a>
@@ -26,8 +26,12 @@
 
 
     <div class="container mt-4">
-        <article class="content">    
-            <p>A while ago I started messing around with trying to get a single WordPress installation to host multiple blogs. If you read that and think WordPress MU, you're not far off. What I don't like about WordPress MU though is that the system administrator chooses the themes and the plugins that are available to the end user -- ideally, I would want each user to control that themselves, such that it basically has the same functionality as a normal WordPress installation.</p>
+        <article>    
+            <h2 class="mt-4">One WordPress Install, Multiple Sites</h2>
+            <div class="meta mb-2 text-primary fs-6 fw-light">Published May 7th, 2009</div>
+
+            <div class="content mt-3">
+                <p>A while ago I started messing around with trying to get a single WordPress installation to host multiple blogs. If you read that and think WordPress MU, you're not far off. What I don't like about WordPress MU though is that the system administrator chooses the themes and the plugins that are available to the end user -- ideally, I would want each user to control that themselves, such that it basically has the same functionality as a normal WordPress installation.</p>
 <p>There are a lot of other reasons why you might want a single WordPress install for multiple blogs. First, if you make backups of each blog's data from time to time, you might end up with a complete WordPress package for each website you host, even though ultimately 90% of those files are identical (basically only themes, plugins and custom content vary). Second, if you run a hosting server with a PHP caching engine (which most do), it's likely that the cache keeps track of data using the complete path to the file, which ultimately means the cache effectiveness will decrease proportional to the number of sites (aka WordPress installations). If all the installations on a server shared one common WordPress install, you'd only have to cache that one set of PHP files -- effectively you could keep WordPress in a compiled state in memory for all of your sites.</p>
 <p>The first thing I did was install a fresh WordPress into a directory on my server called wp_install. Normally an end user would go through the installation process and configure that one installation, and then they'd have one blog. We're trying to make one installation work for many blogs.</p>
 <p>Next, I created a wp_domains directory at the same level as wp_install. Inside wp_install, I then created a symbolic link called "domains" which points to the wp_domains directory (you could also just put everything in the wp_install/domains directory, but I want to keep them separated slightly). So we have wp_install/domains symbolically linking to wp_domains.</p>
@@ -58,6 +62,7 @@
 <p>The .htaccess hack I came up with is below:</p>
 <p><code># BEGIN WordPress &lt;IfModule mod_rewrite.c&gt; RewriteEngine On RewriteBase /  RewriteCond %{REQUEST_FILENAME} !-f RewriteCond %{REQUEST_URI} !(.*)/$ RewriteRule ^(.*)$ http://%{HTTP_HOST}/$1/ [L,R=301]  RewriteCond %{REQUEST_FILENAME} !-f RewriteCond %{REQUEST_FILENAME} !-d RewriteRule ^(.*)$ domains/%{HTTP_HOST}/$1 [L]  RewriteCond %{REQUEST_FILENAME} !-f RewriteCond %{REQUEST_FILENAME} !-d RewriteRule . /index.php [L] &lt;/IfModule&gt;  # END WordPress</code></p>
 <p>I'm by no means a .htaccess expert, so if you see anything wrong with it, please let me know. It seems to be working though (I have Mint working).</p>
+            </div>
         </article>
     </div>
 

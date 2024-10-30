@@ -16,12 +16,22 @@ class TemplateEngine {
     }
 
     public function template_exists( $template_name ) {
-        return file_exists( $this->template_dir . '/' . $template_name );
+        return file_exists( $this->template_dir . '/' . $template_name . '.latte' );
+    }
+
+    public function locate_template( $templates ) {
+        foreach( $templates as $template ) {
+            if ( $this->template_exists( $template ) ) {
+                  return $template;
+            }
+        }
+
+        return false;
     }
 
     public function render( $template_file, $params ) {
         if ( $this->latte ) {
-            return $this->latte->renderToString( $this->template_dir . '/' . $template_file, $params );
+            return $this->latte->renderToString( $this->template_dir . '/' . $template_file . '.latte', $params );
         }
     }
 }

@@ -15,7 +15,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-item nav-link active" href="/">Home</a>
                         <a class="nav-item nav-link" href="#">Features</a>
                         <a class="nav-item nav-link" href="#">Pricing</a>
                         <a class="nav-item nav-link disabled" href="#">Disabled</a>
@@ -26,8 +26,12 @@
 
 
     <div class="container mt-4">
-        <article class="content">    
-            <p>I've recently been optimizing a few different WordPress websites, and wanted to share with everyone some of the easy ways to speed up your WordPress website. Some of these tips are intended for server administrators and assume that you have root access to your server and/or cPanel/WHM (if you're using cPanel). Other tips are intended for any WordPress website administrator.</p>
+        <article>    
+            <h2 class="mt-4">5 Ways To Speed Up Your WordPress Website</h2>
+            <div class="meta mb-2 text-primary fs-6 fw-light">Published September 12th, 2013</div>
+
+            <div class="content mt-3">
+                <p>I've recently been optimizing a few different WordPress websites, and wanted to share with everyone some of the easy ways to speed up your WordPress website. Some of these tips are intended for server administrators and assume that you have root access to your server and/or cPanel/WHM (if you're using cPanel). Other tips are intended for any WordPress website administrator.</p>
 <p>This article has 5 different tips for how to speed up your WordPress website. If you currently don't have a WordPress website but are considering setting one up, here is information on <a href="/tips/blogging/how-to-set-up-a-wordpress-blog/">how to setup a WordPress blog</a>.</p>
 <ol>
 <li>
@@ -177,6 +181,7 @@ Requests per second:    84.89 [#/sec] (mean)
 <p>Whoa Nelly! We've gone from being able to handle 4.6 requests per second to almost 85: that's a huge improvement.</p>
 <p>This one change is obviously the most important, as it can make up for all the other inefficiencies in your server configuration. Once a page is cached using the page cache, additional requests for it do not cause PHP, MySQL, or the PHP handler to be used. So if you're only going to do one change then obviously based on these results adding a WordPress caching plugin is the way to go. But tips 1 through 4 will definitely help in real world scenarios where often many different pages are requested, as well as the administration panel from time to time.</p>
 <p>Taken together, all of these changes can significantly increase the responsive of your website as well as the amount of traffic it can handle. If you have a self-hosted WordPress website, on a shared-hosting environment, a dedicated sever or a VPS, then hopefully these tips will help increase the amount of traffic you can serve from your website.</p>
+            </div>
         </article>
     </div>
 

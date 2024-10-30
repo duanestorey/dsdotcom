@@ -1,8 +1,13 @@
 {include 'header.latte'}
 
     <div class="container mt-4">
-        <article class="content">    
-            {$markdown_html|noescape}
+        <article>    
+            <h2 class="mt-4">{$content->title}</h2>
+            <div class="meta mb-2 text-primary fs-6 fw-light">Published {$content->publish_date|date:'F jS, Y'}</div>
+
+            <div class="content mt-3">
+                {$content->markdown_html|noescape}
+            </div>
         </article>
     </div>
 

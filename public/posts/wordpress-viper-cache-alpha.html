@@ -15,7 +15,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-item nav-link active" href="/">Home</a>
                         <a class="nav-item nav-link" href="#">Features</a>
                         <a class="nav-item nav-link" href="#">Pricing</a>
                         <a class="nav-item nav-link disabled" href="#">Disabled</a>
@@ -26,8 +26,12 @@
 
 
     <div class="container mt-4">
-        <article class="content">    
-            <p>I've been dabbling with a new caching engine for Wordpress over the last few weeks. While WP-Cache does a pretty decent job, it falls short in a few areas, and it's something I've been trying to fix. In particular, here's what I don't like about it:</p>
+        <article>    
+            <h2 class="mt-4">Wordpress Viper Cache Alpha</h2>
+            <div class="meta mb-2 text-primary fs-6 fw-light">Published February 12th, 2008</div>
+
+            <div class="content mt-3">
+                <p>I've been dabbling with a new caching engine for Wordpress over the last few weeks. While WP-Cache does a pretty decent job, it falls short in a few areas, and it's something I've been trying to fix. In particular, here's what I don't like about it:</p>
 <ol>
 <li>It relies on the entire Wordpress engine to do it's caching</li>
 <li>It doesn't make use of proper HTTP caching headers</li>
@@ -38,6 +42,7 @@
 <p>In addition, proper HTTP caching headers are sent, so for most browsers, no data is even transmitted the second time a page is requested (what happens is the browser asks if the content has changed using an If-Modified-Since header, and the Viper Cache will respond with a 304 Not Modified if the local copy is the same as the remote copy). This results in a CPU and bandwidth savings. If the copy on the server has been modified, and the local cache doesn't match the remote copy, the entire page is served again from the website cache.</p>
 <p>I've been running it on my blog for about a week now, slowly ironing out the major bugs (and there have a been a few related to Wordpress cookies and improper Content-Types). I did a fairly exhaustive benchmark a few minutes ago, and using my configuration on Media Temple, Viper Cache is about 2.5x - 3.0x faster then WP-Cache for serving pages (and that's not even taking into account items that are already in the browser's cache).</p>
 <p>What I need now is a few guinea pigs to help iron out the last bugs. Is anyone interested in putting it on their blog and testing it out for a week or so? If so, drop me a comment.</p>
+            </div>
         </article>
     </div>
 

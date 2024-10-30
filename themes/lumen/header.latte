@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="{$asset_url}/lumen.css?v=1"></link>
-        <script type="text/javascript" src="{$asset_url}/lumen.min.js?v=1" async></script>
-        <title>{$title}</title>
+        <link rel="stylesheet" href="{$page->asset_url}/lumen.css?v=1"></link>
+        <script type="text/javascript" src="{$page->asset_url}/lumen.min.js?v=1" async></script>
+        <title>{$content->title}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
-    <body class="{$body_classses}">
+    <body class="{$page->body_classses}">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" href="/">{$site->title}</a>
@@ -15,7 +15,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-item nav-link active" href="/">Home</a>
                         <a class="nav-item nav-link" href="#">Features</a>
                         <a class="nav-item nav-link" href="#">Pricing</a>
                         <a class="nav-item nav-link disabled" href="#">Disabled</a>

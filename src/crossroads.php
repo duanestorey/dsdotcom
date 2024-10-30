@@ -8,6 +8,7 @@ require_once( 'src/builder.php' );
 require_once( 'src/markdown.php' );
 require_once( 'src/template-engine.php' );
 require_once( 'src/exception.php' );
+require_once( 'src/content.php' );
 require_once( 'src/yaml.php' );
 require_once( 'src/theme.php' );
 require_once( 'src/utils.php' );

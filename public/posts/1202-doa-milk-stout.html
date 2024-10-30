@@ -15,7 +15,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-item nav-link active" href="/">Home</a>
                         <a class="nav-item nav-link" href="#">Features</a>
                         <a class="nav-item nav-link" href="#">Pricing</a>
                         <a class="nav-item nav-link disabled" href="#">Disabled</a>
@@ -26,8 +26,12 @@
 
 
     <div class="container mt-4">
-        <article class="content">    
-            <p>About a week after I brewed my first beer I decided I would get another one in the queue so I would have one more to taste when they became ready. I decided to try my hand at a milk stout, another type of beer I thoroughly enjoy.</p>
+        <article>    
+            <h2 class="mt-4">1202 - DOA Milk Stout</h2>
+            <div class="meta mb-2 text-primary fs-6 fw-light">Published December 20th, 2012</div>
+
+            <div class="content mt-3">
+                <p>About a week after I brewed my first beer I decided I would get another one in the queue so I would have one more to taste when they became ready. I decided to try my hand at a milk stout, another type of beer I thoroughly enjoy.</p>
 <p>I spent some time looking at other milk stout recipes and ultimately crafted something in BeerSmith2 that I thought would taste pretty good (based on a theoretical imagination in my head of what each of these base malts taste like).</p>
 <p>Unfortunately I missed my FG on this one by a huge amount (like 15 pts). I finally tracked it down to an improper estimate of mash efficiency in BeerSmith2 based on a few other changes I made. Ultimately I have a huge problem with how BeerSmith2 calculates this number. From a home-brewer's perspective, mash efficiency is a pretty important number as it's something that influences the amount of grain to buy and also something that can easily be measured and adjusted. Unfortunately there's no direct way in BeerSmith2 to make this adjustment. What can be adjusted is something known as the Brewhouse Efficiency, a number that represents the efficiency of the entire process.</p>
 <p>So if you want to change your mash efficiency number in BeerSmith2, you basically have to mess around with your Brewhouse Efficiency until it indirectly calculates the Mash Efficiency you want. I've seen the author of the program defend this position, but many others have the same frustration as me. It's something so fundamental to the process that it really seems like something you should be able to adjust. It makes far more sense in my mind to adjust Mash Efficiency directly and have Brewhouse Efficiency be calculated indirectly based on all your other loses in the system. I took a look at Beer Alchemy (another brewing program) and it allows for Mash Efficiency to be entered directly, so I may switch to that.</p>
@@ -74,6 +78,7 @@
 <ul>
 <li>Make sure whatever software you are has a mash efficiency that reflects the process you are using. For BIAB I usually hit around 65-66%. I've been told for batch sparging that 75% is a reasonable target</li>
 </ul>
+            </div>
         </article>
     </div>
 

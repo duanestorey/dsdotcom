@@ -15,7 +15,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-item nav-link active" href="/">Home</a>
                         <a class="nav-item nav-link" href="#">Features</a>
                         <a class="nav-item nav-link" href="#">Pricing</a>
                         <a class="nav-item nav-link disabled" href="#">Disabled</a>
@@ -26,8 +26,12 @@
 
 
     <div class="container mt-4">
-        <article class="content">    
-            <p><a href="http://www.migratorynerd.com/wordpress/wp-content/uploads/2011/02/openLock.png"><img src="images/openLock-300x257.png" alt="" title="openLock" /></a></p>
+        <article>    
+            <h2 class="mt-4">How SSL Works</h2>
+            <div class="meta mb-2 text-primary fs-6 fw-light">Published February 11th, 2011</div>
+
+            <div class="content mt-3">
+                <p><a href="http://www.migratorynerd.com/wordpress/wp-content/uploads/2011/02/openLock.png"><img src="images/openLock-300x257.png" alt="" title="openLock" /></a></p>
 <p>It's been a long time since I did a technology post, but I've recently had security on my mind and thought I would give a quick primer for SSL. For those of you who don't know, SSL stands for <em>secure socket layer</em>, and is the technology on the internet that makes all eCommerce and web security possible. And here's how it works.</p>
 <p>First, you need to understand the two different types of encryption.</p>
 <h3>Symmetric Encryption</h3>
@@ -54,6 +58,7 @@
 <p>That's how SSL works. Every time you open a browser and point it to an address with https:// in the address bar, that same package/lock scenario is going on in the form of a handshake. In the case of the internet though, the locks are two independent private key / public key algorithms, one locally and one remotely, and the contents of the package are a randomly generated symmetric encryption key that both parties can use once the handshake is over.</p>
 <p>Since asymmetric encryption is slow, the package exchange with the locks only happens once during the handshake. Once the package (i.e. the handshake) is received (i.e. completed) and the locks (i.e. the public/private key encryption) are removed, both parties are left with a symmetric encryption key that can be used for all subsequent communications. So basically you're using asymmetric encryption keys to securely pass a symmetric encryption key down an insecure channel, after which point you can communicate using symmetrically encrypted data, and the channel is secure.</p>
 <p>Pretty cool, huh?</p>
+            </div>
         </article>
     </div>
 

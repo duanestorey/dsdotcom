@@ -15,7 +15,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-item nav-link active" href="/">Home</a>
                         <a class="nav-item nav-link" href="#">Features</a>
                         <a class="nav-item nav-link" href="#">Pricing</a>
                         <a class="nav-item nav-link disabled" href="#">Disabled</a>
@@ -26,8 +26,12 @@
 
 
     <div class="container mt-4">
-        <article class="content">    
-            <p>Yesterday I was casually flipping around some apps on my iPhone and opened up my Adsense application which shows me how much I've made from Google Adsense each day. I noticed almost immediately that there was an anomaly - for the current day I had served almost 4,000 ad impressions, when normally it would have been more like 200 around that time of day. I then followed up by logging into Google Analytics to see if I had been mentioned somewhere, and sure enough I noticed that my number one referrer was Reddit.com at the time. Reddit gets around one billion page views a month I believe, so any mention on that website can be enough to completely cripple a website with new visitors.</p>
+        <article>    
+            <h2 class="mt-4">How To Survive The Reddit Effect</h2>
+            <div class="meta mb-2 text-primary fs-6 fw-light">Published October 7th, 2013</div>
+
+            <div class="content mt-3">
+                <p>Yesterday I was casually flipping around some apps on my iPhone and opened up my Adsense application which shows me how much I've made from Google Adsense each day. I noticed almost immediately that there was an anomaly - for the current day I had served almost 4,000 ad impressions, when normally it would have been more like 200 around that time of day. I then followed up by logging into Google Analytics to see if I had been mentioned somewhere, and sure enough I noticed that my number one referrer was Reddit.com at the time. Reddit gets around one billion page views a month I believe, so any mention on that website can be enough to completely cripple a website with new visitors.</p>
 <p>Apparently someone had shared a recent post of mine on Reddit discussing how to cut a SIM into a Micro or Nano SIM. It's not exactly rocket science, as many others pointed out in the comments. But it generated a lot of discussion from people who said it does indeed work (which it does) and people who didn't think it would work at all.</p>
 <p>But for me I wasn't really interested in the comments on Reddit, but rather whether or not my website was going to be able to handle the load of all those new users. At the time Google Analytics was showing around 300 active users, and the CPU for my $20/mo VPS unit was sitting around 35%. I tried to log into the admin panel for WordPress, but I couldn't get to it from Amsterdam due to my slow internet connection and the massive amount of traffic my website was serving.</p>
 <p>My website is actually fairly well-tuned for a WordPress based website, but I've never had to face a traffic spike like this. I wrote a post a few weeks ago talking about <a href="http://www.migratorynerd.com/tips/wordpress/5-ways-to-speed-up-your-wordpress-website/">how to speed up your WordPress website</a>, and I thankfully completed all those same optimizations on my own website prior to the Reddit mention.</p>
@@ -49,6 +53,7 @@
 <p>A few people on Reddit commented that my site was down during that period, which was my experience at the beginning as well. This was simply the result of having so many people try to view that particular webpage that Apache couldn't keep up with the requests. But after making a few quick Apache adjustments, Apache's ability to handle webpages nearly doubled, which allowed me to log back into my site and seemed to make the website in general more responsive for everyone.</p>
 <p>So even if you have a small VPS, by installing W3 Total Cache and utilizing a CDN like <a href="http://www.kqzyfj.com/click-4154459-11373487">MaxCDN</a>, you should be able to handle the Reddit Effect if it happens to you too.</p>
 <p>I'm in the process of setting up another small $5/mo VPS with a Varnish instance in case it ever happens again. With that addition to the mix I don't think I'll have any issues at all with being mentioned on Reddit again in the future.</p>
+            </div>
         </article>
     </div>
 

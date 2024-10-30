@@ -15,7 +15,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-item nav-link active" href="/">Home</a>
                         <a class="nav-item nav-link" href="#">Features</a>
                         <a class="nav-item nav-link" href="#">Pricing</a>
                         <a class="nav-item nav-link disabled" href="#">Disabled</a>
@@ -26,8 +26,12 @@
 
 
     <div class="container mt-4">
-        <article class="content">    
-            <p>I finally got around to finishing off a little project of mine at home. As everyone knows, I take a pile of photos. So many in fact that I have a hard time finding places to store them all. In the old days I would just make a DVD every few weeks and be done with it, but now that my digital camera is 10.2 MP, I can easily fill up a DVDs worth of photos in a few hours.</p>
+        <article>    
+            <h2 class="mt-4">Raid 5 &amp;amp; Cheap Storage</h2>
+            <div class="meta mb-2 text-primary fs-6 fw-light">Published March 30th, 2008</div>
+
+            <div class="content mt-3">
+                <p>I finally got around to finishing off a little project of mine at home. As everyone knows, I take a pile of photos. So many in fact that I have a hard time finding places to store them all. In the old days I would just make a DVD every few weeks and be done with it, but now that my digital camera is 10.2 MP, I can easily fill up a DVDs worth of photos in a few hours.</p>
 <p>Of course, I don't need to keep all of these, and routinely I don't. But for the ones I do want to keep it's getting hard to manage them all. About six months ago I picked up a 320 GB external drive to use for backups and started using that. Now that I have time machine going as well, that drive is pretty much full.</p>
 <p>There are various off-site storage facilities I looked into, but many of them become cost-prohibiting once you start talking the amount of data I have. So, since I have a linux box running at home, I decided to make myself a RAID array for storage.</p>
 <p>For those of you not familiar with the term, RAID stands for "redundant array of inexpensive drives." It is a way to organize data such that the risk of your data being destroyed due to a mechanical failure is practically zero.</p>
@@ -42,6 +46,7 @@
 <p>The first thing I did when it was all configured was to simulate a full drive failure. You can do this by physically removing the drive, but I did it via software. If you mark the drive as dead using the RAID configuration tools, you'll get notification (via email) that a drive has failed and you are now operating in a degraded mode (since one drive is totally gone, the operating system has to use the error information to reconstruct the data on each read, so this will bog your system down -- but at least you're still running). I then brought the drive back online and added it back into the RAID array. Linux, being the smart beast that it is, immediately started reconstructing the drive from scratch. In about 90 minutes the entire drive was rebuilt, and my data was safe once again.</p>
 <p>So, for the cost of around $270, I now have 1 TB of fault tolerant, RAID 5 storage at home. Every drive I bought (and I purposefully picked different drives to avoid batch manufacturing problems) has a five year warranty on it, so the cost of this data is $54/year (neglecting energy costs), or about $4.50/mo (one big Starbucks latte people).</p>
 <p>Not bad if you think about it.</p>
+            </div>
         </article>
     </div>
 

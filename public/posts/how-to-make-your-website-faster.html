@@ -15,7 +15,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-item nav-link active" href="/">Home</a>
                         <a class="nav-item nav-link" href="#">Features</a>
                         <a class="nav-item nav-link" href="#">Pricing</a>
                         <a class="nav-item nav-link disabled" href="#">Disabled</a>
@@ -26,8 +26,12 @@
 
 
     <div class="container mt-4">
-        <article class="content">    
-            <p>There are a lot of different ways you can increase the speed of your website, even if you have relatively cheap hosting. If you're lucky, your blogging platform already has a caching engine built in (Drupal does). If you're unlucky, and running something like Wordpress, you have to do a bit more work.</p>
+        <article>    
+            <h2 class="mt-4">How To Make Your Website Or Blog Faster</h2>
+            <div class="meta mb-2 text-primary fs-6 fw-light">Published February 18th, 2008</div>
+
+            <div class="content mt-3">
+                <p>There are a lot of different ways you can increase the speed of your website, even if you have relatively cheap hosting. If you're lucky, your blogging platform already has a caching engine built in (Drupal does). If you're unlucky, and running something like Wordpress, you have to do a bit more work.</p>
 <p>Caching makes a website more responsive because it takes an expensive operation (such as a long database query) and stores it so that next time it doesn't have to recompute it entirely. For example, when you go to this website, normally Apache would execute PHP, parse the Wordpress code, do some MySQL database queries, and then finally output the HTML page. Depending on the hosting service, this may take a long time. With a cache, the final HTML page is simply written to disk (or memory if a memory cache is being used) so that when that page is requested the second time, it is merely read from disk and sent, which by comparison is relatively fast.</p>
 <p>The first thing I'd recommend everyone with Wordpress to do is to enable the built in object cache. It's not very well documented, but Wordpress has the built in ability to cache many of the expensive database queries. To enable it, locate your wp-config.php file (which is usually in the root directory of your web installation), and add the following line to it:</p>
 <p><code>define('ENABLE_CACHE', true);</code></p>
@@ -49,6 +53,7 @@
 <p>By setting the "ExpiresDefault" to "now", it is instructing Apache to make everything non-cacheable except for the items listed below it. Without this, Apache would cache everything, including PHP scripts (which since they are dynamic, would be a fairly bad thing).</p>
 <p>As you can see, I've included a directive to cache JPEG images (with a MIME type of image/jpeg) for four hours, MP3 files for two hours, etc. You can modify this and add whatever MIME type you like, and the browsers will do the caching for you. The one downside to this is that the browser will not request that file again until the allotted time expires. What that means is that even if you change it on your webpage, it's possible people won't see those modifications for quite some time. If you set relatively small expires times, that isn't normally a problem. However if you want to set longer ones, the only way to force an immediate change to an item is to change the filename on the server (which is an easy work around).</p>
 <p>If you combine those three methods, you can make Wordpress a hell of a lot faster, and decrease the demands on your hosting server. Plus, you should be able to handle a Digg or any other sudden influx of traffic with relative ease.</p>
+            </div>
         </article>
     </div>
 

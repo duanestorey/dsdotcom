@@ -15,7 +15,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-item nav-link active" href="/">Home</a>
                         <a class="nav-item nav-link" href="#">Features</a>
                         <a class="nav-item nav-link" href="#">Pricing</a>
                         <a class="nav-item nav-link disabled" href="#">Disabled</a>
@@ -26,12 +26,17 @@
 
 
     <div class="container mt-4">
-        <article class="content">    
-            <p>Well, this is interesting. I gave a few individuals an alpha version of the Viper Cache plugin I've been working on. It has just been reviewed on <a href="http://www.anieto2k.com">Anieto2k</a>, one of the largest plugin sites. The author compared it against all the Wordpress plugins available today for caching. The full write-up is <a href="http://www.anieto2k.com/2008/02/19/testeando-viper-cache-para-wordpress/">available here</a>.</p>
+        <article>    
+            <h2 class="mt-4">Viper Cache Alpha Reviewed</h2>
+            <div class="meta mb-2 text-primary fs-6 fw-light">Published February 20th, 2008</div>
+
+            <div class="content mt-3">
+                <p>Well, this is interesting. I gave a few individuals an alpha version of the Viper Cache plugin I've been working on. It has just been reviewed on <a href="http://www.anieto2k.com">Anieto2k</a>, one of the largest plugin sites. The author compared it against all the Wordpress plugins available today for caching. The full write-up is <a href="http://www.anieto2k.com/2008/02/19/testeando-viper-cache-para-wordpress/">available here</a>.</p>
 <p>The article looks like it is in Spanish so you'll just have to settle for the pictures. Based on a few guesses in the translation, it looks like Viper Cache is the lowest in memory out of all four, and allows around 1330 pages per second on the test machine compared to the second place runner up of Super-Cache at around 300 pages per second. I also want to point out that I seriously doubt their test takes into account (only because such a test doesn't immediately come to my mind either) cache hits that are <strong>only</strong> fetched from local caches (which is made possibly by some HTTP caching directives Viper Cache inserts), and that would result in further performance gains.</p>
 <p>So, like I had hoped, it appears that this will ultimately be the fastest Wordpress caching engine around. I have one more major enhancement to make to it with regards to cache invalidation, and then I'll release it. I just finished the change. I actually thought of a way smarter way to do what I was trying to do, and it will make an even larger difference. I'm running it here already, and I think it will work like a charm.</p>
 <p>** Jonathan Lumb <a href="http://www.sprayfly.com/2008/02/20/testing-viper-cache-for-wordpress/">translated that article into english</a> if anyone is interested. Thanks.</p>
 <p>I'll release this soon.</p>
+            </div>
         </article>
     </div>
 

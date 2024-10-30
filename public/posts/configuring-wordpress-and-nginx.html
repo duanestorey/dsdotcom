@@ -15,7 +15,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-item nav-link active" href="/">Home</a>
                         <a class="nav-item nav-link" href="#">Features</a>
                         <a class="nav-item nav-link" href="#">Pricing</a>
                         <a class="nav-item nav-link disabled" href="#">Disabled</a>
@@ -26,8 +26,12 @@
 
 
     <div class="container mt-4">
-        <article class="content">    
-            <p>After my <a href="/tips/blogging/how-to-survive-the-reddit-effect/">recent mention on Reddit last week</a>, I decided to try and improve the responsiveness of my little <a href="https://www.digitalocean.com/?refcode=c62a4d3586fc">DigitalOcean VPS</a> even more than it already was. I was definitely happy that I was able to withstand almost 20,000 visitors in just a few hours, but thought I might be able to improve things further by switching from Apache to Nginx.</p>
+        <article>    
+            <h2 class="mt-4">Configuring WordPress And Nginx</h2>
+            <div class="meta mb-2 text-primary fs-6 fw-light">Published October 16th, 2013</div>
+
+            <div class="content mt-3">
+                <p>After my <a href="/tips/blogging/how-to-survive-the-reddit-effect/">recent mention on Reddit last week</a>, I decided to try and improve the responsiveness of my little <a href="https://www.digitalocean.com/?refcode=c62a4d3586fc">DigitalOcean VPS</a> even more than it already was. I was definitely happy that I was able to withstand almost 20,000 visitors in just a few hours, but thought I might be able to improve things further by switching from Apache to Nginx.</p>
 <p>I debated it a long time ago, but never made the plunge for a few different reasons. First, I typically used hosting services based on cPanel. From what I gather, cPanel doesn't really work well with Nginx (or at all), so that was never really an option. And second, I could never quite figure out how to set up WordPress and Nginx properly so that they worked nicely together. It's slightly more complicated because I often use W3 total cache, and it normally places its configuration into .htaccess for Apache.</p>
 <p>But I finally decided it was time to give it a try - I fired up a new VPS at <a href="https://www.digitalocean.com/?refcode=c62a4d3586fc">DigitalOcean</a> to see if I could get my personal website working with Nginx instead of Apache. After scanning around the internet for a while, I managed to piece together a Nginx configuration that works with WordPress 3.6 as well as W3 Total Cache and my mobile website.</p>
 <pre><code>server {
@@ -102,6 +106,7 @@
 <h3>Final Thoughts</h3>
 <p>All in all it wasn't very hard to set up Nginx, and I'm glad I finally made the switch. In all honesty now that I'm used to it, I find configuring Nginx to be simpler in general than Apache. I always thought configuring Virtual Hosts in Apache was a bit clunky. The process in Nginx is simply to create a new config file in a particular directory, and it just works.</p>
 <p>I'm glad I finally took the plunge and switch to Nginx. If you've been considering it as well, I recommend going for it as it turned out to be simpler than I originally imagined.</p>
+            </div>
         </article>
     </div>
 

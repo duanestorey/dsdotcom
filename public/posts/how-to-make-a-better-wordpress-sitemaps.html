@@ -15,7 +15,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-item nav-link active" href="/">Home</a>
                         <a class="nav-item nav-link" href="#">Features</a>
                         <a class="nav-item nav-link" href="#">Pricing</a>
                         <a class="nav-item nav-link disabled" href="#">Disabled</a>
@@ -26,8 +26,12 @@
 
 
     <div class="container mt-4">
-        <article class="content">    
-            <p>I've decided to do a multipart series on how to take your Wordpress installation to the next level. Most people seem to have an out-of-the-box Wordpress installation, and I think they are really missing out on a few things that can really improve the quality of their blog.</p>
+        <article>    
+            <h2 class="mt-4">How To Make A Better Wordpress - Entry #1: Sitemaps</h2>
+            <div class="meta mb-2 text-primary fs-6 fw-light">Published February 11th, 2008</div>
+
+            <div class="content mt-3">
+                <p>I've decided to do a multipart series on how to take your Wordpress installation to the next level. Most people seem to have an out-of-the-box Wordpress installation, and I think they are really missing out on a few things that can really improve the quality of their blog.</p>
 <p>The first topic I'd like to cover is search engines. Most of you know how a search engine works, but for those who don't, here's a really quick primer. Search engines employ little agents called "Bots" that basically roam around the internet taking snapshots of the content. Google's little guy is called "GoogleBot", and identifies itself by a unique User-Agent header in all HTTP requests (if you have some kind of data analytics program, you might see GoogleBot show up from time to time).</p>
 <p>Whenever a search engine encounters a hyperlink, it checks to see if it's in its database, and if not, adds to a queue of future web crawls. If you set up a new blog, you can either wait patiently for someone else to link to it (which will cause the Bot to eventually get to it), or you can manually submit it (usually there's a manual way for most big search engines).</p>
 <p>The problem with this method is that unless your site gets indexed very quickly, chances are the Bot may miss some of your content from time to time. So if you write a new blog entry one day, it may be on page 2 or 3 of your blog before each Bot actually visits your site. Since most search engines only do "deep" crawls (these are crawls that actually go deep within your tags and archive pages, as opposed to shallow ones that the Bots do every few days usually) every month or so, that entry may not get indexed at all until then (or ever if it ends up being too deep).</p>
@@ -38,6 +42,7 @@
 <p><img src="http://www.migratorynerd.com/wp-content/uploads/2008/02/picture-10.png" alt="Google Sitemap Submission" /></p>
 <p>The last step of this exercise is to tell the search engine that there's a sitemap available. Google recently added a set of <a href="https://www.google.com/accounts/ServiceLogin?service=sitemaps&amp;passive=true&amp;nui=1&amp;continue=http%3A%2F%2Fwww.google.com%2Fwebmasters%2Ftools%2Fsiteoverview&amp;followup=http%3A%2F%2Fwww.google.com%2Fwebmasters%2Ftools%2Fsiteoverview&amp;hl=en">Webmaster tools</a> that you can log into and submit a sitemap for each site you have. Once you tell Google where it is, it will grab a new copy periodically and update its database. When I first added a sitemap several weeks ago, I only had around 400 out of 1600 URLs indexed by Google. A few weeks later, Google has grabbed 300 more, and it continues to climb.</p>
 <p>So that's Wordpress power tip #1. Make sure if you have Wordpress that you set up a proper sitemap. And if that power tip helped you, make sure <a href="http://my.e2rm.com/personalPage.aspx?SID=1703456">to head on over and sponsor me for the Big Brothers bowling event</a> coming up.</p>
+            </div>
         </article>
     </div>
 

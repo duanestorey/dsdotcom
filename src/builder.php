@@ -26,6 +26,8 @@ class Builder {
 
         if ( isset( $this->config[ 'content' ][ 'types' ] ) ) {
             foreach( $this->config[ 'content' ][ 'types' ] as $content_type => $content_config ) {
+                $all_content = array();
+
                 echo "....processing content type [" . $content_type . "]\n";
 
                 @mkdir( CROSSROAD_PUBLIC_DIR . '/' . $content_type );
@@ -47,31 +49,39 @@ class Builder {
                             $params->site = new \stdClass;
                             $params->site->title = $this->config[ 'site' ][ 'name' ];
 
-                            $params->markdown_html = $markdown->html();
-                            
-                            $params->publish_date = time();
-                            $params->asset_url = '../assets';
-                            $params->body_classes_raw = array( $content_type, 'slug-' . pathinfo( $markdown_file, PATHINFO_FILENAME ), 'blog' );
-                            $params->body_classses = implode( ' ', $params->body_classes_raw );
+                            $params->page = new \stdClass;
+                            $params->page->asset_url = '../assets';
+                            $params->page->body_classes_raw = array( $content_type, 'slug-' . pathinfo( $markdown_file, PATHINFO_FILENAME ), 'blog' );
+                            $params->page->body_classses = implode( ' ', $params->page->body_classes_raw );
+
+                            $params->content = new Content;
+                            $params->content->markdown_html = $markdown->html();
+                            $params->content->markdown_file = $markdown_file;
+                            $params->content->url = $content_type . '/' . pathinfo( $markdown_file, PATHINFO_FILENAME ) . '.html';
+
+                            $all_content[] = $params->content;
 
                             if ( $front = $markdown->front_matter() ) {
                                 if ( isset( $front[ 'title' ] ) ) {
-                                    $params->title = $front[ 'title' ];
+                                    $params->content->title = $front[ 'title' ];
                                 }
 
                                 if ( isset( $front[ 'date' ] ) ) {
-                                    $params->publish_date = strtotime( $front[ 'date' ] );
+                                    $params->content->publish_date = strtotime( $front[ 'date' ] );
                                 }
                             }
 
-                            $template_name = $content_type . '-single.latte';
-                            if ( $this->template_engine->template_exists( $template_name ) ) {
+                            $template_name = $this->template_engine->locate_template( [ $content_type . '-single', $content_type ] );
+                            if ( $template_name ) {
                                 $rendered_html = $this->template_engine->render( $template_name, $params );
                                 file_put_contents( $output_file, $rendered_html );
                             }
                         }
                     }
                 }
+
+                // process all content
+                usort( $all_content, 'CR\cr_sort' );
             }
         }
         $total_time = microtime( true ) - $this->start_time;
