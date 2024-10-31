@@ -29,3 +29,8 @@ article {
     margin-top: -5px;
     font-size: 0.8em;
 }
+
+article {
+    border-bottom: 1px solid #d8d8d8;
+    padding-bottom: 20px;
+}
