@@ -41,25 +41,25 @@
 <p>The piece of the puzzle I don't really understand is how to check for a failure and how to recover from one. In my mind this would require some kind of external DNS service that would ping the primary web server and alter the DNS record for when the primary stopped responding. As these machines are in separate co-location facilities, I don't think I can do any type of IP takeover (at least, not that I'm aware of). Can anyone recommend a way to solve this piece of the puzzle, or suggest another way of doing this?</p>
             </div>
 
-            <div class="comments">
+            <div class="comments mt-4 pt-4">
                 <div id="disqus_thread"></div>
-                <script>
-                    /**
-                    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-                    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
-                    
-                    var disqus_config = function () {
-                      this.page.url = "/posts/redundant-web-architectures.html";  // Replace PAGE_URL with your page's canonical URL variable
-                      this.page.identifier = "7fbe709fd6d503678e033ae64c6447e0"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-                    };
-                    
-                    (function() { // DON'T EDIT BELOW THIS LINE
-                    var d = document, s = d.createElement('script');
-                    s.src = 'https://duanestorey.disqus.com/embed.js';
-                    s.setAttribute('data-timestamp', +new Date());
-                    (d.head || d.body).appendChild(s);
-                    })();
-                </script>
+                    <script>
+                        /**
+                        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+                        /*
+                        var disqus_config = function () {
+                        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+                        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                        };
+                        */
+                        (function() { // DON'T EDIT BELOW THIS LINE
+                        var d = document, s = d.createElement('script');
+                        s.src = 'https://dsnew.disqus.com/embed.js';
+                        s.setAttribute('data-timestamp', +new Date());
+                        (d.head || d.body).appendChild(s);
+                        })();
+                    </script>
                 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
             </div>
         </article>  

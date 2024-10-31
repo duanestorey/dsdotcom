@@ -42,25 +42,25 @@
 <p><code>openssl rand -hex 1 | tr '[:lower:]' '[:upper:]' | xargs echo "obase=2;ibase=16;" | bc | cut -c1-6 | sed 's/$/00/' | xargs echo "obase=16;ibase=2;" | bc | sed "s/$/:$(openssl rand -hex 5 | sed 's/\(..\)/\1:/g; s/.$//' | tr '[:lower:]' '[:upper:]')/" | xargs sudo ifconfig en0 ether`  It's probably a good idea to write down your old MAC address as well (you can execute 'ifconfig' from Terminal to find it) so that you can always set it back to the old setting once you are done. But if you find yourself using a public internet terminal that is time or bandwidth limited, simply switch your MAC address when your session expires and you should be good to go all over again.  I've tried this a few different times now in a few different countries, and it works flawlessly - as soon as you hit your time limit at a coffee shop or airport, just change your MAC address and you should be recognized as a new user.  ### Play Nice  Also remember that in some parts of the world people actually pay for the bandwidth they use, so bear that in mind if you use that trick. I see no harm in using this occasionally if you are just checking email, or in a some huge place with a big budget like an airport. But it's probably not a good idea to use this trick excessively, just in case some small business owner gets hit with a bill long after you are gone.`</code></p>
             </div>
 
-            <div class="comments">
+            <div class="comments mt-4 pt-4">
                 <div id="disqus_thread"></div>
-                <script>
-                    /**
-                    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-                    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
-                    
-                    var disqus_config = function () {
-                      this.page.url = "/posts/beat-time-limited-public-internet-connections.html";  // Replace PAGE_URL with your page's canonical URL variable
-                      this.page.identifier = "bd878ede576d0a334a8dd389d39b4ccf"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-                    };
-                    
-                    (function() { // DON'T EDIT BELOW THIS LINE
-                    var d = document, s = d.createElement('script');
-                    s.src = 'https://duanestorey.disqus.com/embed.js';
-                    s.setAttribute('data-timestamp', +new Date());
-                    (d.head || d.body).appendChild(s);
-                    })();
-                </script>
+                    <script>
+                        /**
+                        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+                        /*
+                        var disqus_config = function () {
+                        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+                        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                        };
+                        */
+                        (function() { // DON'T EDIT BELOW THIS LINE
+                        var d = document, s = d.createElement('script');
+                        s.src = 'https://dsnew.disqus.com/embed.js';
+                        s.setAttribute('data-timestamp', +new Date());
+                        (d.head || d.body).appendChild(s);
+                        })();
+                    </script>
                 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
             </div>
         </article>  
