@@ -130,64 +130,73 @@ class Builder {
                 // process all content
                 usort( $all_content, 'CR\cr_sort' );
 
-                // this is wrong, but fix later
-                $params = $this->_get_default_render_params( 
-                    array( $content_type . '-' . pathinfo( $markdown_file, PATHINFO_FILENAME ) ),
-                    '/' . $content_type
-                );
+                $this->_write_index_file( $all_content, $content_type, [ 'blog' ], '/' . $content_type, [ 'index' ] );
 
-                $content_per_page = 10;
-                if ( isset( $this->config[ 'options' ][ 'content_per_page' ] ) ) {
-                    $content_per_page = $this->config[ 'options' ][ 'content_per_page' ];
-                }
-
-                $params->page->title = 'index';
-
-                $params->pagination = new \stdClass;
-                $params->pagination->current_page = 1;
-                $params->pagination->cur_page_link = '';
-                $params->pagination->prev_page_link = '';
-                $params->pagination->next_page_link = '';
-               
-                if ( count( $all_content ) % $content_per_page == 0 ) {
-                    $params->pagination->total_pages = intdiv( count( $all_content ), $content_per_page );
-                } else {    
-                    $params->pagination->total_pages = intdiv( count( $all_content ), $content_per_page ) + 1;
-                }
-
-                $params->pagination->links = $this->_get_pagination_links( $content_type, $params->pagination->total_pages );
-
-                $template_name = $this->template_engine->locate_template( [ 'index' ] );
-                if ( $template_name ) {
-                    while ( $params->pagination->current_page <= $params->pagination->total_pages ) {
-                        if ( $params->pagination->current_page == 1 ) {
-                            $filename = CROSSROAD_PUBLIC_DIR . '/' . $content_type . '/index.html';
-                            $params->pagination->cur_page_link = '/' . $content_type . '/index.html';
-                        } else {
-                            $filename = CROSSROAD_PUBLIC_DIR . '/' . $content_type . '/index-page-' . $params->pagination->current_page . '.html';
-                            $params->pagination->cur_page_link = '/' . $content_type . '/index-page-' . $params->pagination->current_page . '.html';
-                        }
-
-                        if ( $params->pagination->current_page != $params->pagination->total_pages ) {
-                            $params->pagination->next_page_link = '/' . $content_type . '/index-page-' . ( $params->pagination->current_page + 1 ). '.html';
-                        } else {
-                            $params->pagination->next_page_link = '';
-                        }
-
-                        $params->content = array_slice( $all_content, ( $params->pagination->current_page - 1 ) * $content_per_page, $content_per_page );
-  
-                        $rendered_html = $this->template_engine->render( $template_name, $params );
-                        file_put_contents( $filename, $rendered_html );  
-
-                        $params->pagination->current_page++;
-
-                        $params->pagination->prev_page_link = $params->pagination->cur_page_link;
-                    }
+                if ( $content_type == 'posts' ) {
+                    $this->_write_index_file( $all_content, $content_type, [ 'home' ], '', [ 'index' ] );
                 }
             }
         }
         $total_time = microtime( true ) - $this->start_time;
         echo "..total page(s) generated, " . $this->total_pages . " - build completed in " . sprintf( "%0.4f", $total_time ) . "s\n";
+    }
+
+    private function _write_index_file( $all_content, $content_type, $body_class_array, $path, $template_file_array ) {
+        // this is wrong, but fix later
+        $params = $this->_get_default_render_params( 
+          // array( $content_type . '-' . pathinfo( $markdown_file, PATHINFO_FILENAME ) ),
+            $body_class_array,
+            $path 
+        );
+
+        $content_per_page = 10;
+        if ( isset( $this->config[ 'options' ][ 'content_per_page' ] ) ) {
+            $content_per_page = $this->config[ 'options' ][ 'content_per_page' ];
+        }
+
+        $params->page->title = 'index';
+
+        $params->pagination = new \stdClass;
+        $params->pagination->current_page = 1;
+        $params->pagination->cur_page_link = '';
+        $params->pagination->prev_page_link = '';
+        $params->pagination->next_page_link = '';
+        
+        if ( count( $all_content ) % $content_per_page == 0 ) {
+            $params->pagination->total_pages = intdiv( count( $all_content ), $content_per_page );
+        } else {    
+            $params->pagination->total_pages = intdiv( count( $all_content ), $content_per_page ) + 1;
+        }
+
+        $params->pagination->links = $this->_get_pagination_links( $path, $params->pagination->total_pages );
+
+        $template_name = $this->template_engine->locate_template( $template_file_array );
+        if ( $template_name ) {
+            while ( $params->pagination->current_page <= $params->pagination->total_pages ) {
+                if ( $params->pagination->current_page == 1 ) {
+                    $filename = CROSSROAD_PUBLIC_DIR . $path . '/index.html';
+                    $params->pagination->cur_page_link = $path . '/index.html';
+                } else {
+                    $filename = CROSSROAD_PUBLIC_DIR . $path . '/index-page-' . $params->pagination->current_page . '.html';
+                    $params->pagination->cur_page_link = $path . '/index-page-' . $params->pagination->current_page . '.html';
+                }
+
+                if ( $params->pagination->current_page != $params->pagination->total_pages ) {
+                    $params->pagination->next_page_link = $path . '/index-page-' . ( $params->pagination->current_page + 1 ). '.html';
+                } else {
+                    $params->pagination->next_page_link = '';
+                }
+
+                $params->content = array_slice( $all_content, ( $params->pagination->current_page - 1 ) * $content_per_page, $content_per_page );
+
+                $rendered_html = $this->template_engine->render( $template_name, $params );
+                file_put_contents( $filename, $rendered_html );  
+
+                $params->pagination->current_page++;
+
+                $params->pagination->prev_page_link = $params->pagination->cur_page_link;
+            }
+        }    
     }
 
     private function _find_and_fix_image( $content_type, $image_file, $current_path, $destination_path, $publish_date, $search_dirs = [ '', 'images/' ] ) {
@@ -217,14 +226,14 @@ class Builder {
         return $new_location;
     }
 
-    private function _get_pagination_links( $content_type, $total_pages ) {
+    private function _get_pagination_links( $path, $total_pages ) {
         $links = array();
 
         for ( $i = 0; $i < $total_pages; $i++ ) {
             $page = new \stdClass;
 
             $page->num = $i + 1;
-            $page->url = $i == 0 ? '/' . $content_type . '/index.html' : '/' . $content_type . '/index-page-' . ( $i+1 ) . '.html';
+            $page->url = $i == 0 ? $path . '/index.html' : $path . '/index-page-' . ( $i+1 ) . '.html';
 
             $links[] = $page;
         }

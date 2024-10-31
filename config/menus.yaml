@@ -1,4 +1,5 @@
 main:
   Home: /
+  Hiking: /pages/hiking.html
   About: /pages/about.html
   Contact: /pages/contact.html
