@@ -84,7 +84,7 @@ class Builder {
                                 }
                             }
 
-                            if ( isset( $params->content->description ) ) {
+                            if ( !$params->content->description ) {
                                 $params->content->description = $params->content->excerpt( 120, false );
                             }
 
