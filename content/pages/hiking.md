@@ -9,13 +9,13 @@ One of my favourite outdoor activities for the spring and summer months is outdo
 ## Completed Hikes
 
 - [West Coast Trail](https://www.pc.gc.ca/en/pn-np/bc/pacificrim/activ/SCO-WCT)\- BC, Canada - 75km
-- [Camino Frances - Spain (2017) - 800km](/travel/walking-the-camino-de-santiago/)
-- [West Highland Way - Scotland (2018) - 154km](/hiking/walking-the-west-highland-way-in-scotland/)
+- [Camino Frances - Spain (2017) - 800km](/posts/walking-the-camino-de-santiago.html)
+- [West Highland Way - Scotland (2018) - 154km](/posts/walking-the-west-highland-way-in-scotland.html)
 - Camino Finisterre - Spain (2019) - 90km
-- [Great Glenn Way](https://www.duanestorey.com) - Scotland (2020) - 125km
+- [Great Glenn Way](/posts/walking-the-great-glen-way-in-scotland.html) - Scotland (2020) - 125km
 
 ## Future Hikes
 
-- [Alta Via 2](/topic/hiking/italy-alta-via-2/) - Italian Dolomites (Summer 2021)
+- [Alta Via 2](/posts/getting-ready-to-walk-alta-via-2-in-italy.html) - Italian Dolomites (Summer 2021)
 - Camino Primitivo - Spain (post-COVID)
 - Camino Frances - Spain (2022)

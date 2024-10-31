@@ -1,8 +1,10 @@
 ---
 title: "Contact"
 date: "2010-09-24T05:19:42.000Z"
+coverImage: 'images/mail-photo.jpg'
 ---
 
-Please use the form below to contact me. It will likely take me a few days to get back to you.
+If you're looking to get in touch with me, the please way to do it is via email at duanestorey at gmail dot com.
 
-\[gravityform id="1" title="false" description="false"\]
+You can also find me on Twitter at [@DuaneStorey](https://x.com/duanestorey).
+
