@@ -186,7 +186,29 @@ Requests per second:    84.89 [#/sec] (mean)
 <p>This one change is obviously the most important, as it can make up for all the other inefficiencies in your server configuration. Once a page is cached using the page cache, additional requests for it do not cause PHP, MySQL, or the PHP handler to be used. So if you're only going to do one change then obviously based on these results adding a WordPress caching plugin is the way to go. But tips 1 through 4 will definitely help in real world scenarios where often many different pages are requested, as well as the administration panel from time to time.</p>
 <p>Taken together, all of these changes can significantly increase the responsive of your website as well as the amount of traffic it can handle. If you have a self-hosted WordPress website, on a shared-hosting environment, a dedicated sever or a VPS, then hopefully these tips will help increase the amount of traffic you can serve from your website.</p>
             </div>
-        </article>
+
+            <div class="comments">
+                <div id="disqus_thread"></div>
+                <script>
+                    /**
+                    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+                    
+                    var disqus_config = function () {
+                      this.page.url = "/posts/5-ways-to-speed-up-your-wordpress-website.html";  // Replace PAGE_URL with your page's canonical URL variable
+                      this.page.identifier = "d1b14d53f55f6c4138c373a795126863"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                    };
+                    
+                    (function() { // DON'T EDIT BELOW THIS LINE
+                    var d = document, s = d.createElement('script');
+                    s.src = 'https://duanestorey.disqus.com/embed.js';
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            </div>
+        </article>  
     </div>
 
 

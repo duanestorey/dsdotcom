@@ -18,6 +18,8 @@ class Content {
     var $markdown_html = '';
     var $featured_image = false;
     var $description = '';
+    var $slug = '';
+    var $unique = '';
 
     public function __construct() {
         $this->publish_date = time();

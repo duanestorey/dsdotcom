@@ -37,7 +37,29 @@
             <div class="content mt-3">
                 <p>So if you hadn't noticed, my blog has been really flaky for the last week or so. For some reason, all the hard drive space on my machine keeps disappearing, and it's causing mysql and apache to occasionally crash. I spent a few hours this morning trying to figure it out, so hopefully it will be a bit more stable soon. As for today, I'll probably hang out by the water for an hour or so, and then maybe do some grocery shopping. I'm going to get a membership tomorrow at the Bentall Fitness Center I think (gotta look good for Mexico right?). Looking forward to the long weekend coming up. I'd really like to get some camping in before summer ends.</p>
             </div>
-        </article>
+
+            <div class="comments">
+                <div id="disqus_thread"></div>
+                <script>
+                    /**
+                    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+                    
+                    var disqus_config = function () {
+                      this.page.url = "/posts/my-stupid-blog.html";  // Replace PAGE_URL with your page's canonical URL variable
+                      this.page.identifier = "5c6998f36dcfa7f5e34e1536b9546db8"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                    };
+                    
+                    (function() { // DON'T EDIT BELOW THIS LINE
+                    var d = document, s = d.createElement('script');
+                    s.src = 'https://duanestorey.disqus.com/embed.js';
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            </div>
+        </article>  
     </div>
 
 

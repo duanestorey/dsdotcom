@@ -38,7 +38,29 @@
                 <p>For those of you that primarily read this blog via my RSS feed, I'd appreciate it if you can update to my new feedburner one. I plan to add some flickr photos to the stream from time to time, as well some goodies from a few other sites.</p>
 <p>You can <a href="feed://feeds.feedburner.com/duanestorey?format=xml">access the new link here</a>. I'll override the old one too at some point when I have time, but it helps if you do this manually for now. Thanks.</p>
             </div>
-        </article>
+
+            <div class="comments">
+                <div id="disqus_thread"></div>
+                <script>
+                    /**
+                    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+                    
+                    var disqus_config = function () {
+                      this.page.url = "/posts/new-rss-feed.html";  // Replace PAGE_URL with your page's canonical URL variable
+                      this.page.identifier = "a0bc09f47fbf0abee0f7a8bef41aca05"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                    };
+                    
+                    (function() { // DON'T EDIT BELOW THIS LINE
+                    var d = document, s = d.createElement('script');
+                    s.src = 'https://duanestorey.disqus.com/embed.js';
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            </div>
+        </article>  
     </div>
 
 

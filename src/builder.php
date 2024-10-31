@@ -61,6 +61,8 @@ class Builder {
                             $params->content->markdown_html = $markdown->html();
                             $params->content->markdown_file = $markdown_file;
                             $params->content->url = $content_slug;
+                            $params->content->slug = $content_slug;
+                            $params->content->unique = md5( $content_slug );
 
                             $params->is_single = true;
 

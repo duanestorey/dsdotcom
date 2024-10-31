@@ -38,7 +38,29 @@
                 <p>I was going to post a big blog entry this morning, but then I realized I really have nothing to say. So, I figured I'd turn the tables a bit and see if any of my readers want to say anything. Feel free to go to town in the comments. Tell a story, do a dance, whatever you feel like! Tell everyone what's on your mind, or what the best part of your day was so far.</p>
 <p>If you've never commented before, feel free to introduce yourself to everyone.</p>
             </div>
-        </article>
+
+            <div class="comments">
+                <div id="disqus_thread"></div>
+                <script>
+                    /**
+                    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+                    
+                    var disqus_config = function () {
+                      this.page.url = "/posts/nothing-to-say.html";  // Replace PAGE_URL with your page's canonical URL variable
+                      this.page.identifier = "c9a04d36eb543866a31f475c9c55bb82"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                    };
+                    
+                    (function() { // DON'T EDIT BELOW THIS LINE
+                    var d = document, s = d.createElement('script');
+                    s.src = 'https://duanestorey.disqus.com/embed.js';
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            </div>
+        </article>  
     </div>
 
 

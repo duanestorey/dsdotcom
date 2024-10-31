@@ -39,7 +39,29 @@
 <p>The one thing I've found out is that their base plan (which only included 160 MB of memory) just isn't powerful enough to run more than a small WordPress site. I spent a bunch of time reducing the memory requirements of Apache and MySQL, but my efforts just weren't successful. Every once and a while an application would crash with a kernel out of memory warning which would basically render the site inoperable. The guys at Rimu actually tried to help me make it all work, but they basically recommended upgrading the virtual server, as Apache is pretty much a memory hog.</p>
 <p>Thankfully Rimu allows you to customize your plan from their control panel, so I upgraded my memory to 400 MB and also increased my transfer allowance. In total I'm paying about $25/month right now, which is still totally reasonable. I'm also going to try to install lighttpd today on the server and use it to serve the static content (images, javascript, css), since apparently it's lightning fast at anything that doesn't involve PHP. Once I find a configuration that seems to work flawlessly, I'll start posting some of my configuration files. I've found <a href="http://emergent.urbanpug.com/?p=61">this guy's site</a> is a pretty great resource for configuring MySQL and Apache for low memory configurations.</p>
             </div>
-        </article>
+
+            <div class="comments">
+                <div id="disqus_thread"></div>
+                <script>
+                    /**
+                    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+                    
+                    var disqus_config = function () {
+                      this.page.url = "/posts/rimu-hosting-update.html";  // Replace PAGE_URL with your page's canonical URL variable
+                      this.page.identifier = "180f61aa4bbf41f3698218f15d5c53dd"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                    };
+                    
+                    (function() { // DON'T EDIT BELOW THIS LINE
+                    var d = document, s = d.createElement('script');
+                    s.src = 'https://duanestorey.disqus.com/embed.js';
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            </div>
+        </article>  
     </div>
 
 

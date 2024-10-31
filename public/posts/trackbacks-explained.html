@@ -42,7 +42,29 @@
 <p>If Clay wants to reference something in my blog, what he should do is either copy that link of text, or right click on it (depending on your OS) and click "Copy Link Location". Then on his blog, when he references something I wrote, he can use that as the URL. Under the hood, this will cause my blog software to automatically add a comment indicating that Clay has referenced my blog entry, and has added some witty words of his own. It allows not only communcation amongst blog software, but also amongst the people that read individual blogs.</p>
 <p>So, if you didn't know what a trackback URL was, now you do. If you're new to WordPress and looking for some additional help, check out <a href="http://amzn.to/17W9I8H">WordPress for Dummies</a> on Amazon.</p>
             </div>
-        </article>
+
+            <div class="comments">
+                <div id="disqus_thread"></div>
+                <script>
+                    /**
+                    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+                    
+                    var disqus_config = function () {
+                      this.page.url = "/posts/trackbacks-explained.html";  // Replace PAGE_URL with your page's canonical URL variable
+                      this.page.identifier = "b0cef20779df55ecfe92842fac2edb54"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                    };
+                    
+                    (function() { // DON'T EDIT BELOW THIS LINE
+                    var d = document, s = d.createElement('script');
+                    s.src = 'https://duanestorey.disqus.com/embed.js';
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            </div>
+        </article>  
     </div>
 
 

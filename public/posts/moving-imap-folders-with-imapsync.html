@@ -40,7 +40,29 @@
 <p>This time I wanted to try another method, that is using the popular <a href="http://freshmeat.net/projects/imapsync/">imapsync</a> project. Basically you can give it a source account and a destination account, and it'll do the rest. The main benefit of it is that you can run it on a server, removing the need to proxy anything through your local machine. In addition, it works similarly to rsync -- if a message has already been moved, it'll be skipped the next time. So if the process quits half way through, you don't have to redo all the previously moved messages -- it's smart enough to know what's been moved and what hasn't been.</p>
 <p>There's one obvious downside, and that is all the new messages end up with a "Received Date" of today using the second method. That's because the received date isn't a real IMAP field -- it's kept by local mail programs. So while Apple Mail preserves it when it's involved in a copy, doing a server to server synchronization ends up clearing that field. That being said, IMAP has a "Sent Date" field which should in almost all cases match the received date, so you can still tell when the message was sent that way.</p>
             </div>
-        </article>
+
+            <div class="comments">
+                <div id="disqus_thread"></div>
+                <script>
+                    /**
+                    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+                    
+                    var disqus_config = function () {
+                      this.page.url = "/posts/moving-imap-folders-with-imapsync.html";  // Replace PAGE_URL with your page's canonical URL variable
+                      this.page.identifier = "2b344f38b2515f883a54719c133efaaf"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                    };
+                    
+                    (function() { // DON'T EDIT BELOW THIS LINE
+                    var d = document, s = d.createElement('script');
+                    s.src = 'https://duanestorey.disqus.com/embed.js';
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            </div>
+        </article>  
     </div>
 
 

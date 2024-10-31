@@ -48,7 +48,29 @@
 <p>I was thinking last night of the consequences of always using the true permalink under the hood, even if friendly permalinks were enabled in WordPress. Truthfully, I think it would work just fine, since WordPress automatically does a 301 redirect from the true permalink to the friendly permalink, the former of which is not susceptible at all to link-rot (as long as the blog address doesn't change). It adds some header traffic for the 301 redirects, but should always work, even if the URL structure is changed at a later time.</p>
 <p>Anyways, some food for thought.</p>
             </div>
-        </article>
+
+            <div class="comments">
+                <div id="disqus_thread"></div>
+                <script>
+                    /**
+                    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+                    
+                    var disqus_config = function () {
+                      this.page.url = "/posts/the-non-permanency-of-wordpress-permalinks.html";  // Replace PAGE_URL with your page's canonical URL variable
+                      this.page.identifier = "f94982226e59a1ef59e9ccf0269bf0aa"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                    };
+                    
+                    (function() { // DON'T EDIT BELOW THIS LINE
+                    var d = document, s = d.createElement('script');
+                    s.src = 'https://duanestorey.disqus.com/embed.js';
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            </div>
+        </article>  
     </div>
 
 

@@ -42,7 +42,29 @@
 <p>My personal goal is to make it so that developing a site on my local machine is nearly identical to developing a site on a remote machine. Having everything on one server facilitates that quite nicely. For example, the Server Beach MySQL server is configured as a master, and my personal laptop machine is configured as as MySQL slave. So whenever I do a posting to duanestorey.com (which resides on Server Beach), the database is automatically synchronized with my laptop. The next step will be to synchronize the files (through some combination of SVN and DropBox), at which point I'll have pretty much an exact replica of the live sites on my laptop (and so will Dale hopefully), which means I can develop without an internet connection, and simply synchronize everything to the live server whenever I'm plugged in.</p>
 <p>So, hopefully by the end of this week we'll have shut down all our other hosting accounts. If anyone is considering moving to Server Beach, feel free to use our referral code: SXHH4BQ82M. I believe you'll save $100 on your first month's bill, and we'll also get a kickback to help us out as well.</p>
             </div>
-        </article>
+
+            <div class="comments">
+                <div id="disqus_thread"></div>
+                <script>
+                    /**
+                    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+                    
+                    var disqus_config = function () {
+                      this.page.url = "/posts/consolidation.html";  // Replace PAGE_URL with your page's canonical URL variable
+                      this.page.identifier = "66540f4b8334e4f2c1b3fabac0512c80"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                    };
+                    
+                    (function() { // DON'T EDIT BELOW THIS LINE
+                    var d = document, s = d.createElement('script');
+                    s.src = 'https://duanestorey.disqus.com/embed.js';
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            </div>
+        </article>  
     </div>
 
 

@@ -38,7 +38,29 @@
                 <p>For those of you who follow what goes on in the web services part of the internet, this little tidbit may interest you. Amazon has offered relatively cheap cloud computer for the last year or so, but one of the major downsides was that it didn't have a static IP address. So if all your machines / images were to crash at the same time (which has happened before due to a power or internet outage), you lose your IP address and potentially may be allocated a new one when you restart your service.</p>
 <p>Today Amazon announced that they are offered Elastic IP addresses (which is a funky way of saying Static IP addresses). That should make it more appealing for people trying to set up services there.</p>
             </div>
-        </article>
+
+            <div class="comments">
+                <div id="disqus_thread"></div>
+                <script>
+                    /**
+                    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+                    
+                    var disqus_config = function () {
+                      this.page.url = "/posts/amazon-ec2-now-with-static-ip-address.html";  // Replace PAGE_URL with your page's canonical URL variable
+                      this.page.identifier = "4e9689b2634857d2e6f6ad28140c25be"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                    };
+                    
+                    (function() { // DON'T EDIT BELOW THIS LINE
+                    var d = document, s = d.createElement('script');
+                    s.src = 'https://duanestorey.disqus.com/embed.js';
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            </div>
+        </article>  
     </div>
 
 

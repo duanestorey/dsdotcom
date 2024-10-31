@@ -40,7 +40,29 @@
 <p>I've slowly been tinkering away at Crossroads as well. Last night I added client side caching of the Flickr API requests, which should make most photography pages load a lot faster (at least when the data is already in the cache). I also added all the code such that I can import Flickr comments into each photo area, but I'm holding off flipping the switch on that until I can come up with a decent way to present it (it'll probably be AJAX when it's done, as getting the comment avatars is expensive from a Flickr API point of view and I don't really want to slow down each page load because of it). Hopefully I'll have time to finish version 2.0 of Crossroads in the next few weeks and finally release it.</p>
 <p>Anyways, I'll keep building this out over the next little while, and hopefully release a full featured photography theme at some point. Seems like there's definitely some interest in the microstock implementation as well, so I'll hack that out at the same time.</p>
             </div>
-        </article>
+
+            <div class="comments">
+                <div id="disqus_thread"></div>
+                <script>
+                    /**
+                    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+                    
+                    var disqus_config = function () {
+                      this.page.url = "/posts/website-update.html";  // Replace PAGE_URL with your page's canonical URL variable
+                      this.page.identifier = "ead6a63fad99b689e3d5477ebdb9104f"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                    };
+                    
+                    (function() { // DON'T EDIT BELOW THIS LINE
+                    var d = document, s = d.createElement('script');
+                    s.src = 'https://duanestorey.disqus.com/embed.js';
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            </div>
+        </article>  
     </div>
 
 

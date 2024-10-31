@@ -44,7 +44,29 @@
 <p>If Google reader provided an API to extract comments from blog entries, I would have long ago written a plugin to automatically post comments on blogs from their service. But unfortunately they do not. And since Twitter doesn't really provide any kind of threading ability with regards to messages, there's really no context to the information there. So today, we live in a world where it somehow seems easier to fracture content than to create it, which is dangerous and disadvantageous in my mind.</p>
 <p>In my head, my blog has always been paramount to the world of Duane Storey. Twitter, Flickr, and Facebook should all be secondary. The content that ends up there, in my mind, should somehow originate from here, and likewise, comments and meta data should end up back here. The internet representation of Duane Storey is, and always will be, duanestorey.com. It will be my goal, as long as I have the ability to write PHP and boot a computer up, to try and bring all this information together instead of letting it all drift apart. And while I don't mind these services using the data (there's nothing wrong with filtering data or representing it a different way), I always want my site to represent all the content I generate, and likewise, want the discussions to end up here. Maybe that's a pipe dream, but I really don't think it is.</p>
             </div>
-        </article>
+
+            <div class="comments">
+                <div id="disqus_thread"></div>
+                <script>
+                    /**
+                    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+                    
+                    var disqus_config = function () {
+                      this.page.url = "/posts/the-fracturing-of-content.html";  // Replace PAGE_URL with your page's canonical URL variable
+                      this.page.identifier = "07a63dd5e6cf21b4f64b92341786dfdf"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                    };
+                    
+                    (function() { // DON'T EDIT BELOW THIS LINE
+                    var d = document, s = d.createElement('script');
+                    s.src = 'https://duanestorey.disqus.com/embed.js';
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            </div>
+        </article>  
     </div>
 
 
