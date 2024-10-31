@@ -1,7 +1,6 @@
-.content img.img-thumbnail {
+.container .content img.img-thumbnail {
     float: left;
-    max-width: 220px;
-    max-height: 220px;
+    max-width: 230px;
     margin-right: 20px;
     margin-bottom: 20px;
 }
