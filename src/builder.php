@@ -63,6 +63,7 @@ class Builder {
                             $params->content->url = $content_slug;
                             $params->content->slug = $content_slug;
                             $params->content->unique = md5( $content_slug );
+                            $params->content->taxonomy = array();
 
                             $params->is_single = true;
 
@@ -84,7 +85,17 @@ class Builder {
                                 if ( isset( $front[ 'description' ] ) ) {
                                     $params->content->description = $front[ 'description' ];
                                 }
+
+                                if ( isset( $front[ 'categories'] ) ) {
+                                    $params->content->taxonomy = array_merge( $params->content->taxonomy, $front[ 'categories'] );
+                                }
+
+                                if ( isset( $front[ 'tags'] ) ) {
+                                    $params->content->taxonomy = array_merge( $params->content->taxonomy, $front[ 'tags'] );
+                                }
                             }
+
+                            $params->content->taxonomy = array_map( function( $e ) { return str_replace( '-', ' ', $e ); }, $params->content->taxonomy );
 
                             if ( !$params->content->description ) {
                                 $params->content->description = $params->content->excerpt( 120, false );

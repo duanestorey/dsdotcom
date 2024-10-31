@@ -3,7 +3,20 @@
     <div class="container mt-4">
         <article>    
             <h2 class="mt-4">{$content->title}</h2>
-            <div class="meta mb-2 text-primary fs-6 fw-light">Published {$content->publish_date|date:'F jS, Y'}</div>
+            <div class="meta mb-2 text-primary fs-6 fw-light">
+                <div class="row">
+                    <div class="col">
+                        Published {$content->publish_date|date:'F jS, Y'}
+                    </div>
+                    <div class="col text-end">
+                {if $content->taxonomy}
+                    {foreach $content->taxonomy as $tax}
+                        <button type="button" class="btn btn-secondary btn-sm">{$tax}</button>
+                    {/foreach}
+                {/if}
+                 </div>
+                </div>
+            </div>
 
             <div class="content mt-3">
                 {if $content->featured_image}
