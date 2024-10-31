@@ -7,6 +7,10 @@
 
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charset="{$site->charset}" />
+
+        {if $is_single}
+        <meta name="description" value="{$content->description}" />
+        {/if}
     </head>
     <body class="{$page->body_classses}">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">

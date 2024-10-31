@@ -62,6 +62,8 @@ class Builder {
                             $params->content->markdown_file = $markdown_file;
                             $params->content->url = $content_slug;
 
+                            $params->is_single = true;
+
                             $all_content[] = $params->content;
 
                             if ( $front = $markdown->front_matter() ) {
@@ -76,6 +78,14 @@ class Builder {
                                 if ( isset( $front[ 'coverImage' ] ) ) {
                                     $params->content->featured_image = $front[ 'coverImage' ];
                                 }
+
+                                if ( isset( $front[ 'description' ] ) ) {
+                                    $params->content->description = $front[ 'description' ];
+                                }
+                            }
+
+                            if ( isset( $params->content->description ) ) {
+                                $params->content->description = $params->content->excerpt( 120, false );
                             }
 
                             $params->page->title = $params->content->title;
@@ -295,6 +305,8 @@ class Builder {
         $params->page->asset_hash = $this->theme->get_asset_hash();
         $params->page->body_classes_raw = $body_classes_raw;
         $params->page->body_classses = implode( ' ', $params->page->body_classes_raw );    
+
+        $params->is_single = false;
 
         return $params;
     }

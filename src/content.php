@@ -17,6 +17,7 @@ class Content {
     var $markdown_file = '';
     var $markdown_html = '';
     var $featured_image = false;
+    var $description = '';
 
     public function __construct() {
         $this->publish_date = time();
@@ -26,7 +27,12 @@ class Content {
         $this->title = $title;
     }
 
-    public function excerpt() {
-        return substr( strip_tags( $this->markdown_html ), 0, 500 ) . '...';
+    public function excerpt( $length = 500, $include_ellipsis = true ) {
+        $str = substr( strip_tags( $this->markdown_html ), 0, $length );
+        if ( $include_ellipsis ) {
+            $str = $str . '...';
+        }
+
+        return $str;
     }
 }
