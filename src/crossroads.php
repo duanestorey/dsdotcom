@@ -9,6 +9,7 @@ require_once( 'src/markdown.php' );
 require_once( 'src/template-engine.php' );
 require_once( 'src/exception.php' );
 require_once( 'src/content.php' );
+require_once( 'src/menu.php' );
 require_once( 'src/yaml.php' );
 require_once( 'src/theme.php' );
 require_once( 'src/utils.php' );
@@ -41,7 +42,7 @@ class Engine {
     }
 
     private function _load_config() {
-        $this->config = YAML::parse_file( 'config/site.yaml' );
+        $this->config = YAML::parse_file( CROSSROAD_BASE_DIR . '/config/site.yaml' );
     }
 
     private function _check_config() {

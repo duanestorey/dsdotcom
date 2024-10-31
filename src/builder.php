@@ -8,6 +8,7 @@ class Builder {
     var $total_pages = 0;
     var $template_engine = null;
     var $theme = null;
+    var $menu = null;
 
     public function __construct( $config ) {
         $this->config = $config;
@@ -21,6 +22,7 @@ class Builder {
         @mkdir( CROSSROAD_PUBLIC_DIR . '/assets' );
 
         $this->_setup_theme();
+        $this->_setup_menus();
 
         $this->start_time = microtime( true );
 
@@ -46,16 +48,19 @@ class Builder {
                         if ( $markdown->load_file( $markdown_file ) ) {
                             $this->total_pages++;
 
-                            $output_file = CROSSROAD_PUBLIC_DIR . '/' . $content_type . '/' . pathinfo( $markdown_file, PATHINFO_FILENAME ) . '.html';
+                            $content_slug = '/' . $content_type . '/' . pathinfo( $markdown_file, PATHINFO_FILENAME ) . '.html';
+
+                            $output_file = CROSSROAD_PUBLIC_DIR . $content_slug;
 
                             $params = $this->_get_default_render_params( 
-                                array( $content_type, $content_type . '-' . pathinfo( $markdown_file, PATHINFO_FILENAME ) ) 
+                                array( $content_type, $content_type . '-' . pathinfo( $markdown_file, PATHINFO_FILENAME ) ),
+                                $content_slug
                             );
 
                             $params->content = new Content;
                             $params->content->markdown_html = $markdown->html();
                             $params->content->markdown_file = $markdown_file;
-                            $params->content->url = '/' . $content_type . '/' . pathinfo( $markdown_file, PATHINFO_FILENAME ) . '.html';
+                            $params->content->url = $content_slug;
 
                             $all_content[] = $params->content;
 
@@ -125,8 +130,10 @@ class Builder {
                 // process all content
                 usort( $all_content, 'CR\cr_sort' );
 
+                // this is wrong, but fix later
                 $params = $this->_get_default_render_params( 
-                    array( $content_type . '-' . pathinfo( $markdown_file, PATHINFO_FILENAME ) ) 
+                    array( $content_type . '-' . pathinfo( $markdown_file, PATHINFO_FILENAME ) ),
+                    '/' . $content_type
                 );
 
                 $content_per_page = 10;
@@ -225,7 +232,7 @@ class Builder {
         return $links;
     }
 
-    private function _get_default_render_params( $body_classes_raw ) {
+    private function _get_default_render_params( $body_classes_raw, $current_slug ) {
         $params = new \stdClass;
         $params->site = new \stdClass;
         $params->site->title = $this->config[ 'site' ][ 'name' ];
@@ -240,6 +247,8 @@ class Builder {
             $params->site->charset = $this->config[ 'site' ][ 'charset' ];
         }
 
+        $params->menu = $this->menu->build( 'main', $current_slug );
+
         $params->page = new \stdClass;
         $params->page->asset_url = '../assets';
         $params->page->asset_hash = $this->theme->get_asset_hash();
@@ -247,6 +256,11 @@ class Builder {
         $params->page->body_classses = implode( ' ', $params->page->body_classes_raw );    
 
         return $params;
+    }
+
+    private function _setup_menus() {
+        $this->menu = new Menu();
+        $this->menu->load_menus();
     }
 
     private function _setup_theme() {

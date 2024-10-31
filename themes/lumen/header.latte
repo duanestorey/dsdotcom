@@ -17,10 +17,9 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a class="nav-item nav-link active" href="/">Home</a>
-                        <a class="nav-item nav-link" href="#">Features</a>
-                        <a class="nav-item nav-link" href="#">Pricing</a>
-                        <a class="nav-item nav-link disabled" href="#">Disabled</a>
+                        {foreach $menu as $menu_item}
+                            <a class="nav-item nav-link{if $menu_item->is_active} active{/if}" href="{$menu_item->url}">{$menu_item->name}</a>
+                        {/foreach}
                     </div>
                 </div>
             </div>
