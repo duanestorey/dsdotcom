@@ -231,7 +231,7 @@ class Builder {
 
                         $image = imagecreatefromjpeg( $current_path . '/' . $original_image_file );
                         if ( $image ) {
-                            imagewebp( $image, $destination_file, 90 );
+                            imagewebp( $image, $destination_file, 85 );
                             imagedestroy( $image );
                         }
                     } else {
