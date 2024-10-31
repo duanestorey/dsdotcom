@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link rel="stylesheet" href="../assets/lumen.css?v=99ce74fd36ded7d962768af18688f4c8">
-        <script src="../assets/lumen.min.js?v=99ce74fd36ded7d962768af18688f4c8" async></script>
+        <link rel="stylesheet" href="../assets/lumen.css?v=33b3bb9b908ae6012bebcc870eb24ca4">
+        <script src="../assets/lumen.min.js?v=33b3bb9b908ae6012bebcc870eb24ca4" async></script>
         <title>Rimu Hosting Update</title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,7 +14,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" href="/">The Duane Storey</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
@@ -33,25 +33,22 @@
         <article>    
             <h2 class="mt-4">Rimu Hosting Update</h2>
             <div class="meta mb-2 text-primary fs-6 fw-light">
-                <div class="row">
-                    <div class="col">
-                        Published March 8th, 2009
-                    </div>
-                    <div class="col text-end">
-                        <button type="button" class="btn btn-secondary btn-sm">journal</button>
-                        <button type="button" class="btn btn-secondary btn-sm">apache</button>
-                        <button type="button" class="btn btn-secondary btn-sm">lighttp</button>
-                        <button type="button" class="btn btn-secondary btn-sm">php</button>
-                        <button type="button" class="btn btn-secondary btn-sm">rimu hosting</button>
-                        <button type="button" class="btn btn-secondary btn-sm">web 5</button>
-                 </div>
-                </div>
+                 Published March 8th, 2009
             </div>
 
             <div class="content mt-3">
                 <p>So I've had my website on Rimu for over a week now, and so far things are going quite well. I've actually had a few support requests in with them, mostly trivial items, and they've answered everything in about 30 minutes, which is great.</p>
 <p>The one thing I've found out is that their base plan (which only included 160 MB of memory) just isn't powerful enough to run more than a small WordPress site. I spent a bunch of time reducing the memory requirements of Apache and MySQL, but my efforts just weren't successful. Every once and a while an application would crash with a kernel out of memory warning which would basically render the site inoperable. The guys at Rimu actually tried to help me make it all work, but they basically recommended upgrading the virtual server, as Apache is pretty much a memory hog.</p>
 <p>Thankfully Rimu allows you to customize your plan from their control panel, so I upgraded my memory to 400 MB and also increased my transfer allowance. In total I'm paying about $25/month right now, which is still totally reasonable. I'm also going to try to install lighttpd today on the server and use it to serve the static content (images, javascript, css), since apparently it's lightning fast at anything that doesn't involve PHP. Once I find a configuration that seems to work flawlessly, I'll start posting some of my configuration files. I've found <a href="http://emergent.urbanpug.com/?p=61">this guy's site</a> is a pretty great resource for configuring MySQL and Apache for low memory configurations.</p>
+
+                    <div class="tax">
+                        <button type="button" class="btn btn-secondary btn-sm">journal</button>
+                        <button type="button" class="btn btn-secondary btn-sm">apache</button>
+                        <button type="button" class="btn btn-secondary btn-sm">lighttp</button>
+                        <button type="button" class="btn btn-secondary btn-sm">php</button>
+                        <button type="button" class="btn btn-secondary btn-sm">rimu hosting</button>
+                        <button type="button" class="btn btn-secondary btn-sm">web 5</button>
+                    </div>
             </div>
 
             <div class="comments mt-4 pt-4">
@@ -81,7 +78,7 @@
 
         <footer class="bg-dark pt-4 pb-4 mt-4 mb-4">
             <div class="container text-center text-white">
-                All content copyright &copy; 2024 &middot; Content generated using Crossroads static generator.
+                All content copyright &copy; 2024<br/>Content generated using Crossroads static generator.
             </div>
         </footer>   
     </body>

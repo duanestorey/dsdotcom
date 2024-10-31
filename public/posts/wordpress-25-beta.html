@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link rel="stylesheet" href="../assets/lumen.css?v=99ce74fd36ded7d962768af18688f4c8">
-        <script src="../assets/lumen.min.js?v=99ce74fd36ded7d962768af18688f4c8" async></script>
+        <link rel="stylesheet" href="../assets/lumen.css?v=33b3bb9b908ae6012bebcc870eb24ca4">
+        <script src="../assets/lumen.min.js?v=33b3bb9b908ae6012bebcc870eb24ca4" async></script>
         <title>Wordpress 2.5 Beta</title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,7 +14,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" href="/">The Duane Storey</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
@@ -33,21 +33,7 @@
         <article>    
             <h2 class="mt-4">Wordpress 2.5 Beta</h2>
             <div class="meta mb-2 text-primary fs-6 fw-light">
-                <div class="row">
-                    <div class="col">
-                        Published March 6th, 2008
-                    </div>
-                    <div class="col text-end">
-                        <button type="button" class="btn btn-secondary btn-sm">journal</button>
-                        <button type="button" class="btn btn-secondary btn-sm">2 5</button>
-                        <button type="button" class="btn btn-secondary btn-sm">avatars</button>
-                        <button type="button" class="btn btn-secondary btn-sm">beta</button>
-                        <button type="button" class="btn btn-secondary btn-sm">blog</button>
-                        <button type="button" class="btn btn-secondary btn-sm">gravatars</button>
-                        <button type="button" class="btn btn-secondary btn-sm">php</button>
-                        <button type="button" class="btn btn-secondary btn-sm">wordpress 21</button>
-                 </div>
-                </div>
+                 Published March 6th, 2008
             </div>
 
             <div class="content mt-3">
@@ -59,6 +45,17 @@
 <p>As you can see in the photo, all you can do within the post page is write the entry, give it a title, and publish it. Every other feature associated with the post has been moved underneath it. Not sure this is the best approach in terms of usability. Also note that the main sidebar essentially has the post status (which rarely changes in typical usage) and a navigation panel (which seems redundant since the top menu system allows you to navigate as well). That's some prime real-estate, and I think it would be better served by having the tags or categories back up there.</p>
 <p>Another addition under the hood is Wordpress now supports gravatars within the code. Prior to version 2.5, you needed to install a gravatar plugin. Now you can simply make a PHP function call to get the associated gravatar for a user. You can <a href="http://weblogtoolscollection.com/archives/2008/03/03/gravatars-and-wordpress-25/">read more about the gravatar changes in 2.5 here</a>. While I'm on the topic, one thing that's always bothered me about using gravatars is what happens when a user does not have one. Typically the gravatar service returns a static image of a generic person. While you can override this and supply your own image, you basically are forced to show that image in your theme. I'd really like to see something along the lines of a has_gravatar() function where you could fork your code to show something specific for people with images. I recognize that would result in a server call per user (you could obviously optimize this by asking for a completely list of users in one call), but that would be something I'd be happy to live with to get the desired theme I'd want.</p>
 <p>I'll save the rest for when the official Wordpress 2.5 product is released (rumours are sometime around March 10th). There are some more screen shots over on my Flickr page if anyone is interested.</p>
+
+                    <div class="tax">
+                        <button type="button" class="btn btn-secondary btn-sm">journal</button>
+                        <button type="button" class="btn btn-secondary btn-sm">2 5</button>
+                        <button type="button" class="btn btn-secondary btn-sm">avatars</button>
+                        <button type="button" class="btn btn-secondary btn-sm">beta</button>
+                        <button type="button" class="btn btn-secondary btn-sm">blog</button>
+                        <button type="button" class="btn btn-secondary btn-sm">gravatars</button>
+                        <button type="button" class="btn btn-secondary btn-sm">php</button>
+                        <button type="button" class="btn btn-secondary btn-sm">wordpress 21</button>
+                    </div>
             </div>
 
             <div class="comments mt-4 pt-4">
@@ -88,7 +85,7 @@
 
         <footer class="bg-dark pt-4 pb-4 mt-4 mb-4">
             <div class="container text-center text-white">
-                All content copyright &copy; 2024 &middot; Content generated using Crossroads static generator.
+                All content copyright &copy; 2024<br/>Content generated using Crossroads static generator.
             </div>
         </footer>   
     </body>

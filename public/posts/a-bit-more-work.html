@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link rel="stylesheet" href="../assets/lumen.css?v=99ce74fd36ded7d962768af18688f4c8">
-        <script src="../assets/lumen.min.js?v=99ce74fd36ded7d962768af18688f4c8" async></script>
+        <link rel="stylesheet" href="../assets/lumen.css?v=33b3bb9b908ae6012bebcc870eb24ca4">
+        <script src="../assets/lumen.min.js?v=33b3bb9b908ae6012bebcc870eb24ca4" async></script>
         <title>A bit more work</title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,7 +14,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" href="/">The Duane Storey</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
@@ -33,20 +33,17 @@
         <article>    
             <h2 class="mt-4">A bit more work</h2>
             <div class="meta mb-2 text-primary fs-6 fw-light">
-                <div class="row">
-                    <div class="col">
-                        Published January 21st, 2007
-                    </div>
-                    <div class="col text-end">
-                        <button type="button" class="btn btn-secondary btn-sm">journal</button>
-                 </div>
-                </div>
+                 Published January 21st, 2007
             </div>
 
             <div class="content mt-3">
                 <p>So I had a few more hours today to mess around with the website. I really wanted to integrate flickr comments into the wordpress ones somehow, but I didn't see an easy way without changing some of wordpress under the hood. However, I've still managed to get the comments showing up in nearly the right place. If you click the title of a blog entry, it will take you to the single post page where you'll see all the blog comments along with the flickr ones.</p>
 <p>I've added a few photos to this entry just to demonstrate. Once this is all over I'm gonna clean up the plugin I wrote and release it to the public. There are a few other similar ones, but I still have a few tricks up my sleeve.</p>
 <p>I'm actually really happy with how this is turning out so far. I think it goes pretty far along the path of tying some of the technologies I use on a routine basis together. There's still a lot of places I can go, but I think this will be great in the future when I start diving into photography regularly, and writing about more important things. My original goal was to abstract all the content on the blog into a series of thumbnails, be it text blog entries, mp3 files, flickr photos, etc.. Everything was going to be a thumbnail with an action associated with it. I still would like to add a media player to the viewer, and possibly a video player as well. We'll see though. I'd love feedback, or any ideas that anyone has.</p>
+
+                    <div class="tax">
+                        <button type="button" class="btn btn-secondary btn-sm">journal</button>
+                    </div>
             </div>
 
             <div class="comments mt-4 pt-4">
@@ -76,7 +73,7 @@
 
         <footer class="bg-dark pt-4 pb-4 mt-4 mb-4">
             <div class="container text-center text-white">
-                All content copyright &copy; 2024 &middot; Content generated using Crossroads static generator.
+                All content copyright &copy; 2024<br/>Content generated using Crossroads static generator.
             </div>
         </footer>   
     </body>

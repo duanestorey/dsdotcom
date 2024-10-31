@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link rel="stylesheet" href="../assets/lumen.css?v=99ce74fd36ded7d962768af18688f4c8">
-        <script src="../assets/lumen.min.js?v=99ce74fd36ded7d962768af18688f4c8" async></script>
+        <link rel="stylesheet" href="../assets/lumen.css?v=33b3bb9b908ae6012bebcc870eb24ca4">
+        <script src="../assets/lumen.min.js?v=33b3bb9b908ae6012bebcc870eb24ca4" async></script>
         <title>My First And Last Week With Windows Vista</title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,7 +14,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" href="/">The Duane Storey</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
@@ -33,19 +33,7 @@
         <article>    
             <h2 class="mt-4">My First And Last Week With Windows Vista</h2>
             <div class="meta mb-2 text-primary fs-6 fw-light">
-                <div class="row">
-                    <div class="col">
-                        Published February 19th, 2007
-                    </div>
-                    <div class="col text-end">
-                        <button type="button" class="btn btn-secondary btn-sm">technology</button>
-                        <button type="button" class="btn btn-secondary btn-sm">microsoft</button>
-                        <button type="button" class="btn btn-secondary btn-sm">operating system</button>
-                        <button type="button" class="btn btn-secondary btn-sm">vista</button>
-                        <button type="button" class="btn btn-secondary btn-sm">windows</button>
-                        <button type="button" class="btn btn-secondary btn-sm">xp</button>
-                 </div>
-                </div>
+                 Published February 19th, 2007
             </div>
 
             <div class="content mt-3">
@@ -65,6 +53,15 @@
 <p>Let's talk about the new security model in Vista for a sec. They've tried to make this work alot better, but the problem is that they've also tried to remain backwards compatible with a whole bunch of software that was written assuming it had administrator privileges. This has created some weird half-breed of a security model that is more annoying than useful. Here are some examples. I use OpenVPN to connect to my work network when I'm at home. That broke immediately upon installing Vista. It appears that it needs to spawn a command prompt and update the routing tables within the kernel. Unfortunately, those commands require elevated privileges which OpenVPN doesn't have by default, and for whatever reason, Vista doesn't prompt me for them. I imagine I can somehow fuck around with some manifest file or something to make this work, but what a pain in the ass. Also, I opened a command prompt today and tried to flush my DNS cache while working on my web page. That requires elevated privileges too, which for some stupid reason, you can't get while you're in a DOS prompt. So, you have to muck around in the start menu with some cleverly placed right clicks to finally get a command prompt with the properly security levels.</p>
 <p>How about the media stuff? Well, as a voice over IP person, I was really excited about the promise of tickless audio that the Vista sound engineers promised years ago. So, I fired up a few voip applications when I got everything worked and guess what.. Tick. Tick. Tick. Better luck next time. At least the sound mixer is a lot cooler. Instead of simply WAVE and MAIN, you actually get a proper slider for each application that uses audio. So finally, I have my music at a certain level and my voip calls at another level. They get a star for this one. Unfortunately, iTunes currently doesn't work with Vista (something I found out after the fact), so none of my purchased iTunes music works anymore.</p>
 <p>So.. Am I happy with Vista? Nope, not at all. It's clearly not ready. Maybe me performing an upgrade has made this far worse than it would have been if I had done a clean install, but why offer an upgrade mechanism if it's this shoddy? If you're gonna require a separate partition for a clean install, then please include some kind of partition manager on the installation CD. It's not really fair that consumers have to go spend another $50 program to pull this off. Also, 1 GB is arguably not enough memory these days, but it's not exactly that bad either. So I'm pretty disappointed that it doesn't run properly on my machine. Am I going to spend $300 and get more RAM, hoping that it gets better? I doubt it. Maybe I'll just start saving for that Macintosh computer I've always wanted.</p>
+
+                    <div class="tax">
+                        <button type="button" class="btn btn-secondary btn-sm">technology</button>
+                        <button type="button" class="btn btn-secondary btn-sm">microsoft</button>
+                        <button type="button" class="btn btn-secondary btn-sm">operating system</button>
+                        <button type="button" class="btn btn-secondary btn-sm">vista</button>
+                        <button type="button" class="btn btn-secondary btn-sm">windows</button>
+                        <button type="button" class="btn btn-secondary btn-sm">xp</button>
+                    </div>
             </div>
 
             <div class="comments mt-4 pt-4">
@@ -94,7 +91,7 @@
 
         <footer class="bg-dark pt-4 pb-4 mt-4 mb-4">
             <div class="container text-center text-white">
-                All content copyright &copy; 2024 &middot; Content generated using Crossroads static generator.
+                All content copyright &copy; 2024<br/>Content generated using Crossroads static generator.
             </div>
         </footer>   
     </body>

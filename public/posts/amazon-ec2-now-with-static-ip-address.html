@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link rel="stylesheet" href="../assets/lumen.css?v=99ce74fd36ded7d962768af18688f4c8">
-        <script src="../assets/lumen.min.js?v=99ce74fd36ded7d962768af18688f4c8" async></script>
+        <link rel="stylesheet" href="../assets/lumen.css?v=33b3bb9b908ae6012bebcc870eb24ca4">
+        <script src="../assets/lumen.min.js?v=33b3bb9b908ae6012bebcc870eb24ca4" async></script>
         <title>Amazon EC2 Now With Static IP Address</title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,7 +14,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" href="/">The Duane Storey</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
@@ -33,24 +33,21 @@
         <article>    
             <h2 class="mt-4">Amazon EC2 Now With Static IP Address</h2>
             <div class="meta mb-2 text-primary fs-6 fw-light">
-                <div class="row">
-                    <div class="col">
-                        Published March 27th, 2008
-                    </div>
-                    <div class="col text-end">
+                 Published March 27th, 2008
+            </div>
+
+            <div class="content mt-3">
+                <p>For those of you who follow what goes on in the web services part of the internet, this little tidbit may interest you. Amazon has offered relatively cheap cloud computer for the last year or so, but one of the major downsides was that it didn't have a static IP address. So if all your machines / images were to crash at the same time (which has happened before due to a power or internet outage), you lose your IP address and potentially may be allocated a new one when you restart your service.</p>
+<p>Today Amazon announced that they are offered Elastic IP addresses (which is a funky way of saying Static IP addresses). That should make it more appealing for people trying to set up services there.</p>
+
+                    <div class="tax">
                         <button type="button" class="btn btn-secondary btn-sm">journal</button>
                         <button type="button" class="btn btn-secondary btn-sm">amazon</button>
                         <button type="button" class="btn btn-secondary btn-sm">aws</button>
                         <button type="button" class="btn btn-secondary btn-sm">cloud computing</button>
                         <button type="button" class="btn btn-secondary btn-sm">ec2</button>
                         <button type="button" class="btn btn-secondary btn-sm">elastic computer</button>
-                 </div>
-                </div>
-            </div>
-
-            <div class="content mt-3">
-                <p>For those of you who follow what goes on in the web services part of the internet, this little tidbit may interest you. Amazon has offered relatively cheap cloud computer for the last year or so, but one of the major downsides was that it didn't have a static IP address. So if all your machines / images were to crash at the same time (which has happened before due to a power or internet outage), you lose your IP address and potentially may be allocated a new one when you restart your service.</p>
-<p>Today Amazon announced that they are offered Elastic IP addresses (which is a funky way of saying Static IP addresses). That should make it more appealing for people trying to set up services there.</p>
+                    </div>
             </div>
 
             <div class="comments mt-4 pt-4">
@@ -80,7 +77,7 @@
 
         <footer class="bg-dark pt-4 pb-4 mt-4 mb-4">
             <div class="container text-center text-white">
-                All content copyright &copy; 2024 &middot; Content generated using Crossroads static generator.
+                All content copyright &copy; 2024<br/>Content generated using Crossroads static generator.
             </div>
         </footer>   
     </body>

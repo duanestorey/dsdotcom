@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link rel="stylesheet" href="../assets/lumen.css?v=99ce74fd36ded7d962768af18688f4c8">
-        <script src="../assets/lumen.min.js?v=99ce74fd36ded7d962768af18688f4c8" async></script>
+        <link rel="stylesheet" href="../assets/lumen.css?v=33b3bb9b908ae6012bebcc870eb24ca4">
+        <script src="../assets/lumen.min.js?v=33b3bb9b908ae6012bebcc870eb24ca4" async></script>
         <title>How To Make Your Website Or Blog Faster</title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,7 +14,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" href="/">The Duane Storey</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
@@ -33,22 +33,7 @@
         <article>    
             <h2 class="mt-4">How To Make Your Website Or Blog Faster</h2>
             <div class="meta mb-2 text-primary fs-6 fw-light">
-                <div class="row">
-                    <div class="col">
-                        Published February 18th, 2008
-                    </div>
-                    <div class="col text-end">
-                        <button type="button" class="btn btn-secondary btn-sm">journal</button>
-                        <button type="button" class="btn btn-secondary btn-sm">apache</button>
-                        <button type="button" class="btn btn-secondary btn-sm">caching</button>
-                        <button type="button" class="btn btn-secondary btn-sm">digg</button>
-                        <button type="button" class="btn btn-secondary btn-sm">drupal</button>
-                        <button type="button" class="btn btn-secondary btn-sm">htaccess</button>
-                        <button type="button" class="btn btn-secondary btn-sm">speed</button>
-                        <button type="button" class="btn btn-secondary btn-sm">tips tag</button>
-                        <button type="button" class="btn btn-secondary btn-sm">viper cache</button>
-                 </div>
-                </div>
+                 Published February 18th, 2008
             </div>
 
             <div class="content mt-3">
@@ -74,6 +59,18 @@
 <p>By setting the "ExpiresDefault" to "now", it is instructing Apache to make everything non-cacheable except for the items listed below it. Without this, Apache would cache everything, including PHP scripts (which since they are dynamic, would be a fairly bad thing).</p>
 <p>As you can see, I've included a directive to cache JPEG images (with a MIME type of image/jpeg) for four hours, MP3 files for two hours, etc. You can modify this and add whatever MIME type you like, and the browsers will do the caching for you. The one downside to this is that the browser will not request that file again until the allotted time expires. What that means is that even if you change it on your webpage, it's possible people won't see those modifications for quite some time. If you set relatively small expires times, that isn't normally a problem. However if you want to set longer ones, the only way to force an immediate change to an item is to change the filename on the server (which is an easy work around).</p>
 <p>If you combine those three methods, you can make Wordpress a hell of a lot faster, and decrease the demands on your hosting server. Plus, you should be able to handle a Digg or any other sudden influx of traffic with relative ease.</p>
+
+                    <div class="tax">
+                        <button type="button" class="btn btn-secondary btn-sm">journal</button>
+                        <button type="button" class="btn btn-secondary btn-sm">apache</button>
+                        <button type="button" class="btn btn-secondary btn-sm">caching</button>
+                        <button type="button" class="btn btn-secondary btn-sm">digg</button>
+                        <button type="button" class="btn btn-secondary btn-sm">drupal</button>
+                        <button type="button" class="btn btn-secondary btn-sm">htaccess</button>
+                        <button type="button" class="btn btn-secondary btn-sm">speed</button>
+                        <button type="button" class="btn btn-secondary btn-sm">tips tag</button>
+                        <button type="button" class="btn btn-secondary btn-sm">viper cache</button>
+                    </div>
             </div>
 
             <div class="comments mt-4 pt-4">
@@ -103,7 +100,7 @@
 
         <footer class="bg-dark pt-4 pb-4 mt-4 mb-4">
             <div class="container text-center text-white">
-                All content copyright &copy; 2024 &middot; Content generated using Crossroads static generator.
+                All content copyright &copy; 2024<br/>Content generated using Crossroads static generator.
             </div>
         </footer>   
     </body>

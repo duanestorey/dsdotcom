@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link rel="stylesheet" href="../assets/lumen.css?v=99ce74fd36ded7d962768af18688f4c8">
-        <script src="../assets/lumen.min.js?v=99ce74fd36ded7d962768af18688f4c8" async></script>
+        <link rel="stylesheet" href="../assets/lumen.css?v=33b3bb9b908ae6012bebcc870eb24ca4">
+        <script src="../assets/lumen.min.js?v=33b3bb9b908ae6012bebcc870eb24ca4" async></script>
         <title>Ode To Google Reader</title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,7 +14,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" href="/">The Duane Storey</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
@@ -33,11 +33,15 @@
         <article>    
             <h2 class="mt-4">Ode To Google Reader</h2>
             <div class="meta mb-2 text-primary fs-6 fw-light">
-                <div class="row">
-                    <div class="col">
-                        Published April 27th, 2008
-                    </div>
-                    <div class="col text-end">
+                 Published April 27th, 2008
+            </div>
+
+            <div class="content mt-3">
+                <p>I've been using Google Reader as my main RSS reader for some time. For the most part, I'm pretty happy with it. They've recently added the ability to share items, which makes it far more interesting.</p>
+<p>The one thing I'd love to see though is the ability to add local comments on those shared items, comments that only my friends could see. So many times I've read items in my friends' shared feeds and really wanted to say something, or get clarification. Going to the real site and posting a comment sort of implies a certain level of knowledge on my part (especially if it's a technical discussion). However, that barrier is much reduced when talking amongst my friends, and I really would love to see side-channel discussions on shared items. That's my request for the day. So Google, you missed my birthday a few weeks ago, but you should do this for me.</p>
+<p>While I'm on the subject, I'll bring it Google Gears recently. For those of you who haven't heard of it, Google Gears is basically a Javascript library that gives you, as a developer of a web product, the ability to off-line content. It received a bunch of hype a few months ago (although, like most things Google does these days, the hype seems to have died off), so I took a good look at it. And to be honest, I don't think I'd integrate it into a web application of mine. It's essentially a local caching system, and it seems a bit redundant to me in some regards. The amount of effort needed to make your application work offline, <strong>and then</strong> work again while online (via some synchronization of data and what-not), is really far too large for the average application I would think. Maybe in the extreme cases (like Google Docs), you can justify the expense, but doing twice the work to capture maybe 5% of people who want to use your application offline really isn't a good investment for most people (the good ole 80-20 rule).</p>
+
+                    <div class="tax">
                         <button type="button" class="btn btn-secondary btn-sm">technology</button>
                         <button type="button" class="btn btn-secondary btn-sm">google</button>
                         <button type="button" class="btn btn-secondary btn-sm">google gears</button>
@@ -45,14 +49,7 @@
                         <button type="button" class="btn btn-secondary btn-sm">javascript</button>
                         <button type="button" class="btn btn-secondary btn-sm">rss</button>
                         <button type="button" class="btn btn-secondary btn-sm">search</button>
-                 </div>
-                </div>
-            </div>
-
-            <div class="content mt-3">
-                <p>I've been using Google Reader as my main RSS reader for some time. For the most part, I'm pretty happy with it. They've recently added the ability to share items, which makes it far more interesting.</p>
-<p>The one thing I'd love to see though is the ability to add local comments on those shared items, comments that only my friends could see. So many times I've read items in my friends' shared feeds and really wanted to say something, or get clarification. Going to the real site and posting a comment sort of implies a certain level of knowledge on my part (especially if it's a technical discussion). However, that barrier is much reduced when talking amongst my friends, and I really would love to see side-channel discussions on shared items. That's my request for the day. So Google, you missed my birthday a few weeks ago, but you should do this for me.</p>
-<p>While I'm on the subject, I'll bring it Google Gears recently. For those of you who haven't heard of it, Google Gears is basically a Javascript library that gives you, as a developer of a web product, the ability to off-line content. It received a bunch of hype a few months ago (although, like most things Google does these days, the hype seems to have died off), so I took a good look at it. And to be honest, I don't think I'd integrate it into a web application of mine. It's essentially a local caching system, and it seems a bit redundant to me in some regards. The amount of effort needed to make your application work offline, <strong>and then</strong> work again while online (via some synchronization of data and what-not), is really far too large for the average application I would think. Maybe in the extreme cases (like Google Docs), you can justify the expense, but doing twice the work to capture maybe 5% of people who want to use your application offline really isn't a good investment for most people (the good ole 80-20 rule).</p>
+                    </div>
             </div>
 
             <div class="comments mt-4 pt-4">
@@ -82,7 +79,7 @@
 
         <footer class="bg-dark pt-4 pb-4 mt-4 mb-4">
             <div class="container text-center text-white">
-                All content copyright &copy; 2024 &middot; Content generated using Crossroads static generator.
+                All content copyright &copy; 2024<br/>Content generated using Crossroads static generator.
             </div>
         </footer>   
     </body>

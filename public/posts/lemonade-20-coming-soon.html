@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link rel="stylesheet" href="../assets/lumen.css?v=99ce74fd36ded7d962768af18688f4c8">
-        <script src="../assets/lumen.min.js?v=99ce74fd36ded7d962768af18688f4c8" async></script>
+        <link rel="stylesheet" href="../assets/lumen.css?v=33b3bb9b908ae6012bebcc870eb24ca4">
+        <script src="../assets/lumen.min.js?v=33b3bb9b908ae6012bebcc870eb24ca4" async></script>
         <title>Lemonade 2.0, Coming Soon</title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,7 +14,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" href="/">The Duane Storey</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
@@ -33,20 +33,7 @@
         <article>    
             <h2 class="mt-4">Lemonade 2.0, Coming Soon</h2>
             <div class="meta mb-2 text-primary fs-6 fw-light">
-                <div class="row">
-                    <div class="col">
-                        Published December 24th, 2007
-                    </div>
-                    <div class="col text-end">
-                        <button type="button" class="btn btn-secondary btn-sm">journal</button>
-                        <button type="button" class="btn btn-secondary btn-sm">applications</button>
-                        <button type="button" class="btn btn-secondary btn-sm">around the web</button>
-                        <button type="button" class="btn btn-secondary btn-sm">facebook</button>
-                        <button type="button" class="btn btn-secondary btn-sm">game</button>
-                        <button type="button" class="btn btn-secondary btn-sm">lemonade</button>
-                        <button type="button" class="btn btn-secondary btn-sm">technology</button>
-                 </div>
-                </div>
+                 Published December 24th, 2007
             </div>
 
             <div class="content mt-3">
@@ -55,6 +42,16 @@
 <p>To be honest, the mathematics behind it all has proven rather interesting. I want the game to be challenging, without easy loopholes to win, and to that end I've spent a lot of time mulling over the math in my head. For example, having a weather forecast is fairly useless unless it mimics the approximate success rates of forecasts that we normally have. To that end, the forecasts can't be entirely random, so I've started by modeling them on five state, first-order <a href="http://en.wikipedia.org/wiki/Markov_chain">Markov chains</a>. I might have to take this to the next level (i.e. do a second-order chain or something), but for now I think the results are fairly realistic.</p>
 <p>Unlike all the other Facebook applications I've done, this one requires a database back-end for accounting purposes and the ability to save and resume games. I've got most of the ground work done, so the rest should come together fairly quickly.</p>
 <p>If anyone has any cool ideas for this, let me know. I'll try and finish it off before I leave for Toronto and get people playing. If anyone wants to help test it, drop me a comment!</p>
+
+                    <div class="tax">
+                        <button type="button" class="btn btn-secondary btn-sm">journal</button>
+                        <button type="button" class="btn btn-secondary btn-sm">applications</button>
+                        <button type="button" class="btn btn-secondary btn-sm">around the web</button>
+                        <button type="button" class="btn btn-secondary btn-sm">facebook</button>
+                        <button type="button" class="btn btn-secondary btn-sm">game</button>
+                        <button type="button" class="btn btn-secondary btn-sm">lemonade</button>
+                        <button type="button" class="btn btn-secondary btn-sm">technology</button>
+                    </div>
             </div>
 
             <div class="comments mt-4 pt-4">
@@ -84,7 +81,7 @@
 
         <footer class="bg-dark pt-4 pb-4 mt-4 mb-4">
             <div class="container text-center text-white">
-                All content copyright &copy; 2024 &middot; Content generated using Crossroads static generator.
+                All content copyright &copy; 2024<br/>Content generated using Crossroads static generator.
             </div>
         </footer>   
     </body>

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link rel="stylesheet" href="../assets/lumen.css?v=99ce74fd36ded7d962768af18688f4c8">
-        <script src="../assets/lumen.min.js?v=99ce74fd36ded7d962768af18688f4c8" async></script>
+        <link rel="stylesheet" href="../assets/lumen.css?v=33b3bb9b908ae6012bebcc870eb24ca4">
+        <script src="../assets/lumen.min.js?v=33b3bb9b908ae6012bebcc870eb24ca4" async></script>
         <title>Moving IMAP Folders With ImapSync</title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,7 +14,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" href="/">The Duane Storey</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
@@ -33,18 +33,7 @@
         <article>    
             <h2 class="mt-4">Moving IMAP Folders With ImapSync</h2>
             <div class="meta mb-2 text-primary fs-6 fw-light">
-                <div class="row">
-                    <div class="col">
-                        Published November 3rd, 2009
-                    </div>
-                    <div class="col text-end">
-                        <button type="button" class="btn btn-secondary btn-sm">technology</button>
-                        <button type="button" class="btn btn-secondary btn-sm">imap</button>
-                        <button type="button" class="btn btn-secondary btn-sm">mail</button>
-                        <button type="button" class="btn btn-secondary btn-sm">servers 6</button>
-                        <button type="button" class="btn btn-secondary btn-sm">sync</button>
-                 </div>
-                </div>
+                 Published November 3rd, 2009
             </div>
 
             <div class="content mt-3">
@@ -52,6 +41,14 @@
 <p>One of the more obvious ways to move messages is to proxy them through your own personal machine. To do that, you simply need to set up both accounts in a mail program like Apple Mail and start moving things around. You can create a local folder on your machine, and simply drag all the folders from the source mail account into your new folder. Depending on how much mail you have, that may take a while. Once that is done you can simply do the same for the destination account, and hopefully everything will look roughly the same when you're all done.</p>
 <p>This time I wanted to try another method, that is using the popular <a href="http://freshmeat.net/projects/imapsync/">imapsync</a> project. Basically you can give it a source account and a destination account, and it'll do the rest. The main benefit of it is that you can run it on a server, removing the need to proxy anything through your local machine. In addition, it works similarly to rsync -- if a message has already been moved, it'll be skipped the next time. So if the process quits half way through, you don't have to redo all the previously moved messages -- it's smart enough to know what's been moved and what hasn't been.</p>
 <p>There's one obvious downside, and that is all the new messages end up with a "Received Date" of today using the second method. That's because the received date isn't a real IMAP field -- it's kept by local mail programs. So while Apple Mail preserves it when it's involved in a copy, doing a server to server synchronization ends up clearing that field. That being said, IMAP has a "Sent Date" field which should in almost all cases match the received date, so you can still tell when the message was sent that way.</p>
+
+                    <div class="tax">
+                        <button type="button" class="btn btn-secondary btn-sm">technology</button>
+                        <button type="button" class="btn btn-secondary btn-sm">imap</button>
+                        <button type="button" class="btn btn-secondary btn-sm">mail</button>
+                        <button type="button" class="btn btn-secondary btn-sm">servers 6</button>
+                        <button type="button" class="btn btn-secondary btn-sm">sync</button>
+                    </div>
             </div>
 
             <div class="comments mt-4 pt-4">
@@ -81,7 +78,7 @@
 
         <footer class="bg-dark pt-4 pb-4 mt-4 mb-4">
             <div class="container text-center text-white">
-                All content copyright &copy; 2024 &middot; Content generated using Crossroads static generator.
+                All content copyright &copy; 2024<br/>Content generated using Crossroads static generator.
             </div>
         </footer>   
     </body>

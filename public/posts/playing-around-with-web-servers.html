@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link rel="stylesheet" href="../assets/lumen.css?v=99ce74fd36ded7d962768af18688f4c8">
-        <script src="../assets/lumen.min.js?v=99ce74fd36ded7d962768af18688f4c8" async></script>
+        <link rel="stylesheet" href="../assets/lumen.css?v=33b3bb9b908ae6012bebcc870eb24ca4">
+        <script src="../assets/lumen.min.js?v=33b3bb9b908ae6012bebcc870eb24ca4" async></script>
         <title>Playing Around With Web Servers</title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,7 +14,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" href="/">The Duane Storey</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
@@ -33,20 +33,7 @@
         <article>    
             <h2 class="mt-4">Playing Around With Web Servers</h2>
             <div class="meta mb-2 text-primary fs-6 fw-light">
-                <div class="row">
-                    <div class="col">
-                        Published March 9th, 2009
-                    </div>
-                    <div class="col text-end">
-                        <button type="button" class="btn btn-secondary btn-sm">journal</button>
-                        <button type="button" class="btn btn-secondary btn-sm">apache</button>
-                        <button type="button" class="btn btn-secondary btn-sm">fun</button>
-                        <button type="button" class="btn btn-secondary btn-sm">threads</button>
-                        <button type="button" class="btn btn-secondary btn-sm">web server</button>
-                        <button type="button" class="btn btn-secondary btn-sm">webby</button>
-                        <button type="button" class="btn btn-secondary btn-sm">wordpress 55</button>
-                 </div>
-                </div>
+                 Published March 9th, 2009
             </div>
 
             <div class="content mt-3">
@@ -59,6 +46,16 @@
 <p>The best way to do CGI is using Fast CGI, which is something I've never done before. Basically you open a local socket to a server running PHP, and send it requests to process scripts. I ended up writing a mini Fast CGI library, since I couldn't find one that was usable. It took me a few hours, but it seems to be working now with PHP.</p>
 <p>I still have a few major optimizations to do before I can test out the PHP part properly (you have to initialize PHP with various variables before WordPress will work properly), but maybe next weekend I can set aside an afternoon and finish it off.</p>
 <p>Apache's major detriment is that it's such a memory hog. Without a doubt, one of the major advantages to Webby in a low memory environment is that it won't start trashing into swap space as soon as Apache will. I also will be able to adjust the stack size per thread (something that I haven't done yet), so conceivably I could get the memory foot print even lower (although right now Webby is using around 1.5 MB of memory, whereas Apache is using around 120 MB I believe).</p>
+
+                    <div class="tax">
+                        <button type="button" class="btn btn-secondary btn-sm">journal</button>
+                        <button type="button" class="btn btn-secondary btn-sm">apache</button>
+                        <button type="button" class="btn btn-secondary btn-sm">fun</button>
+                        <button type="button" class="btn btn-secondary btn-sm">threads</button>
+                        <button type="button" class="btn btn-secondary btn-sm">web server</button>
+                        <button type="button" class="btn btn-secondary btn-sm">webby</button>
+                        <button type="button" class="btn btn-secondary btn-sm">wordpress 55</button>
+                    </div>
             </div>
 
             <div class="comments mt-4 pt-4">
@@ -88,7 +85,7 @@
 
         <footer class="bg-dark pt-4 pb-4 mt-4 mb-4">
             <div class="container text-center text-white">
-                All content copyright &copy; 2024 &middot; Content generated using Crossroads static generator.
+                All content copyright &copy; 2024<br/>Content generated using Crossroads static generator.
             </div>
         </footer>   
     </body>

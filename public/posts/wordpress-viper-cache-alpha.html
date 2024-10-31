@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link rel="stylesheet" href="../assets/lumen.css?v=99ce74fd36ded7d962768af18688f4c8">
-        <script src="../assets/lumen.min.js?v=99ce74fd36ded7d962768af18688f4c8" async></script>
+        <link rel="stylesheet" href="../assets/lumen.css?v=33b3bb9b908ae6012bebcc870eb24ca4">
+        <script src="../assets/lumen.min.js?v=33b3bb9b908ae6012bebcc870eb24ca4" async></script>
         <title>Wordpress Viper Cache Alpha</title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,7 +14,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" href="/">The Duane Storey</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
@@ -33,21 +33,7 @@
         <article>    
             <h2 class="mt-4">Wordpress Viper Cache Alpha</h2>
             <div class="meta mb-2 text-primary fs-6 fw-light">
-                <div class="row">
-                    <div class="col">
-                        Published February 12th, 2008
-                    </div>
-                    <div class="col text-end">
-                        <button type="button" class="btn btn-secondary btn-sm">journal</button>
-                        <button type="button" class="btn btn-secondary btn-sm">blogging</button>
-                        <button type="button" class="btn btn-secondary btn-sm">optimization</button>
-                        <button type="button" class="btn btn-secondary btn-sm">plugin</button>
-                        <button type="button" class="btn btn-secondary btn-sm">tips tag</button>
-                        <button type="button" class="btn btn-secondary btn-sm">viper cache</button>
-                        <button type="button" class="btn btn-secondary btn-sm">wordpress 19</button>
-                        <button type="button" class="btn btn-secondary btn-sm">wp cache</button>
-                 </div>
-                </div>
+                 Published February 12th, 2008
             </div>
 
             <div class="content mt-3">
@@ -62,6 +48,17 @@
 <p>In addition, proper HTTP caching headers are sent, so for most browsers, no data is even transmitted the second time a page is requested (what happens is the browser asks if the content has changed using an If-Modified-Since header, and the Viper Cache will respond with a 304 Not Modified if the local copy is the same as the remote copy). This results in a CPU and bandwidth savings. If the copy on the server has been modified, and the local cache doesn't match the remote copy, the entire page is served again from the website cache.</p>
 <p>I've been running it on my blog for about a week now, slowly ironing out the major bugs (and there have a been a few related to Wordpress cookies and improper Content-Types). I did a fairly exhaustive benchmark a few minutes ago, and using my configuration on Media Temple, Viper Cache is about 2.5x - 3.0x faster then WP-Cache for serving pages (and that's not even taking into account items that are already in the browser's cache).</p>
 <p>What I need now is a few guinea pigs to help iron out the last bugs. Is anyone interested in putting it on their blog and testing it out for a week or so? If so, drop me a comment.</p>
+
+                    <div class="tax">
+                        <button type="button" class="btn btn-secondary btn-sm">journal</button>
+                        <button type="button" class="btn btn-secondary btn-sm">blogging</button>
+                        <button type="button" class="btn btn-secondary btn-sm">optimization</button>
+                        <button type="button" class="btn btn-secondary btn-sm">plugin</button>
+                        <button type="button" class="btn btn-secondary btn-sm">tips tag</button>
+                        <button type="button" class="btn btn-secondary btn-sm">viper cache</button>
+                        <button type="button" class="btn btn-secondary btn-sm">wordpress 19</button>
+                        <button type="button" class="btn btn-secondary btn-sm">wp cache</button>
+                    </div>
             </div>
 
             <div class="comments mt-4 pt-4">
@@ -91,7 +88,7 @@
 
         <footer class="bg-dark pt-4 pb-4 mt-4 mb-4">
             <div class="container text-center text-white">
-                All content copyright &copy; 2024 &middot; Content generated using Crossroads static generator.
+                All content copyright &copy; 2024<br/>Content generated using Crossroads static generator.
             </div>
         </footer>   
     </body>
