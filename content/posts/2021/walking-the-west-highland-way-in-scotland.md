@@ -23,7 +23,8 @@ A friend of mine who walked this previously recommended I use [Mac's Adventure](
 
 I hadn't seen my friend Tony in a while, so it was great to find him in our accommodation in Glasgow. We didn't have a ton of time to see the city, but we did manage to hit a few pubs. Whenever I make it to the UK, I almost always have a Guinness when I arrive. And it was one of the first orders of business I got to once I was settled in the pub.
 
-![](images/ashton-lane.jpg)
+![Ashton Lane](images/ashton-lane.jpg)
+*Ashton Lane*
 
 Afterwards we headed down to Ashton Lane in Glasgow and found a watering hole for some food and beers. The weather looked mostly great for the week, and Tony and I were pretty excited to get started in the morning. We called it an early night, and booked a train for the morning to take us to Milngavie.
 
@@ -31,11 +32,11 @@ Afterwards we headed down to Ashton Lane in Glasgow and found a watering hole fo
 
 The West Highland Way officially starts in the town of Milngavie, just a short train or a taxi ride from Glasgow. When we arrived, we found the Macs Adventure van waiting for us, and gave the van driver our luggage in exchange for our welcome packs with our full itinerary. After that, we grabbed a quick bite and a coffee, and got ready to head out on the trail.
 
-\[caption id="attachment\_14082" align="aligncenter" width="960"\]![](images/start.jpg) Marker in Milngavie\[/caption\]
+![Marker in Milngavie](images/start.jpg) 
 
 This stage was relatively flat, and a great warm up for the rest of the trail. We had really great weather, and it felt amazing again to be walking through the wilderness.
 
-\[caption id="attachment\_14084" align="aligncenter" width="960"\]![](images/lake.jpg) Passing by a loch\[/caption\]
+![Passing by a loch](images/lake.jpg) 
 
 ![](images/trail.jpg)
 
@@ -45,37 +46,37 @@ In the end we walked for about six or seven hours, at which point we arrived in 
 
 The second stage of the West Highland Way followed Loch Lomand, and it was a nice leisurely day of walking. Unfortunately I spent the morning a bit hungover, but thankfully that passed after the climb up to Conic Hill.
 
-\[caption id="attachment\_14089" align="aligncenter" width="720"\]![](images/hills-1.jpg) Tony in the trees\[/caption\]
+![Tony in the trees](images/hills-1.jpg)
 
 One thing to mention about the West Highland Way at this point are midges - midges are tiny flies that swarm around hikers and generally make your life miserable. Their bites and pretty painful and cause itchy welts to appear. There's basically no way to avoid them on the trail, but most people carry some type of midge spray, although I'm not sure how much it really helps.
 
 An unfortunate reality of midges is that they generally leave you alone while you are walking, but will quickly swarm you when you stop. So that means it can be challenging to stop for a rest, as after a minute or two in some areas you'll quickly find yourself being bitten by midges.
 
-\[caption id="attachment\_14090" align="aligncenter" width="960"\]![](images/view.jpg) View over Conic Hill \[/caption\]
+![View over Conic Hill](images/view.jpg)  
 
 We hiked 26km this day, so were were pretty beat when we strolled into Rowardennan.
 
-\[caption id="attachment\_14093" align="aligncenter" width="960"\]![](images/inn.jpg) The Rowardennan Inn\[/caption\]
+![The Rowardennan Inn](images/inn.jpg)
 
 Our room was a bit tiny in this location, but the onsite pub/restaurant more than made up for it. Unfortunately this was midge area, so while there was a beautiful view outside, we didn't spend too much time outside due to the midges (and in fact there was a note in our room to keep the windows closed lest you want to be devoured).
 
-\[caption id="attachment\_14105" align="aligncenter" width="720"\]![](images/midges.jpg) Sleep Well\[/caption\]
+![Sleep Well](images/midges.jpg) 
 
 #### Day 3: Rowardennan to Inverarnan - 24km
 
 One of the best parts about long distance hiking is that you honestly don't really need to worry too much about how much you are eating. On most days you are probably burning 1,000-2,000 calories by hiking, so it's nice to be able to eat big, hearty breakfasts or share a pitcher or two of beers in the evenings without any guilt.
 
-\[caption id="attachment\_14101" align="aligncenter" width="720"\]![](images/breakfast.jpg) Typical Scottish Breakfast\[/caption\]
+![Typical Scottish Breakfast](images/breakfast.jpg) 
 
 In most bed and breakfast establishments in Scotland you can almost always get a full Scottish breakfast. While some people opt to not eat the haggis, I quite like it and usually have it added to my plate whenever possible. After eating a big breakfast, we packed up our luggage, filled up our day packs, and hit the trail again.
 
 This stage is one of the most difficult in my opinion, as for half of the day you are walking in a forest and constantly scrambling over roots and rocks. Despite using my hiking sticks all day, I did take a few spills when I lost my footing. I also got one hiking stick stuck in the mud, and had to sacrifice the rubber end cap on it since I couldn't find it after.
 
-\[caption id="attachment\_14099" align="aligncenter" width="960"\]![](images/tony.jpg) Tony on Day 3\[/caption\]
+![Tony on Day 3](images/tony.jpg) 
 
 While the elevation profile so far along the trail had been relatively flat, the constant up and down and scrambling during the forest section was pretty hard on the legs.
 
-\[caption id="attachment\_14107" align="aligncenter" width="960"\]![](images/house.jpg) A Little House\[/caption\]
+![A Little House](images/house.jpg) 
 
 After a 24km day, we finally arrived in Inverarnan. While tired, we were definitely looking forward to the next few stages that would see us leaving the lake area and starting the journey into the Scottish Highlands.
 
@@ -97,15 +98,15 @@ This is the longest day of the West Highland Way, so it's good to get a rest bef
 
 In terms of difficulty though, it's not the hardest day (more on that later), but the length, lack of places to stop, and occasional elevation gain definitely does make it challenging.
 
-\[caption id="attachment\_14115" align="aligncenter" width="960"\]![](images/tony3.jpg) Tony in the Highlands\[/caption\]
+![Tony in the Highlands](images/tony3.jpg) 
 
 Staying at Kingshouse, an accommodation in the highlands, is normally one of the highlights of this stage, but unfortunately during our hike they were renovating it and it was closed. That meant we had to take a little detour before Kingshouse and catch a bus to take us into Glencoe where we would sleep at night.
 
-\[caption id="attachment\_14117" align="aligncenter" width="960"\]![](images/trail-1.jpg) Day 5 Scenery\[/caption\]
+![Day 5 Scenery](images/trail-1.jpg) 
 
 Glencoe was a treat in that it's a really beautiful location in the heart of the highlands (much of the movie Braveheart was filmed around Glencoe). The downside to the detour though was that for me at least taking a bus between towns mid-way through the hike sort of messes with the flow. In addition, the buses were full and many groups had to wait several hours for the next one.
 
-\[caption id="attachment\_14119" align="aligncenter" width="960"\]![](images/glencoe.jpg) A quick stop near Glencoe\[/caption\]
+![A quick stop near Glencoe](images/glencoe.jpg) 
 
 That said, it was nice that they did arrange the buses and detour, so I'm not complaining. But it will be nice to actually stay at Kingshouse if I ever decide to walk the West Highland Way again.
 
@@ -113,19 +114,19 @@ That said, it was nice that they did arrange the buses and detour, so I'm not co
 
 We started in the morning with a big breakfast followed by a bus ride back towards Kingshouse. Once there, we carried on with our walk again.
 
-\[caption id="attachment\_14122" align="aligncenter" width="960"\]![](images/glen.jpg) Walking Towards The Devil's Staircase\[/caption\]
+![Walking Towards The Devil's Staircase](images/glen.jpg) 
 
 Day 6 is arguably the hardest day of the West Highland Way for one simple reason - the Devil's Staircase. Yes, it's basically as bad as it sounds - about 400m of elevation gain in a zig-zag over less than a kilometer, so it's a pretty good workout. While it doesn't take too long, it's definitely tiring getting to the top.
 
-\[caption id="attachment\_14124" align="aligncenter" width="960"\]![](images/devils-staircase.jpg) Looking Back While Climbing The Staircase\[/caption\]
+![Looking Back While Climbing The Staircase](images/devils-staircase.jpg) 
 
 We ended this stage in Kinlochleven, which is a town you can see for about two hours but never seem to get to.
 
-\[caption id="attachment\_14125" align="aligncenter" width="960"\]![](images/bnb.jpg) Arriving in Kinlochleven\[/caption\]
+![Arriving in Kinlochleven](images/bnb.jpg) 
 
 Macs Adventure did a great job with booking all of our accommodation. While we liked some better than others, in general they were all clean and comfortable. That said, Kinlochleven was our favourite bed and breakfast that we stayed in. As soon as we arrived the owners went out of their way to get us some beverages while we went and cleaned up. We also found a really great pub right around the corner where we casually drank beers throughout the evening and chatted with fellow hikers.
 
-\[caption id="attachment\_14126" align="aligncenter" width="960"\]![](images/bnb-inside.jpg) Our Room In The BnB\[/caption\]
+![Our Room In The BnB](images/bnb-inside.jpg) 
 
 We had such a good time in this little town that we were both a bit sad to leave it the next day. Had we had a more flexible itinerary I suspect we would have stayed here another night.
 
@@ -133,11 +134,11 @@ We had such a good time in this little town that we were both a bit sad to leave
 
 Compared to the Camino Frances, a 7 day hike isn't super long. That said, we were both looking forward to our final day and then switching into vacation mode for a while. The hiking for this stage isn't particularly amazing as you are leaving the majestic scenery behind and transitioning into a city with asphalt roads.
 
-\[caption id="attachment\_14129" align="aligncenter" width="720"\]![Approaching Fort William](images/approaching-fort-william.jpg) Approaching Fort William\[/caption\]
+![Approaching Fort William](images/approaching-fort-william.jpg) 
 
 Just as you are entering Fort William you will pass the original end-point of the West Highland Way. It's near the marker, in the sports store, where you can get a certificate saying you completed the West Highland Way. Once done, you can walk through the actual town of Fort William and visit the new end-marker (which I suspect was moved to the other side of town to force people to walk through Fort William and spend some money).
 
-\[caption id="attachment\_14131" align="aligncenter" width="1024"\]![](images/whw-end-1024x1024.jpg) The End Of The West Highland Way\[/caption\]
+![The End Of The West Highland Way](images/whw-end-1024x1024.jpg)
 
 #### Final Thoughts
 
