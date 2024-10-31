@@ -4,6 +4,7 @@ site:
   desc: 'The home of engineer and world traveller, Duane Storey'
   theme: lumen
   lang: en
+  charset: 'utf-8'
 content:
   types: 
     posts:

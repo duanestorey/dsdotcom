@@ -229,10 +229,15 @@ class Builder {
         $params = new \stdClass;
         $params->site = new \stdClass;
         $params->site->title = $this->config[ 'site' ][ 'name' ];
-        $params->site->lang = 'en';
 
+        $params->site->lang = 'en';
         if ( isset( $this->config[ 'site' ][ 'lang' ] ) ) {
             $params->site->lang = $this->config[ 'site' ][ 'lang' ];
+        }
+
+        $params->site->charset = 'utf-8';
+        if ( isset( $this->config[ 'site' ][ 'charset' ] ) ) {
+            $params->site->charset = $this->config[ 'site' ][ 'charset' ];
         }
 
         $params->page = new \stdClass;
