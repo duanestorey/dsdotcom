@@ -105,6 +105,13 @@ class Builder {
                                     );
 
                                     $params->content->markdown_html = str_replace( $image_file, $dest_url, $params->content->markdown_html );
+
+                                       //print_r( $images );
+                                    if ( strpos( $images[0], "_7406" ) !== false ) {
+                                     //   print_r( $params->content->markdown_html );
+                                     //    print_r( $images ); die;
+                                    }
+                                   
                                 }
                             }
 
@@ -238,6 +245,8 @@ class Builder {
             $image_destination_path_with_date = $destination_path . '/' . date( 'Y', $publish_date );
             @mkdir( $image_destination_path_with_date );
 
+          //  echo "........checking image " . $current_path . '/' . $original_image_file . "\n";
+
             if ( file_exists( $current_path . '/' . $original_image_file ) ) {
                 $destination_file = $image_destination_path_with_date . '/' . $image_filename_only;
 
@@ -261,6 +270,8 @@ class Builder {
                 }
 
                 $new_location = '../assets/' . $content_type . '/' . date( 'Y', $publish_date ) . '/' . $image_filename_only;
+
+             //   echo "..new location is " . $new_location . "\n";
                 break;
             }
         }
