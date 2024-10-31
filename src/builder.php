@@ -229,7 +229,11 @@ class Builder {
                     if ( $convert_to_webp ) {
                         echo "........converting image [" . $original_image_file . "] to [" . $destination_file . "]\n";
 
-                        $image = imagecreatefromjpeg( $current_path . '/' . $original_image_file );
+                        $image = false;
+                        if ( $image_ext == 'jpg' || $image_ext == 'jpeg' ) {
+                            $image = imagecreatefromjpeg( $current_path . '/' . $original_image_file );
+                        } 
+                        
                         if ( $image ) {
                             imagewebp( $image, $destination_file, 85 );
                             imagedestroy( $image );

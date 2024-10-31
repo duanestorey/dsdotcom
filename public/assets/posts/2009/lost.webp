@@ -1,0 +1,1535 @@
+			<!DOCTYPE html>
+			<html lang="en-US">
+			<head>
+				<meta charset="UTF-8"><meta name="application-name" id="app-name" content="baltimoresun"><meta name="viewport" content="width=device-width, initial-scale=1">			<meta name="msvalidate.01" content="4B535F7EB2971D1FCBA5D1D3E3E292C3" />
+			<title>Baltimore City Paper &#8211; Baltimore Sun</title>
+<link rel='preload' as='image' fetchpriority='high' href='https://www.baltimoresun.com/wp-content/uploads/2023/10/baltimoresun.svg' type='image/svg+xml' />
+<meta name='robots' content='max-image-preview:large' />
+<script type='text/javascript'>
+/* <![CDATA[ */
+var scriptHelpers = {"staticPath":"https:\/\/www.baltimoresun.com\/wp-content\/themes\/assets\/static\/"};
+/* ]]> */
+</script>
+<link rel='dns-prefetch' href='//cmp.osano.com' />
+<link rel='dns-prefetch' href='//htlbid.com' />
+<link rel='dns-prefetch' href='//ajax.googleapis.com' />
+<link rel='dns-prefetch' href='//s.ntv.io' />
+<link rel='dns-prefetch' href='//d250.baltimoresun.com' />
+<link rel='dns-prefetch' href='//stats.wp.com' />
+<link rel='dns-prefetch' href='//cdn.jsdelivr.net' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//v0.wordpress.com' />
+<link rel="alternate" type="application/rss+xml" title="Baltimore Sun &raquo; Feed" href="https://www.baltimoresun.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Baltimore Sun &raquo; Comments Feed" href="https://www.baltimoresun.com/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Baltimore Sun &raquo; Baltimore City Paper Tag Feed" href="https://www.baltimoresun.com/tag/baltimore-city-paper/feed/" />
+<link rel='canonical' href='https://www.baltimoresun.com/tag/baltimore-city-paper/'><meta name='description' content='Baltimore breaking news, sports, weather and traffic from the Baltimore City Paper.' /><!-- WP SEO -->
+<script>
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/www.baltimoresun.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.6.2"}};
+/*! This file is auto-generated */
+!function(i,n){var o,s,e;function c(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function p(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data),r=(e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0),new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data));return t.every(function(e,t){return e===r[t]})}function u(e,t,n){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!n(e,"\ud83d\udc26\u200d\u2b1b","\ud83d\udc26\u200b\u2b1b")}return!1}function f(e,t,n){var r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):i.createElement("canvas"),a=r.getContext("2d",{willReadFrequently:!0}),o=(a.textBaseline="top",a.font="600 32px Arial",{});return e.forEach(function(e){o[e]=t(a,e,n)}),o}function t(e){var t=i.createElement("script");t.src=e,t.defer=!0,i.head.appendChild(t)}"undefined"!=typeof Promise&&(o="wpEmojiSettingsSupports",s=["flag","emoji"],n.supports={everything:!0,everythingExceptFlag:!0},e=new Promise(function(e){i.addEventListener("DOMContentLoaded",e,{once:!0})}),new Promise(function(t){var n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"}),a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=function(e){c(n=e.data),a.terminate(),t(n)})}catch(e){}c(n=f(s,u,p))}t(n)}).then(function(e){for(var t in e)n.supports[t]=e[t],n.supports.everything=n.supports.everything&&n.supports[t],"flag"!==t&&(n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&n.supports[t]);n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&!n.supports.flag,n.DOMReady=!1,n.readyCallback=function(){n.DOMReady=!0}}).then(function(){return e}).then(function(){var e;n.supports.everything||(n.readyCallback(),(e=n.source||{}).concatemoji?t(e.concatemoji):e.wpemoji&&e.twemoji&&(t(e.twemoji),t(e.wpemoji)))}))}((window,document),window._wpemojiSettings);
+</script>
+<link rel='stylesheet' id='all-css-0' href='https://www.baltimoresun.com/_static/??-eJyNjUsOhEAIRC9ki5+oq8mcpSVkhkTANHS8vrp05/JVpV7BsSc0DdKAfas/VgfnoPSANW/BYoW8KnjkYAT0q8RCpK2wthc28EoWhdeq9NITfxLyO5Hs9ng3z2oJq4fJvfvKp1+GaZ7Hrl9OcU9RGw==' type='text/css' media='all' />
+<link rel='stylesheet' id='__htl_style-css' href='https://htlbid.com/v3/baltimoresun.com/htlbid.css?ver=6.6.2' media='' />
+<link rel='stylesheet' id='all-css-2' href='https://www.baltimoresun.com/wp-content/client-mu-plugins/src/Sitemap/includes/style.css?m=1670453014g' type='text/css' media='all' />
+<style id='wp-emoji-styles-inline-css'>
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+</style>
+<link rel='stylesheet' id='general_css-css' href='https://www.baltimoresun.com/wp-content/plugins/mng-digisubs/static/mng-digisubs.styles.css?ver=1730225136' media='all' />
+<link rel='stylesheet' id='all-css-6' href='https://www.baltimoresun.com/wp-content/client-mu-plugins/src/Ads/assets/css/mobile-adhesion-style.css?m=1670453014g' type='text/css' media='all' />
+<link rel='stylesheet' id='dfm-accuweather-bootstrap-icons-css' href='//cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.min.css?ver=5.2.0' media='screen' />
+<link rel='stylesheet' id='mason-fonts-css' href='https://fonts.googleapis.com/css?family=Noto+Sans%3A400%2C700%7CNoto+Serif%3A400%2C400i%2C700%2C700i%7CArvo%3A400%2C400i%2C700%2C700i&#038;ver=6.6.2' media='all' />
+<link rel='stylesheet' id='all-css-10' href='https://www.baltimoresun.com/_static/??/wp-content/themes/assets/static/css/boldcoastal.css,/wp-content/mu-plugins/jetpack-13.9/modules/widgets/top-posts/style.css?m=1730218601' type='text/css' media='all' />
+<script src="https://cmp.osano.com/16A1AnRt2Fn8i1unj/f15ebf08-7008-40fe-9af3-db96dc3e8266/osano.js" id="osano-js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js?ver=3.5.1" id="jquery-js"></script>
+<script async src="https://htlbid.com/v3/baltimoresun.com/htlbid.js?ver=6.6.2" id="__htl_script-js"></script>
+<script id="__htl_script-js-after">
+	window.htlbid = window.htlbid || {};
+	htlbid.cmd = htlbid.cmd || [];
+	htlbid.cmd.push(function() {
+		htlbid.layout('universal');
+		htlbid.setTargeting("is_testing","no");
+		htlbid.setTargeting("kv", ["baltimore-city-paper"]);
+		htlbid.setTargeting("page", "tag");
+		htlbid.setTargeting("content", []);
+		htlbid.setTargeting("RPN", "339777340484");
+		htlbid.setTargeting("rurl", "https://www.baltimoresun.com/citypaper/");
+		htlbid.setTargeting("articleid", "");
+		window.htlbid.pubads().setPublisherProvidedId("b9b602731c159b6fb7e2db71e79c8f9b9dacd5b27d0edd8511822f794fc17d71");
+	});
+</script>
+<script type="text/javascript" src="https://www.baltimoresun.com/wp-content/client-mu-plugins/src/SSO/assets/js/sso-tools.min.js?m=1725662737g" ></script><script id="mg2_loader_loader-js-extra">
+var MG2 = {"settings":{"environment":"prod","version":"dfm","xCode":"","randomURLChoosing":false,"plugins":[{"name":"FP","required":true,"initOptions":{"version":"dfm","environment":"prod"}},{"name":"DL","required":false,"initOptions":{"version":"dfm","environment":"prod","tagManager":"GTM","containerId":"GTM-NFD2QGD","collectors":["connext"]}},{"name":"NXT","required":true,"initOptions":{"environment":"prod","siteCode":"Tribune","configCode":"200ConfigTrib","clientCode":"dfm","debug":false,"silentmode":false,"attr":"200","settingsKey":"200","userAuthenticationTime":360,"authSettings":{"domain":"login.npuserlogin.com","client_id":"6Yc39HQJPnNPUnV9LWmdmxQeQPCR3NPS","redirect_uri":"https:\/\/www.baltimoresun.com\/login"}}}],"CONFIG_URL":"https:\/\/loader-config.baltimoresun.com\/prod\/dfm\/loader-config.json","appInsightsKey":"8241cbc2-50a5-47c4-b91f-462506490fad"}};
+</script>
+<script src="https://www.baltimoresun.com/wp-content/plugins/loader-wp/static/loader.min.js?ver=1.6.3" id="mg2_loader_loader-js"></script>
+<script id="mg2_loader_loader-js-after">
+(function( MG2, MG2Loader ) {
+	if ( 'undefined' !== typeof MG2 && 'undefined' !== typeof MG2Loader) {
+	    console.log("mg2loader: not waiting");
+		MG2Loader.init( MG2.settings );
+	}
+})( MG2, MG2Loader );
+</script>
+<script type="text/javascript" src="https://www.baltimoresun.com/wp-content/plugins/loader-wp/static/engageLibrary.min.js?m=1730218600g" ></script><script src="https://cdn.auth0.com/js/auth0-spa-js/1.13/auth0-spa-js.production.js?ver=6.6.2" id="auth0_sdk-js"></script>
+<script src="https://accounts.google.com/gsi/client?ver=6.6.2" id="google_one_tap-js"></script>
+<script id="authentication_main-js-extra">
+var authentication_config = {"debug":"","entitlementsEnabled":"1","oneTapEnabled":"1","useTribMainGoogle":"1","gotPositionEnabled":"","gotModalPosition":"top-right","dropdownEnabled":"1","auth0Domain":"login.npuserlogin.com","auth0ClientId":"6Yc39HQJPnNPUnV9LWmdmxQeQPCR3NPS","auth0RegwallUserEmail":"","sessionManagement":"1","sessionServer":"https:\/\/session.baltimoresun.com","newsletterId":"285","newslettersEnabled":"","myAccountLink":"https:\/\/myaccount.baltimoresun.com\/","entitlementsEndpoint":"https:\/\/user.mng-digisubs-prod.com\/","entitlementsAPIKey":"DHL8Vs1UNo9u0WO52dVBzSuLi4kw2so25cXK1fy7","linaCheckOnArticles":"1","serverEntitlements":"","bcLowaSegements":"","blueconicEnabled":"1","sophiEndpoint":"","sophiGetDesicionTimer":"","sophiABTestingEndpoint":"","sophiPluginEnabled":"","enableReaderDashboardLink":"","enableRDLink":"","enableDatadog":"","isAdfreeArticle":"","googleClientId":"965743605721-c7flcidim2hetof56egoh0m6pudde8u1.apps.googleusercontent.com"};
+</script>
+<script type="text/javascript" src="https://www.baltimoresun.com/_static/??-eJylzMEOQDAQBNAfoqsccBBXv1E0zUq7xG7D56uTuHKaZDLz4NjyaSWxJLD56JAYArl8RoccRwYWIzi9OhUMkhojzd6qhTP4YqQD2VP+MmmM4m1IyX+tiIO5gf2B+tDpuipK3eqmXC6/KHES" ></script><script src="https://d250.baltimoresun.com/script.js" id="d250-js"></script>
+<script id="article_sharing-js-extra">
+var article_config = {"article_sharing_faq":""};
+</script>
+<script type="text/javascript" src="https://www.baltimoresun.com/wp-content/plugins/mng-digisubs/static/mng-digisubs.articleShare.bundle.js?m=1730219182g" ></script><link rel="https://api.w.org/" href="https://www.baltimoresun.com/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://www.baltimoresun.com/wp-json/wp/v2/tags/501" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.baltimoresun.com/xmlrpc.php?rsd" />
+<meta name="generator" content="WordPress 6.6.2" />
+<script id="cnx-init-script">!function(n){if(!window.cnx){window.cnx={},window.cnx.cmd=[];var t=n.createElement('iframe');t.display='none',t.onload=function(){var n=t.contentWindow.document,c=n.createElement('script');c.src='//cd.connatix.com/connatix.player.js',c.setAttribute('async','1'),c.setAttribute('type','text/javascript'),n.body.appendChild(c)},n.head.appendChild(t)}}(document);</script>        <style>
+        .getty.aligncenter {
+            text-align: center;
+        }
+        .getty.alignleft {
+            float: none;
+            margin-right: 0;
+        }
+        .getty.alignleft > div {
+            float: left;
+            margin-right: 5px;
+        }
+        .getty.alignright {
+            float: none;
+            margin-left: 0;
+        }
+        .getty.alignright > div {
+            float: right;
+            margin-left: 5px;
+        }
+        </style>
+        	<style id='htl-mobile-adhesion-override'>
+		@media screen and (max-width:1000px) {
+			#mobile-adhesion {
+				display: block !important;
+			}
+		}
+	</style>	<style>img#wpstats{display:none}</style>
+		<script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"WebPage","headline":"Tagged - Baltimore City Paper","url":"http:\/\/www.baltimoresun.com\/tag\/baltimore-city-paper\/","articleSection":"Other"}</script><script>
+    var PushlySDK = window.PushlySDK || [];
+    function pushly() { PushlySDK.push(arguments) }
+    pushly('load', {
+        domainKey: decodeURIComponent("qvafiWEMPCh8IoPeDXjiO7iGSktQ4yIaTHfS"),
+        sw: "/wp-content/plugins/pushly/assets/js/pushly-sdk-worker.js.php",
+        swScope: "/wp-content/plugins/pushly/"    });
+</script>
+<style id="customizer-styles">			div#page {
+			--primary: #1c2551;
+			}
+						div#page {
+			--secondary: #98712a;
+			}
+						div#page {
+			--tertiary: #5f6264;
+			}
+						div#page {
+			--primary-light: #303551;
+			}
+						div#page {
+			--primary-dark: #1c2551;
+			}
+						div#page {
+			--primary-lighter: #373751;
+			}
+						div#page {
+			--subsite-custom: #1c2551;
+			}
+						div#page {
+			--subsite-text: #f9f9f9;
+			}
+			</style><script>window.addEventListener('message',
+		function s2nEventCallback(a){if('s2nEvent'===a.data.type)
+			{let t={event:'SendToNews load',sendtonews_player_key:
+				a.data.playerKey};window.dataLayer.push(t),
+				window.removeEventListener('message',s2nEventCallback)}});</script><!-- Google Tag Manager Data Layer -->
+<script type='text/javascript'>
+   analyticsEvent    = function() {};
+   analyticsSocial   = function() {};
+   analyticsVPV      = function() {};
+   analyticsClearVPV = function() {};
+   analyticsForm     = function() {};
+   window.dataLayer  = window.dataLayer || [];
+   dataLayer.push({
+      'ga_ua' : 'UA-40841508-34',
+      'quantcast' : '',
+      'quantcast label' : '',
+      'comscore' : '',
+      'Publisher Domain' : 'baltimoresun.com',
+      'Publisher Product' : 'baltimoresun.com',
+      'kv' : 'other',
+      'Platform' : 'WP',
+      'Release Version' : '6.6.2',
+      'Digital Publisher' : '',
+      'Section' : 'Other',
+      'Taxonomy1' : '',
+      'Taxonomy2' : '',
+      'Taxonomy3' : '',
+      'Taxonomy4' : '',
+      'Taxonomy5' : '',
+      'Publisher State' : '',
+      'Page Type' : 'other',
+      'User ID' : '',
+      'Behind Paywall' : '',
+      'SiteName' : 'Baltimore Sun',
+      'Mobile Presentation' : 'no',
+      'Canonical URL' : 'https://www.baltimoresun.com/tag/baltimore-city-paper/',
+      'Content Title' : 'Other',
+      'URL' : 'https://www.baltimoresun.com/tag/baltimore-city-paper/',
+      'Page Title' : 'Other'
+   });
+</script>
+<!-- End Google Tag Manager Data Layer -->
+<!-- Google Tag Manager -->
+<script>
+(function(w,d,s,l,i) {
+   w[l]=w[l]||[];
+   w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+   var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+   j.async=true;
+   j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})
+(window,document,'script','dataLayer','GTM-TLFP4R');
+</script><!-- End Google Tag Manager -->
+
+<!-- Jetpack Open Graph Tags -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Baltimore City Paper &#8211; Baltimore Sun" />
+<meta property="og:url" content="https://www.baltimoresun.com/2024/01/23/sparrows-point-wrestling-franklin/" />
+<meta property="og:site_name" content="Baltimore Sun" />
+<meta property="og:image" content="https://s0.wp.com/i/blank.jpg" />
+<meta property="og:image:alt" content="" />
+<meta property="og:locale" content="en_US" />
+
+<!-- End Jetpack Open Graph Tags -->
+<link rel="icon" href="https://www.baltimoresun.com/wp-content/uploads/2023/11/baltimore-sun-favicon.png?w=32" sizes="32x32" />
+<link rel="icon" href="https://www.baltimoresun.com/wp-content/uploads/2023/11/baltimore-sun-favicon.png?w=126" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://www.baltimoresun.com/wp-content/uploads/2023/11/baltimore-sun-favicon.png?w=126" />
+<meta name="msapplication-TileImage" content="https://www.baltimoresun.com/wp-content/uploads/2023/11/baltimore-sun-favicon.png?w=126" />
+			</head>
+
+			<body class="archive tag tag-baltimore-city-paper tag-501 wp-custom-logo">
+
+			<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src='https://www.googletagmanager.com/ns.html?id=GTM-TLFP4R' height='0' width='0' style='display:none;visibility:hidden'></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+			<a href="#content" class="sr-only">Skip to content</a>
+			
+			<div id="page" class="hfeed site">
+
+			<div class="header-placeholder"></div><header class="site-header default headroom--top">
+			<div class="nav-wrapper-primary">
+
+				<div class="nav-wrapper-secondary">
+
+					<div class="screen-wrapper">
+
+						<div class="nav-primary-top">
+
+										<div class="pushnav-flex-wrapper">
+				<nav class="pushnav" role="navigation" aria-label="Main Menu" id="pushnav-container"><div id="menu-toggle" class="menu-toggle" role="button" aria-expanded="false" tabindex="0" aria-label="Open menu of all sections"><span class="icon-hamburger"></span><span class="menu-label">All Sections</span></div>
+					<div class="wrapper-nav pushnav">
+						<div class="border-container">
+							<div class="top-pushnav-container">
+															<a href="https://mktops.baltimoresun.com/subscriptions/land-stay-informed-24-v2/?market=bs&#038;source=index&#038;g2i_source=SB&#038;g2i_medium=sub-nav&#038;g2i_campaign=E224" id="mega-subscribe-button" class="subscribe-button" type="subscribe">
+									<span>Subscribe Now</span>								</a>
+												<div class="accuweather-wrap">
+					<div class="weather-date">
+					
+	<div class='dfm_accuweather_current_conditions'>
+		<a target="_blank" href="http://www.accuweather.com/en/us/baltimore-md/21202/current-weather/8844_pc?lang=en-us" title="Current Weather Conditions" aria-label="Current temperature is 65&deg;F, view full weather conditions in a new window">
+			<span>65&deg;F</span>
+			<i class="bi-cloud-moon" role="img" aria-label="weather icon cloud-moon"></i>
+		</a>
+	</div>						<div class="date">
+							Wednesday, October 30th 2024									<a title="Link to E-Edition opens in a new window" target="_blank" href="https://digitaledition.baltimoresun.com/">
+									<p class="e-edition">Baltimore Sun eNewspaper</p>									</a>
+														</div>
+					</div>
+				</div>
+											<a href="https://www.baltimoresun.com" class="home-link icon-home3" title="Link to Home Page">
+									<span>Home Page</span>
+								</a>
+							</div>
+							<button class="sr-only pushnav-close">Close Menu</button><ul id="pushnav" class="menu"><li id="menu-item-8552611" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-8552611 menu-large"><a href="https://myaccount.baltimoresun.com/" aria-expanded="false" aria-haspopup="true">Subscriber Services</a>
+<ul class="sub-menu">
+	<li id="menu-item-8552613" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8552613 menu-large"><a href="https://myaccount.baltimoresun.com/200/home">Manage Subscription</a></li>
+	<li id="menu-item-8552614" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8552614 menu-large"><a href="https://myaccount.baltimoresun.com/200/autopay/signup/">EZ Pay</a></li>
+	<li id="menu-item-8611286" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8611286 menu-large"><a href="https://myaccount.baltimoresun.com/200/verifyaccount">Vacation Stop</a></li>
+</ul>
+</li>
+<li id="menu-item-8552616" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-8552616 menu-large"><a href="https://digitaledition.baltimoresun.com/html5/desktop/production/default.aspx?edid=b36c7fa6-0605-48b1-8121-b8fac5f93ec7" aria-expanded="false" aria-haspopup="true">eNewspaper</a>
+<ul class="sub-menu">
+	<li id="menu-item-8552617" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8552617 menu-large"><a href="https://digitaledition.baltimoresun.com">Daily Sun</a></li>
+	<li id="menu-item-8552618" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8552618 menu-large"><a href="https://digitaledition.baltimoresun.com/eveningedition">Evening Edition</a></li>
+	<li id="menu-item-8552619" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8552619 menu-large"><a href="https://digitaledition.carrollcounty.baltimoresun.com">Carroll County Times</a></li>
+	<li id="menu-item-8552620" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8552620 menu-large"><a href="https://digitaledition.capitalgazette.com/">Capital Gazette</a></li>
+	<li id="menu-item-8552621" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8552621 menu-large"><a href="https://enewspaper.theaegis.com/">The Aegis</a></li>
+	<li id="menu-item-8552622" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8552622 menu-large"><a href="https://enewspaper.howardcountytimes.com/">Howard County Times</a></li>
+</ul>
+</li>
+<li id="menu-item-8552623" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-8552623 menu-large"><a href="https://placeanad.baltimoresun.com/#nt=primarynavbar" aria-expanded="false" aria-haspopup="true">Advertise with Us</a>
+<ul class="sub-menu">
+	<li id="menu-item-8552624" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8552624 menu-large"><a href="https://placeanad.baltimoresun.com/#nt=primarynavbar">Advertise</a></li>
+	<li id="menu-item-9097821" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9097821 menu-large"><a href="https://classifieds.baltimoresun.com/#nt=secondarynavbar">Classified</a></li>
+	<li id="menu-item-9115604" class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-9115604 menu-large"><a href="https://www.baltimoresun.com/tag/hot-properties/">Homes</a></li>
+	<li id="menu-item-8552625" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8552625 menu-large"><a href="https://jobs.baltimoresun.com/">Jobs</a></li>
+	<li id="menu-item-9132071" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9132071 menu-large"><a href="https://www.baltimoresunspecialsections.com/">Special Sections</a></li>
+</ul>
+</li>
+<li id="menu-item-8552626" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-8552626 menu-large"><a href="https://www.baltimoresun.com/news/" aria-expanded="false" aria-haspopup="true">News</a>
+<ul class="sub-menu">
+	<li id="menu-item-9118180" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-9118180 menu-large"><a href="https://www.baltimoresun.com/news/">News</a></li>
+	<li id="menu-item-9097822" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-9097822 menu-large"><a href="https://www.baltimoresun.com/latest-headlines/">Latest</a></li>
+	<li id="menu-item-9097823" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-9097823 menu-large"><a href="https://www.baltimoresun.com/news/crime-public-safety/">Crime and Public Safety</a></li>
+	<li id="menu-item-8552630" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-8552630 menu-large"><a href="https://www.baltimoresun.com/news/education/">Education</a></li>
+	<li id="menu-item-8552631" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-8552631 menu-large"><a href="https://www.baltimoresun.com/news/politics/election/">Elections</a></li>
+	<li id="menu-item-8552632" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-8552632 menu-large"><a href="https://www.baltimoresun.com/news/environment/">Environment</a></li>
+	<li id="menu-item-8552633" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-8552633 menu-large"><a href="https://www.baltimoresun.com/news/health/">Health</a></li>
+	<li id="menu-item-8552634" class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-8552634 menu-large"><a href="https://www.baltimoresun.com/tag/lottery/">Lottery</a></li>
+	<li id="menu-item-8552635" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-8552635 menu-large"><a href="https://www.baltimoresun.com/news/marijuana/">Marijuana</a></li>
+	<li id="menu-item-8552636" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-8552636 menu-large"><a href="https://www.baltimoresun.com/news/national/">Nation</a></li>
+	<li id="menu-item-8552637" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-8552637 menu-large"><a href="https://www.baltimoresun.com/news/politics/">Politics</a></li>
+	<li id="menu-item-8552638" class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-8552638 menu-large"><a href="https://www.baltimoresun.com/tag/sun-investigates/">Sun Investigates</a></li>
+	<li id="menu-item-8552639" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-8552639 menu-large"><a href="https://www.baltimoresun.com/news/world/">World</a></li>
+</ul>
+</li>
+<li id="menu-item-9104813" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-9104813 menu-large"><a href="https://www.baltimoresun.com/carroll-county-times/" aria-expanded="false" aria-haspopup="true">Carroll County Times</a>
+<ul class="sub-menu">
+	<li id="menu-item-9115227" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-9115227 menu-large"><a href="https://www.baltimoresun.com/carroll-county-times/">Carroll County Times</a></li>
+	<li id="menu-item-8552691" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8552691 menu-large"><a href="https://digitaledition.carrollcounty.baltimoresun.com">eNewspaper</a></li>
+	<li id="menu-item-8552692" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-8552692 menu-large"><a href="https://www.baltimoresun.com/carroll-county-times/cct-education/">Education</a></li>
+	<li id="menu-item-8552693" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-8552693 menu-large"><a href="https://www.baltimoresun.com/carroll-county-times/cct-high-school-sports/">High School Sports</a></li>
+	<li id="menu-item-8552694" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-8552694 menu-large"><a href="https://www.baltimoresun.com/carroll-county-times/cct-news/">News</a></li>
+	<li id="menu-item-8552695" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-8552695 menu-large"><a href="https://www.baltimoresun.com/carroll-county-times/cct-opinion/">Opinion</a></li>
+	<li id="menu-item-9569806" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9569806 menu-large"><a href="https://www.legacy.com/obituaries/carrollcountytimes/">Obituaries</a></li>
+	<li id="menu-item-9237127" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9237127 menu-large"><a href="/cct-submit-news/">Submit News</a></li>
+</ul>
+</li>
+<li id="menu-item-8552697" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-8552697 menu-large"><a href="https://www.baltimoresun.com/aegis/" aria-expanded="false" aria-haspopup="true">The Aegis</a>
+<ul class="sub-menu">
+	<li id="menu-item-8553030" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-8553030 menu-large"><a href="https://www.baltimoresun.com/aegis/">The Aegis</a></li>
+	<li id="menu-item-8553031" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8553031 menu-large"><a href="https://enewspaper.theaegis.com/">eNewspaper</a></li>
+	<li id="menu-item-8552698" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-8552698 menu-large"><a href="https://www.baltimoresun.com/aegis/aegis-opinion/">Aegis Opinion</a></li>
+	<li id="menu-item-8552699" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-8552699 menu-large"><a href="https://www.baltimoresun.com/aegis/aegis-sports/">Aegis Sports</a></li>
+	<li id="menu-item-8552700" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-8552700 menu-large"><a href="https://www.baltimoresun.com/aegis/harford-magazine/">Harford Magazine</a></li>
+</ul>
+</li>
+<li id="menu-item-8552640" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-8552640 menu-large"><a href="https://www.baltimoresun.com/local-news/" aria-expanded="false" aria-haspopup="true">Local News</a>
+<ul class="sub-menu">
+	<li id="menu-item-8552641" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-8552641 menu-large"><a href="https://www.baltimoresun.com/local-news/">Local News</a></li>
+	<li id="menu-item-8552642" class="menu-item menu-item-type-taxonomy menu-item-object-location menu-item-8552642 menu-large"><a href="https://www.baltimoresun.com/location/maryland/">Maryland</a></li>
+	<li id="menu-item-8552643" class="menu-item menu-item-type-taxonomy menu-item-object-location menu-item-8552643 menu-large"><a href="https://www.baltimoresun.com/location/maryland/anne-arundel-county/">Anne Arundel County</a></li>
+	<li id="menu-item-8552644" class="menu-item menu-item-type-taxonomy menu-item-object-location menu-item-8552644 menu-large"><a href="https://www.baltimoresun.com/location/maryland/baltimore/">Baltimore City</a></li>
+	<li id="menu-item-8552645" class="menu-item menu-item-type-taxonomy menu-item-object-location menu-item-8552645 menu-large"><a href="https://www.baltimoresun.com/location/maryland/baltimore-county/">Baltimore County</a></li>
+	<li id="menu-item-9183862" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-9183862 menu-large"><a href="https://www.baltimoresun.com/carroll-county-times/">Carroll County Times</a></li>
+	<li id="menu-item-9183865" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-9183865 menu-large"><a href="https://www.baltimoresun.com/aegis/">Harford County &#8211; The Aegis</a></li>
+	<li id="menu-item-8552648" class="menu-item menu-item-type-taxonomy menu-item-object-location menu-item-8552648 menu-large"><a href="https://www.baltimoresun.com/location/maryland/howard-county/">Howard County</a></li>
+	<li id="menu-item-8552649" class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-8552649 menu-large"><a href="https://www.baltimoresun.com/tag/eastern-shore/">Eastern Shore</a></li>
+</ul>
+</li>
+<li id="menu-item-8552650" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-8552650 menu-large"><a href="https://www.baltimoresun.com/sports/" aria-expanded="false" aria-haspopup="true">Sports</a>
+<ul class="sub-menu">
+	<li id="menu-item-8552651" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-8552651 menu-large"><a href="https://www.baltimoresun.com/sports/">Sports</a></li>
+	<li id="menu-item-8552652" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-8552652 menu-large"><a href="https://www.baltimoresun.com/sports/mlb/baltimore-orioles/">Baltimore Orioles</a></li>
+	<li id="menu-item-8552653" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-8552653 menu-large"><a href="https://www.baltimoresun.com/sports/nfl/baltimore-ravens/">Baltimore Ravens</a></li>
+	<li id="menu-item-10190509" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-10190509 menu-large"><a href="https://www.baltimoresun.com/sports/olympics/">Olympics</a></li>
+	<li id="menu-item-8552654" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-8552654 menu-large"><a href="https://www.baltimoresun.com/sports/high-school-sports/">High School Sports</a></li>
+	<li id="menu-item-8552656" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-8552656 menu-large"><a href="https://www.baltimoresun.com/sports/college-sports/">College Sports</a></li>
+	<li id="menu-item-8552657" class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-8552657 menu-large"><a href="https://www.baltimoresun.com/tag/terps/">Terps</a></li>
+	<li id="menu-item-8552658" class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-8552658 menu-large"><a href="https://www.baltimoresun.com/tag/horse-racing/">Horse Racing</a></li>
+</ul>
+</li>
+<li id="menu-item-8552659" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-8552659 menu-large"><a href="https://www.baltimoresun.com/business/" aria-expanded="false" aria-haspopup="true">Business</a>
+<ul class="sub-menu">
+	<li id="menu-item-8552660" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-8552660 menu-large"><a href="https://www.baltimoresun.com/business/">Business</a></li>
+	<li id="menu-item-8552661" class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-8552661 menu-large"><a href="https://www.baltimoresun.com/tag/autos/">Autos</a></li>
+	<li id="menu-item-8552662" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-8552662 menu-large"><a href="https://www.baltimoresun.com/best-reviews/">Best Reviews</a></li>
+	<li id="menu-item-8552664" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-8552664 menu-large"><a href="https://www.baltimoresun.com/business/real-estate/">Real Estate</a></li>
+	<li id="menu-item-8552665" class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-8552665 menu-large"><a href="https://www.baltimoresun.com/tag/top-workplaces/">Top Workplaces</a></li>
+</ul>
+</li>
+<li id="menu-item-8552666" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-8552666 menu-large"><a href="https://www.baltimoresun.com/opinion/" aria-expanded="false" aria-haspopup="true">Opinion</a>
+<ul class="sub-menu">
+	<li id="menu-item-8552667" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-8552667 menu-large"><a href="https://www.baltimoresun.com/opinion/">Opinion</a></li>
+	<li id="menu-item-8552668" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-8552668 menu-large"><a href="https://www.baltimoresun.com/opinion/editorials/">Editorials</a></li>
+	<li id="menu-item-8552669" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-8552669 menu-large"><a href="https://www.baltimoresun.com/opinion/opinion-columnists/">Opinion Columnists</a></li>
+	<li id="menu-item-9104404" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9104404 menu-large"><a href="https://www.baltimoresun.com/author/dan-rodricks/">Dan Rodricks</a></li>
+	<li id="menu-item-9113837" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-9113837 menu-large"><a href="https://www.baltimoresun.com/opinion/commentary/">Op-Ed</a></li>
+	<li id="menu-item-8552671" class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-8552671 menu-large"><a href="https://www.baltimoresun.com/tag/readers-respond/">Readers Respond</a></li>
+	<li id="menu-item-8552672" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8552672 menu-large"><a href="https://www.baltimoresun.com/submit-letter-to-editor/">Submit Letter to the Editor</a></li>
+	<li id="menu-item-8552673" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8552673 menu-large"><a href="https://www.baltimoresun.com/submit-op-ed/">Submit Op-Ed</a></li>
+</ul>
+</li>
+<li id="menu-item-9569807" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-9569807 menu-large"><a href="https://www.baltimoresun.com/news/newsobituaries/" aria-expanded="false" aria-haspopup="true">News Obituaries</a>
+<ul class="sub-menu">
+	<li id="menu-item-9569951" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-9569951 menu-large"><a href="https://www.baltimoresun.com/news/newsobituaries/">News Obituaries</a></li>
+	<li id="menu-item-9569809" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9569809 menu-large"><a href="https://www.legacy.com/us/obituaries/baltimoresun/today#nt=secondarynavbar">Death Notices</a></li>
+	<li id="menu-item-9569812" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9569812 menu-large"><a href="https://placeanad.baltimoresun.com/death-notices/">How to submit a death notice</a></li>
+</ul>
+</li>
+<li id="menu-item-8552678" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-8552678 menu-large"><a href="https://www.baltimoresun.com/things-to-do/" aria-expanded="false" aria-haspopup="true">Things To Do</a>
+<ul class="sub-menu">
+	<li id="menu-item-8552679" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-8552679 menu-large"><a href="https://www.baltimoresun.com/things-to-do/">Things To Do</a></li>
+	<li id="menu-item-8552680" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-8552680 menu-large"><a href="https://www.baltimoresun.com/things-to-do/arts/">Arts</a></li>
+	<li id="menu-item-8552681" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-8552681 menu-large"><a href="https://www.baltimoresun.com/things-to-do/entertainment/">Entertainment</a></li>
+	<li id="menu-item-8552688" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8552688 menu-large"><a href="https://www.baltimoresun.com/events/">Events</a></li>
+	<li id="menu-item-8552683" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-8552683 menu-large"><a href="https://www.baltimoresun.com/things-to-do/restaurants-food-drink/">Food and Drink</a></li>
+	<li id="menu-item-9104411" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-9104411 menu-large"><a href="https://www.baltimoresun.com/things-to-do/home-garden/">Home and Garden</a></li>
+	<li id="menu-item-8552684" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-8552684 menu-large"><a href="https://www.baltimoresun.com/things-to-do/horoscopes/">Horoscopes</a></li>
+	<li id="menu-item-8552685" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8552685 menu-large"><a href="https://fun.baltimoresun.com">Fun and Games</a></li>
+	<li id="menu-item-8552686" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-8552686 menu-large"><a href="https://www.baltimoresun.com/things-to-do/movies/">Movies</a></li>
+	<li id="menu-item-8552687" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-8552687 menu-large"><a href="https://www.baltimoresun.com/things-to-do/music-concerts/">Music</a></li>
+</ul>
+</li>
+<li id="menu-item-9116294" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-9116294 menu-large"><a href="https://www.baltimoresun.com/sponsor-content-article/" aria-expanded="false" aria-haspopup="true">Branded Content</a>
+<ul class="sub-menu">
+	<li id="menu-item-9116301" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9116301 menu-large"><a href="https://www.baltimoresun.com/sponsor-content-hub/?ntv_adpz=1632">Paid Partner Content</a></li>
+	<li id="menu-item-9116302" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9116302 menu-large"><a href="https://www.baltimoresun.com/sponsor-content-hub-idx/?ntv_adpz=3660">Advertising by Ascend</a></li>
+	<li id="menu-item-9116311" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9116311 menu-large"><a href="https://www.baltimoresun.com/sponsor-content-hub/?ntv_adpz=3309">Paid Content by Brandpoint</a></li>
+</ul>
+</li>
+</ul><button class="sr-only pushnav-close">Close Menu</button>						</div>
+						<div class="newsletter-nav">
+								<div class="newsletter-simple">
+		<div class="newsletter-item">
+			<p class="prompt">Sign up for email newsletters</p>
+			<a class="sign-up-button" href="https://www.baltimoresun.com/newsletters"
+			   aria-label="Click here to go to the newsletter sign up page">
+				Sign Up</a>
+		</div>
+	</div>
+						</div>
+					</div>
+				</nav>
+			</div>
+						<div class="hidden-logo">
+				<div class="logo custom-logo"><a href="https://www.baltimoresun.com" aria-label="Baltimore Sun"><img src="https://www.baltimoresun.com/wp-content/uploads/2023/10/baltimoresun.svg" alt="Baltimore Sun"></a></div>			</div>
+							<div class="digisubs-wrapper">
+									<nav class="digisubs-pushmenu" role="navigation" aria-label="Account Menu" id="digisubs-push-container">
+						<div id="digisubs-toggle" class="digisubs-toggle pushnav" role="button" aria-expanded="false" tabindex="0" aria-label="Open menu">
+							<div id="mng-icon-image">
+								<img id="pushnav-icon" alt="">
+								<div id="blank-icon-user">
+									<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 32 32">
+										<path fill="#000000" d="M18 22.082v-1.649c2.203-1.241 4-4.337 4-7.432 0-4.971 0-9-6-9s-6 4.029-6 9c0 3.096 1.797 6.191 4 7.432v1.649c-6.784 0.555-12 3.888-12 7.918h28c0-4.030-5.216-7.364-12-7.918z"></path>
+									</svg>
+								</div>
+								<span class="icon-arrow-down"></span>
+							</div>
+						</div>
+						<div class="wrapper-nav-subs pushnav">
+							<div class="border-container">
+								<ul id="dfm-digisubs-push-menu" class="menu"><li id="menu-item-5930333" class="subscribe-visibility subscribe-special custom-button menu-item menu-item-type-custom menu-item-object-custom menu-item-5930333"><a href="https://mktops.baltimoresun.com/subscriptions/land-stay-informed-24-v2/?market=bs&#038;source=index&#038;g2i_source=SB&#038;g2i_medium=nav2&#038;g2i_campaign=E224">Subscribe</a></li>
+<li id="menu-item-5930334" class="log-in-button subscribe-special custom-button menu-item menu-item-type-custom menu-item-object-custom menu-item-5930334"><a href="/login">Login</a></li>
+</ul>								<div id="push-account-content">
+									<div class="show-digisubs-push" id="email-source-wrapper">
+										<a class="account-link" id="push-email-link"></a>
+										<p class="logged-in-source" id="push-auth-source"></p>
+									</div>
+									<a class="show-digisubs-push account-link" id="push-account-link" data-mng-click="account-settings" data-mng-category="account-link" data-mng-action="account-settings">Account Settings</a>
+									<a class="show-digisubs-push" id="push-contact-us" href="/contact-us" data-mng-click="contact-us" data-mng-category="account-link" data-mng-action="contact-us">Contact Us</a>
+									<a class="show-digisubs-push" id="push-log-out" href="/logout" data-mng-click="log-out" data-mng-category="account-link" data-mng-action="log-out">Log Out</a>
+									<div class="show-digisubs-push marketing-slot" id="push-marketing-slot"></div>
+									<label class="user-spoof">Spoof a user</label>
+									<input id="push-user-spoof-control" class="user-spoof" type="checkbox">
+									<ul id="newsLetterItem-push" class="newsLetterContent"></ul>
+								</div>
+							</div>
+							<div class="newsletter-nav">
+									<div class="newsletter-simple">
+		<div class="newsletter-item">
+			<p class="prompt">Sign up for email newsletters</p>
+			<a class="sign-up-button" href="https://www.baltimoresun.com/newsletters"
+			   aria-label="Click here to go to the newsletter sign up page">
+				Sign Up</a>
+		</div>
+	</div>
+							</div>
+						</div>
+					</nav>
+					<div class="digisubs-wrapper-large" id="digisubs-wrapper-large">
+						<ul id="dfm-digisubs-menu" class="menu"><li id="menu-item-5930331" class="subscribe-visibility subscribe-special custom-button menu-item menu-item-type-custom menu-item-object-custom menu-item-5930331"><a href="https://mktops.baltimoresun.com/subscriptions/land-stay-informed-24-v2/?market=bs&#038;source=index&#038;g2i_source=SB&#038;g2i_medium=nav2&#038;g2i_campaign=E224">Subscribe</a></li>
+<li id="menu-item-5930332" class="log-in-button subscribe-special custom-button menu-item menu-item-type-custom menu-item-object-custom menu-item-5930332"><a href="/login">Login</a></li>
+</ul>					</div>
+									</div>
+			<div class="search-icon-wrapper"><span class="icon-search" aria-label="Click here or hit enter to open a Search box" id="dfm-search-icon" role="button" tabindex=0 aria-expanded="false"></span></div><form class="search-form header-search" method="GET" id="search-bar" action="https://www.baltimoresun.com/">
+
+		<div class="input-wrapper">
+			<span class="icon-search" aria-hidden="true"></span>
+		<input id="mng-search-focus" type="text" placeholder="Type your search" name="s"  aria-label="Type your search">
+		<input name="orderby" type="hidden" value="date"/>
+		<input name="order" type="hidden" value="desc"/>
+		<div class="search-button-container">
+			<button class="search-button" type="submit">
+				<span>Search</span>
+			</button>
+		</div>
+	</div>
+	
+</form>
+
+
+						</div>
+
+					</div>
+
+					<div class="nav-primary-middle">
+
+										<div class="accuweather-wrap">
+					<div class="weather-date">
+					
+	<div class='dfm_accuweather_current_conditions'>
+		<a target="_blank" href="http://www.accuweather.com/en/us/baltimore-md/21202/current-weather/8844_pc?lang=en-us" title="Current Weather Conditions" aria-label="Current temperature is 65&deg;F, view full weather conditions in a new window">
+			<span>65&deg;F</span>
+			<i class="bi-cloud-moon" role="img" aria-label="weather icon cloud-moon"></i>
+		</a>
+	</div>						<div class="date">
+							Wednesday, October 30th 2024									<a title="Link to E-Edition opens in a new window" target="_blank" href="https://digitaledition.baltimoresun.com/">
+									<p class="e-edition">Baltimore Sun eNewspaper</p>									</a>
+														</div>
+					</div>
+				</div>
+			<div class="hidden-logo"><div class="section-header">Baltimore City Paper</div></div>			<div class="sponsorship-ad-wrapper">
+								<div class="dfp-ad dfp-sponsorship_1" id="div-gpt-ad-sponsorship_1" style="visibility:hidden">
+					<div class="htlad-sponsorship_1" data-unit='baltimoresun.com/baltimore-city-paper/sponsorship_1' data-targeting=''></div>
+				</div>			</div>
+			
+					</div>
+
+					<div class="nav-primary-bottom">
+
+									<div class="nav-primary">
+			<ul id="subnav-fallback-menu" class="menu"><li id="menu-item-8365227" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8365227"><a href="https://digitaledition.baltimoresun.com/">eNewspaper</a></li>
+<li id="menu-item-5933933" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-5933933"><a href="https://www.baltimoresun.com/latest-headlines/">Latest Headlines</a></li>
+<li id="menu-item-5933934" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-5933934"><a href="https://www.baltimoresun.com/sports/">Sports</a></li>
+<li id="menu-item-5933935" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-5933935"><a href="https://www.baltimoresun.com/news/newsobituaries/">News Obituaries</a></li>
+<li id="menu-item-8553027" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8553027"><a href="https://www.legacy.com/us/obituaries/baltimoresun/today">Death Notices</a></li>
+<li id="menu-item-5933936" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-5933936"><a href="https://www.baltimoresun.com/things-to-do/">Things To Do</a></li>
+<li id="menu-item-8366627" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-8366627"><a href="https://www.baltimoresun.com/opinion/">Opinion</a></li>
+<li id="menu-item-8367428" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-8367428"><a href="https://www.baltimoresun.com/news/weather/">Weather</a></li>
+</ul>			</div>
+			
+					</div>
+
+				</div>
+
+				
+<div class="widget widget-trending-stories"><div class="trending-bar trending">
+	<div class="trending-bar-wrapper">
+		<p class="label">
+			Trending:		</p>
+		<nav>
+			<ul>
+				
+	<li class="entry-title">
+
+<div class="entry-section"><a href="https://www.baltimoresun.com/sports/high-school-sports/">High School Sports | </a></div>			<a class="article-title" href="https://www.baltimoresun.com/2024/10/26/2024-voter-guide/" title="2024 voter guide">
+	
+				<span class="dfm-title free">
+			🇺🇸 Voter guide		</span>
+
+
+
+			</a>
+	
+	
+	</li>
+
+	<li class="entry-title">
+
+<div class="entry-section"><a href="https://www.baltimoresun.com/sports/high-school-sports/">High School Sports | </a></div>			<a class="article-title" href="https://www.baltimoresun.com/2024/10/28/reader-poll-who-gets-your-vote-for-president/" title="READER POLL: Who gets your vote for president?">
+	
+				<span class="dfm-title free">
+			🏛️ Who gets your vote for president?		</span>
+
+
+
+			</a>
+	
+	
+	</li>
+
+	<li class="entry-title">
+
+<div class="entry-section"><a href="https://www.baltimoresun.com/sports/high-school-sports/">High School Sports | </a></div>			<a class="article-title" href="https://www.baltimoresun.com/2024/10/29/when-do-clocks-turn-back-to-end-daylight-saving-2024/" title="When do clocks turn back to end daylight saving 2024?">
+	
+				<span class="dfm-title premium">
+			⏰ When does daylight saving time end?		</span>
+
+
+
+			</a>
+	
+	
+	</li>
+
+	<li class="entry-title">
+
+<div class="entry-section"><a href="https://www.baltimoresun.com/sports/high-school-sports/">High School Sports | </a></div>			<a class="article-title" href="https://www.baltimoresun.com/2024/10/27/best-of-howard-county-2024/" title="Here are the winners of Best of Howard County 2024">
+	
+				<span class="dfm-title free">
+			🏆 Best of Howard County		</span>
+
+
+
+			</a>
+	
+	
+	</li>
+
+	<li class="entry-title">
+
+<div class="entry-section"><a href="https://www.baltimoresun.com/sports/high-school-sports/">High School Sports | </a></div>			<a class="article-title" href="https://www.baltimoresun.com/2024/09/25/maryland-fall-foliage-maps/" title="Fall foliage maps: When will the leaves change in Maryland?">
+	
+				<span class="dfm-title metered">
+			🍁 Fall foliage maps		</span>
+
+
+
+			</a>
+	
+	
+	</li>
+
+	<li class="entry-title">
+
+<div class="entry-section"><a href="https://www.baltimoresun.com/sports/high-school-sports/">High School Sports | </a></div>			<a class="article-title" href="https://www.baltimoresun.com/2024/09/17/baltimore-ravens-five-things-redirect/" title="Baltimore Ravens: Five things we learned">
+	
+				<span class="dfm-title metered">
+			🏈 Ravens 5 things		</span>
+
+
+
+			</a>
+	
+	
+	</li>
+			</ul>
+		</nav>
+	</div>
+</div>
+
+</div>
+			</div>
+			</header><div id="content" class="site-content">
+						<div class="header-banners">
+								<div class="dfp-ad dfp-interstitial" id="div-gpt-ad-interstitial" style="visibility:hidden">
+					<div class="htlad-interstitial" data-unit='baltimoresun.com/baltimore-city-paper/interstitial' data-targeting=''></div>
+				</div>				<div class="dfp-ad dfp-top_leaderboard" id="div-gpt-ad-top_leaderboard" style="visibility:hidden">
+					<div class="htlad-top_leaderboard" data-unit='baltimoresun.com/baltimore-city-paper/top_leaderboard' data-targeting=''></div>
+				</div>			</div>
+			
+
+			
+<div id="primary" class="content-area">
+	<main id="main" class="site-main" role="main">
+
+		<section class="tag landing">
+	<h1 class="tag-name">Baltimore City Paper</h1>
+
+	<div class="content-wrapper">
+		<div class="tag-content load-more-wrapper">
+			
+			
+			
+			
+				
+				
+
+
+	<article
+		class=" tag-search-view archive-view has-image post-9503708 post type-post status-publish format-standard has-post-thumbnail hentry category-high-school-sports category-sports tag-baltimore-city-paper location-baltimore-county location-maryland"		data-id="9503708"
+		data-timestamp="1706046267"
+	>
+
+		
+<figure>
+			<a href="https://www.baltimoresun.com/2024/01/23/sparrows-point-wrestling-franklin/" title="Sparrows Point wrestling not letting up, beats Franklin, 42-30" class=""></a>
+	
+	<a href="https://www.baltimoresun.com/2024/01/23/sparrows-point-wrestling-franklin/" title="Sparrows Point wrestling not letting up, beats Franklin, 42-30">
+		<div class="image-wrapper"><img alt="Many thought Sparrows Point wrestling might take a step back. But the Pointers have proven to still be the team to beat in Baltimore County" title="Many thought Sparrows Point wrestling might take a step back. But the Pointers have proven to still be the team to beat in Baltimore County" subtitle="" class="lazyload  size-feature_small" data-sizes="auto" data-src="https://www.baltimoresun.com/wp-content/uploads/migration/2023/02/19/5QINUCPEKZAGXODJHK3KLTT5NE.jpg?w=135" data-srcset="https://www.baltimoresun.com/wp-content/uploads/migration/2023/02/19/5QINUCPEKZAGXODJHK3KLTT5NE.jpg?w=135 140w" ></div>	</a>
+</figure>
+
+<div class="article-info">
+		<header>
+
+		
+		
+		
+	<h2 class="entry-title">
+
+<div class="entry-section"><a href="https://www.baltimoresun.com/sports/high-school-sports/">High School Sports | </a></div>			<a class="article-title" href="https://www.baltimoresun.com/2024/01/23/sparrows-point-wrestling-franklin/" title="Sparrows Point wrestling not letting up, beats Franklin, 42-30">
+	
+				<span class="dfm-title premium">
+			Sparrows Point wrestling not letting up, beats Franklin, 42-30		</span>
+
+
+
+			</a>
+	
+	
+	</h2>
+<!--		-->
+		
+		
+		
+			<div class="entry-meta">
+									<div class="byline">By <a href="https://www.baltimoresun.com/author/mike-frainie/">Mike Frainie</a></div>
+								
+				
+					
+                    
+					  
+							<time datetime="2024-01-25 13:23:17">January 25, 2024  at 1:23 p.m.</time>
+
+					
+				
+			</div><!-- .entry-meta -->
+
+		
+		
+		
+	</header>
+
+				<div class="excerpt">
+			Many thought Sparrows Point wrestling might take a step back. But the Pointers have proven...		</div>
+
+	
+		</div><!-- .article-info -->
+
+		
+
+		
+	</article>
+
+
+
+				
+			
+				
+				
+
+
+	<article
+		class=" tag-search-view archive-view has-image post-72973 post type-post status-publish format-standard has-post-thumbnail hentry category-business category-latest-headlines category-news category-politics category-real-estate tag-baltimore-city-paper tag-nl-evening-sun tag-nl-morning-sun tag-ticker location-baltimore-county location-maryland"		data-id="72973"
+		data-timestamp="1693130524"
+	>
+
+		
+<figure>
+			<a href="https://www.baltimoresun.com/2023/08/27/developer-with-rocky-financial-past-joins-baltimore-county-government/" title="Developer with rocky financial past joins Baltimore County government" class=""></a>
+	
+	<a href="https://www.baltimoresun.com/2023/08/27/developer-with-rocky-financial-past-joins-baltimore-county-government/" title="Developer with rocky financial past joins Baltimore County government">
+		<div class="image-wrapper"><img alt="Developer with rocky financial past joins Baltimore County government" title="Developer with rocky financial past joins Baltimore County government" subtitle="" class="lazyload  size-feature_small" data-sizes="auto" data-src="https://www.baltimoresun.com/wp-content/uploads/migration/2023/09/09/P2A3PUJKEFG2FE4JR3GQZUBECQ.jpg?w=135" data-srcset="https://www.baltimoresun.com/wp-content/uploads/migration/2023/09/09/P2A3PUJKEFG2FE4JR3GQZUBECQ.jpg?w=135 140w" ></div>	</a>
+</figure>
+
+<div class="article-info">
+		<header>
+
+		
+		
+		
+	<h2 class="entry-title">
+
+			<a class="article-title" href="https://www.baltimoresun.com/2023/08/27/developer-with-rocky-financial-past-joins-baltimore-county-government/" title="Developer with rocky financial past joins Baltimore County government">
+	
+				<span class="dfm-title premium">
+			Developer with rocky financial past joins Baltimore County government		</span>
+
+
+
+			</a>
+	
+	
+	</h2>
+<!--		-->
+		
+		
+		
+			<div class="entry-meta">
+									<div class="byline">By <a href="https://www.baltimoresun.com/author/lia-russell/">Lia Russell</a></div>
+								
+				
+					
+                    
+					  
+							<time datetime="2023-08-27 10:02:05">August 27, 2023  at 2:02 p.m.</time>
+
+					
+				
+			</div><!-- .entry-meta -->
+
+		
+		
+		
+	</header>
+
+				<div class="excerpt">
+			A developer who was at the center of a dispute over a Dundalk recreation center...		</div>
+
+	
+		</div><!-- .article-info -->
+
+		
+
+		
+	</article>
+
+
+
+				
+			
+				
+				
+
+
+	<article
+		class=" tag-search-view archive-view has-image post-227195 post type-post status-publish format-standard has-post-thumbnail hentry category-entertainment category-latest-headlines category-movies category-news category-newsobituaries category-things-to-do tag-baltimore-city-paper location-baltimore location-carroll-county location-maryland"		data-id="227195"
+		data-timestamp="1654146000"
+	>
+
+		
+<figure>
+			<a href="https://www.baltimoresun.com/2022/06/02/peter-j-koper-writer-reporter-producer-actor-journalism-professor-and-longtime-supporter-of-john-waters-dies/" title="Peter J. Koper, writer, reporter, producer, actor, journalism professor and longtime supporter of John Waters, dies" class=""></a>
+	
+	<a href="https://www.baltimoresun.com/2022/06/02/peter-j-koper-writer-reporter-producer-actor-journalism-professor-and-longtime-supporter-of-john-waters-dies/" title="Peter J. Koper, writer, reporter, producer, actor, journalism professor and longtime supporter of John Waters, dies">
+		<div class="image-wrapper"><img alt="Peter J. Koper, writer, reporter, producer, actor, journalism professor and longtime supporter of John Waters, dies" title="Peter J. Koper, writer, reporter, producer, actor, journalism professor and longtime supporter of John Waters, dies" subtitle="" class="lazyload  size-feature_small" data-sizes="auto" data-src="https://www.baltimoresun.com/wp-content/uploads/migration/2022/06/02/2IW6ZPCWBNIQJW3RQK2UQ5QQMQ.jpg?w=135" data-srcset="https://www.baltimoresun.com/wp-content/uploads/migration/2022/06/02/2IW6ZPCWBNIQJW3RQK2UQ5QQMQ.jpg?w=135 140w" ></div>	</a>
+</figure>
+
+<div class="article-info">
+		<header>
+
+		
+		
+		
+	<h2 class="entry-title">
+
+			<a class="article-title" href="https://www.baltimoresun.com/2022/06/02/peter-j-koper-writer-reporter-producer-actor-journalism-professor-and-longtime-supporter-of-john-waters-dies/" title="Peter J. Koper, writer, reporter, producer, actor, journalism professor and longtime supporter of John Waters, dies">
+	
+				<span class="dfm-title">
+			Peter J. Koper, writer, reporter, producer, actor, journalism professor and longtime supporter of John Waters, dies		</span>
+
+
+
+			</a>
+	
+	
+	</h2>
+<!--		-->
+		
+		
+		
+			<div class="entry-meta">
+									<div class="byline">By <a href="https://www.baltimoresun.com/author/frederick-n-rasmussen/">Frederick N. Rasmussen</a></div>
+								
+				
+					
+                    
+					  
+							<time datetime="2022-06-02 08:49:22">June 2, 2022  at 12:49 p.m.</time>
+
+					
+				
+			</div><!-- .entry-meta -->
+
+		
+		
+		
+	</header>
+
+				<div class="excerpt">
+			Peter J. Koper, a writer, reporter, producer and professor of journalism and an actor who...		</div>
+
+	
+		</div><!-- .article-info -->
+
+		
+
+		
+	</article>
+
+
+
+				
+			
+				
+				
+
+
+	<article
+		class=" tag-search-view archive-view has-image post-376663 post type-post status-publish format-standard has-post-thumbnail hentry category-entertainment category-latest-headlines category-music-concerts category-news category-newsobituaries category-things-to-do tag-baltimore-city-paper location-baltimore location-baltimore-county location-maryland location-towson"		data-id="376663"
+		data-timestamp="1617641779"
+	>
+
+		
+<figure>
+			<a href="https://www.baltimoresun.com/2021/04/05/james-carroll-jim-maher-music-critic-dies/" title="James Carroll &#8216;Jim&#8217; Maher, music critic, dies" class=""></a>
+	
+	<a href="https://www.baltimoresun.com/2021/04/05/james-carroll-jim-maher-music-critic-dies/" title="James Carroll &#8216;Jim&#8217; Maher, music critic, dies">
+		<div class="image-wrapper"><img alt="James Carroll &#039;Jim&#039; Maher, music critic, dies" title="James Carroll &#039;Jim&#039; Maher, music critic, dies" subtitle="" class="lazyload  size-feature_small" data-sizes="auto" data-src="https://www.baltimoresun.com/wp-content/uploads/migration/2021/04/05/3BJGTETZ7NFWFJTY7VSXP3Y3NA.jpg?w=135" data-srcset="https://www.baltimoresun.com/wp-content/uploads/migration/2021/04/05/3BJGTETZ7NFWFJTY7VSXP3Y3NA.jpg?w=135 140w" ></div>	</a>
+</figure>
+
+<div class="article-info">
+		<header>
+
+		
+		
+		
+	<h2 class="entry-title">
+
+			<a class="article-title" href="https://www.baltimoresun.com/2021/04/05/james-carroll-jim-maher-music-critic-dies/" title="James Carroll &#8216;Jim&#8217; Maher, music critic, dies">
+	
+				<span class="dfm-title">
+			James Carroll &#8216;Jim&#8217; Maher, music critic, dies		</span>
+
+
+
+			</a>
+	
+	
+	</h2>
+<!--		-->
+		
+		
+		
+			<div class="entry-meta">
+									<div class="byline">By <a href="https://www.baltimoresun.com/author/jacques-kelly/">Jacques Kelly</a></div>
+								
+				
+					
+                    
+					  
+							<time datetime="2021-04-05 16:56:20">April 5, 2021  at 8:56 p.m.</time>
+
+					
+				
+			</div><!-- .entry-meta -->
+
+		
+		
+		
+	</header>
+
+				<div class="excerpt">
+			James Carroll "Jim" Maher, who chronicled the Baltimore rock music scene for the City Paper,...		</div>
+
+	
+		</div><!-- .article-info -->
+
+		
+
+		
+	</article>
+
+
+
+				
+			
+				
+				
+
+
+	<article
+		class=" tag-search-view archive-view no-image post-1642239 post type-post status-publish format-standard hentry category-business tag-baltimore-city-paper"		data-id="1642239"
+		data-timestamp="1509013500"
+	>
+
+		
+<figure>
+			<a href="https://www.baltimoresun.com/2017/10/26/city-paper-to-publish-final-issue-after-four-decade-run/" title="City Paper to publish final issue after four-decade run" class=""></a>
+	
+	<a href="https://www.baltimoresun.com/2017/10/26/city-paper-to-publish-final-issue-after-four-decade-run/" title="City Paper to publish final issue after four-decade run">
+		<div class="image-wrapper"><img src="https://www.baltimoresun.com/wp-content/uploads/2023/10/baltimore-sun-fallback.png" alt="City Paper to publish final issue after four-decade run" title="City Paper to publish final issue after four-decade run" /></div>	</a>
+</figure>
+
+<div class="article-info">
+		<header>
+
+		
+		
+		
+	<h2 class="entry-title">
+
+			<a class="article-title" href="https://www.baltimoresun.com/2017/10/26/city-paper-to-publish-final-issue-after-four-decade-run/" title="City Paper to publish final issue after four-decade run">
+	
+				<span class="dfm-title">
+			City Paper to publish final issue after four-decade run		</span>
+
+
+
+			</a>
+	
+	
+	</h2>
+<!--		-->
+		
+		
+		
+			<div class="entry-meta">
+									<div class="byline">By <a href="https://www.baltimoresun.com/author/lorraine-mirabella/">Lorraine Mirabella</a></div>
+								
+				
+					
+                    
+					  
+							<time datetime="2018-12-18 02:01:42">December 18, 2018  at 7:01 a.m.</time>
+
+					
+				
+			</div><!-- .entry-meta -->
+
+		
+		
+		
+	</header>
+
+				<div class="excerpt">
+			Four decades after a handful of students launched an alternative publication to their college paper,...		</div>
+
+	
+		</div><!-- .article-info -->
+
+		
+
+		
+	</article>
+
+
+
+				
+			
+				
+				
+
+
+	<article
+		class=" tag-search-view archive-view no-image post-1664596 post type-post status-publish format-standard hentry category-news tag-baltimore-city-paper tag-freddie-gray"		data-id="1664596"
+		data-timestamp="1507833000"
+	>
+
+		
+<figure>
+			<a href="https://www.baltimoresun.com/2017/10/12/second-russia-linked-effort-promoted-protests-during-trial-of-freddie-gray-officers/" title="Second Russia-linked effort promoted protests during trial of Freddie Gray officers" class=""></a>
+	
+	<a href="https://www.baltimoresun.com/2017/10/12/second-russia-linked-effort-promoted-protests-during-trial-of-freddie-gray-officers/" title="Second Russia-linked effort promoted protests during trial of Freddie Gray officers">
+		<div class="image-wrapper"><img src="https://www.baltimoresun.com/wp-content/uploads/2023/10/baltimore-sun-fallback.png" alt="Second Russia-linked effort promoted protests during trial of Freddie Gray officers" title="Second Russia-linked effort promoted protests during trial of Freddie Gray officers" /></div>	</a>
+</figure>
+
+<div class="article-info">
+		<header>
+
+		
+		
+		
+	<h2 class="entry-title">
+
+			<a class="article-title" href="https://www.baltimoresun.com/2017/10/12/second-russia-linked-effort-promoted-protests-during-trial-of-freddie-gray-officers/" title="Second Russia-linked effort promoted protests during trial of Freddie Gray officers">
+	
+				<span class="dfm-title">
+			Second Russia-linked effort promoted protests during trial of Freddie Gray officers		</span>
+
+
+
+			</a>
+	
+	
+	</h2>
+<!--		-->
+		
+		
+		
+			<div class="entry-meta">
+									<div class="byline">By <a href="https://www.baltimoresun.com/author/luke-broadwater/">Luke Broadwater</a></div>
+								
+				
+					
+                    
+					  
+							<time datetime="2019-05-30 21:22:49">May 31, 2019  at 1:22 a.m.</time>
+
+					
+				
+			</div><!-- .entry-meta -->
+
+		
+		
+		
+	</header>
+
+				<div class="excerpt">
+			A second web-based effort linked to Russia attempted to promote protests in Baltimore last year...		</div>
+
+	
+		</div><!-- .article-info -->
+
+		
+
+		
+	</article>
+
+
+
+				
+			
+				
+				
+
+
+	<article
+		class=" tag-search-view archive-view no-image post-1679983 post type-post status-publish format-standard hentry category-uncategorized tag-baltimore-city-paper"		data-id="1679983"
+		data-timestamp="1505862960"
+	>
+
+		
+<figure>
+			<a href="https://www.baltimoresun.com/2017/09/19/2017-best-of-baltimore-we-who-are-about-to-die-salute-you/" title="2017 Best of Baltimore: We Who Are About To Die Salute You" class=""></a>
+	
+	<a href="https://www.baltimoresun.com/2017/09/19/2017-best-of-baltimore-we-who-are-about-to-die-salute-you/" title="2017 Best of Baltimore: We Who Are About To Die Salute You">
+		<div class="image-wrapper"><img src="https://www.baltimoresun.com/wp-content/uploads/2023/10/baltimore-sun-fallback.png" alt="2017 Best of Baltimore: We Who Are About To Die Salute You" title="2017 Best of Baltimore: We Who Are About To Die Salute You" /></div>	</a>
+</figure>
+
+<div class="article-info">
+		<header>
+
+		
+		
+		
+	<h2 class="entry-title">
+
+			<a class="article-title" href="https://www.baltimoresun.com/2017/09/19/2017-best-of-baltimore-we-who-are-about-to-die-salute-you/" title="2017 Best of Baltimore: We Who Are About To Die Salute You">
+	
+				<span class="dfm-title">
+			2017 Best of Baltimore: We Who Are About To Die Salute You		</span>
+
+
+
+			</a>
+	
+	
+	</h2>
+<!--		-->
+		
+		
+		
+			<div class="entry-meta">
+									<div class="byline">By <a href="https://www.baltimoresun.com/author/baltimore-city-paper/">Baltimore City Paper</a></div>
+								
+				
+					
+                    
+					  
+							<time datetime="2019-06-28 06:05:07">June 28, 2019  at 10:05 a.m.</time>
+
+					
+				
+			</div><!-- .entry-meta -->
+
+		
+		
+		
+	</header>
+
+				<div class="excerpt">
+			This, the final Best Of Baltimore issue, sure does make the death of the Baltimore...		</div>
+
+	
+		</div><!-- .article-info -->
+
+		
+
+		
+	</article>
+
+
+
+				
+			
+				
+				
+
+
+	<article
+		class=" tag-search-view archive-view no-image post-1698840 post type-post status-publish format-standard hentry category-uncategorized tag-baltimore-city-paper"		data-id="1698840"
+		data-timestamp="1505842080"
+	>
+
+		
+<figure>
+			<a href="https://www.baltimoresun.com/2017/09/19/2017-best-of-baltimore-we-who-are-about-to-die-salute-you-2/" title="2017 Best of Baltimore: We Who Are About To Die Salute You" class=""></a>
+	
+	<a href="https://www.baltimoresun.com/2017/09/19/2017-best-of-baltimore-we-who-are-about-to-die-salute-you-2/" title="2017 Best of Baltimore: We Who Are About To Die Salute You">
+		<div class="image-wrapper"><img src="https://www.baltimoresun.com/wp-content/uploads/2023/10/baltimore-sun-fallback.png" alt="2017 Best of Baltimore: We Who Are About To Die Salute You" title="2017 Best of Baltimore: We Who Are About To Die Salute You" /></div>	</a>
+</figure>
+
+<div class="article-info">
+		<header>
+
+		
+		
+		
+	<h2 class="entry-title">
+
+			<a class="article-title" href="https://www.baltimoresun.com/2017/09/19/2017-best-of-baltimore-we-who-are-about-to-die-salute-you-2/" title="2017 Best of Baltimore: We Who Are About To Die Salute You">
+	
+				<span class="dfm-title">
+			2017 Best of Baltimore: We Who Are About To Die Salute You		</span>
+
+
+
+			</a>
+	
+	
+	</h2>
+<!--		-->
+		
+		
+		
+			<div class="entry-meta">
+									<div class="byline">By <a href="https://www.baltimoresun.com/author/baltimore-city-paper/">Baltimore City Paper</a></div>
+								
+				
+					
+                    
+					  
+							<time datetime="2019-06-28 06:53:10">June 28, 2019  at 10:53 a.m.</time>
+
+					
+				
+			</div><!-- .entry-meta -->
+
+		
+		
+		
+	</header>
+
+				<div class="excerpt">
+			This, the final Best Of Baltimore issue, sure does make the death of the Baltimore...		</div>
+
+	
+		</div><!-- .article-info -->
+
+		
+
+		
+	</article>
+
+
+
+				
+			
+				
+				
+
+
+	<article
+		class=" tag-search-view archive-view has-image post-1772672 post type-post status-publish format-standard has-post-thumbnail hentry category-things-to-do tag-baltimore-city-paper tag-celebrity"		data-id="1772672"
+		data-timestamp="1501184100"
+	>
+
+		
+<figure>
+			<a href="https://www.baltimoresun.com/2017/07/27/club-charles-storied-station-north-bar-has-closed/" title="Club Charles, storied Station North bar, has closed" class=""></a>
+	
+	<a href="https://www.baltimoresun.com/2017/07/27/club-charles-storied-station-north-bar-has-closed/" title="Club Charles, storied Station North bar, has closed">
+		<div class="image-wrapper"><img alt="Club Charles, storied Station North bar, has closed" title="Club Charles, storied Station North bar, has closed" subtitle="" class="lazyload  size-feature_small" data-sizes="auto" data-src="https://www.baltimoresun.com/wp-content/uploads/migration/2017/07/27/3XZ2W6TDB5GVFCSJ6BBUYOMW4Q.jpg?w=135" data-srcset="https://www.baltimoresun.com/wp-content/uploads/migration/2017/07/27/3XZ2W6TDB5GVFCSJ6BBUYOMW4Q.jpg?w=135 140w" ></div>	</a>
+</figure>
+
+<div class="article-info">
+		<header>
+
+		
+		
+		
+	<h2 class="entry-title">
+
+			<a class="article-title" href="https://www.baltimoresun.com/2017/07/27/club-charles-storied-station-north-bar-has-closed/" title="Club Charles, storied Station North bar, has closed">
+	
+				<span class="dfm-title">
+			Club Charles, storied Station North bar, has closed		</span>
+
+
+
+			</a>
+	
+	
+	</h2>
+<!--		-->
+		
+		
+		
+			<div class="entry-meta">
+									<div class="byline">By <a href="https://www.baltimoresun.com/author/wesley-case/">Wesley Case</a></div>
+								
+				
+					
+                    
+					  
+							<time datetime="2019-06-29 03:59:27">June 29, 2019  at 7:59 a.m.</time>
+
+					
+				
+			</div><!-- .entry-meta -->
+
+		
+		
+		
+	</header>
+
+				<div class="excerpt">
+			Club Charles, the storied dive bar in Station North, has closed, according to a sign...		</div>
+
+	
+		</div><!-- .article-info -->
+
+		
+
+		
+	</article>
+
+
+
+				
+			
+				
+				
+
+
+	<article
+		class=" tag-search-view archive-view no-image post-1791514 post type-post status-publish format-standard hentry category-news tag-baltimore-city-paper location-baltimore location-maryland"		data-id="1791514"
+		data-timestamp="1499770200"
+	>
+
+		
+<figure>
+			<a href="https://www.baltimoresun.com/2017/07/11/councilmans-comments-about-city-officers-outrageous-commissioner-says/" title="Councilman&#8217;s comments about city officers &#8216;outrageous,&#8217; commissioner says" class=""></a>
+	
+	<a href="https://www.baltimoresun.com/2017/07/11/councilmans-comments-about-city-officers-outrageous-commissioner-says/" title="Councilman&#8217;s comments about city officers &#8216;outrageous,&#8217; commissioner says">
+		<div class="image-wrapper"><img src="https://www.baltimoresun.com/wp-content/uploads/2023/10/baltimore-sun-fallback.png" alt="Councilman&#039;s comments about city officers &#039;outrageous,&#039; commissioner says" title="Councilman&#039;s comments about city officers &#039;outrageous,&#039; commissioner says" /></div>	</a>
+</figure>
+
+<div class="article-info">
+		<header>
+
+		
+		
+		
+	<h2 class="entry-title">
+
+			<a class="article-title" href="https://www.baltimoresun.com/2017/07/11/councilmans-comments-about-city-officers-outrageous-commissioner-says/" title="Councilman&#8217;s comments about city officers &#8216;outrageous,&#8217; commissioner says">
+	
+				<span class="dfm-title">
+			Councilman&#8217;s comments about city officers &#8216;outrageous,&#8217; commissioner says		</span>
+
+
+
+			</a>
+	
+	
+	</h2>
+<!--		-->
+		
+		
+		
+			<div class="entry-meta">
+									<div class="byline">By <a href="https://www.baltimoresun.com/author/kevin-rector/">Kevin Rector</a></div>
+								
+				
+					
+                    
+					  
+							<time datetime="2019-06-01 13:54:34">June 1, 2019  at 5:54 p.m.</time>
+
+					
+				
+			</div><!-- .entry-meta -->
+
+		
+		
+		
+	</header>
+
+				<div class="excerpt">
+			Baltimore Police Commissioner Kevin Davis on Wednesday publicly criticized as "outrageous" a Facebook post by...		</div>
+
+	
+		</div><!-- .article-info -->
+
+		
+
+		
+	</article>
+
+
+
+				
+			
+			
+			<a href="https://www.baltimoresun.com/tag/baltimore-city-paper/page/2/" class="load-more">Load More</a>
+		</div>
+
+		<aside class="sidebar-ad-container">
+
+			
+							<div class="dfp-ad dfp-cube1_rrail_atf" id="div-gpt-ad-cube1_rrail_atf" style="visibility:hidden">
+					<div class="htlad-cube1_rrail_atf" data-unit='baltimoresun.com/baltimore-city-paper/cube1_rrail_atf' data-targeting=''></div>
+				</div><div class="dfm-sidebar-top-flex-container"></div><div id="Native_Cube_Simple"></div>
+							<div class="dfp-ad dfp-cube2_rrail_mid" id="div-gpt-ad-cube2_rrail_mid" style="visibility:hidden">
+					<div class="htlad-cube2_rrail_mid" data-unit='baltimoresun.com/baltimore-city-paper/cube2_rrail_mid' data-targeting=''></div>
+				</div>
+							<div class="dfp-ad dfp-cube3_rrail_lower" id="div-gpt-ad-cube3_rrail_lower" style="visibility:hidden">
+					<div class="htlad-cube3_rrail_lower" data-unit='baltimoresun.com/baltimore-city-paper/cube3_rrail_lower' data-targeting=''></div>
+				</div>
+			<div class="dfm-sidebar-bottom-flex-container"><div id="stick-trigger"></div></div>
+		</aside>
+
+		<div class="dfm-page-bottom-flex-container"></div>
+						<div class="dfp-ad dfp-bottom_leaderboard" id="div-gpt-ad-bottom_leaderboard" style="visibility:hidden">
+					<div class="htlad-bottom_leaderboard" data-unit='baltimoresun.com/baltimore-city-paper/bottom_leaderboard' data-targeting=''></div>
+				</div>
+	</div>
+
+</section>
+
+	</main><!-- #main -->
+
+
+</div><!-- #primary -->
+
+
+			
+			</div><!-- #content -->
+
+						<footer class="site-footer">
+
+				<div class="main-footer-wrapper">
+
+						<div class="footer-logo">
+
+							<div class="logo custom-logo"><a href="https://www.baltimoresun.com" aria-label="Baltimore Sun"><img src="https://www.baltimoresun.com/wp-content/uploads/2023/10/baltimoresun.svg" alt="Baltimore Sun"></a></div>
+						</div>
+
+					<ul id="footer-menu" class="footer-menus"><li id="menu-item-466" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-466"><a href="https://www.tribpub.com/">JTF Publications, LLC</a><span class="expander"><a href="#" class="icon-plus" aria-label="Click here to expand the menu"></a></span>
+
+<ul class="footer-menu">
+	<li id="menu-item-475" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-475"><a href="https://www.capitalgazette.com/">Capital Gazette</a></li>
+	<li id="menu-item-476" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-476"><a href="https://www.studio1847.io/">Studio 1847</a></li>
+</ul>
+</li>
+<li id="menu-item-477" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-477"><a href="https://www.tribpub.com/#who-we-are">Company Info</a><span class="expander"><a href="#" class="icon-plus" aria-label="Click here to expand the menu"></a></span>
+
+<ul class="footer-menu">
+	<li id="menu-item-478" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-478"><a href="https://www.baltimoresun.com/about-us/">About Us</a></li>
+	<li id="menu-item-5923579" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5923579"><a href="https://www.baltimoresun.com/contact/">Contact</a></li>
+	<li id="menu-item-5923580" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5923580"><a href="https://www.baltimoresun.com/2022/11/30/baltimore-sun-media-summer-internships-current-opportunities-what-past-interns-have-done-and-how-to-apply/">Mary J. Corey Internships</a></li>
+	<li id="menu-item-9184346" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9184346"><a href="https://store.baltimoresun.com/">Photo Reprints</a></li>
+	<li id="menu-item-5923582" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5923582"><a href="https://www.tkqlhce.com/click-8479697-11570746?url=https%3A%2F%2Fbaltimoresun.newspapers.com%2F%3Fxid%3D2338%26utm_campaign%3Devergreen%26utm_medium%3Dreferral%26utm_source%3Dnavigation%26utm_content%3D%26utm_term%3DBaltimore">Archives</a></li>
+	<li id="menu-item-484" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-484"><a href="https://www.tribpub.com/privacy-policy/">Privacy Policy</a></li>
+	<li id="menu-item-9184372" class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-9184372"><a href="https://www.baltimoresun.com/tag/espanol/">En Espanol</a></li>
+	<li id="menu-item-9184367" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9184367"><a href="https://www.baltimoresun.com/2019/05/16/tag-publisher-sourcing-disclosure/">Tag Disclosures</a></li>
+	<li id="menu-item-9144102" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9144102"><a href="https://www.baltimoresun.com/sitemap/">Sitemap</a></li>
+</ul>
+</li>
+<li id="menu-item-9115779" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-9115779"><a href="https://placeanad.baltimoresun.com">Advertising</a><span class="expander"><a href="#" class="icon-plus" aria-label="Click here to expand the menu"></a></span>
+
+<ul class="footer-menu">
+	<li id="menu-item-5923584" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5923584"><a href="https://classifieds.baltimoresun.com/">Classified</a></li>
+	<li id="menu-item-5923588" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5923588"><a href="https://www.mddcpublicnotices.com/(S(woq4sng1ta54jkdmitnsoujv))/default.aspx">Public Notices</a></li>
+	<li id="menu-item-5923590" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5923590"><a href="https://store.baltimoresun.com/">The Sun Store</a></li>
+</ul>
+</li>
+<li class="mng-follow"><div class="footer-follow"></div>
+							<a href="https://mktops.baltimoresun.com/subscriptions/land-stay-informed-24-v2/?market=bs&#038;source=index&#038;g2i_source=SB&#038;g2i_medium=sub-nav&#038;g2i_campaign=E224" class="subscribe-button" type="subscribe">
+					<span>Subscribe Now</span>				</a>
+
+				</li></ul>
+				</div>
+
+				<div class="dfm-site-info">
+
+								<div class="colophon">
+
+					<div class="footer-flex-menu-wrap"><ul id="footer-bottom-menu" class="menu"><li id="menu-item-488" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-488"><a href="https://www.tribpub.com/subscriber-terms-and-conditions/">Subscriber Terms and Conditions</a></li>
+<li id="menu-item-5933886" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5933886"><a href="http://www.tribpub.com/central-terms-of-service/">Terms of Service</a></li>
+<li id="menu-item-489" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-489"><a href="https://www.tribpub.com/cookie-policy/">Cookie Policy</a></li>
+<li id="menu-item-9102036" class="cookie-policy-click menu-item menu-item-type-custom menu-item-object-custom menu-item-9102036"><a href="#">Cookie Preferences</a></li>
+<li id="menu-item-490" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-490"><a href="https://www.tribpub.com/privacy-policy/#California_Notice_at_Collection">California Notice at Collection</a></li>
+<li id="menu-item-491" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-491"><a href="https://www.tribpub.com/privacy-policy/#Notice_of_Financial_Incentive">CA Notice of Financial Incentive</a></li>
+<li id="menu-item-492" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-492"><a href="https://my.datasubject.com/16A1AnRt2Fn8i1unj/23233">Do Not Sell/Share My Personal Information</a></li>
+</ul>	<div class="footer-copyright-notice">
+		<p>Copyright &copy; 2024 Baltimore Sun</p>
+	</div>	</div>
+			</div>
+			
+				</div>
+
+			</footer><!-- .site-footer -->
+			
+			</div><!-- #page -->
+
+			<script>
+		(function(w) {
+			if ( null !== document.cookie.match(/^(.*;)?\s*auth0_sub\s*=\s*[^;]+(.*)?$/) ) {
+				w.PARSELY = {
+	                autotrack: false,
+	                onReady: function() {
+	                    PARSELY.updateDefaults({
+	                        data: {
+	                            plan: "subscriber"
+	                        }
+	                    });
+	                    PARSELY.beacon.trackPageView();
+	                }
+            	};
+			}
+		})(window);
+        </script><div id="mobile-adhesion" class=""><button class="close-mobile-adhesion" onclick="closeMobileAdhesionAd()" onkeydown="keyboardHandler(event)">Close</button>
+			<script>
+				function closeMobileAdhesionAd() {
+				    document.getElementById("mobile-adhesion").classList.add("closed");
+				}
+
+				function keyboardHandler(e) {
+				    var keycode = ( e.keyCode ? e.keyCode : e.which );
+				    if (keycode == "13") {
+						closeMobileAdhesionAd();
+					}
+				}
+			</script>
+							<div class="dfp-ad dfp-mobile_adhesion" id="div-gpt-ad-mobile_adhesion" style="visibility:hidden">
+					<div class="htlad-mobile_adhesion" data-unit='baltimoresun.com/baltimore-city-paper/mobile_adhesion' data-targeting=''></div>
+				</div></div><script type='text/javascript'>
+/* <![CDATA[ */
+if ( 'undefined' !== typeof _snaq ) {
+_snaq.push(['setAuthor', '']);
+_snaq.push(['setArticlePublishTime','']);
+_snaq.push(['setSection', 'Other']);
+}
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://www.baltimoresun.com/_static/??-eJyVzTEOwjAMRuELEUxBtBPiLFFqWleJHfV3QfT0wFCJhYH1SZ8ePWpIps7q5CMXBr1LiTAleHRJNIEMUS2kBW5lP2FHX6rmZRAFFR3C6JkiwA7qBb61UKzHvoj+snU0N71JznRn7W2mKsmXmT/pP5jj+oSsvP2u5dJ0x3Pbng5NN70AgKBZcQ==" ></script><script src="https://www.baltimoresun.com/wp-content/themes/wp-mason/static/js/ads.js?ver=1.0" id="can-run-ads-js"></script>
+<script type="text/javascript" src="https://www.baltimoresun.com/_static/??/wp-content/themes/assets/static/js/polyfills.min.js,/wp-content/themes/assets/static/js/boldcoastal.min.js?m=1730218601j" ></script><script async src="https://s.ntv.io/serve/load.js" id="nativo-js-js"></script>
+<script type="text/javascript" src="https://www.baltimoresun.com/wp-content/themes/wp-mason/static/js/logo-img-attr.min.js?m=1704216598g" ></script><script src="https://stats.wp.com/e-202444.js" id="jetpack-stats-js" data-wp-strategy="defer"></script>
+<script id="jetpack-stats-js-after">
+_stq = window._stq || [];
+_stq.push([ "view", JSON.parse("{\"v\":\"ext\",\"blog\":\"208788401\",\"post\":\"0\",\"tz\":\"-4\",\"srv\":\"www.baltimoresun.com\",\"hp\":\"vip\",\"j\":\"1:13.9.1\"}") ]);
+_stq.push([ "clickTrackerInit", "208788401", "0" ]);
+</script>
+<script async src="https://cdn.p-n.io/pushly-sdk.min.js?domain_key=qvafiWEMPCh8IoPeDXjiO7iGSktQ4yIaTHfS&amp;ver=6.6.2" id="pushly-sdk-js"></script>
+
+			</body>
+            </html>
+			
