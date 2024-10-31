@@ -260,7 +260,7 @@ class Builder {
                         } 
                         
                         if ( $image ) {
-                            imagewebp( $image, $destination_file, 80 );
+                            imagewebp( $image, $destination_file, 85 );
                             imagedestroy( $image );
                         }
                     } else {
