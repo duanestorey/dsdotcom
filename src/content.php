@@ -16,6 +16,7 @@ class Content {
     var $url = '';
     var $markdown_file = '';
     var $markdown_html = '';
+    var $featured_image = false;
 
     public function __construct() {
         $this->publish_date = time();

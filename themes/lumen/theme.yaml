@@ -3,5 +3,6 @@ theme:
   assets:
     lumen.css:
       - bootstrap.min.css
+      - custom.css
     lumen.min.js:
       - bootstrap.bundle.min.js

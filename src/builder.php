@@ -67,6 +67,10 @@ class Builder {
                                 if ( isset( $front[ 'date' ] ) ) {
                                     $params->content->publish_date = strtotime( $front[ 'date' ] );
                                 }
+
+                                if ( isset( $front[ 'coverImage' ] ) ) {
+                                    $params->content->featured_image = $front[ 'coverImage' ];
+                                }
                             }
 
                             $params->page->title = $params->content->title;
@@ -76,25 +80,27 @@ class Builder {
                             if( preg_match_all( "/$regexp/", $params->content->markdown_html, $matches, PREG_SET_ORDER ) ) {
                                 foreach( $matches as $images ) {
                                     $image_file = $images[ 0 ];
-                                    $image_filename_only = pathinfo( $image_file, PATHINFO_BASENAME );
 
-                                    $current_path = pathinfo( $markdown_file, PATHINFO_DIRNAME );
-                                    $image_destination_path_with_date = $image_destination_path . '/' . date( 'Y', $params->content->publish_date );
-                                    @mkdir( $image_destination_path_with_date );
+                                    $dest_url = $this->_find_and_fix_image( 
+                                        $content_type,
+                                        $image_file,
+                                        pathinfo( $markdown_file, PATHINFO_DIRNAME ),
+                                        $image_destination_path,
+                                        $params->content->publish_date
+                                    );
 
-                                    if ( file_exists( $current_path . '/' . $image_file ) ) {
-                                        $destination_file = $image_destination_path_with_date . '/' . $image_filename_only;
-
-                                        if ( !file_exists( $destination_file ) ) {
-                                            echo "........copying image [" . $image_filename_only . "] to [" . $destination_file . "]\n";
-                                            Utils::copy_file( $current_path . '/' . $image_file, $destination_file );
-                                        }
-                                    }
-
-                                    // change out image
-                                    $dest_url = '../assets/' . $content_type . '/' . date( 'Y', $params->content->publish_date ) . '/' . $image_filename_only;
                                     $params->content->markdown_html = str_replace( $image_file, $dest_url, $params->content->markdown_html );
                                 }
+                            }
+
+                            if ( $params->content->featured_image ) {
+                                $params->content->featured_image = $this->_find_and_fix_image( 
+                                    $content_type,
+                                    $params->content->featured_image,
+                                    pathinfo( $markdown_file, PATHINFO_DIRNAME ),
+                                    $image_destination_path,
+                                    $params->content->publish_date
+                                );
                             }
 
                             // Remove stupid captions
@@ -175,6 +181,33 @@ class Builder {
         }
         $total_time = microtime( true ) - $this->start_time;
         echo "..total page(s) generated, " . $this->total_pages . " - build completed in " . sprintf( "%0.4f", $total_time ) . "s\n";
+    }
+
+    private function _find_and_fix_image( $content_type, $image_file, $current_path, $destination_path, $publish_date, $search_dirs = [ '', 'images/' ] ) {
+        $new_location = $image_file;
+
+        foreach( $search_dirs as $search_dir ) {
+            $modified_image_file = $search_dir . $image_file;
+
+            $image_filename_only = pathinfo( $modified_image_file, PATHINFO_BASENAME );
+
+            $image_destination_path_with_date = $destination_path . '/' . date( 'Y', $publish_date );
+            @mkdir( $image_destination_path_with_date );
+
+            if ( file_exists( $current_path . '/' . $modified_image_file ) ) {
+                $destination_file = $image_destination_path_with_date . '/' . $image_filename_only;
+
+                if ( !file_exists( $destination_file ) ) {
+                    echo "........copying image [" . $image_filename_only . "] to [" . $destination_file . "]\n";
+                    Utils::copy_file( $current_path . '/' . $modified_image_file, $destination_file );                
+                }
+
+                $new_location = '../assets/' . $content_type . '/' . date( 'Y', $publish_date ) . '/' . $image_filename_only;
+                break;
+            }
+        }
+  
+        return $new_location;
     }
 
     private function _get_pagination_links( $content_type, $total_pages ) {
