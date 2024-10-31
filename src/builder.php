@@ -137,6 +137,12 @@ class Builder {
                 }
             }
         }
+
+        // write robots
+        $robots = "user-agent: *\ndisallow: /assets/\n";
+        file_put_contents( CROSSROAD_PUBLIC_DIR . '/robots.txt', $robots );
+        echo "....writing robots.txt\n";
+
         $total_time = microtime( true ) - $this->start_time;
         echo "..total page(s) generated, " . $this->total_pages . " - build completed in " . sprintf( "%0.4f", $total_time ) . "s\n";
     }
