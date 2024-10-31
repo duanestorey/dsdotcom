@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link rel="stylesheet" href="../assets/lumen.css?v=4b21f68da5cef06c71cc8990254e9d4c"></link>
-        <script type="text/javascript" src="../assets/lumen.min.js?v=4b21f68da5cef06c71cc8990254e9d4c" async></script>
+        <link rel="stylesheet" href="../assets/lumen.css?v=f99f7e5681239df51ca20a68ed51eb54"></link>
+        <script type="text/javascript" src="../assets/lumen.min.js?v=f99f7e5681239df51ca20a68ed51eb54" async></script>
         <title>IEC Input Connector &amp; Fuse</title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -26,9 +26,12 @@
         </nav>
 
 
-    <article class="main section content">
-        <div class="container">
-            <p>Once the chassis is assembled, the next step is to install the IEC power socket and fuse. The IEC socket is a standard size, but make sure you match it for whatever chassis you have. For safety reasons, it's also important to ensure that the mains power supply is fused, that way if there is some type of catastrophic failure, the fuse will limit the damage that can occur (which is important, especially if the failure is damaging you).</p>
+    <div class="container mt-4">
+        <article>    
+            <h2 class="mt-4">IEC Input Connector &amp; Fuse</h2>
+
+            <div class="content mt-3">
+                <p>Once the chassis is assembled, the next step is to install the IEC power socket and fuse. The IEC socket is a standard size, but make sure you match it for whatever chassis you have. For safety reasons, it's also important to ensure that the mains power supply is fused, that way if there is some type of catastrophic failure, the fuse will limit the damage that can occur (which is important, especially if the failure is damaging you).</p>
 <p>The fuse holder I'm using is 5x20mm chassis fuse holder. This holder works fine, but I find the spade terminals on it a little flimsy. I broke one of these on my prototype unit, and had to replace it. If I ever find anything slightly stronger, I'll switch to it.</p>
 <p>In terms of the fuse you use, it should be sized according to the power your transformer can potentially use. My custom made transformer has a power rating of 300VA, which means at 230V mains voltage it needs to be able to handle at least (300VA/230V) = 1.3A. So in my case, I'll install a 1.5A slow blow fuse.</p>
 <p>It's important to use a slow blow fuse here, because on initial power-on the rectifier surge currents that are needed to charge the main capacitors will be extremely large. On 500VA transformers with 120V mains, these surge currents can easily hit 100 Amps. The simulations I did while designing my power supply unit show my surge current will hit 22 Amps on power up. These currents, when large enough, can damage equipment or significantly reduce the lifespan of some. That's why on most transformer over 300VA, a soft start circuit is requirement (more on this later) to help reduce those currents to something manageable.</p>
@@ -38,8 +41,9 @@
 <p><a href="https://www.duanestorey.com/wp-content/uploads/2023/01/IMG_3281-Large.jpeg"><img src="../assets/pages/2023/IMG_3281-Large-1024x768.jpeg" alt="" /><p class="caption text-center fst-italic"></a> Installed IEC Power Socket and 5x20 Fuse Holder</p></p>
 <p>To install the IEC socket, I used a M3x6mm screw and nut (a screw size that's used often during this project).</p>
 <p>Once the fuse holder and IEC sockets are in, it's time to work on the main safety connection.</p>
-        </div>
-    </article>
+            </div>
+        </article>
+    </div>
 
 
         <footer class="bg-dark pt-4 pb-4 mt-4 mb-4">

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link rel="stylesheet" href="../assets/lumen.css?v=4b21f68da5cef06c71cc8990254e9d4c"></link>
-        <script type="text/javascript" src="../assets/lumen.min.js?v=4b21f68da5cef06c71cc8990254e9d4c" async></script>
+        <link rel="stylesheet" href="../assets/lumen.css?v=f99f7e5681239df51ca20a68ed51eb54"></link>
+        <script type="text/javascript" src="../assets/lumen.min.js?v=f99f7e5681239df51ca20a68ed51eb54" async></script>
         <title>Power Amplification</title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -26,9 +26,12 @@
         </nav>
 
 
-    <article class="main section content">
-        <div class="container">
-            <p>The first order of business for the amplifier was figuring out how I was going to amplify the audio signals that go to the speakers. These power amplifiers dominate the power requirements for the entire project, so knowing the technology I was going to use and the requirements were necessary before being able to move forward with a transformer, for example.</p>
+    <div class="container mt-4">
+        <article>    
+            <h2 class="mt-4">Power Amplification</h2>
+
+            <div class="content mt-3">
+                <p>The first order of business for the amplifier was figuring out how I was going to amplify the audio signals that go to the speakers. These power amplifiers dominate the power requirements for the entire project, so knowing the technology I was going to use and the requirements were necessary before being able to move forward with a transformer, for example.</p>
 <p>I was originally thinking of pulling out my old university textbook on "Transistor Amplifier Design" and taking a stab at designing something using individual components (known as a discrete design in the field). The problem with this approach is that was one of the hardest classes of my university education, and I remember struggling with some of the concepts. I had a lot going on that year, and I think re-reviewing the material would have shed a lot of light on the area. But I was stepping pretty far out my comfort zone with that approach.</p>
 <p>Around that time I stumbled upon something called a Gainclone.</p>
 <h4>The Gainclone</h4>
@@ -56,8 +59,9 @@
 <p>But I think we can relax the requirements a bit more, mainly because I don't intend to ever listen to music at 52 Watts. While the datasheet doesn't include any data for 6 Ohm speakers, we can infer a rough data point between the 8 Ohm and 4 Ohm graphs.</p>
 <p><a href="https://www.duanestorey.com/wp-content/uploads/2023/01/Screenshot-2023-01-28-at-10.28.33-PM.png"><img src="../assets/pages/2023/Screenshot-2023-01-28-at-10.28.33-PM-1024x424.png" alt="" /><p class="caption text-center fst-italic"></a> LM3886 Power Dissipation At 4 And 8 Ohms</p></p>
 <p>So at roughly 5 Watts of power output, which is probably a very loud listening level, the LM3886 would dissipate about 20 Watts. Using the same equations above shows that we can use any heatsink less than 2.25 Celcius / Watt and still maintain heatsink temperatures that would be safe to at least momentarily touch.</p>
-        </div>
-    </article>
+            </div>
+        </article>
+    </div>
 
 
         <footer class="bg-dark pt-4 pb-4 mt-4 mb-4">

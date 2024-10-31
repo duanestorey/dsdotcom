@@ -9,3 +9,13 @@
 article {
     clear: both;
 }
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1000px;
+    }
+}
+
+.container .content img {
+    max-width: 100%;
+}

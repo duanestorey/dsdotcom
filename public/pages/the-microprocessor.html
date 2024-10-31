@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link rel="stylesheet" href="../assets/lumen.css?v=4b21f68da5cef06c71cc8990254e9d4c"></link>
-        <script type="text/javascript" src="../assets/lumen.min.js?v=4b21f68da5cef06c71cc8990254e9d4c" async></script>
+        <link rel="stylesheet" href="../assets/lumen.css?v=f99f7e5681239df51ca20a68ed51eb54"></link>
+        <script type="text/javascript" src="../assets/lumen.min.js?v=f99f7e5681239df51ca20a68ed51eb54" async></script>
         <title>The Microprocessor</title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -26,9 +26,12 @@
         </nav>
 
 
-    <article class="main section content">
-        <div class="container">
-            <p>While I don't have a ton of experience making PCBs or designing hardware, I do have a small amount. During the COVID lockdowns I started playing with some tube amplifier designs, and to make them more interesting, I threw in some digital logic to control a display and what not.</p>
+    <div class="container mt-4">
+        <article>    
+            <h2 class="mt-4">The Microprocessor</h2>
+
+            <div class="content mt-3">
+                <p>While I don't have a ton of experience making PCBs or designing hardware, I do have a small amount. During the COVID lockdowns I started playing with some tube amplifier designs, and to make them more interesting, I threw in some digital logic to control a display and what not.</p>
 <p>At the time, my only hardware experience was using the Arduino platform. But since them I've played a tiny bit with both Raspberry Pi and the STM32 ecosystem. Arduino is great for tinkering around, but the general consensus is that it's mostly for just tinkering at home, and not used in anything serious.</p>
 <p>As I stated previously, one of the goals of this entire endeavour was to improve my skills in the domain of electrical engineering. So I figured if I'm pushing my boundaries, I may as well push all of them at the same time. So I figured I might as well get some real world experience using the STM32 family of microprocessors, even though it would involve a bit of a learning curve.</p>
 <p>Unlike Arduinos, where the Arduino editor does a lot of the work for you in making things work, the STM32 is a much more complicated processor that involves a ton of bootsrapping code to configure clocks, pins, timers, etc. While you can do simple programs with it using the Arduino tools, there's no way to unlock any of the more sophisticated functionality without diving right into some of the STM32 tools like the Cube IDE.</p>
@@ -41,8 +44,9 @@
 <li>Multiple pin configurations - some of the smaller chips only have 64 pins, but you go all the way up to 200 pin variants if you need more GPIO pins</li>
 </ul>
 <p>To start getting acquainted with the ecosystem further, I bought a few Nucleo test boards to play with. It took some getting used to, but in a few hours I managed to write my first simple "blink" program to toggle a few LEDs. Knowing that I could write code and get it onto the chip was enough for me to plunge forward, and I decided to just roll with the STM32 architecture.</p>
-        </div>
-    </article>
+            </div>
+        </article>
+    </div>
 
 
         <footer class="bg-dark pt-4 pb-4 mt-4 mb-4">

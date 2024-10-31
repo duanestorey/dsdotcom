@@ -1,9 +1,13 @@
 {include 'header.latte'}
 
-    <article class="main section content">
-        <div class="container">
-            {$content->markdown_html|noescape}
-        </div>
-    </article>
+    <div class="container mt-4">
+        <article>    
+            <h2 class="mt-4">{$content->title}</h2>
+
+            <div class="content mt-3">
+                {$content->markdown_html|noescape}
+            </div>
+        </article>
+    </div>
 
 {include 'footer.latte'}
