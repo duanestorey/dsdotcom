@@ -229,6 +229,11 @@ class Builder {
         $params = new \stdClass;
         $params->site = new \stdClass;
         $params->site->title = $this->config[ 'site' ][ 'name' ];
+        $params->site->lang = 'en';
+
+        if ( isset( $this->config[ 'site' ][ 'lang' ] ) ) {
+            $params->site->lang = $this->config[ 'site' ][ 'lang' ];
+        }
 
         $params->page = new \stdClass;
         $params->page->asset_url = '../assets';

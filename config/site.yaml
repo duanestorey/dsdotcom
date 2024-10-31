@@ -3,6 +3,7 @@ site:
   url: 'https://duanestorey.com'
   desc: 'The home of engineer and world traveller, Duane Storey'
   theme: lumen
+  lang: en
 content:
   types: 
     posts:
