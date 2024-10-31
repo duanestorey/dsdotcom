@@ -203,19 +203,41 @@ class Builder {
         $new_location = $image_file;
 
         foreach( $search_dirs as $search_dir ) {
-            $modified_image_file = $search_dir . $image_file;
+            $convert_to_webp = false;
+
+            $original_image_file = $search_dir . $image_file;
+            $modified_image_file = $original_image_file;
+
+            $image_ext = pathinfo( $modified_image_file, PATHINFO_EXTENSION );
+
+            if ( ( $image_ext == 'jpg' || $image_ext == 'jpeg' ) ) {
+                $convert_to_webp = true;
+                $modified_image_file = str_replace( '.' . $image_ext, '.webp', $modified_image_file );
+            } else {
+                $modified_image_file = $original_image_file;
+            }
 
             $image_filename_only = pathinfo( $modified_image_file, PATHINFO_BASENAME );
 
             $image_destination_path_with_date = $destination_path . '/' . date( 'Y', $publish_date );
             @mkdir( $image_destination_path_with_date );
 
-            if ( file_exists( $current_path . '/' . $modified_image_file ) ) {
+            if ( file_exists( $current_path . '/' . $original_image_file ) ) {
                 $destination_file = $image_destination_path_with_date . '/' . $image_filename_only;
 
                 if ( !file_exists( $destination_file ) ) {
-                    echo "........copying image [" . $image_filename_only . "] to [" . $destination_file . "]\n";
-                    Utils::copy_file( $current_path . '/' . $modified_image_file, $destination_file );                
+                    if ( $convert_to_webp ) {
+                        echo "........converting image [" . $original_image_file . "] to [" . $destination_file . "]\n";
+
+                        $image = imagecreatefromjpeg( $current_path . '/' . $original_image_file );
+                        if ( $image ) {
+                            imagewebp( $image, $destination_file, 90 );
+                            imagedestroy( $image );
+                        }
+                    } else {
+                        echo "........copying image [" . $image_filename_only . "] to [" . $destination_file . "]\n";
+                        Utils::copy_file( $current_path . '/' . $original_image_file, $destination_file );   
+                    }             
                 }
 
                 $new_location = '../assets/' . $content_type . '/' . date( 'Y', $publish_date ) . '/' . $image_filename_only;
