@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="{$site->lang}">
     <head>
-        <link rel="stylesheet" href="{$page->asset_url}/lumen.css?v={$page->asset_hash}"></link>
-        <script type="text/javascript" src="{$page->asset_url}/lumen.min.js?v={$page->asset_hash}" async></script>
+        <link rel="stylesheet" href="{$page->asset_url}/lumen.css?v={$page->asset_hash}">
+        <script src="{$page->asset_url}/lumen.min.js?v={$page->asset_hash}" async></script>
         <title>{$page->title}</title>
 
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta charset="{$site->charset}" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="{$site->charset}">
 
         {if $is_single}
-        <meta name="description" content="{$content->description}" />
+        <meta name="description" content="{$content->description}">
         {/if}
     </head>
     <body class="{$page->body_classses}">

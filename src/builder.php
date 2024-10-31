@@ -129,6 +129,8 @@ class Builder {
                             if ( preg_match_all( '#(\[caption\b[^\]]*\](.*)\[\/caption])#iU', $params->content->markdown_html, $matches, PREG_SET_ORDER ) ) {
                                 foreach( $matches as $key => $match ) {
                                   //  print_r( $match ); die;
+
+                                  // rewrite this, likely errors
                                     $replace = str_replace( '</a>', '</a><p class="caption text-center fst-italic">', $match[ 2 ] . '</p>' );
                                     $replace = str_replace( '/>', '/><p class="caption text-center fst-italic">', $match[ 2 ] . '</p>' );
                                     $params->content->markdown_html = str_replace( $match[ 0 ], $replace, $params->content->markdown_html );
