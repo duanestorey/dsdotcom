@@ -6,6 +6,9 @@
             <div class="meta mb-2 text-primary fs-6 fw-light">Published {$content->publish_date|date:'F jS, Y'}</div>
 
             <div class="content mt-3">
+                {if $content->featured_image}
+                    <div class="mt-4 mb-4"><img src="{$content->featured_image}" alt="Featured Image" class="img-fluid" /></div>
+                {/if}
                 {$content->markdown_html|noescape}
             </div>
 
