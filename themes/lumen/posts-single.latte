@@ -16,7 +16,7 @@
                 {if $content->taxonomy}
                     <div class="tax">
                     {foreach $content->taxonomy as $tax}
-                        <a href="{$content->taxonomy_links[ $tax ]}" class="btn btn-secondary btn-sm">{$tax}</a>
+                        <a href="{$content->taxonomy_links[ $tax ]}" class="btn btn-secondary btn-sm">{$tax|replace: ['-' => ' ']}</a>
                     {/foreach}
                     </div>
                 {/if}

@@ -107,7 +107,7 @@ class Entries {
                                 }
                             }
 
-                            $content->taxonomy = array_map( function( $e ) { return str_replace( '-', ' ', Utils::clean_term( $e ) ); }, $content->taxonomy );
+                            $content->taxonomy = array_map( function( $e ) { return Utils::clean_term( $e ); }, $content->taxonomy );
                             if ( count( $content->taxonomy ) ) {
                                 foreach( $content->taxonomy as $tax ) {
                                     if ( !isset( $this->tax[ $content_type ][ $tax ] ) ) {

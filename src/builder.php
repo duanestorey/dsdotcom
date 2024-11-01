@@ -99,93 +99,59 @@ class Builder {
             }
         }
 
-        // write robots
-        $robots = "user-agent: *\ndisallow: /assets/\n";
-        file_put_contents( CROSSROAD_PUBLIC_DIR . '/robots.txt', $robots );
-        echo "....writing robots.txt\n";
+        $this->_write_robots();
+        $this->_write_sitemap_xml();
 
         $total_time = microtime( true ) - $this->start_time;
         echo "..total page(s) generated, " . $this->total_pages . " - build completed in " . sprintf( "%0.4f", $total_time ) . "s\n";
     }
-    /*
-    private function _write_index_file( $all_content, $content_type, $body_class_array, $path, $template_file_array ) {
-        // this is wrong, but fix later
-        $params = $this->_get_default_render_params( 
-            $body_class_array,
-            $path 
-        );
 
-        $content_per_page = 10;
-        if ( isset( $this->config[ 'options' ][ 'content_per_page' ] ) ) {
-            $content_per_page = $this->config[ 'options' ][ 'content_per_page' ];
-        }
+    private function _write_sitemap_xml() {
+        $sitemap_xml  = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+        $sitemap_xml .= "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n";
 
-        $params->page->title = $this->config[ 'site' ][ 'description' ];
+        if ( isset( $this->config[ 'content' ][ 'types' ] ) ) {
+            foreach( $this->config[ 'content' ][ 'types' ] as $content_type => $content_config ) {
+                $entries = $this->entries->get( $content_type );
 
-        $params->pagination = new \stdClass;
-        $params->pagination->current_page = 1;
-        $params->pagination->cur_page_link = '';
-        $params->pagination->prev_page_link = '';
-        $params->pagination->next_page_link = '';
-        
-        if ( count( $all_content ) % $content_per_page == 0 ) {
-            $params->pagination->total_pages = intdiv( count( $all_content ), $content_per_page );
-        } else {    
-            $params->pagination->total_pages = intdiv( count( $all_content ), $content_per_page ) + 1;
-        }
+                usort( $entries, 'CR\cr_sort' );
 
-        $params->pagination->links = $this->_get_pagination_links( $path, $params->pagination->total_pages );
-
-        $template_name = $this->template_engine->locate_template( $template_file_array );
-        if ( $template_name ) {
-            while ( $params->pagination->current_page <= $params->pagination->total_pages ) {
-                if ( $params->pagination->current_page == 1 ) {
-                    $filename = CROSSROAD_PUBLIC_DIR . $path . '/index.html';
-                    $params->pagination->cur_page_link = $path . '/index.html';
-                } else {
-                    $filename = CROSSROAD_PUBLIC_DIR . $path . '/index-page-' . $params->pagination->current_page . '.html';
-                    $params->pagination->cur_page_link = $path . '/index-page-' . $params->pagination->current_page . '.html';
+                foreach( $entries as $entry ) {
+                    $sitemap_xml = $this->_add_sitemap_entry( $sitemap_xml, $entry->url );
                 }
 
-                if ( $params->pagination->current_page != $params->pagination->total_pages ) {
-                    $params->pagination->next_page_link = $path . '/index-page-' . ( $params->pagination->current_page + 1 ). '.html';
-                } else {
-                    $params->pagination->next_page_link = '';
+                $tax_terms = $this->entries->get_tax_terms( $content_type );
+                if ( count( $tax_terms ) ) {
+                    $tax_url = $this->config[ 'site' ][ 'url' ] . '/' . $content_type . '/taxonomy';
+                    foreach( $tax_terms as $term ) {
+                        $sitemap_xml = $this->_add_sitemap_entry( $sitemap_xml, $tax_url . '/' . $term, 'monthly' );
+                    }
                 }
-
-                $params->content = array_slice( $all_content, ( $params->pagination->current_page - 1 ) * $content_per_page, $content_per_page );
-
-                if ( $params->pagination->current_page == 1 && $path == '' ) {
-                    $params->is_home = true;
-                } else {
-                    $params->is_home = false;
-                }
-
-                $rendered_html = $this->template_engine->render( $template_name, $params );
-                file_put_contents( $filename, $rendered_html );  
-
-                $params->pagination->current_page++;
-
-                $params->pagination->prev_page_link = $params->pagination->cur_page_link;
             }
-        }    
-    }
-
-    private function _get_pagination_links( $path, $total_pages ) {
-        $links = array();
-
-        for ( $i = 0; $i < $total_pages; $i++ ) {
-            $page = new \stdClass;
-
-            $page->num = $i + 1;
-            $page->url = $i == 0 ? $path . '/index.html' : $path . '/index-page-' . ( $i+1 ) . '.html';
-
-            $links[] = $page;
         }
 
-        return $links;
+        $sitemap_xml = $this->_add_sitemap_entry( $sitemap_xml, $this->config[ 'site' ][ 'url' ], 'daily' );
+
+        $sitemap_xml .= "</urlset>\n";
+
+        file_put_contents( CROSSROAD_PUBLIC_DIR . '/sitemap.xml', $sitemap_xml );
     }
-    */
+
+    private function _add_sitemap_entry( $sitemap_xml, $url, $freq = 'weekly' ) {
+        $sitemap_xml .= "\t<url>\n";
+        $sitemap_xml .= "\t\t<loc>" . $url . "</loc>\n";
+        $sitemap_xml .= "\t\t<changefreq>" . $freq . "</changefreq>\n";
+        $sitemap_xml .= "\t</url>\n";
+
+        return $sitemap_xml;
+    }
+
+    private function _write_robots() {
+        // write robots
+        $robots = "user-agent: *\ndisallow: /assets/\n";
+        file_put_contents( CROSSROAD_PUBLIC_DIR . '/robots.txt', $robots );
+        echo "....writing robots.txt\n";
+    }
 
     private function _setup_menus() {
         $this->menu = new Menu();
