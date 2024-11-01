@@ -63,9 +63,9 @@
 
                     {foreach $pagination->links as $link}
                         {if $pagination->current_page == $link->num}
-                            <li class="page-item active"><a class="page-link" href="{$link->url}">{$link->num}</a></li>
+                            <li class="page-item active d-md-none d-lg-block"><a class="page-link" href="{$link->url}">{$link->num}</a></li>
                         {else}
-                            <li class="page-item"><a class="page-link" href="{$link->url}">{$link->num}</a></li>
+                            <li class="page-item d-md-none d-lg-block"><a class="page-link" href="{$link->url}">{$link->num}</a></li>
                         {/if}
                     {/foreach} 
 

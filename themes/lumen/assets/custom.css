@@ -34,6 +34,7 @@ article {
     background-size: cover;
     background-position: bottom center;
     min-height: 550px;
+    padding-bottom: 10px;
 }
 
 .jumbotron h1 {
