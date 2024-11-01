@@ -60,7 +60,7 @@ class Builder {
                             $params->content = new Content;
                             $params->content->markdown_html = $markdown->html();
                             $params->content->markdown_file = $markdown_file;
-                            $params->content->url = $content_slug;
+                            $params->content->url = Utils::fix_path( $this->config[ 'site' ][ 'url' ] ) . $content_slug;
                             $params->content->slug = $content_slug;
                             $params->content->unique = md5( $content_slug );
                             $params->content->taxonomy = array();
@@ -289,7 +289,7 @@ class Builder {
                     }             
                 }
 
-                $new_location = '../assets/' . $content_type . '/' . date( 'Y', $publish_date ) . '/' . $image_filename_only;
+                $new_location = $this->config[ 'site' ][ 'url'] . '/assets/' . $content_type . '/' . date( 'Y', $publish_date ) . '/' . $image_filename_only;
 
              //   echo "..new location is " . $new_location . "\n";
                 break;
