@@ -7,6 +7,7 @@ class Builder {
     var $start_time = null;
     var $total_pages = 0;
     var $template_engine = null;
+    var $entries = null;
     var $theme = null;
     var $menu = null;
 
@@ -25,6 +26,10 @@ class Builder {
         $this->_setup_menus();
 
         $this->start_time = microtime( true );
+
+        // load all content here
+        $this->entries = new Entries;
+        $this->entries->load_all();
 
         if ( isset( $this->config[ 'content' ][ 'types' ] ) ) {
             foreach( $this->config[ 'content' ][ 'types' ] as $content_type => $content_config ) {

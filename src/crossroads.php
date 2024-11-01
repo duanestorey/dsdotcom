@@ -5,6 +5,7 @@ namespace CR;
 define( 'CROSSROADS_VERSION', '1.00' );
 
 require_once( 'src/builder.php' );
+require_once( 'src/entires.php' );
 require_once( 'src/markdown.php' );
 require_once( 'src/template-engine.php' );
 require_once( 'src/exception.php' );
