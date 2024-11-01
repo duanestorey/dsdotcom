@@ -69,18 +69,14 @@ class Builder {
                     }
                 }
 
-
-                $all_content = $this->entries->get( $content_type );
-
                 // process all content
-                usort( $all_content, 'CR\cr_sort' );
+                usort( $entries, 'CR\cr_sort' );
 
-                $this->renderer->render_index_page( $all_content, $content_type, [ 'blog' ], '/' . $content_type, [ 'index' ] );
+                $this->renderer->render_index_page( $entries, $content_type, '/' . $content_type, [ 'index' ] );
 
                 if ( $content_type == 'posts' ) {
-                    $this->renderer->render_index_page( $all_content, $content_type, [], '', [ 'index' ] );
+                    $this->renderer->render_index_page( $entries, $content_type, '', [ 'index' ] );
                 }
-
             }
         }
 

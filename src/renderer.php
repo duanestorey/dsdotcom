@@ -34,7 +34,7 @@ class Renderer {
         }    
     }
 
-    public function render_index_page( $entries, $content_type, $body_class_array, $path, $template_files ) {
+    public function render_index_page( $entries, $content_type, $path, $template_files ) {
         // this is wrong, but fix later
         $content_per_page = 10;
         if ( isset( $this->config[ 'options' ][ 'content_per_page' ] ) ) {
@@ -73,9 +73,7 @@ class Renderer {
                 }
 
                 $is_home = ( $pagination->current_page == 1 && $path == '' );
-                if ( $is_home ) {
-                    $body_class_array[] = 'home';
-                }
+                $body_class_array = ( $is_home ? [ 'home' ] : [] );
 
                 $params = $this->_get_default_render_params($content_type, $pagination->cur_page_link, $body_class_array );
                 $params->page->title = $this->config[ 'site' ][ 'description' ];
