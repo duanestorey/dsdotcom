@@ -22,6 +22,7 @@ class Content {
     var $slug = '';
     var $unique = '';
     var $taxonomy = '';
+    var $taxonomy_links = [];
     var $content_type = '';
     var $class_name = '';
 

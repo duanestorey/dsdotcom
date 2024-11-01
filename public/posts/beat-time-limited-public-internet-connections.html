@@ -54,10 +54,10 @@
 <p><code>openssl rand -hex 1 | tr '[:lower:]' '[:upper:]' | xargs echo "obase=2;ibase=16;" | bc | cut -c1-6 | sed 's/$/00/' | xargs echo "obase=16;ibase=2;" | bc | sed "s/$/:$(openssl rand -hex 5 | sed 's/\(..\)/\1:/g; s/.$//' | tr '[:lower:]' '[:upper:]')/" | xargs sudo ifconfig en0 ether`  It's probably a good idea to write down your old MAC address as well (you can execute 'ifconfig' from Terminal to find it) so that you can always set it back to the old setting once you are done. But if you find yourself using a public internet terminal that is time or bandwidth limited, simply switch your MAC address when your session expires and you should be good to go all over again.  I've tried this a few different times now in a few different countries, and it works flawlessly - as soon as you hit your time limit at a coffee shop or airport, just change your MAC address and you should be recognized as a new user.  ### Play Nice  Also remember that in some parts of the world people actually pay for the bandwidth they use, so bear that in mind if you use that trick. I see no harm in using this occasionally if you are just checking email, or in a some huge place with a big budget like an airport. But it's probably not a good idea to use this trick excessively, just in case some small business owner gets hit with a bill long after you are gone.`</code></p>
 
                     <div class="tax">
-                        <button type="button" class="btn btn-secondary btn-sm">travel</button>
-                        <button type="button" class="btn btn-secondary btn-sm">internet</button>
-                        <button type="button" class="btn btn-secondary btn-sm">mac</button>
-                        <button type="button" class="btn btn-secondary btn-sm">network</button>
+                        <a href="/posts/taxonomy/travel" class="btn btn-secondary btn-sm">travel</a>
+                        <a href="/posts/taxonomy/internet" class="btn btn-secondary btn-sm">internet</a>
+                        <a href="/posts/taxonomy/mac" class="btn btn-secondary btn-sm">mac</a>
+                        <a href="/posts/taxonomy/network" class="btn btn-secondary btn-sm">network</a>
                     </div>
             </div>
 

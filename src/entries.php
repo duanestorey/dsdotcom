@@ -107,16 +107,15 @@ class Entries {
                                 }
                             }
 
-                            $content->taxonomy = array_map( function( $e ) { return str_replace( '-', ' ', $e ); }, $content->taxonomy );
+                            $content->taxonomy = array_map( function( $e ) { return str_replace( '-', ' ', Utils::clean_term( $e ) ); }, $content->taxonomy );
                             if ( count( $content->taxonomy ) ) {
                                 foreach( $content->taxonomy as $tax ) {
-                                    $clean_tax = Utils::clean_term( $tax );
-
-                                    if ( !isset( $this->tax[ $content_type ][ $clean_tax ] ) ) {
-                                        $this->tax[ $content_type ][ $clean_tax ] = [];
+                                    if ( !isset( $this->tax[ $content_type ][ $tax ] ) ) {
+                                        $this->tax[ $content_type ][ $tax ] = [];
                                     }
 
-                                    $this->tax[ $content_type ][ $clean_tax ][] = $content;
+                                    $this->tax[ $content_type ][ $tax ][] = $content;
+                                    $content->taxonomy_links[ $tax ] = '/' . $content_type . '/taxonomy/' . $tax;
                                 }
                             }
 

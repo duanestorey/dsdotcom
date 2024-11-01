@@ -16,7 +16,7 @@
                 {if $content->taxonomy}
                     <div class="tax">
                     {foreach $content->taxonomy as $tax}
-                        <button type="button" class="btn btn-secondary btn-sm">{$tax}</button>
+                        <a href="{$content->taxonomy_links[ $tax ]}" class="btn btn-secondary btn-sm">{$tax}</a>
                     {/foreach}
                     </div>
                 {/if}
