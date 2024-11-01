@@ -11,9 +11,9 @@ class ImagePlugin extends Plugin {
 
     public function content_filter( $content ) {
         $regexp = '<img[^>]+src=(?:\"|\')\K(.[^">]+?)(?=\"|\')';
+        $image_destination_path = CROSSROAD_PUBLIC_DIR . '/assets/' . $content->content_type;
+
         if( preg_match_all( "/$regexp/", $content->markdown_html, $matches, PREG_SET_ORDER ) ) {
-            $image_destination_path = CROSSROAD_PUBLIC_DIR . '/assets/' . $content->content_type;
-            
             foreach( $matches as $images ) {
                 $image_file = $images[ 0 ];
 
@@ -94,9 +94,6 @@ class ImagePlugin extends Plugin {
                 }
 
                 $new_location = $this->config[ 'site' ][ 'url'] . '/assets/' . $content_type . '/' . date( 'Y', $publish_date ) . '/' . $image_filename_only;
-                echo " new location - " . $new_location . "\n";
-
-             //   echo "..new location is " . $new_location . "\n";
                 break;
             }
         }

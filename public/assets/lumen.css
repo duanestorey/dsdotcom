@@ -20,6 +20,10 @@ article {
     }
 }
 
+.caption {
+    display: block;
+}
+
 .container .content img {
     max-width: 100%;
 }

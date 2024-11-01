@@ -14,8 +14,8 @@ class WordPressPlugin extends Plugin {
         if ( preg_match_all( '#(\[caption\b[^\]]*\](.*)\[\/caption])#iU', $content->markdown_html, $matches, PREG_SET_ORDER ) ) {
             foreach( $matches as $key => $match ) {
                 // rewrite this, likely errors
-                $replace = str_replace( '</a>', '</a><p class="caption text-center fst-italic">', $match[ 2 ] . '</p>' );
-                $replace = str_replace( '/>', '/><p class="caption text-center fst-italic">', $match[ 2 ] . '</p>' );
+                $replace = str_replace( '</a>', '</a><span class="caption text-center fst-italic">', $match[ 2 ] . '</span>' );
+                $replace = str_replace( '/>', '/><span class="caption text-center fst-italic">', $match[ 2 ] . '</span>' );
                 $content->markdown_html = str_replace( $match[ 0 ], $replace, $content->markdown_html );
             }
         }       
