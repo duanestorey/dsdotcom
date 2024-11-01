@@ -1,2 +1,4 @@
 user-agent: *
 disallow: /assets/
+
+Sitemap: https://duanestorey.com/sitemap.xml
