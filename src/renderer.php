@@ -127,7 +127,7 @@ class Renderer {
         $params->menu = $this->menu->build( 'main', $current_page );
 
         $params->page = new \stdClass;
-        $params->page->asset_url = '../assets';
+        $params->page->asset_url = '/assets';
         $params->page->asset_hash = $this->theme->get_asset_hash();
         $params->page->body_classes_raw = array_merge( [ $content_type ], $extra_body_classes );
         $params->page->body_classses = implode( ' ', $params->page->body_classes_raw );    
