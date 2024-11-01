@@ -1,6 +1,6 @@
 site:
   name: 'The Duane Storey'
-  url: 'https://www.duanestorey.com'
+  url: 'https://duanestorey.com'
   description: 'The home of engineer and world traveller, Duane Storey'
   theme: lumen
   lang: en
