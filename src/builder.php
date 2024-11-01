@@ -69,7 +69,16 @@ class Builder {
                     }
                 }
 
-                // tax
+                // process all content
+                usort( $entries, 'CR\cr_sort' );
+
+                $this->renderer->render_index_page( $entries, $content_type, '/' . $content_type, [ 'index' ] );
+
+                if ( $content_type == 'posts' ) {
+                    $this->renderer->render_index_page( $entries, $content_type, '', [ 'index' ] );
+                }
+
+                                // tax
                 $tax_terms = $this->entries->get_tax_terms( $content_type );
                 if ( count( $tax_terms ) ) {
                     Utils::mkdir( CROSSROAD_PUBLIC_DIR . '/' . $content_type . '/taxonomy' );
@@ -86,15 +95,6 @@ class Builder {
                             $this->renderer->render_index_page( $entries, $content_type, '/' . $content_type . '/taxonomy/' . $term, [ 'index' ] );
                         }
                     }
-                }
-
-                // process all content
-                usort( $entries, 'CR\cr_sort' );
-
-                $this->renderer->render_index_page( $entries, $content_type, '/' . $content_type, [ 'index' ] );
-
-                if ( $content_type == 'posts' ) {
-                    $this->renderer->render_index_page( $entries, $content_type, '', [ 'index' ] );
                 }
             }
         }
