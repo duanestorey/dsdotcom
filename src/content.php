@@ -14,6 +14,7 @@ class Content {
     var $title = '';
     var $publish_date = 0;
     var $url = '';
+    var $rel_url = '';
     var $markdown_file = '';
     var $markdown_html = '';
     var $featured_image = false;
@@ -21,6 +22,7 @@ class Content {
     var $slug = '';
     var $unique = '';
     var $taxonomy = '';
+    var $content_type = '';
 
     public function __construct() {
         $this->publish_date = time();

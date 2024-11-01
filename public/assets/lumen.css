@@ -20,6 +20,10 @@ article {
     }
 }
 
+.caption {
+    display: block;
+}
+
 .container .content img {
     max-width: 100%;
 }
@@ -35,7 +39,10 @@ article {
 }
 
 .jumbotron {
-    background-image: linear-gradient( rgba(0,0,0,0.4), rgba(0,0,0,0.4) ), url( 'https://uc3178eda7ff7685bfa507746ed6.previews.dropboxusercontent.com/p/thumb/ACd3qAvQpA-fXQ12nfpeuDIgvrhLu5WgUSv40L815eEmUHTkOrfevUdhM13anNI4Hh4ymwhWkR9EiozzN6WYRdOPLPA74x5G20wUTYaDshnfIPYeubpAojPKDoL5Sl2i9YutSJ4WoWeX287aEHTKLK7fVDPYN_7VvIGbOuAYZdFEcw4hkwxSJBYjVOgjgN4QbEy2RLoT-SbuG8ZFvblWj7DSTcL8fBTjw0IFX4b1wkLUIJHPG1yVaQsE837Y6f1MlErWWb08mwEPw51qOXvw6lMH-VCqqx40fYX_QV5nJOjpSweqKTsAZji8mZCyudyOPjHPTtRKEt7nH9tRnXhbccZ7Yphsg-I5VwhENdqAR8whjVgEPT7HSnwl3VWVy29W003x75_YAJOiZNdL0J1wn2gN/p.jpeg?is_prewarmed=true' );
+    background-image: linear-gradient( 
+        rgba(0,0,0,0.4),
+        rgba(0,0,0,0.4) ), 
+        url( 'https://duanestorey77.s3-us-west-2.amazonaws.com/final-road-opt.jpg' );
     background-size: cover;
     background-position: bottom center;
     min-height: 550px;
