@@ -5,7 +5,7 @@ namespace CR;
 define( 'CROSSROADS_VERSION', '1.00' );
 
 require_once( 'src/builder.php' );
-require_once( 'src/entires.php' );
+require_once( 'src/entries.php' );
 require_once( 'src/markdown.php' );
 require_once( 'src/template-engine.php' );
 require_once( 'src/exception.php' );
@@ -14,6 +14,12 @@ require_once( 'src/menu.php' );
 require_once( 'src/yaml.php' );
 require_once( 'src/theme.php' );
 require_once( 'src/utils.php' );
+require_once( 'src/plugin.php' );
+require_once( 'src/plugin-manager.php' );
+
+require_once( 'plugins/image-plugin.php' );
+require_once( 'plugins/seo-plugin.php' );
+require_once( 'plugins/wordpress-plugin.php' );
 
 require_once( 'lib/parsedown/Parsedown.php' );
 

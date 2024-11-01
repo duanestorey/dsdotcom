@@ -22,6 +22,7 @@ class Content {
     var $slug = '';
     var $unique = '';
     var $taxonomy = '';
+    var $content_type = '';
 
     public function __construct() {
         $this->publish_date = time();
