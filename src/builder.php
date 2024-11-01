@@ -182,7 +182,6 @@ class Builder {
     private function _write_index_file( $all_content, $content_type, $body_class_array, $path, $template_file_array ) {
         // this is wrong, but fix later
         $params = $this->_get_default_render_params( 
-          // array( $content_type . '-' . pathinfo( $markdown_file, PATHINFO_FILENAME ) ),
             $body_class_array,
             $path 
         );
@@ -226,6 +225,12 @@ class Builder {
                 }
 
                 $params->content = array_slice( $all_content, ( $params->pagination->current_page - 1 ) * $content_per_page, $content_per_page );
+
+                if ( $params->pagination->current_page == 1 && $path == '' ) {
+                    $params->is_home = true;
+                } else {
+                    $params->is_home = false;
+                }
 
                 $rendered_html = $this->template_engine->render( $template_name, $params );
                 file_put_contents( $filename, $rendered_html );  
@@ -333,6 +338,7 @@ class Builder {
         $params->page->body_classses = implode( ' ', $params->page->body_classes_raw );    
 
         $params->is_single = false;
+        $params->is_home = false;
 
         return $params;
     }
