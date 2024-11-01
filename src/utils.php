@@ -17,6 +17,10 @@ class Utils {
         }
     }
 
+    static function clean_term( $term ) {
+        return strtolower( str_replace( ' ', '-', $term ) );
+    }
+
     static function find_all_files_with_extension( $directory, $ext ) {
         $all_files = array();
 

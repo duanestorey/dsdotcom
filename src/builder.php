@@ -69,6 +69,25 @@ class Builder {
                     }
                 }
 
+                // tax
+                $tax_terms = $this->entries->get_tax_terms( $content_type );
+                if ( count( $tax_terms ) ) {
+                    Utils::mkdir( CROSSROAD_PUBLIC_DIR . '/' . $content_type . '/taxonomy' );
+                    foreach( $tax_terms as $term ) {
+                        Utils::mkdir( CROSSROAD_PUBLIC_DIR . '/' . $content_type . '/taxonomy/' . $term );
+
+                        $entries = $this->entries->get_tax( $content_type, $term );
+
+                        usort( $entries, 'CR\cr_sort' );
+
+                        if ( count( $entries ) ) {
+                            echo "....writing taxonomy for " . $term . "\n";
+
+                            $this->renderer->render_index_page( $entries, $content_type, '/' . $content_type . '/taxonomy/' . $term, [ 'index' ] );
+                        }
+                    }
+                }
+
                 // process all content
                 usort( $entries, 'CR\cr_sort' );
 

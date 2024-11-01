@@ -5,6 +5,7 @@ namespace CR;
 class Entries {
     var $config = null;
     var $entries = array();
+    var $tax = array();
 
     public function __construct( $config ) {
         $this->config = $config;
@@ -14,6 +15,22 @@ class Entries {
         if ( isset( $this->entries[ $content_type ] ) ) {
             return $this->entries[ $content_type ];
         } 
+
+        return false;
+    }
+
+    function get_tax_terms( $content_type ) {
+        if ( isset( $this->tax[ $content_type ] ) ) {
+            return array_keys( $this->tax[ $content_type ] );
+        }
+
+        return false;
+    }
+
+    function get_tax( $content_type, $term ) {
+        if ( isset( $this->tax[ $content_type ] ) && isset( $this->tax[ $content_type ][ $term ] ) )  {
+            return $this->tax[ $content_type ][ $term ];
+        }
 
         return false;
     }
@@ -37,6 +54,7 @@ class Entries {
             foreach( $this->config[ 'content' ][ 'types' ] as $content_type => $content_config ) {
                 if ( !isset( $this->entries[ $content_type ] ) ) {
                     $this->entries[ $content_type ] = [];
+                    $this->tax[ $content_type ] = [];
                 }
 
                 echo "....loading content type [" . $content_type . "]\n";
@@ -90,6 +108,17 @@ class Entries {
                             }
 
                             $content->taxonomy = array_map( function( $e ) { return str_replace( '-', ' ', $e ); }, $content->taxonomy );
+                            if ( count( $content->taxonomy ) ) {
+                                foreach( $content->taxonomy as $tax ) {
+                                    $clean_tax = Utils::clean_term( $tax );
+
+                                    if ( !isset( $this->tax[ $content_type ][ $clean_tax ] ) ) {
+                                        $this->tax[ $content_type ][ $clean_tax ] = [];
+                                    }
+
+                                    $this->tax[ $content_type ][ $clean_tax ][] = $content;
+                                }
+                            }
 
                             $this->entries[ $content_type ][] = $content;
                         }
