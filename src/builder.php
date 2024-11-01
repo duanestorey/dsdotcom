@@ -61,6 +61,7 @@ class Builder {
                             $params->content->markdown_html = $markdown->html();
                             $params->content->markdown_file = $markdown_file;
                             $params->content->url = Utils::fix_path( $this->config[ 'site' ][ 'url' ] ) . $content_slug;
+                            $params->content->rel_url = $content_slug;
                             $params->content->slug = $content_slug;
                             $params->content->unique = md5( $content_slug );
                             $params->content->taxonomy = array();
