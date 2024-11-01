@@ -72,13 +72,15 @@ class Builder {
                 // process all content
                 usort( $entries, 'CR\cr_sort' );
 
-                $this->renderer->render_index_page( $entries, $content_type, '/' . $content_type, [ 'index' ] );
+                if ( isset( $content_config[ 'index' ] ) && $content_config[ 'index' ] ) {
+                    $this->renderer->render_index_page( $entries, $content_type, '/' . $content_type, [ 'index' ] );
+                }
 
-                if ( $content_type == 'posts' ) {
+                if ( $content_type == $this->config[ 'site' ][ 'home' ] ) {
                     $this->renderer->render_index_page( $entries, $content_type, '', [ 'index' ] );
                 }
 
-                                // tax
+                 // tax
                 $tax_terms = $this->entries->get_tax_terms( $content_type );
                 if ( count( $tax_terms ) ) {
                     Utils::mkdir( CROSSROAD_PUBLIC_DIR . '/' . $content_type . '/taxonomy' );
@@ -90,8 +92,6 @@ class Builder {
                         usort( $entries, 'CR\cr_sort' );
 
                         if ( count( $entries ) ) {
-                            echo "....writing taxonomy for " . $term . "\n";
-
                             $this->renderer->render_index_page( $entries, $content_type, '/' . $content_type . '/taxonomy/' . $term, [ 'index' ] );
                         }
                     }

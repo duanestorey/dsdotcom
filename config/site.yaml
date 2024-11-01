@@ -5,10 +5,13 @@ site:
   theme: lumen
   lang: en
   charset: 'utf-8'
+  home: posts
 content:
   types: 
     posts:
+      index: true
     pages:
+      index: false
 themes:
   dir: themes
 options:
