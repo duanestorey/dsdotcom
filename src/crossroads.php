@@ -16,6 +16,7 @@ require_once( 'src/theme.php' );
 require_once( 'src/utils.php' );
 require_once( 'src/plugin.php' );
 require_once( 'src/plugin-manager.php' );
+require_once( 'src/renderer.php' );
 
 require_once( 'plugins/image-plugin.php' );
 require_once( 'plugins/seo-plugin.php' );

@@ -11,6 +11,7 @@ class Builder {
     var $theme = null;
     var $menu = null;
     var $plugin_manager = null;
+    var $renderer = null;
 
     public function __construct( $config ) {
         $this->config = $config;
@@ -22,6 +23,8 @@ class Builder {
         $this->plugin_manager->install_plugin( new ImagePlugin( $this->config ) );
         $this->plugin_manager->install_plugin( new SeoPlugin( $this->config ) );
         $this->plugin_manager->install_plugin( new WordPressPlugin( $this->config ) );
+
+        $this->renderer = new Renderer( $this->config, $this->template_engine );
     }
 
     public function run() {
@@ -61,21 +64,14 @@ class Builder {
                         ); 
 
                         $entry = $this->plugin_manager->content_filter( $entry );
-
                         $params->is_single = true;  
                         $params->content = $entry;
 
                         $params = $this->plugin_manager->template_param_filter( $params );
 
-                        // set up page specific stuff like the page titel
-                        $template_name = $this->template_engine->locate_template( [ $content_type . '-single', $content_type, 'index' ] );
-                        if ( $template_name ) {
-                            $rendered_html = $this->template_engine->render( $template_name, $params );
-                            file_put_contents( CROSSROAD_PUBLIC_DIR . $entry->slug, $rendered_html );
+                        $this->renderer->render_single_page( $params, [ $params->content->content_type . '-single', $params->content->content_type, 'index' ] );
 
-                            echo "......outputting template file " . CROSSROAD_PUBLIC_DIR . $entry->slug . "\n";
-                            $this->total_pages++;
-                        }
+                        $this->total_pages++;
                     }
                 }
             }
