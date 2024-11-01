@@ -10,15 +10,14 @@
 
         {if $is_single}
         <meta name="description" content="{$content->description}">
-        <meta property="og:title" content="{$page->title}" />
-        <meta property="og:url" content="{$content->url}" />
+        <meta property="og:title" content="{$page->title}">
+        <meta property="og:url" content="{$content->url}">
         <meta name="twitter:title" content="{$page->title}">
         <meta name="twitter:description" content="{$content->description}">
-        <meta name="twitter:creator" content="@duanestorey" />
-       
+        <meta name="twitter:creator" content="@duanestorey">
             {if $content->featured_image}
                 <meta name="twitter:image" content="{$content->featured_image}">
-                <meta property="og:image" content="{$content->featured_image}" />
+                <meta property="og:image" content="{$content->featured_image}">
             {/if}
         <meta name="twitter:card" content="summary_large_image">    
         {/if}
