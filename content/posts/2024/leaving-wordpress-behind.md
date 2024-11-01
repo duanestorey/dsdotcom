@@ -51,10 +51,10 @@ fine to act like nothing is happening.  Not while contributors are quitting, mem
 and the official WordPress accounts continue to talk down to their followers. Everybody should be speaking up now and advocating for what they believe in.
 
 WordPress isn't a spring chicken anymore - it's been around over a decade, and powers 43% of the web. The codebase and the community owes much of its success to the thousands of 
-core, plugin, and theme contributors, many of which whom submitted their work for. I'd like to think I did my part contributing to
+core, plugin, and theme contributors who submitted their work for free. I'd tried to do my part to contribute
 the success of WordPress in the early days, helping in the following ways:
 * I co-organized and ran three separate WordCamps in the Vancouver area (the photo above is from WordCamp Whistler, an event I 
-was not able to do a sequel for due to the excessive limitations imposed by the WordPress Foundation). 
+was not able to do twice due to the excessive limitations imposed by the WordPress Foundation). 
 * In the early days, I helped sponsor many WordCamp events around the world, the majority of which I never even attended
 * I co-developed several popular plugins, one of which 
 for a time provided the default mobile experience on WordPress.com.  Several plugin contributors on X (including the author of WPGraphQL) recently told me that my plugin code was their first real introduction
