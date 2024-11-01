@@ -80,11 +80,12 @@ class Renderer {
                 $params->content = array_slice( $entries, ( $pagination->current_page - 1 ) * $content_per_page, $content_per_page );
 
                 $params->is_home = $is_home;
-
                 $params->pagination = $pagination;
 
                 $rendered_html = $this->template_engine->render( $template_name, $params );
                 file_put_contents( $filename, $rendered_html );  
+
+                echo "......outputting template file " . $filename . "\n";
 
                 $pagination->current_page++;
 
