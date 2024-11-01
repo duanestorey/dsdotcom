@@ -191,7 +191,7 @@ class Builder {
             $content_per_page = $this->config[ 'options' ][ 'content_per_page' ];
         }
 
-        $params->page->title = 'index';
+        $params->page->title = $this->config[ 'site' ][ 'title' ];
 
         $params->pagination = new \stdClass;
         $params->pagination->current_page = 1;
@@ -228,6 +228,7 @@ class Builder {
 
                 if ( $params->pagination->current_page == 1 && $path == '' ) {
                     $params->is_home = true;
+                    $params->content->description = $this->config[ 'site' ][ 'description' ];
                 } else {
                     $params->is_home = false;
                 }
