@@ -96,4 +96,8 @@ article {
     .things-about-me .col-sm em {
         min-height: inherit;
     }
+
+    .jumbotron h1 {
+        padding-top: 20px;
+    }
 }
