@@ -294,6 +294,8 @@ class ImagePlugin extends Plugin {
                     $image_320 = $this->_convert_or_copy_image( $found_file, $destination_file, 320 );
                     $image_640 = $this->_convert_or_copy_image( $found_file, $destination_file, 640 );
                     $image_960 = $this->_convert_or_copy_image( $found_file, $destination_file, 960 );
+                    $image_1200 = $this->_convert_or_copy_image( $found_file, $destination_file, 1200 );
+                    $image_1600 = $this->_convert_or_copy_image( $found_file, $destination_file, 1600 );
 
                     if ( $image_320 ) {
                         $main_image->responsive_images[ 320 ] = $image_320;
@@ -305,7 +307,15 @@ class ImagePlugin extends Plugin {
 
                     if ( $image_960 ) {
                         $main_image->responsive_images[ 960 ] = $image_960;
-                    }     
+                    }    
+
+                    if ( $image_1200 ) {
+                        $main_image->responsive_images[ 1200 ] = $image_1200;
+                    }   
+
+                    if ( $image_1600 ) {
+                        $main_image->responsive_images[ 1600 ] = $image_1600;
+                    }      
 
                     $main_image->has_responsive = ( count( $main_image->responsive_images ) > 0 );
                     if ( $main_image->has_responsive ) {
