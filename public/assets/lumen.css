@@ -85,8 +85,7 @@ article {
 }
 
 @media (max-width: 576px) { 
-
-.things-about-me .col-sm em {
-    min-height: inherit;
-}
+    .things-about-me .col-sm em {
+        min-height: inherit;
+    }
 }
