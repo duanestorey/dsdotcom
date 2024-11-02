@@ -15,7 +15,7 @@ A few months ago I started planning to do one of long distance hikes in Italy th
 
 The most famous of the Alta Vias is Alta Via 1. I originally was going to attempt that one, but it's also the busiest. With COVID restrictions many of the mountain huts are at half capacity, so my friend and I decided to switch over to Alta Via 2, which is arguably the harder of the two.
 
-\[caption id="attachment\_14329" align="aligncenter" width="1024"\]![Scenary In The Dolomites](images/michal-kmet-M9O6GRrEEDY-unsplash-1024x680.jpg) Scenary In The Dolomites\[/caption\]
+[Scenery In The Dolomites](images/michal-kmet-M9O6GRrEEDY-unsplash-1024x680.jpg)
 
 I've done many long distance walks before, but I've never done one that focuses more on elevation than on horizontal distance. Alta Via 2 will have us climbing 700-1200m a day, which I suspect is going to be extremely difficult. I've done elevation gain on other hikes, but usually it's just one day and then it's over. On Alta Via 2 we will likely have large elevation gains every day, so I'm a tad worried how my body is going to respond. In addition, most days are spent at an elevation of 2000-3200m, which is high enough to start causing biological changes. At those altitudes your body definitely feels the affects of lower oxygen (and higher carbon dioxide levels). This often manifests itself as a shortness of breath and a faster heart rate.
 
@@ -25,7 +25,7 @@ So this time I'm going to stay in a little village nestled in the mountains, Vig
 
 Right now the plan isn't to finish the entire hike, more like 65% of it, mostly due to time constraints and some of the other sightseeing we want to do in the area. But even so, we'll likely hike around 120km with around 8000m of elevation gain, which will be pretty exhausting. This time around I'm hoping to bring my SLR camera, and with luck I'll come back with some amazing photography to put up on my walls in my flat back in Spain.
 
-\[caption id="attachment\_14330" align="aligncenter" width="1024"\]![Rifugio in the Dolomites](images/dolomites-rifugio-1024x329.png) Rifugio in the Dolomites\[/caption\]
+[A nice rifugio in the Dolomites](images/dolomites-rifugio-1024x329.png)
 
 Each night we will stay in a series of mountain huts known collectively as rifugios. The rifugios are conveniently sprinkled all throughout the Dolomites, and usually contain a bar, a restaurant, and sleeping quarters for overnight hikers such as ourselves. Many rifugios aren't connected to any road system, so other than hiking in and out on foot, or receiving supplies from helicopters, there aren't any easy entry or exit points. I'll be hiking with a friend, and he has a satellite GPS emergency beacon in the odd event anything happens, but it's a pretty well traversed hike so I'm not super worried.
 
