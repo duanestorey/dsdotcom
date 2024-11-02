@@ -1,5 +1,5 @@
 ---
-title: "On WordPress"
+title: "WordPress Is On Dangerous Ground"
 date: "2024-10-31"
 description: "Given recent events in the WordPress eco-system, I've decided to take a break from working on and promoting the platform."
 categories: 
@@ -61,11 +61,14 @@ to the WordPress plugin ecosystem, and that they learned a lot from it. That's w
 * I did the first few iterations of the profiles.wordpress.org site, the first on bbPress, and the second on BuddyPress
 
 As such, I'm saddened by what has been taking place and what's apparently happened to WordPress, primarily through the actions of its apparently not-so-benevolent 
-dictator. 
+dictator. What separated WordPress from many of the various options in the early days was the vibrant and helpful community. When the people in charge of the project 
+show outright contempt and hostility towards many members of that community, in many cases simply for disagreeing with current actions and policies, that's a huge problem.
 
 It's clear we have all come to a very visible fork 
 in the road, one which may ultimately lead in other directions within WordPress, and for some people, outside of it.  I wouldn't be at all surprised if one or more 
-forks emerge shortly, along with other plugin/theme repositories and third party update servers.  While I still intend to do what I can to help
+forks emerge shortly, along with other plugin/theme repositories and third party update servers.  Of course, the people in charge say they are absolutely fine with this option, and apparently are even encouraging it - I suspect if and when a fork or update repository emerges with a substantial backing, we will see a very public reversal of that encouragement.
+
+While I still intend to do what I can to help
 the WordPress community recover from the current fracturing, I'm also no longer motivated to keep promoting or using WordPress. 
 
 And that's why for the first time since 2006, this website no longer runs WordPress.
