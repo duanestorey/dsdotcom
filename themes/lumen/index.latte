@@ -60,7 +60,6 @@
                     {else}
                     <li class="page-item disabled"><span class="page-link">Previous</span></li>
                     {/if}
-
                     <!--
                     {foreach $pagination->links as $link}
                         {if $pagination->current_page == $link->num}
@@ -70,7 +69,6 @@
                         {/if}
                     {/foreach} 
                     -->
-
                     {if $pagination->next_page_link}
                     <li class="page-item"><a class="page-link" href="{$pagination->next_page_link}">Next</a></li>
                     {/if}
