@@ -54,7 +54,14 @@
             </div>
 
             <div class="content mt-3">
-                    <div class="mt-4 mb-4"><img src="https://duanestorey.com/assets/posts/2013/reddit-spike.jpg" width="800" height="393" alt="Featured Image" class="img-fluid"></div>
+                    <div class="mt-4 mb-4">
+                        <picture>
+                                <source media="(max-width: 319px)" srcset="https://duanestorey.com/assets/posts/2013/reddit-spike-320w.jpg">
+                                <source media="(max-width: 639px)" srcset="https://duanestorey.com/assets/posts/2013/reddit-spike-640w.jpg">
+                                <source media="(min-width: 640px)" srcset="https://duanestorey.com/assets/posts/2013/reddit-spike.jpg">
+                            <img src="https://duanestorey.com/assets/posts/2013/reddit-spike.jpg" width="800" height="393" alt="Featured Image" class="img-fluid">
+                        </picture>
+                    </div>
                 <p>Yesterday I was casually flipping around some apps on my iPhone and opened up my Adsense application which shows me how much I've made from Google Adsense each day. I noticed almost immediately that there was an anomaly - for the current day I had served almost 4,000 ad impressions, when normally it would have been more like 200 around that time of day. I then followed up by logging into Google Analytics to see if I had been mentioned somewhere, and sure enough I noticed that my number one referrer was Reddit.com at the time. Reddit gets around one billion page views a month I believe, so any mention on that website can be enough to completely cripple a website with new visitors.</p>
 <p>Apparently someone had shared a recent post of mine on Reddit discussing how to cut a SIM into a Micro or Nano SIM. It's not exactly rocket science, as many others pointed out in the comments. But it generated a lot of discussion from people who said it does indeed work (which it does) and people who didn't think it would work at all.</p>
 <p>But for me I wasn't really interested in the comments on Reddit, but rather whether or not my website was going to be able to handle the load of all those new users. At the time Google Analytics was showing around 300 active users, and the CPU for my $20/mo VPS unit was sitting around 35%. I tried to log into the admin panel for WordPress, but I couldn't get to it from Amsterdam due to my slow internet connection and the massive amount of traffic my website was serving.</p>

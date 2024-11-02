@@ -54,7 +54,15 @@
             </div>
 
             <div class="content mt-3">
-                    <div class="mt-4 mb-4"><img src="https://duanestorey.com/assets/posts/2019/desk-laptop-phone-coffee-scaled.jpg" width="2560" height="1708" alt="Featured Image" class="img-fluid"></div>
+                    <div class="mt-4 mb-4">
+                        <picture>
+                                <source media="(max-width: 319px)" srcset="https://duanestorey.com/assets/posts/2019/desk-laptop-phone-coffee-scaled-320w.jpg">
+                                <source media="(max-width: 639px)" srcset="https://duanestorey.com/assets/posts/2019/desk-laptop-phone-coffee-scaled-640w.jpg">
+                                <source media="(max-width: 959px)" srcset="https://duanestorey.com/assets/posts/2019/desk-laptop-phone-coffee-scaled-960w.jpg">
+                                <source media="(min-width: 960px)" srcset="https://duanestorey.com/assets/posts/2019/desk-laptop-phone-coffee-scaled.jpg">
+                            <img src="https://duanestorey.com/assets/posts/2019/desk-laptop-phone-coffee-scaled.jpg" width="2560" height="1708" alt="Featured Image" class="img-fluid">
+                        </picture>
+                    </div>
                 <p>Years ago, when looking for a way to do local WordPress development, I eventually stumbled upon a pretty nifty tool called MAMP.  MAMP stands  for "Mac/Apache/MySQL/PHP", and it's the Macintosh equivalent of the well-known Linux-based LAMP stack.</p>
 <p>While you can configure MAMP by editing configuration files, I decided to upgrade to MAMP Pro, as it gives you an easier UI to use when managing some of your local websites.</p>
 <p>Despite MAMP 'mostly working', it has a number of really annoying downsides as well:</p>

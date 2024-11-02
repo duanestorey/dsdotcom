@@ -212,6 +212,7 @@ class ImagePlugin extends Plugin {
         $image_info = new \stdClass;
         $image_info->width = false;
         $image_info->height = false;
+        $image_info->responsive_largest_size = 0;
 
         if ( $is_remote || $this->_is_remote_image( $image_file ) ) {
             $image_info->url = $image_file;
@@ -294,16 +295,21 @@ class ImagePlugin extends Plugin {
                     $image_640 = $this->_convert_or_copy_image( $found_file, $destination_file, 640 );
                     $image_960 = $this->_convert_or_copy_image( $found_file, $destination_file, 960 );
 
-                    if ( $image_960 ) {
-                        $main_image->responsive_images[ 960 ] = $image_960;
+                    if ( $image_320 ) {
+                        $main_image->responsive_images[ 320 ] = $image_320;
                     }
 
                     if ( $image_640 ) {
                         $main_image->responsive_images[ 640 ] = $image_640;
                     }
 
-                    if ( $image_320 ) {
-                        $main_image->responsive_images[ 320 ] = $image_320;
+                    if ( $image_960 ) {
+                        $main_image->responsive_images[ 960 ] = $image_960;
+                    }     
+
+                    $main_image->has_responsive = ( count( $main_image->responsive_images ) > 0 );
+                    if ( $main_image->has_responsive ) {
+                        $main_image->responsive_largest_size = max( array_keys( $main_image->responsive_images ) );
                     }
                 } 
 
