@@ -24,12 +24,3 @@ const mountNode = document.querySelector( "#disqus_thread" );
 if ( mountNode != null ) {
     observer.observe( mountNode );
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'G-9YTETF9LXH');
-});
-
