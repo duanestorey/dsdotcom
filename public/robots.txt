@@ -3,4 +3,6 @@ disallow: /assets/css/
 disallow: /assets/js/
 allow: /
 
+User-agent: Twitterbot
+allow: /
 Sitemap: https://duanestorey.com/sitemap.xml
