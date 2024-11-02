@@ -20,10 +20,11 @@ class ImagePlugin extends Plugin {
     }
 
     public function content_filter( $content ) {
-        $regexp = '<img[^>]+src=(?:\"|\')\K(.[^">]+?)(?=\"|\')';
+        $regexp = '(<img[^>]+src=(?:\"|\')\K(.[^">]+?)(?=\"|\'))';
         $image_destination_path = CROSSROAD_PUBLIC_DIR . '/assets/' . $content->content_type;
 
         if( preg_match_all( "/$regexp/", $content->markdown_html, $matches, PREG_SET_ORDER ) ) {
+            //print_r( $matches ); die;
             foreach( $matches as $images ) {
                 $image_file = $images[ 0 ];
 
@@ -36,7 +37,25 @@ class ImagePlugin extends Plugin {
                 );
 
                 if ( $dest_url && $dest_url->is_local ) {
-                     $content->markdown_html = str_replace( $image_file, $dest_url->url, $content->markdown_html );
+                    $image_tag = $images[ 1 ];
+                    $new_image_tag = str_replace( $image_file, $dest_url->url, $image_tag );
+
+                    // now add srcset
+                    if ( $dest_url->has_responsive ) {
+                        $srcset = array();
+
+                        foreach( $dest_url->responsive_images as $image ) {
+                            $srcset[] = $image->url . ' ' . $image->width . 'w';
+                        }
+
+                        $srcset_text = implode( ',', $srcset );
+
+                        $new_image_tag = str_replace( '<img ', '<img srcset="' . $srcset_text . '" ', $image_tag );
+                    }
+
+                     $content->markdown_html = str_replace( $image_tag, $new_image_tag, $content->markdown_html );
+
+                   // print_r( $matches ); die;
                 }
             }
         }
@@ -49,12 +68,6 @@ class ImagePlugin extends Plugin {
                 $content->publish_date,
                 $found_file
             );
-
-            if ( $found_file ) {
-                $image_info = getimagesize( $found_file );
-                $content->featured_image_width = $image_info[ 0 ];
-                $content->featured_image_height = $image_info[ 1 ];
-            }
         }
 
         return $content;
