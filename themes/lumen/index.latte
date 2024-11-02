@@ -39,7 +39,15 @@
 
                 <div class="content mt-3">
                     {if $item->featured_image}
-                        <img src="{$item->featured_image->url}" class="img-thumbnail" />
+                        <picture>
+                            {if $item->featured_image->has_responsive}
+                                {foreach $item->featured_image->responsive_images as $size => $image}
+                                <source media="(max-width: {$size-1}px)" srcset="{$image->url}">
+                                {/foreach}
+                                <source media="(min-width: {$item->featured_image->responsive_largest_size}px)" srcset="{$item->featured_image->url}">
+                            {/if}
+                            <img src="{$item->featured_image->url}" width="{$item->featured_image->width}" height="{$item->featured_image->height}" alt="Featured Image" class="img-thumbnail">
+                        </picture>
                     {/if}
                     {$item->excerpt()|noescape}
                 </div>

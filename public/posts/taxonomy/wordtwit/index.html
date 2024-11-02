@@ -52,7 +52,12 @@ That is all. ...
                 <div class="meta mb-2 text-primary fs-6 fw-light">Published on July 25th, 2009</div>
 
                 <div class="content mt-3">
-                        <img src="https://duanestorey.com/assets/posts/2009/Picture-22.png" class="img-thumbnail" />
+                        <picture>
+                                <source media="(max-width: 319px)" srcset="https://duanestorey.com/assets/posts/2009/Picture-22-320w.png">
+                                <source media="(max-width: 479px)" srcset="https://duanestorey.com/assets/posts/2009/Picture-22-480w.png">
+                                <source media="(min-width: 480px)" srcset="https://duanestorey.com/assets/posts/2009/Picture-22.png">
+                            <img src="https://duanestorey.com/assets/posts/2009/Picture-22.png" width="613" height="225" alt="Featured Image" class="img-thumbnail">
+                        </picture>
                     A lot of my fellow bloggers around here have installed WordTwit today so that they can have their WordPress posts automatically show up on their Twitter feeds. While WordTwit doesn't officially support hashtags yet (those crazy things that look like #someword on Twitter), there's a quick little work around for events such as Blogathon.
 First, navigate to the WordTwit administration panel. Typically you'll see something like this under general options:
 
