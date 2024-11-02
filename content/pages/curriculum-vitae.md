@@ -21,7 +21,6 @@ date: "2017-08-24T21:08:52.000Z"
 ## Honours and Awards
 
 - 2011 - [Patent US7958276B2](https://patents.google.com/patent/US7958276B2/en), Automatic configuration of peripheral devices
-    
 - 1995-2000 - Academic Dean’s List, The University of British Columbia
 - 1995 - Chancellor’s Entrance Scholarship, The University of British Columbia
 - 1995 - Full Scholarship, Simon Fraser University (Turned down to attend UBC)
