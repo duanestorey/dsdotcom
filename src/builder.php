@@ -148,7 +148,7 @@ class Builder {
 
     private function _write_robots() {
         // write robots
-        $robots = "user-agent: *\ndisallow: /assets/css/\ndisallow: /assets/js/\n\nSitemap: " . $this->config[ 'site' ][ 'url' ] . "/sitemap.xml";
+        $robots = "user-agent: *\ndisallow: /assets/css/\ndisallow: /assets/js/\nallow: /\n\nSitemap: " . $this->config[ 'site' ][ 'url' ] . "/sitemap.xml";
         file_put_contents( CROSSROAD_PUBLIC_DIR . '/robots.txt', $robots );
         echo "....writing robots.txt\n";
     }
