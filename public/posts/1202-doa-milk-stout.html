@@ -1,23 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link rel="stylesheet" href="../assets/lumen.css?v=576e1e08b69a60842385b0e7e9c99144">
-        <script src="../assets/lumen.min.js?v=576e1e08b69a60842385b0e7e9c99144" async></script>
+        <link rel="stylesheet" href="/assets/lumen.css?v=26154ad9897ef2dfa0c569a895180cfc">
+        <script defer src="/assets/lumen.min.js?v=26154ad9897ef2dfa0c569a895180cfc"></script>
         <title>1202 - DOA Milk Stout</title>
+        <link rel="icon" type="image/x-icon" href="/assets/favicon.ico?v=26154ad9897ef2dfa0c569a895180cfc">
 
-        <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="utf-8">
+        <meta name="generator" content="Crossroads 1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <meta name="description" content="About a week after I brewed my first beer I decided I would get another one in the queue so I would have one more to tas">
-        <meta property="og:title" content="1202 - DOA Milk Stout" />
-        <meta property="og:url" content="https://duanestorey.com/posts/1202-doa-milk-stout.html" />
+        <link rel="canonical" href="https://duanestorey.com/posts/1202-doa-milk-stout.html">
+
+        <meta name="description" content="About a week after I brewed my first beer I decided I would get another one in the queue so I would have one more to taste">
+        <meta name="og:description" content="About a week after I brewed my first beer I decided I would get another one in the queue so I would have one more to taste">
+        <meta property="og:title" content="1202 - DOA Milk Stout">
+        <meta property="og:url" content="https://duanestorey.com/posts/1202-doa-milk-stout.html">
+        <meta property="og:type" content="article">
+        <meta name="twitter:card" content="summary_large_image">   
         <meta name="twitter:title" content="1202 - DOA Milk Stout">
-        <meta name="twitter:description" content="About a week after I brewed my first beer I decided I would get another one in the queue so I would have one more to tas">
-        <meta name="twitter:creator" content="@duanestorey" />
-       
-                <meta name="twitter:image" content="https://duanestorey.com/assets/posts/2012/sweet-stout.webp">
-                <meta property="og:image" content="https://duanestorey.com/assets/posts/2012/sweet-stout.webp" />
-        <meta name="twitter:card" content="summary_large_image">    
+        <meta name="twitter:description" content="About a week after I brewed my first beer I decided I would get another one in the queue so I would have one more to taste">
+        <meta name="twitter:creator" content="@duanestorey">
+        <meta name="twitter:image" content="https://duanestorey.com/assets/posts/2012/sweet-stout.jpg">
+        <meta property="og:image" content="https://duanestorey.com/assets/posts/2012/sweet-stout.jpg">
+        <meta property="og:image:width" content="612">
+        <meta property="og:image:height" content="612">
+
     </head>
     <body class="posts posts-1202-doa-milk-stout">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -28,10 +36,10 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                            <a class="nav-item nav-link" href="/">Home</a>
-                            <a class="nav-item nav-link" href="/pages/hiking.html">Hiking</a>
-                            <a class="nav-item nav-link" href="/pages/about.html">About</a>
-                            <a class="nav-item nav-link" href="/pages/contact.html">Contact</a>
+                        <a class="nav-item nav-link" href="/">Home</a>
+                        <a class="nav-item nav-link" href="/pages/hiking.html">Hiking</a>
+                        <a class="nav-item nav-link" href="/pages/about.html">About</a>
+                        <a class="nav-item nav-link" href="/pages/contact.html">Contact</a>
                     </div>
                 </div>
             </div>
@@ -40,18 +48,18 @@
 
     <div class="container mt-4">
         <article>    
-            <h2 class="mt-4">1202 - DOA Milk Stout</h2>
+            <h1 class="mt-4">1202 - DOA Milk Stout</h1>
             <div class="meta mb-2 text-primary fs-6 fw-light">
                  Published on December 20th, 2012
             </div>
 
             <div class="content mt-3">
-                    <div class="mt-4 mb-4"><img src="https://duanestorey.com/assets/posts/2012/sweet-stout.webp" alt="Featured Image" class="img-fluid" /></div>
+                    <div class="mt-4 mb-4"><img src="https://duanestorey.com/assets/posts/2012/sweet-stout.jpg" width="612" height="612" alt="Featured Image" class="img-fluid"></div>
                 <p>About a week after I brewed my first beer I decided I would get another one in the queue so I would have one more to taste when they became ready. I decided to try my hand at a milk stout, another type of beer I thoroughly enjoy.</p>
 <p>I spent some time looking at other milk stout recipes and ultimately crafted something in BeerSmith2 that I thought would taste pretty good (based on a theoretical imagination in my head of what each of these base malts taste like).</p>
 <p>Unfortunately I missed my FG on this one by a huge amount (like 15 pts). I finally tracked it down to an improper estimate of mash efficiency in BeerSmith2 based on a few other changes I made. Ultimately I have a huge problem with how BeerSmith2 calculates this number. From a home-brewer's perspective, mash efficiency is a pretty important number as it's something that influences the amount of grain to buy and also something that can easily be measured and adjusted. Unfortunately there's no direct way in BeerSmith2 to make this adjustment. What can be adjusted is something known as the Brewhouse Efficiency, a number that represents the efficiency of the entire process.</p>
 <p>So if you want to change your mash efficiency number in BeerSmith2, you basically have to mess around with your Brewhouse Efficiency until it indirectly calculates the Mash Efficiency you want. I've seen the author of the program defend this position, but many others have the same frustration as me. It's something so fundamental to the process that it really seems like something you should be able to adjust. It makes far more sense in my mind to adjust Mash Efficiency directly and have Brewhouse Efficiency be calculated indirectly based on all your other loses in the system. I took a look at Beer Alchemy (another brewing program) and it allows for Mash Efficiency to be entered directly, so I may switch to that.</p>
-<p><a href="http://www.migratorynerd.com/wordpress/wp-content/uploads/2012/12/sweet-stout.jpg"><img src="https://duanestorey.com/assets/posts/2012/sweet-stout.webp" alt="Sweet Stout" /><span class="caption text-center fst-italic"></a> Sweet Stout</span></p>
+<p><a href="http://www.migratorynerd.com/wordpress/wp-content/uploads/2012/12/sweet-stout.jpg"><img src="https://duanestorey.com/assets/posts/2012/sweet-stout.jpg" alt="Sweet Stout"><span class="caption text-center fst-italic"></a> Sweet Stout</span></p>
 <p>Regardless, Beer 1202 arrived stillborn from the kettle at approximately 11pm on December 8th, 2012 - he was properly disposed of after a short period of mourning. I supposed I could have boiled it for 5 hours or so to get my gravity where I needed it, but then I probably wouldn't have been left with much to bottle.</p>
 <p>After this event I adjusted my equipment profile in BeerSmith2 to properly reflect my setup, so hopefully that will carry over to expected gravity readings.</p>
 <h2>Ingredients</h2>
@@ -96,33 +104,15 @@
 </ul>
 
                     <div class="tax">
-                        <button type="button" class="btn btn-secondary btn-sm">food drink</button>
-                        <button type="button" class="btn btn-secondary btn-sm">beer tag</button>
-                        <button type="button" class="btn btn-secondary btn-sm">milk stout</button>
-                        <button type="button" class="btn btn-secondary btn-sm">stout tag</button>
+                        <a href="/posts/taxonomy/food-drink" class="btn btn-secondary btn-sm">food drink</a>
+                        <a href="/posts/taxonomy/beer-tag" class="btn btn-secondary btn-sm">beer tag</a>
+                        <a href="/posts/taxonomy/milk-stout" class="btn btn-secondary btn-sm">milk stout</a>
+                        <a href="/posts/taxonomy/stout-tag" class="btn btn-secondary btn-sm">stout tag</a>
                     </div>
             </div>
 
             <div class="comments mt-4 pt-4">
                 <div id="disqus_thread"></div>
-                    <script>
-                        /**
-                        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-                        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
-                        /*
-                        var disqus_config = function () {
-                        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-                        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-                        };
-                        */
-                        (function() { // DON'T EDIT BELOW THIS LINE
-                        var d = document, s = d.createElement('script');
-                        s.src = 'https://dsnew.disqus.com/embed.js';
-                        s.setAttribute('data-timestamp', +new Date());
-                        (d.head || d.body).appendChild(s);
-                        })();
-                    </script>
-                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
             </div>
         </article>  
     </div>
@@ -130,7 +120,7 @@
 
         <footer class="bg-dark pt-4 pb-4 mt-4 mb-4">
             <div class="container text-center text-white">
-                All content copyright &copy; 2024<br/>Content generated using Crossroads static generator
+                All content copyright &copy; 2024<br>Content generated using Crossroads static generator
             </div>
 
             <!-- Google tag (gtag.js) -->

@@ -6,3 +6,7 @@ theme:
       - custom.css
     lumen.min.js:
       - bootstrap.bundle.min.js
+      - custom.js
+  images:
+    - favicon.ico
+    - final-road-opt.jpg

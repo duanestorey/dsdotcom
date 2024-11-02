@@ -1,23 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link rel="stylesheet" href="../assets/lumen.css?v=576e1e08b69a60842385b0e7e9c99144">
-        <script src="../assets/lumen.min.js?v=576e1e08b69a60842385b0e7e9c99144" async></script>
+        <link rel="stylesheet" href="/assets/lumen.css?v=26154ad9897ef2dfa0c569a895180cfc">
+        <script defer src="/assets/lumen.min.js?v=26154ad9897ef2dfa0c569a895180cfc"></script>
         <title>Configuring WordPress And Nginx</title>
+        <link rel="icon" type="image/x-icon" href="/assets/favicon.ico?v=26154ad9897ef2dfa0c569a895180cfc">
 
-        <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="utf-8">
+        <meta name="generator" content="Crossroads 1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <meta name="description" content="After my recent mention on Reddit last week, I decided to try and improve the responsiveness of my little DigitalOcean V">
-        <meta property="og:title" content="Configuring WordPress And Nginx" />
-        <meta property="og:url" content="https://duanestorey.com/posts/configuring-wordpress-and-nginx.html" />
+        <link rel="canonical" href="https://duanestorey.com/posts/configuring-wordpress-and-nginx.html">
+
+        <meta name="description" content="After my recent mention on Reddit last week, I decided to try and improve the responsiveness of my little DigitalOcean VPS">
+        <meta name="og:description" content="After my recent mention on Reddit last week, I decided to try and improve the responsiveness of my little DigitalOcean VPS">
+        <meta property="og:title" content="Configuring WordPress And Nginx">
+        <meta property="og:url" content="https://duanestorey.com/posts/configuring-wordpress-and-nginx.html">
+        <meta property="og:type" content="article">
+        <meta name="twitter:card" content="summary_large_image">   
         <meta name="twitter:title" content="Configuring WordPress And Nginx">
-        <meta name="twitter:description" content="After my recent mention on Reddit last week, I decided to try and improve the responsiveness of my little DigitalOcean V">
-        <meta name="twitter:creator" content="@duanestorey" />
-       
-                <meta name="twitter:image" content="https://duanestorey.com/assets/posts/2013/speed-scaled.webp">
-                <meta property="og:image" content="https://duanestorey.com/assets/posts/2013/speed-scaled.webp" />
-        <meta name="twitter:card" content="summary_large_image">    
+        <meta name="twitter:description" content="After my recent mention on Reddit last week, I decided to try and improve the responsiveness of my little DigitalOcean VPS">
+        <meta name="twitter:creator" content="@duanestorey">
+        <meta name="twitter:image" content="https://duanestorey.com/assets/posts/2013/speed-scaled.jpg">
+        <meta property="og:image" content="https://duanestorey.com/assets/posts/2013/speed-scaled.jpg">
+        <meta property="og:image:width" content="2560">
+        <meta property="og:image:height" content="1920">
+
     </head>
     <body class="posts posts-configuring-wordpress-and-nginx">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -28,10 +36,10 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                            <a class="nav-item nav-link" href="/">Home</a>
-                            <a class="nav-item nav-link" href="/pages/hiking.html">Hiking</a>
-                            <a class="nav-item nav-link" href="/pages/about.html">About</a>
-                            <a class="nav-item nav-link" href="/pages/contact.html">Contact</a>
+                        <a class="nav-item nav-link" href="/">Home</a>
+                        <a class="nav-item nav-link" href="/pages/hiking.html">Hiking</a>
+                        <a class="nav-item nav-link" href="/pages/about.html">About</a>
+                        <a class="nav-item nav-link" href="/pages/contact.html">Contact</a>
                     </div>
                 </div>
             </div>
@@ -40,13 +48,13 @@
 
     <div class="container mt-4">
         <article>    
-            <h2 class="mt-4">Configuring WordPress And Nginx</h2>
+            <h1 class="mt-4">Configuring WordPress And Nginx</h1>
             <div class="meta mb-2 text-primary fs-6 fw-light">
                  Published on October 16th, 2013
             </div>
 
             <div class="content mt-3">
-                    <div class="mt-4 mb-4"><img src="https://duanestorey.com/assets/posts/2013/speed-scaled.webp" alt="Featured Image" class="img-fluid" /></div>
+                    <div class="mt-4 mb-4"><img src="https://duanestorey.com/assets/posts/2013/speed-scaled.jpg" width="2560" height="1920" alt="Featured Image" class="img-fluid"></div>
                 <p>After my <a href="/tips/blogging/how-to-survive-the-reddit-effect/">recent mention on Reddit last week</a>, I decided to try and improve the responsiveness of my little <a href="https://www.digitalocean.com/?refcode=c62a4d3586fc">DigitalOcean VPS</a> even more than it already was. I was definitely happy that I was able to withstand almost 20,000 visitors in just a few hours, but thought I might be able to improve things further by switching from Apache to Nginx.</p>
 <p>I debated it a long time ago, but never made the plunge for a few different reasons. First, I typically used hosting services based on cPanel. From what I gather, cPanel doesn't really work well with Nginx (or at all), so that was never really an option. And second, I could never quite figure out how to set up WordPress and Nginx properly so that they worked nicely together. It's slightly more complicated because I often use W3 total cache, and it normally places its configuration into .htaccess for Apache.</p>
 <p>But I finally decided it was time to give it a try - I fired up a new VPS at <a href="https://www.digitalocean.com/?refcode=c62a4d3586fc">DigitalOcean</a> to see if I could get my personal website working with Nginx instead of Apache. After scanning around the internet for a while, I managed to piece together a Nginx configuration that works with WordPress 3.6 as well as W3 Total Cache and my mobile website.</p>
@@ -124,35 +132,17 @@
 <p>I'm glad I finally took the plunge and switch to Nginx. If you've been considering it as well, I recommend going for it as it turned out to be simpler than I originally imagined.</p>
 
                     <div class="tax">
-                        <button type="button" class="btn btn-secondary btn-sm">wordpress</button>
-                        <button type="button" class="btn btn-secondary btn-sm">hosting</button>
-                        <button type="button" class="btn btn-secondary btn-sm">nginx</button>
-                        <button type="button" class="btn btn-secondary btn-sm">php</button>
-                        <button type="button" class="btn btn-secondary btn-sm">servers 2</button>
-                        <button type="button" class="btn btn-secondary btn-sm">wordpress 3</button>
+                        <a href="/posts/taxonomy/wordpress" class="btn btn-secondary btn-sm">wordpress</a>
+                        <a href="/posts/taxonomy/hosting" class="btn btn-secondary btn-sm">hosting</a>
+                        <a href="/posts/taxonomy/nginx" class="btn btn-secondary btn-sm">nginx</a>
+                        <a href="/posts/taxonomy/php" class="btn btn-secondary btn-sm">php</a>
+                        <a href="/posts/taxonomy/servers-2" class="btn btn-secondary btn-sm">servers 2</a>
+                        <a href="/posts/taxonomy/wordpress-3" class="btn btn-secondary btn-sm">wordpress 3</a>
                     </div>
             </div>
 
             <div class="comments mt-4 pt-4">
                 <div id="disqus_thread"></div>
-                    <script>
-                        /**
-                        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-                        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
-                        /*
-                        var disqus_config = function () {
-                        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-                        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-                        };
-                        */
-                        (function() { // DON'T EDIT BELOW THIS LINE
-                        var d = document, s = d.createElement('script');
-                        s.src = 'https://dsnew.disqus.com/embed.js';
-                        s.setAttribute('data-timestamp', +new Date());
-                        (d.head || d.body).appendChild(s);
-                        })();
-                    </script>
-                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
             </div>
         </article>  
     </div>
@@ -160,7 +150,7 @@
 
         <footer class="bg-dark pt-4 pb-4 mt-4 mb-4">
             <div class="container text-center text-white">
-                All content copyright &copy; 2024<br/>Content generated using Crossroads static generator
+                All content copyright &copy; 2024<br>Content generated using Crossroads static generator
             </div>
 
             <!-- Google tag (gtag.js) -->

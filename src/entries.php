@@ -5,6 +5,7 @@ namespace CR;
 class Entries {
     var $config = null;
     var $entries = array();
+    var $tax = array();
 
     public function __construct( $config ) {
         $this->config = $config;
@@ -18,11 +19,42 @@ class Entries {
         return false;
     }
 
+    function get_tax_terms( $content_type ) {
+        if ( isset( $this->tax[ $content_type ] ) ) {
+            return array_keys( $this->tax[ $content_type ] );
+        }
+
+        return false;
+    }
+
+    function get_tax( $content_type, $term ) {
+        if ( isset( $this->tax[ $content_type ] ) && isset( $this->tax[ $content_type ][ $term ] ) )  {
+            return $this->tax[ $content_type ][ $term ];
+        }
+
+        return false;
+    }
+
+    public function get_all() {
+        $all_entries = array();
+
+        if ( isset( $this->config[ 'content' ][ 'types' ] ) ) {
+            foreach( $this->config[ 'content' ][ 'types' ] as $content_type => $content_config ) {
+                if ( isset( $this->entries[ $content_type ] ) ) {
+                    $all_entries = array_merge( $all_entries, $this->entries[ $content_type ] );
+                }
+            }
+        }
+
+        return $all_entries;
+    }
+
     public function load_all() {
         if ( isset( $this->config[ 'content' ][ 'types' ] ) ) {
             foreach( $this->config[ 'content' ][ 'types' ] as $content_type => $content_config ) {
                 if ( !isset( $this->entries[ $content_type ] ) ) {
                     $this->entries[ $content_type ] = [];
+                    $this->tax[ $content_type ] = [];
                 }
 
                 echo "....loading content type [" . $content_type . "]\n";
@@ -47,6 +79,7 @@ class Entries {
                             $content->slug = $content_slug;
                             $content->unique = md5( $content_slug );
                             $content->taxonomy = array();
+                            $content->class_name = pathinfo( $markdown_file, PATHINFO_FILENAME );
 
                             if ( $front = $markdown->front_matter() ) {
                                 if ( isset( $front[ 'title' ] ) ) {
@@ -74,7 +107,17 @@ class Entries {
                                 }
                             }
 
-                            $content->taxonomy = array_map( function( $e ) { return str_replace( '-', ' ', $e ); }, $content->taxonomy );
+                            $content->taxonomy = array_map( function( $e ) { return Utils::clean_term( $e ); }, $content->taxonomy );
+                            if ( count( $content->taxonomy ) ) {
+                                foreach( $content->taxonomy as $tax ) {
+                                    if ( !isset( $this->tax[ $content_type ][ $tax ] ) ) {
+                                        $this->tax[ $content_type ][ $tax ] = [];
+                                    }
+
+                                    $this->tax[ $content_type ][ $tax ][] = $content;
+                                    $content->taxonomy_links[ $tax ] = '/' . $content_type . '/taxonomy/' . $tax;
+                                }
+                            }
 
                             $this->entries[ $content_type ][] = $content;
                         }

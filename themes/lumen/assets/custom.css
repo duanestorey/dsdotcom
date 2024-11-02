@@ -13,6 +13,14 @@ article {
     .container {
         max-width: 1100px;
     }
+
+
+}
+
+@media (min-width: 1200px) {
+    .container .content img.img-thumbnail {
+        max-width: 350px;
+    }
 }
 
 .caption {
@@ -37,7 +45,7 @@ article {
     background-image: linear-gradient( 
         rgba(0,0,0,0.4),
         rgba(0,0,0,0.4) ), 
-        url( 'https://duanestorey77.s3-us-west-2.amazonaws.com/final-road-opt.jpg' );
+        url( '/assets/final-road-opt.jpg' );
     background-size: cover;
     background-position: bottom center;
     min-height: 550px;
@@ -76,8 +84,7 @@ article {
 }
 
 @media (max-width: 576px) { 
-
-.things-about-me .col-sm em {
-    min-height: inherit;
-}
+    .things-about-me .col-sm em {
+        min-height: inherit;
+    }
 }

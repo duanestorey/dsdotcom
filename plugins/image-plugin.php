@@ -4,9 +4,14 @@ namespace CR;
 
 class ImagePlugin extends Plugin {
     var $config = null;
+    var $convert_to_webp = false;
 
     public function __construct( $config ) {
         $this->config = $config;
+
+        if ( isset( $this->config[ 'images' ] ) && isset( $this->config[ 'images' ][ 'convert_to_webp' ] ) ) {
+            $this->convert_to_webp = $this->config[ 'images' ][ 'convert_to_webp' ];
+        }
     }
 
     public function content_filter( $content ) {
@@ -22,7 +27,8 @@ class ImagePlugin extends Plugin {
                     $image_file,
                     pathinfo( $content->markdown_file, PATHINFO_DIRNAME ),
                     $image_destination_path,
-                    $content->publish_date
+                    $content->publish_date,
+                    $found_file
                 );
 
                 $content->markdown_html = str_replace( $image_file, $dest_url, $content->markdown_html );
@@ -35,8 +41,15 @@ class ImagePlugin extends Plugin {
                 $content->featured_image,
                 pathinfo( $content->markdown_file, PATHINFO_DIRNAME ),
                 $image_destination_path,
-                $content->publish_date
+                $content->publish_date,
+                $found_file
             );
+
+            if ( $found_file ) {
+                $image_info = getimagesize( $found_file );
+                $content->featured_image_width = $image_info[ 0 ];
+                $content->featured_image_height = $image_info[ 1 ];
+            }
         }
 
         return $content;
@@ -46,7 +59,7 @@ class ImagePlugin extends Plugin {
         return $params;
     }
 
-    private function _find_and_fix_image( $content_type, $image_file, $current_path, $destination_path, $publish_date, $search_dirs = [ '', 'images/' ] ) {
+    private function _find_and_fix_image( $content_type, $image_file, $current_path, $destination_path, $publish_date, &$found_file, $search_dirs = [ '', 'images/' ] ) {
         $new_location = $image_file;
 
         foreach( $search_dirs as $search_dir ) {
@@ -57,7 +70,7 @@ class ImagePlugin extends Plugin {
 
             $image_ext = pathinfo( $modified_image_file, PATHINFO_EXTENSION );
 
-            if ( ( $image_ext == 'jpg' || $image_ext == 'jpeg' ) ) {
+            if ( ( $image_ext == 'jpg' || $image_ext == 'jpeg' ) && $this->convert_to_webp ) {
                 $convert_to_webp = true;
                 $modified_image_file = str_replace( '.' . $image_ext, '.webp', $modified_image_file );
             } else {
@@ -94,6 +107,7 @@ class ImagePlugin extends Plugin {
                 }
 
                 $new_location = $this->config[ 'site' ][ 'url'] . '/assets/' . $content_type . '/' . date( 'Y', $publish_date ) . '/' . $image_filename_only;
+                $found_file = $current_path . '/' . $original_image_file;
                 break;
             }
         }

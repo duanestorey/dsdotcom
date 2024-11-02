@@ -2,25 +2,33 @@
 <html lang="{$site->lang}">
     <head>
         <link rel="stylesheet" href="{$page->asset_url}/lumen.css?v={$page->asset_hash}">
-        <script src="{$page->asset_url}/lumen.min.js?v={$page->asset_hash}" async></script>
+        <script defer src="{$page->asset_url}/lumen.min.js?v={$page->asset_hash}"></script>
         <title>{$page->title}</title>
+        <link rel="icon" type="image/x-icon" href="/assets/favicon.ico?v={$page->asset_hash}">
 
-        <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="{$site->charset}">
+        <meta name="generator" content="Crossroads 1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
         {if $is_single}
+        <link rel="canonical" href="{$content->url}">
+
         <meta name="description" content="{$content->description}">
-        <meta property="og:title" content="{$page->title}" />
-        <meta property="og:url" content="{$content->url}" />
+        <meta name="og:description" content="{$content->description}">
+        <meta property="og:title" content="{$page->title}">
+        <meta property="og:url" content="{$content->url}">
+        <meta property="og:type" content="article">
+        <meta name="twitter:card" content="summary_large_image">   
         <meta name="twitter:title" content="{$page->title}">
         <meta name="twitter:description" content="{$content->description}">
-        <meta name="twitter:creator" content="@duanestorey" />
-       
-            {if $content->featured_image}
-                <meta name="twitter:image" content="{$content->featured_image}">
-                <meta property="og:image" content="{$content->featured_image}" />
-            {/if}
-        <meta name="twitter:card" content="summary_large_image">    
+        <meta name="twitter:creator" content="@duanestorey">
+        {if $content->featured_image}
+        <meta name="twitter:image" content="{$content->featured_image}">
+        <meta property="og:image" content="{$content->featured_image}">
+        <meta property="og:image:width" content="{$content->featured_image_width}">
+        <meta property="og:image:height" content="{$content->featured_image_height}">
+        {/if}
+
         {/if}
     </head>
     <body class="{$page->body_classses}">
@@ -33,7 +41,7 @@
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
                         {foreach $menu as $menu_item}
-                            <a class="nav-item nav-link{if $menu_item->is_active} active{/if}" href="{$menu_item->url}">{$menu_item->name}</a>
+                        <a class="nav-item nav-link{if $menu_item->is_active} active{/if}" href="{$menu_item->url}">{$menu_item->name}</a>
                         {/foreach}
                     </div>
                 </div>

@@ -1,23 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link rel="stylesheet" href="../assets/lumen.css?v=576e1e08b69a60842385b0e7e9c99144">
-        <script src="../assets/lumen.min.js?v=576e1e08b69a60842385b0e7e9c99144" async></script>
+        <link rel="stylesheet" href="/assets/lumen.css?v=26154ad9897ef2dfa0c569a895180cfc">
+        <script defer src="/assets/lumen.min.js?v=26154ad9897ef2dfa0c569a895180cfc"></script>
         <title>Automated Beer Cooler</title>
+        <link rel="icon" type="image/x-icon" href="/assets/favicon.ico?v=26154ad9897ef2dfa0c569a895180cfc">
 
-        <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="utf-8">
+        <meta name="generator" content="Crossroads 1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <meta name="description" content="Almost ten years ago, I started playing around with some microprocessor hobby kits at home. At the time they main ones w">
-        <meta property="og:title" content="Automated Beer Cooler" />
-        <meta property="og:url" content="https://duanestorey.com/posts/automated-beer-cooler.html" />
+        <link rel="canonical" href="https://duanestorey.com/posts/automated-beer-cooler.html">
+
+        <meta name="description" content="Almost ten years ago, I started playing around with some microprocessor hobby kits at home. At the time they main ones were">
+        <meta name="og:description" content="Almost ten years ago, I started playing around with some microprocessor hobby kits at home. At the time they main ones were">
+        <meta property="og:title" content="Automated Beer Cooler">
+        <meta property="og:url" content="https://duanestorey.com/posts/automated-beer-cooler.html">
+        <meta property="og:type" content="article">
+        <meta name="twitter:card" content="summary_large_image">   
         <meta name="twitter:title" content="Automated Beer Cooler">
-        <meta name="twitter:description" content="Almost ten years ago, I started playing around with some microprocessor hobby kits at home. At the time they main ones w">
-        <meta name="twitter:creator" content="@duanestorey" />
-       
-                <meta name="twitter:image" content="https://duanestorey.com/assets/posts/2010/73704_10150302835555637_626915636_15308525_267232_n.webp">
-                <meta property="og:image" content="https://duanestorey.com/assets/posts/2010/73704_10150302835555637_626915636_15308525_267232_n.webp" />
-        <meta name="twitter:card" content="summary_large_image">    
+        <meta name="twitter:description" content="Almost ten years ago, I started playing around with some microprocessor hobby kits at home. At the time they main ones were">
+        <meta name="twitter:creator" content="@duanestorey">
+        <meta name="twitter:image" content="https://duanestorey.com/assets/posts/2010/73704_10150302835555637_626915636_15308525_267232_n.jpg">
+        <meta property="og:image" content="https://duanestorey.com/assets/posts/2010/73704_10150302835555637_626915636_15308525_267232_n.jpg">
+        <meta property="og:image:width" content="537">
+        <meta property="og:image:height" content="720">
+
     </head>
     <body class="posts posts-automated-beer-cooler">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -28,10 +36,10 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                            <a class="nav-item nav-link" href="/">Home</a>
-                            <a class="nav-item nav-link" href="/pages/hiking.html">Hiking</a>
-                            <a class="nav-item nav-link" href="/pages/about.html">About</a>
-                            <a class="nav-item nav-link" href="/pages/contact.html">Contact</a>
+                        <a class="nav-item nav-link" href="/">Home</a>
+                        <a class="nav-item nav-link" href="/pages/hiking.html">Hiking</a>
+                        <a class="nav-item nav-link" href="/pages/about.html">About</a>
+                        <a class="nav-item nav-link" href="/pages/contact.html">Contact</a>
                     </div>
                 </div>
             </div>
@@ -40,49 +48,31 @@
 
     <div class="container mt-4">
         <article>    
-            <h2 class="mt-4">Automated Beer Cooler</h2>
+            <h1 class="mt-4">Automated Beer Cooler</h1>
             <div class="meta mb-2 text-primary fs-6 fw-light">
                  Published on October 23rd, 2010
             </div>
 
             <div class="content mt-3">
-                    <div class="mt-4 mb-4"><img src="https://duanestorey.com/assets/posts/2010/73704_10150302835555637_626915636_15308525_267232_n.webp" alt="Featured Image" class="img-fluid" /></div>
+                    <div class="mt-4 mb-4"><img src="https://duanestorey.com/assets/posts/2010/73704_10150302835555637_626915636_15308525_267232_n.jpg" width="537" height="720" alt="Featured Image" class="img-fluid"></div>
                 <p>Almost ten years ago, I started playing around with some microprocessor hobby kits at home. At the time they main ones were called STAMPS and you programmed them with BASIC. You could make them run motors, measure temperature, pretty much whatever you wanted them to do.</p>
 <p>A few weeks ago I ran into my friend John, and he was telling me about a similar thing called the <a href="http://www.arduino.cc/">Arduino</a>. It's basically a small little microprocessor kit that has basic inputs and outputs that you can use to do arbitrary things. Given that I'm an electrical engineer by education and that I haven't really done anything electrical in years, I thought it would be fun to try and build something small over the winter.</p>
 <p>So, I came up with a random idea involving an automated beer cooler. The idea would be to have a device that could cool a beer in a very short amount of time. I've been doing some hand calculations to figure out just what I can get away with, but I won't know for sure until I put it all together. But I'm hoping it'll be on the order of 1.5 to 3 minutes to go from a warm beer to one that's nearly perfect temperature.</p>
 <p>The technology I'm going to use will involve Peltier coolers. These are semiconductor devices that essentially act like a heat pump -- the remove heat from one side and transfer it to the other side. The main use for these nowadays is to cool CPU chips off on overclocked machines, but there's no reason it can't be adapted to cool beer in a hurry.</p>
 <p>So today after work I set about soldering the LCD so that I could hook it up to the Arduino. I then wrote a quick program to transfer to the unit to fire up the LCD, and presto:</p>
-<p><a href="http://www.migratorynerd.com/wordpress/wp-content/uploads/2010/10/73704_10150302835555637_626915636_15308525_267232_n.jpg"><img src="https://duanestorey.com/assets/posts/2010/73704_10150302835555637_626915636_15308525_267232_n.webp" alt="" title="73704_10150302835555637_626915636_15308525_267232_n" /></a></p>
+<p><a href="http://www.migratorynerd.com/wordpress/wp-content/uploads/2010/10/73704_10150302835555637_626915636_15308525_267232_n.jpg"><img src="https://duanestorey.com/assets/posts/2010/73704_10150302835555637_626915636_15308525_267232_n.jpg" alt="" title="73704_10150302835555637_626915636_15308525_267232_n"></a></p>
 <p>There's still a lot to do, and I have to do a napkin schematic to figure out how it's going to work. Unlike the microcontroller, the actual Peltier coolers take a lot of juice to run properly, so I need to create a secondary power supply to run them. I picked up a simple relay to do the switching of the current, which of course the microcontroller will operate. I also need to close the loop, which means monitoring the temperature of the beer using a few thermistors. But, hopefully sometime this winter I'll be able to test out my first beer, cooling from room temperature down to around 8C or so.</p>
 
                     <div class="tax">
-                        <button type="button" class="btn btn-secondary btn-sm">journal</button>
-                        <button type="button" class="btn btn-secondary btn-sm">beer tag</button>
-                        <button type="button" class="btn btn-secondary btn-sm">engineering</button>
-                        <button type="button" class="btn btn-secondary btn-sm">projects</button>
+                        <a href="/posts/taxonomy/journal" class="btn btn-secondary btn-sm">journal</a>
+                        <a href="/posts/taxonomy/beer-tag" class="btn btn-secondary btn-sm">beer tag</a>
+                        <a href="/posts/taxonomy/engineering" class="btn btn-secondary btn-sm">engineering</a>
+                        <a href="/posts/taxonomy/projects" class="btn btn-secondary btn-sm">projects</a>
                     </div>
             </div>
 
             <div class="comments mt-4 pt-4">
                 <div id="disqus_thread"></div>
-                    <script>
-                        /**
-                        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-                        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
-                        /*
-                        var disqus_config = function () {
-                        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-                        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-                        };
-                        */
-                        (function() { // DON'T EDIT BELOW THIS LINE
-                        var d = document, s = d.createElement('script');
-                        s.src = 'https://dsnew.disqus.com/embed.js';
-                        s.setAttribute('data-timestamp', +new Date());
-                        (d.head || d.body).appendChild(s);
-                        })();
-                    </script>
-                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
             </div>
         </article>  
     </div>
@@ -90,7 +80,7 @@
 
         <footer class="bg-dark pt-4 pb-4 mt-4 mb-4">
             <div class="container text-center text-white">
-                All content copyright &copy; 2024<br/>Content generated using Crossroads static generator
+                All content copyright &copy; 2024<br>Content generated using Crossroads static generator
             </div>
 
             <!-- Google tag (gtag.js) -->

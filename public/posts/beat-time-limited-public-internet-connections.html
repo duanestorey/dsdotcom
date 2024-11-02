@@ -1,23 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link rel="stylesheet" href="../assets/lumen.css?v=576e1e08b69a60842385b0e7e9c99144">
-        <script src="../assets/lumen.min.js?v=576e1e08b69a60842385b0e7e9c99144" async></script>
+        <link rel="stylesheet" href="/assets/lumen.css?v=26154ad9897ef2dfa0c569a895180cfc">
+        <script defer src="/assets/lumen.min.js?v=26154ad9897ef2dfa0c569a895180cfc"></script>
         <title>How To Beat Time Or Bandwidth Limited Internet Connections</title>
+        <link rel="icon" type="image/x-icon" href="/assets/favicon.ico?v=26154ad9897ef2dfa0c569a895180cfc">
 
-        <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="utf-8">
+        <meta name="generator" content="Crossroads 1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <meta name="description" content="One of the hardest parts of working remotely and traveling is the need to find reliable internet from time to time. In s">
-        <meta property="og:title" content="How To Beat Time Or Bandwidth Limited Internet Connections" />
-        <meta property="og:url" content="https://duanestorey.com/posts/beat-time-limited-public-internet-connections.html" />
+        <link rel="canonical" href="https://duanestorey.com/posts/beat-time-limited-public-internet-connections.html">
+
+        <meta name="description" content="One of the hardest parts of working remotely and traveling is the need to find reliable internet from time to time. In some">
+        <meta name="og:description" content="One of the hardest parts of working remotely and traveling is the need to find reliable internet from time to time. In some">
+        <meta property="og:title" content="How To Beat Time Or Bandwidth Limited Internet Connections">
+        <meta property="og:url" content="https://duanestorey.com/posts/beat-time-limited-public-internet-connections.html">
+        <meta property="og:type" content="article">
+        <meta name="twitter:card" content="summary_large_image">   
         <meta name="twitter:title" content="How To Beat Time Or Bandwidth Limited Internet Connections">
-        <meta name="twitter:description" content="One of the hardest parts of working remotely and traveling is the need to find reliable internet from time to time. In s">
-        <meta name="twitter:creator" content="@duanestorey" />
-       
-                <meta name="twitter:image" content="https://duanestorey.com/assets/posts/2013/code.webp">
-                <meta property="og:image" content="https://duanestorey.com/assets/posts/2013/code.webp" />
-        <meta name="twitter:card" content="summary_large_image">    
+        <meta name="twitter:description" content="One of the hardest parts of working remotely and traveling is the need to find reliable internet from time to time. In some">
+        <meta name="twitter:creator" content="@duanestorey">
+        <meta name="twitter:image" content="https://duanestorey.com/assets/posts/2013/code.jpg">
+        <meta property="og:image" content="https://duanestorey.com/assets/posts/2013/code.jpg">
+        <meta property="og:image:width" content="800">
+        <meta property="og:image:height" content="524">
+
     </head>
     <body class="posts posts-beat-time-limited-public-internet-connections">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -28,10 +36,10 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                            <a class="nav-item nav-link" href="/">Home</a>
-                            <a class="nav-item nav-link" href="/pages/hiking.html">Hiking</a>
-                            <a class="nav-item nav-link" href="/pages/about.html">About</a>
-                            <a class="nav-item nav-link" href="/pages/contact.html">Contact</a>
+                        <a class="nav-item nav-link" href="/">Home</a>
+                        <a class="nav-item nav-link" href="/pages/hiking.html">Hiking</a>
+                        <a class="nav-item nav-link" href="/pages/about.html">About</a>
+                        <a class="nav-item nav-link" href="/pages/contact.html">Contact</a>
                     </div>
                 </div>
             </div>
@@ -40,13 +48,13 @@
 
     <div class="container mt-4">
         <article>    
-            <h2 class="mt-4">How To Beat Time Or Bandwidth Limited Internet Connections</h2>
+            <h1 class="mt-4">How To Beat Time Or Bandwidth Limited Internet Connections</h1>
             <div class="meta mb-2 text-primary fs-6 fw-light">
                  Published on December 4th, 2013
             </div>
 
             <div class="content mt-3">
-                    <div class="mt-4 mb-4"><img src="https://duanestorey.com/assets/posts/2013/code.webp" alt="Featured Image" class="img-fluid" /></div>
+                    <div class="mt-4 mb-4"><img src="https://duanestorey.com/assets/posts/2013/code.jpg" width="800" height="524" alt="Featured Image" class="img-fluid"></div>
                 <p>One of the hardest parts of working remotely and traveling is the need to find reliable internet from time to time. In some countries free internet is almost as ubiquitous as beer, and often advertised as prominently. But in some countries (I'm looking directly at you Australia and New Zealand) almost all the internet you will find in the wild is either time limited or bandwidth limited. It's not unusual to be in a coffee shop on only be given 10MB or so, which is hardly enough to check your email or Facebook feed.</p>
 <h3>The Solution</h3>
 <p>If you're using a Mac computer (and I'm sure the procedure is fairly similar on Linux) and have root access, you can easily work around these types of internet connections by changing your network adapter's MAC address. Since these services usually tie the time or bandwidth consumption to your computer's MAC address (which is really the only way to identify a particular piece of hardware), most of the time a new MAC address will trick the system into thinking there is a brand new user on the system.</p>
@@ -54,33 +62,15 @@
 <p><code>openssl rand -hex 1 | tr '[:lower:]' '[:upper:]' | xargs echo "obase=2;ibase=16;" | bc | cut -c1-6 | sed 's/$/00/' | xargs echo "obase=16;ibase=2;" | bc | sed "s/$/:$(openssl rand -hex 5 | sed 's/\(..\)/\1:/g; s/.$//' | tr '[:lower:]' '[:upper:]')/" | xargs sudo ifconfig en0 ether`  It's probably a good idea to write down your old MAC address as well (you can execute 'ifconfig' from Terminal to find it) so that you can always set it back to the old setting once you are done. But if you find yourself using a public internet terminal that is time or bandwidth limited, simply switch your MAC address when your session expires and you should be good to go all over again.  I've tried this a few different times now in a few different countries, and it works flawlessly - as soon as you hit your time limit at a coffee shop or airport, just change your MAC address and you should be recognized as a new user.  ### Play Nice  Also remember that in some parts of the world people actually pay for the bandwidth they use, so bear that in mind if you use that trick. I see no harm in using this occasionally if you are just checking email, or in a some huge place with a big budget like an airport. But it's probably not a good idea to use this trick excessively, just in case some small business owner gets hit with a bill long after you are gone.`</code></p>
 
                     <div class="tax">
-                        <button type="button" class="btn btn-secondary btn-sm">travel</button>
-                        <button type="button" class="btn btn-secondary btn-sm">internet</button>
-                        <button type="button" class="btn btn-secondary btn-sm">mac</button>
-                        <button type="button" class="btn btn-secondary btn-sm">network</button>
+                        <a href="/posts/taxonomy/travel" class="btn btn-secondary btn-sm">travel</a>
+                        <a href="/posts/taxonomy/internet" class="btn btn-secondary btn-sm">internet</a>
+                        <a href="/posts/taxonomy/mac" class="btn btn-secondary btn-sm">mac</a>
+                        <a href="/posts/taxonomy/network" class="btn btn-secondary btn-sm">network</a>
                     </div>
             </div>
 
             <div class="comments mt-4 pt-4">
                 <div id="disqus_thread"></div>
-                    <script>
-                        /**
-                        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-                        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
-                        /*
-                        var disqus_config = function () {
-                        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-                        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-                        };
-                        */
-                        (function() { // DON'T EDIT BELOW THIS LINE
-                        var d = document, s = d.createElement('script');
-                        s.src = 'https://dsnew.disqus.com/embed.js';
-                        s.setAttribute('data-timestamp', +new Date());
-                        (d.head || d.body).appendChild(s);
-                        })();
-                    </script>
-                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
             </div>
         </article>  
     </div>
@@ -88,7 +78,7 @@
 
         <footer class="bg-dark pt-4 pb-4 mt-4 mb-4">
             <div class="container text-center text-white">
-                All content copyright &copy; 2024<br/>Content generated using Crossroads static generator
+                All content copyright &copy; 2024<br>Content generated using Crossroads static generator
             </div>
 
             <!-- Google tag (gtag.js) -->

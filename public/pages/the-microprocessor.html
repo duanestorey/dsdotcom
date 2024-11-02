@@ -1,21 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link rel="stylesheet" href="../assets/lumen.css?v=576e1e08b69a60842385b0e7e9c99144">
-        <script src="../assets/lumen.min.js?v=576e1e08b69a60842385b0e7e9c99144" async></script>
+        <link rel="stylesheet" href="/assets/lumen.css?v=26154ad9897ef2dfa0c569a895180cfc">
+        <script defer src="/assets/lumen.min.js?v=26154ad9897ef2dfa0c569a895180cfc"></script>
         <title>The Microprocessor</title>
+        <link rel="icon" type="image/x-icon" href="/assets/favicon.ico?v=26154ad9897ef2dfa0c569a895180cfc">
 
-        <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="utf-8">
+        <meta name="generator" content="Crossroads 1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <meta name="description" content="While I don&apos;t have a ton of experience making PCBs or designing hardware, I do have a small amount. During the COVID loc">
-        <meta property="og:title" content="The Microprocessor" />
-        <meta property="og:url" content="https://duanestorey.com/pages/the-microprocessor.html" />
+        <link rel="canonical" href="https://duanestorey.com/pages/the-microprocessor.html">
+
+        <meta name="description" content="While I don&apos;t have a ton of experience making PCBs or designing hardware, I do have a small amount. During the COVID lockdowns">
+        <meta name="og:description" content="While I don&apos;t have a ton of experience making PCBs or designing hardware, I do have a small amount. During the COVID lockdowns">
+        <meta property="og:title" content="The Microprocessor">
+        <meta property="og:url" content="https://duanestorey.com/pages/the-microprocessor.html">
+        <meta property="og:type" content="article">
+        <meta name="twitter:card" content="summary_large_image">   
         <meta name="twitter:title" content="The Microprocessor">
-        <meta name="twitter:description" content="While I don&apos;t have a ton of experience making PCBs or designing hardware, I do have a small amount. During the COVID loc">
-        <meta name="twitter:creator" content="@duanestorey" />
-       
-        <meta name="twitter:card" content="summary_large_image">    
+        <meta name="twitter:description" content="While I don&apos;t have a ton of experience making PCBs or designing hardware, I do have a small amount. During the COVID lockdowns">
+        <meta name="twitter:creator" content="@duanestorey">
+
     </head>
     <body class="pages pages-the-microprocessor">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -26,10 +32,10 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                            <a class="nav-item nav-link" href="/">Home</a>
-                            <a class="nav-item nav-link" href="/pages/hiking.html">Hiking</a>
-                            <a class="nav-item nav-link" href="/pages/about.html">About</a>
-                            <a class="nav-item nav-link" href="/pages/contact.html">Contact</a>
+                        <a class="nav-item nav-link" href="/">Home</a>
+                        <a class="nav-item nav-link" href="/pages/hiking.html">Hiking</a>
+                        <a class="nav-item nav-link" href="/pages/about.html">About</a>
+                        <a class="nav-item nav-link" href="/pages/contact.html">Contact</a>
                     </div>
                 </div>
             </div>
@@ -45,7 +51,7 @@
 <p>At the time, my only hardware experience was using the Arduino platform. But since them I've played a tiny bit with both Raspberry Pi and the STM32 ecosystem. Arduino is great for tinkering around, but the general consensus is that it's mostly for just tinkering at home, and not used in anything serious.</p>
 <p>As I stated previously, one of the goals of this entire endeavour was to improve my skills in the domain of electrical engineering. So I figured if I'm pushing my boundaries, I may as well push all of them at the same time. So I figured I might as well get some real world experience using the STM32 family of microprocessors, even though it would involve a bit of a learning curve.</p>
 <p>Unlike Arduinos, where the Arduino editor does a lot of the work for you in making things work, the STM32 is a much more complicated processor that involves a ton of bootsrapping code to configure clocks, pins, timers, etc. While you can do simple programs with it using the Arduino tools, there's no way to unlock any of the more sophisticated functionality without diving right into some of the STM32 tools like the Cube IDE.</p>
-<p><a href="https://www.duanestorey.com/wp-content/uploads/2023/01/IMG_3216-2-Large-e1674943414317.jpeg"><img src="https://duanestorey.com/assets/pages/2023/IMG_3216-2-Large-768x1024.webp" alt="" /><span class="caption text-center fst-italic"></a> STM32 Microprocessor Board</span></p>
+<p><a href="https://www.duanestorey.com/wp-content/uploads/2023/01/IMG_3216-2-Large-e1674943414317.jpeg"><img src="https://duanestorey.com/assets/pages/2023/IMG_3216-2-Large-768x1024.jpeg" alt=""><span class="caption text-center fst-italic"></a> STM32 Microprocessor Board</span></p>
 <p>A few of the core features I liked in the STM32 ecosystem that I figured I may need to utilize were:</p>
 <ul>
 <li>Timers that support an encoder mode - basically the hardware would handle increasing and decreasing an internal counter based on a rotary encoder input. I figured this would probably be useful for a volume knob.</li>
@@ -61,7 +67,7 @@
 
         <footer class="bg-dark pt-4 pb-4 mt-4 mb-4">
             <div class="container text-center text-white">
-                All content copyright &copy; 2024<br/>Content generated using Crossroads static generator
+                All content copyright &copy; 2024<br>Content generated using Crossroads static generator
             </div>
 
             <!-- Google tag (gtag.js) -->

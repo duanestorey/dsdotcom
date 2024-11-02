@@ -1,23 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link rel="stylesheet" href="../assets/lumen.css?v=576e1e08b69a60842385b0e7e9c99144">
-        <script src="../assets/lumen.min.js?v=576e1e08b69a60842385b0e7e9c99144" async></script>
+        <link rel="stylesheet" href="/assets/lumen.css?v=26154ad9897ef2dfa0c569a895180cfc">
+        <script defer src="/assets/lumen.min.js?v=26154ad9897ef2dfa0c569a895180cfc"></script>
         <title>Redundant Web Architectures</title>
+        <link rel="icon" type="image/x-icon" href="/assets/favicon.ico?v=26154ad9897ef2dfa0c569a895180cfc">
 
-        <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="utf-8">
+        <meta name="generator" content="Crossroads 1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <meta name="description" content=" So I realize this could potentially be a pretty deep rabbit hole, but I thought I&apos;d ask the question here. I&apos;m in the p">
-        <meta property="og:title" content="Redundant Web Architectures" />
-        <meta property="og:url" content="https://duanestorey.com/posts/redundant-web-architectures.html" />
+        <link rel="canonical" href="https://duanestorey.com/posts/redundant-web-architectures.html">
+
+        <meta name="description" content=" So I realize this could potentially be a pretty deep rabbit hole, but I thought I&apos;d ask the question here. I&apos;m in the process">
+        <meta name="og:description" content=" So I realize this could potentially be a pretty deep rabbit hole, but I thought I&apos;d ask the question here. I&apos;m in the process">
+        <meta property="og:title" content="Redundant Web Architectures">
+        <meta property="og:url" content="https://duanestorey.com/posts/redundant-web-architectures.html">
+        <meta property="og:type" content="article">
+        <meta name="twitter:card" content="summary_large_image">   
         <meta name="twitter:title" content="Redundant Web Architectures">
-        <meta name="twitter:description" content=" So I realize this could potentially be a pretty deep rabbit hole, but I thought I&apos;d ask the question here. I&apos;m in the p">
-        <meta name="twitter:creator" content="@duanestorey" />
-       
-                <meta name="twitter:image" content="https://duanestorey.com/assets/posts/2010/2379600590_bf110b0d85.webp">
-                <meta property="og:image" content="https://duanestorey.com/assets/posts/2010/2379600590_bf110b0d85.webp" />
-        <meta name="twitter:card" content="summary_large_image">    
+        <meta name="twitter:description" content=" So I realize this could potentially be a pretty deep rabbit hole, but I thought I&apos;d ask the question here. I&apos;m in the process">
+        <meta name="twitter:creator" content="@duanestorey">
+        <meta name="twitter:image" content="https://duanestorey.com/assets/posts/2010/2379600590_bf110b0d85.jpg">
+        <meta property="og:image" content="https://duanestorey.com/assets/posts/2010/2379600590_bf110b0d85.jpg">
+        <meta property="og:image:width" content="417">
+        <meta property="og:image:height" content="500">
+
     </head>
     <body class="posts posts-redundant-web-architectures">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -28,10 +36,10 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                            <a class="nav-item nav-link" href="/">Home</a>
-                            <a class="nav-item nav-link" href="/pages/hiking.html">Hiking</a>
-                            <a class="nav-item nav-link" href="/pages/about.html">About</a>
-                            <a class="nav-item nav-link" href="/pages/contact.html">Contact</a>
+                        <a class="nav-item nav-link" href="/">Home</a>
+                        <a class="nav-item nav-link" href="/pages/hiking.html">Hiking</a>
+                        <a class="nav-item nav-link" href="/pages/about.html">About</a>
+                        <a class="nav-item nav-link" href="/pages/contact.html">Contact</a>
                     </div>
                 </div>
             </div>
@@ -40,43 +48,25 @@
 
     <div class="container mt-4">
         <article>    
-            <h2 class="mt-4">Redundant Web Architectures</h2>
+            <h1 class="mt-4">Redundant Web Architectures</h1>
             <div class="meta mb-2 text-primary fs-6 fw-light">
                  Published on June 24th, 2010
             </div>
 
             <div class="content mt-3">
-                    <div class="mt-4 mb-4"><img src="https://duanestorey.com/assets/posts/2010/2379600590_bf110b0d85.webp" alt="Featured Image" class="img-fluid" /></div>
-                <p><a href="http://www.migratorynerd.com/wordpress/wp-content/uploads/2010/06/2379600590_bf110b0d85.jpg"><img src="images/2379600590_bf110b0d85-250x300.jpg" alt="" title="2379600590_bf110b0d85" /></a> So I realize this could potentially be a pretty deep rabbit hole, but I thought I'd ask the question here. I'm in the process of trying to put together a simple web server configuration that is more robust than a single server configuration. Truthfully, I've never set something like this up, but for what I'm after I'm not looking for something amazingly complex or expensive.</p>
+                    <div class="mt-4 mb-4"><img src="https://duanestorey.com/assets/posts/2010/2379600590_bf110b0d85.jpg" width="417" height="500" alt="Featured Image" class="img-fluid"></div>
+                <p><a href="http://www.migratorynerd.com/wordpress/wp-content/uploads/2010/06/2379600590_bf110b0d85.jpg"><img src="images/2379600590_bf110b0d85-250x300.jpg" alt="" title="2379600590_bf110b0d85"></a> So I realize this could potentially be a pretty deep rabbit hole, but I thought I'd ask the question here. I'm in the process of trying to put together a simple web server configuration that is more robust than a single server configuration. Truthfully, I've never set something like this up, but for what I'm after I'm not looking for something amazingly complex or expensive.</p>
 <p>The server needs to basically handle HTTP requests, and interface with a database. In my mind, this would require two servers in separate co-location centres (which would help if one centre went down and not the other). One machine would be the primary web/database server, and the second machine would be the slave. A cron job would synchronize the files on the slave every 5 minutes or so to make sure it stays up to date, and the database would be set up in a master/slave scenario.</p>
 <p>All of that basically makes sense to me so far, but if you know of a better configuration let me know. I know some people purposefully put the database server on its own machine, but to keep redundancy I believe I'd need four machines in that scenario, and not two, which is more complicated than I want to start out.</p>
 <p>The piece of the puzzle I don't really understand is how to check for a failure and how to recover from one. In my mind this would require some kind of external DNS service that would ping the primary web server and alter the DNS record for when the primary stopped responding. As these machines are in separate co-location facilities, I don't think I can do any type of IP takeover (at least, not that I'm aware of). Can anyone recommend a way to solve this piece of the puzzle, or suggest another way of doing this?</p>
 
                     <div class="tax">
-                        <button type="button" class="btn btn-secondary btn-sm">journal</button>
+                        <a href="/posts/taxonomy/journal" class="btn btn-secondary btn-sm">journal</a>
                     </div>
             </div>
 
             <div class="comments mt-4 pt-4">
                 <div id="disqus_thread"></div>
-                    <script>
-                        /**
-                        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-                        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
-                        /*
-                        var disqus_config = function () {
-                        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-                        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-                        };
-                        */
-                        (function() { // DON'T EDIT BELOW THIS LINE
-                        var d = document, s = d.createElement('script');
-                        s.src = 'https://dsnew.disqus.com/embed.js';
-                        s.setAttribute('data-timestamp', +new Date());
-                        (d.head || d.body).appendChild(s);
-                        })();
-                    </script>
-                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
             </div>
         </article>  
     </div>
@@ -84,7 +74,7 @@
 
         <footer class="bg-dark pt-4 pb-4 mt-4 mb-4">
             <div class="container text-center text-white">
-                All content copyright &copy; 2024<br/>Content generated using Crossroads static generator
+                All content copyright &copy; 2024<br>Content generated using Crossroads static generator
             </div>
 
             <!-- Google tag (gtag.js) -->

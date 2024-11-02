@@ -1,21 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link rel="stylesheet" href="../assets/lumen.css?v=576e1e08b69a60842385b0e7e9c99144">
-        <script src="../assets/lumen.min.js?v=576e1e08b69a60842385b0e7e9c99144" async></script>
+        <link rel="stylesheet" href="/assets/lumen.css?v=26154ad9897ef2dfa0c569a895180cfc">
+        <script defer src="/assets/lumen.min.js?v=26154ad9897ef2dfa0c569a895180cfc"></script>
         <title>New Flickr Plugin</title>
+        <link rel="icon" type="image/x-icon" href="/assets/favicon.ico?v=26154ad9897ef2dfa0c569a895180cfc">
 
-        <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="utf-8">
+        <meta name="generator" content="Crossroads 1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <meta name="description" content="Yes sports fans, it&apos;s that time again -- we&apos;ve been messing around with yet another plugin over at BraveNewCode. But fir">
-        <meta property="og:title" content="New Flickr Plugin" />
-        <meta property="og:url" content="https://duanestorey.com/posts/new-flickr-plugin-for-wordpress-with-attribution.html" />
+        <link rel="canonical" href="https://duanestorey.com/posts/new-flickr-plugin-for-wordpress-with-attribution.html">
+
+        <meta name="description" content="Yes sports fans, it&apos;s that time again -- we&apos;ve been messing around with yet another plugin over at BraveNewCode. But first,">
+        <meta name="og:description" content="Yes sports fans, it&apos;s that time again -- we&apos;ve been messing around with yet another plugin over at BraveNewCode. But first,">
+        <meta property="og:title" content="New Flickr Plugin">
+        <meta property="og:url" content="https://duanestorey.com/posts/new-flickr-plugin-for-wordpress-with-attribution.html">
+        <meta property="og:type" content="article">
+        <meta name="twitter:card" content="summary_large_image">   
         <meta name="twitter:title" content="New Flickr Plugin">
-        <meta name="twitter:description" content="Yes sports fans, it&apos;s that time again -- we&apos;ve been messing around with yet another plugin over at BraveNewCode. But fir">
-        <meta name="twitter:creator" content="@duanestorey" />
-       
-        <meta name="twitter:card" content="summary_large_image">    
+        <meta name="twitter:description" content="Yes sports fans, it&apos;s that time again -- we&apos;ve been messing around with yet another plugin over at BraveNewCode. But first,">
+        <meta name="twitter:creator" content="@duanestorey">
+
     </head>
     <body class="posts posts-new-flickr-plugin-for-wordpress-with-attribution">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -26,10 +32,10 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                            <a class="nav-item nav-link" href="/">Home</a>
-                            <a class="nav-item nav-link" href="/pages/hiking.html">Hiking</a>
-                            <a class="nav-item nav-link" href="/pages/about.html">About</a>
-                            <a class="nav-item nav-link" href="/pages/contact.html">Contact</a>
+                        <a class="nav-item nav-link" href="/">Home</a>
+                        <a class="nav-item nav-link" href="/pages/hiking.html">Hiking</a>
+                        <a class="nav-item nav-link" href="/pages/about.html">About</a>
+                        <a class="nav-item nav-link" href="/pages/contact.html">Contact</a>
                     </div>
                 </div>
             </div>
@@ -38,7 +44,7 @@
 
     <div class="container mt-4">
         <article>    
-            <h2 class="mt-4">New Flickr Plugin</h2>
+            <h1 class="mt-4">New Flickr Plugin</h1>
             <div class="meta mb-2 text-primary fs-6 fw-light">
                  Published on August 11th, 2008
             </div>
@@ -47,7 +53,7 @@
                 <p>Yes sports fans, it's that time again -- we've been messing around with yet another plugin over at BraveNewCode. But first, everyone should know that we just put the finishing touches on WPtouch 2.0 today. There are still a few small bugs to squish, but hopefully it'll hit the market sometime in the next week or two. It's pretty sexy, if I do so say so myself.</p>
 <p>In terms of the new plugin, I'll give everyone a little context. In the last two months I've had several people infringe upon my Flickr photo licenses by using my photos commercially. One of those incidences ended peacefully, but unfortunately the other one is still ongoing. While not for certain, I suspect the odd person grabs photos from my blog (after doing a Google image search), not really knowing that photos on my blog have CC licenses associated with them.</p>
 <p>So to battle that problem, I've always envisioned a Flickr plugin for WordPress that would be aware of the CC licenses for each of the photos. Today I sat down and hacked out a proof of concept in a few hours. You should be able to see the end result here:</p>
-<p><a href="http://flickr.com/photos/duanestorey/2749456364/"><img src="http://farm4.static.flickr.com/3029/2749456364_f674f2fd08.jpg?v=0" alt="Jessie Farrell" /></a></p>
+<p><a href="http://flickr.com/photos/duanestorey/2749456364/"><img src="http://farm4.static.flickr.com/3029/2749456364_f674f2fd08.jpg?v=0" alt="Jessie Farrell"></a></p>
 <p>The code fragment in the HTML I used to generate the Flickr image above is the same fragment I always use, consisting of nothing more than an IMG tag. The benefit of this is that every single Flickr image I've ever used will automatically be adjusted when the plugin is on. The plugin now performs the following behind the scenes:</p>
 <ol>
 <li>The plugin locates Flickr images in the HTML source, and then deconstructs the Flickr URL to determine the Flickr image number</li>
@@ -61,37 +67,19 @@
 <p>If anyone any suggestions, just let me know. For now, I'll be testing the plugin on this site. Look for an official announcement over on BraveNewCode when this one is finally released to the public.</p>
 
                     <div class="tax">
-                        <button type="button" class="btn btn-secondary btn-sm">journal</button>
-                        <button type="button" class="btn btn-secondary btn-sm">api</button>
-                        <button type="button" class="btn btn-secondary btn-sm">attribution</button>
-                        <button type="button" class="btn btn-secondary btn-sm">bravenewcode</button>
-                        <button type="button" class="btn btn-secondary btn-sm">creative commons</button>
-                        <button type="button" class="btn btn-secondary btn-sm">flickr</button>
-                        <button type="button" class="btn btn-secondary btn-sm">photos</button>
-                        <button type="button" class="btn btn-secondary btn-sm">wordpress 38</button>
+                        <a href="/posts/taxonomy/journal" class="btn btn-secondary btn-sm">journal</a>
+                        <a href="/posts/taxonomy/api" class="btn btn-secondary btn-sm">api</a>
+                        <a href="/posts/taxonomy/attribution" class="btn btn-secondary btn-sm">attribution</a>
+                        <a href="/posts/taxonomy/bravenewcode" class="btn btn-secondary btn-sm">bravenewcode</a>
+                        <a href="/posts/taxonomy/creative-commons" class="btn btn-secondary btn-sm">creative commons</a>
+                        <a href="/posts/taxonomy/flickr" class="btn btn-secondary btn-sm">flickr</a>
+                        <a href="/posts/taxonomy/photos" class="btn btn-secondary btn-sm">photos</a>
+                        <a href="/posts/taxonomy/wordpress-38" class="btn btn-secondary btn-sm">wordpress 38</a>
                     </div>
             </div>
 
             <div class="comments mt-4 pt-4">
                 <div id="disqus_thread"></div>
-                    <script>
-                        /**
-                        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-                        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
-                        /*
-                        var disqus_config = function () {
-                        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-                        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-                        };
-                        */
-                        (function() { // DON'T EDIT BELOW THIS LINE
-                        var d = document, s = d.createElement('script');
-                        s.src = 'https://dsnew.disqus.com/embed.js';
-                        s.setAttribute('data-timestamp', +new Date());
-                        (d.head || d.body).appendChild(s);
-                        })();
-                    </script>
-                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
             </div>
         </article>  
     </div>
@@ -99,7 +87,7 @@
 
         <footer class="bg-dark pt-4 pb-4 mt-4 mb-4">
             <div class="container text-center text-white">
-                All content copyright &copy; 2024<br/>Content generated using Crossroads static generator
+                All content copyright &copy; 2024<br>Content generated using Crossroads static generator
             </div>
 
             <!-- Google tag (gtag.js) -->

@@ -56,7 +56,7 @@ class Theme {
                     if ( file_exists( $this->theme_dir . '/assets/' . $source ) ) {
                         
                         echo "........adding file [" . $source . "]\n";
-                        $content = $content . file_get_contents( $this->theme_dir . '/assets/' . $source );
+                        $content = $content . "\n\n" . file_get_contents( $this->theme_dir . '/assets/' . $source );
                     } else {
                         echo "........unable to find source [" . $this->theme_dir . '/assets/' . $source . "]\n";
                     }
@@ -64,6 +64,16 @@ class Theme {
 
                 echo "....writing static file [" . $dest_name . "]\n";
                 file_put_contents( CROSSROAD_PUBLIC_DIR . '/assets/' . $dest_name, $content );
+            }
+        }
+
+        if ( isset( $this->config[ 'theme' ][ 'images' ] ) ) {
+            foreach( $this->config[ 'theme' ][ 'images' ] as $image_file ) {
+                if ( file_exists( $this->theme_dir . '/assets/' . $image_file ) ) {
+                    Utils::copy_file( $this->theme_dir . '/assets/' . $image_file, CROSSROAD_PUBLIC_DIR . '/assets/' . pathinfo( $image_file, PATHINFO_BASENAME ) );
+
+                    echo "....copying static image file [" . $image_file . "] to [" . CROSSROAD_PUBLIC_DIR . '/assets/' . pathinfo( $image_file, PATHINFO_BASENAME ) . "\n";
+                }
             }
         }
     }

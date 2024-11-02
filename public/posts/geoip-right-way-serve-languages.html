@@ -1,23 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link rel="stylesheet" href="../assets/lumen.css?v=576e1e08b69a60842385b0e7e9c99144">
-        <script src="../assets/lumen.min.js?v=576e1e08b69a60842385b0e7e9c99144" async></script>
+        <link rel="stylesheet" href="/assets/lumen.css?v=26154ad9897ef2dfa0c569a895180cfc">
+        <script defer src="/assets/lumen.min.js?v=26154ad9897ef2dfa0c569a895180cfc"></script>
         <title>GeoIP Is Not The Right Way To Serve Languages</title>
+        <link rel="icon" type="image/x-icon" href="/assets/favicon.ico?v=26154ad9897ef2dfa0c569a895180cfc">
 
-        <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="utf-8">
+        <meta name="generator" content="Crossroads 1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <meta name="description" content="I&apos;ve been traveling around the world for almost three years now. Without a doubt, nothing is more frustrating than tryin">
-        <meta property="og:title" content="GeoIP Is Not The Right Way To Serve Languages" />
-        <meta property="og:url" content="https://duanestorey.com/posts/geoip-right-way-serve-languages.html" />
+        <link rel="canonical" href="https://duanestorey.com/posts/geoip-right-way-serve-languages.html">
+
+        <meta name="description" content="I&apos;ve been traveling around the world for almost three years now. Without a doubt, nothing is more frustrating than trying">
+        <meta name="og:description" content="I&apos;ve been traveling around the world for almost three years now. Without a doubt, nothing is more frustrating than trying">
+        <meta property="og:title" content="GeoIP Is Not The Right Way To Serve Languages">
+        <meta property="og:url" content="https://duanestorey.com/posts/geoip-right-way-serve-languages.html">
+        <meta property="og:type" content="article">
+        <meta name="twitter:card" content="summary_large_image">   
         <meta name="twitter:title" content="GeoIP Is Not The Right Way To Serve Languages">
-        <meta name="twitter:description" content="I&apos;ve been traveling around the world for almost three years now. Without a doubt, nothing is more frustrating than tryin">
-        <meta name="twitter:creator" content="@duanestorey" />
-       
-                <meta name="twitter:image" content="https://duanestorey.com/assets/posts/2013/Screen-Shot-2013-10-09-at-5.25.46-PM.png">
-                <meta property="og:image" content="https://duanestorey.com/assets/posts/2013/Screen-Shot-2013-10-09-at-5.25.46-PM.png" />
-        <meta name="twitter:card" content="summary_large_image">    
+        <meta name="twitter:description" content="I&apos;ve been traveling around the world for almost three years now. Without a doubt, nothing is more frustrating than trying">
+        <meta name="twitter:creator" content="@duanestorey">
+        <meta name="twitter:image" content="https://duanestorey.com/assets/posts/2013/Screen-Shot-2013-10-09-at-5.25.46-PM.png">
+        <meta property="og:image" content="https://duanestorey.com/assets/posts/2013/Screen-Shot-2013-10-09-at-5.25.46-PM.png">
+        <meta property="og:image:width" content="692">
+        <meta property="og:image:height" content="234">
+
     </head>
     <body class="posts posts-geoip-right-way-serve-languages">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -28,10 +36,10 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                            <a class="nav-item nav-link" href="/">Home</a>
-                            <a class="nav-item nav-link" href="/pages/hiking.html">Hiking</a>
-                            <a class="nav-item nav-link" href="/pages/about.html">About</a>
-                            <a class="nav-item nav-link" href="/pages/contact.html">Contact</a>
+                        <a class="nav-item nav-link" href="/">Home</a>
+                        <a class="nav-item nav-link" href="/pages/hiking.html">Hiking</a>
+                        <a class="nav-item nav-link" href="/pages/about.html">About</a>
+                        <a class="nav-item nav-link" href="/pages/contact.html">Contact</a>
                     </div>
                 </div>
             </div>
@@ -40,50 +48,32 @@
 
     <div class="container mt-4">
         <article>    
-            <h2 class="mt-4">GeoIP Is Not The Right Way To Serve Languages</h2>
+            <h1 class="mt-4">GeoIP Is Not The Right Way To Serve Languages</h1>
             <div class="meta mb-2 text-primary fs-6 fw-light">
                  Published on October 9th, 2013
             </div>
 
             <div class="content mt-3">
-                    <div class="mt-4 mb-4"><img src="https://duanestorey.com/assets/posts/2013/Screen-Shot-2013-10-09-at-5.25.46-PM.png" alt="Featured Image" class="img-fluid" /></div>
+                    <div class="mt-4 mb-4"><img src="https://duanestorey.com/assets/posts/2013/Screen-Shot-2013-10-09-at-5.25.46-PM.png" width="692" height="234" alt="Featured Image" class="img-fluid"></div>
                 <p>I've been traveling around the world for almost three years now. Without a doubt, nothing is more frustrating than trying to access Google, say in Argentina for example, and being presented with a Spanish website. I don't have exact numbers, but I'd say 80% of companies use some form of GeoIP (geo-location using the IP address as a means to determine where you are) to decide which language to serve you.</p>
 <p>The problem of course is that even though I am currently in Portugal, <em>I don't speak Portuguese!</em> So using GeoIP to determine where someone lives is fine, but it should never be used as a method to determine what language someone speaks, and many business travellers are often in other countries.</p>
 <p>For example, I recently attempted to sign-up for SurveyMonkey, and was immediately sent to their Portuguese website because I am in Portugal. It makes sense if you're a local in Portugal, but I'm not. And as such, it's a big pain in the ass for me to navigate around to try and find something in English.</p>
-<p><img src="https://duanestorey.com/assets/posts/2013/Screen-Shot-2013-10-09-at-5.32.28-PM.png" alt="Survey Monkey, in Portuguese" /><span class="caption text-center fst-italic"> Survey Monkey, in Portuguese</span></p>
+<p><img src="https://duanestorey.com/assets/posts/2013/Screen-Shot-2013-10-09-at-5.32.28-PM.png" alt="Survey Monkey, in Portuguese"><span class="caption text-center fst-italic"> Survey Monkey, in Portuguese</span></p>
 <p>If you've set a preferred language in your operating system, almost every browser will present that to a remote website as your language preference. In my opinion, this is the way <em>every</em> website should determine which language to present, since it's the one the user has purposefully requested in their operating system. By all means, use my Geo Location to do something cool, like show me Portuguese Animé characters or something. But please respect the fact that I'm an english speaker who is simply travelling.</p>
 <p>Here are the headers that were presented to the website in Firefox when I was browsing. As you can see, the <em>Accept-Language</em> header is set, showing that I want to receive english content <strong>only</strong>.</p>
-<p><img src="https://duanestorey.com/assets/posts/2013/Screen-Shot-2013-10-09-at-5.25.46-PM.png" alt="Firefox Live Headers, Showing English As My Primary Choice" /><span class="caption text-center fst-italic"> Firefox Live Headers, Showing English As My Primary Choice</span></p>
+<p><img src="https://duanestorey.com/assets/posts/2013/Screen-Shot-2013-10-09-at-5.25.46-PM.png" alt="Firefox Live Headers, Showing English As My Primary Choice"><span class="caption text-center fst-italic"> Firefox Live Headers, Showing English As My Primary Choice</span></p>
 <p>So for the love of God, please stop using GeoIP to serve languages. It may work for locals, but you're massively inconveniencing business people who are simply travelling.</p>
 
                     <div class="tax">
-                        <button type="button" class="btn btn-secondary btn-sm">blogging</button>
-                        <button type="button" class="btn btn-secondary btn-sm">geoip</button>
-                        <button type="button" class="btn btn-secondary btn-sm">languages</button>
-                        <button type="button" class="btn btn-secondary btn-sm">survey monkey</button>
+                        <a href="/posts/taxonomy/blogging" class="btn btn-secondary btn-sm">blogging</a>
+                        <a href="/posts/taxonomy/geoip" class="btn btn-secondary btn-sm">geoip</a>
+                        <a href="/posts/taxonomy/languages" class="btn btn-secondary btn-sm">languages</a>
+                        <a href="/posts/taxonomy/survey-monkey" class="btn btn-secondary btn-sm">survey monkey</a>
                     </div>
             </div>
 
             <div class="comments mt-4 pt-4">
                 <div id="disqus_thread"></div>
-                    <script>
-                        /**
-                        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-                        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
-                        /*
-                        var disqus_config = function () {
-                        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-                        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-                        };
-                        */
-                        (function() { // DON'T EDIT BELOW THIS LINE
-                        var d = document, s = d.createElement('script');
-                        s.src = 'https://dsnew.disqus.com/embed.js';
-                        s.setAttribute('data-timestamp', +new Date());
-                        (d.head || d.body).appendChild(s);
-                        })();
-                    </script>
-                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
             </div>
         </article>  
     </div>
@@ -91,7 +81,7 @@
 
         <footer class="bg-dark pt-4 pb-4 mt-4 mb-4">
             <div class="container text-center text-white">
-                All content copyright &copy; 2024<br/>Content generated using Crossroads static generator
+                All content copyright &copy; 2024<br>Content generated using Crossroads static generator
             </div>
 
             <!-- Google tag (gtag.js) -->

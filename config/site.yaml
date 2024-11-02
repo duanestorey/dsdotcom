@@ -5,12 +5,17 @@ site:
   theme: lumen
   lang: en
   charset: 'utf-8'
+  home: posts
 content:
   types: 
     posts:
+      index: true
     pages:
+      index: false
 themes:
   dir: themes
 options:
-  content_per_page: 100
+  content_per_page: 20
+images:
+  convert_to_webp: false
 
