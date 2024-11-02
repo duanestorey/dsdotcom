@@ -67,8 +67,9 @@ dictator.
 It's clear we have all come to a very visible fork 
 in the road, one which may ultimately lead in other directions within WordPress, and for some people, outside of it.  I wouldn't be at all surprised if one or more 
 forks emerge shortly, along with other plugin/theme repositories and third party update servers.  While I still intend to do what I can to help
-the WordPress community recover from the current fracturing, I'm also no longer motivated to keep promoting or using WordPress. And that's why 
-for the first time since 2008, this website no longer runs WordPress.
+the WordPress community recover from the current fracturing, I'm also no longer motivated to keep promoting or using WordPress. 
+
+And that's why for the first time since 2006, this website no longer runs WordPress.
 
 
 
