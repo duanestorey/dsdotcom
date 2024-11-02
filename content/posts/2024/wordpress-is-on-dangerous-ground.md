@@ -64,9 +64,9 @@ As such, I'm saddened by what has been taking place and what's apparently happen
 dictator. What separated WordPress from many of the various options in the early days was the vibrant and helpful community. When the people in charge of the project 
 show outright contempt and hostility towards many members of that community, in many cases simply for disagreeing with current actions and policies, that's a huge problem.
 
-It's clear we have all come to a very visible fork 
+It's clear we have all come to a very visible branch 
 in the road, one which may ultimately lead in other directions within WordPress, and for some people, outside of it.  I wouldn't be at all surprised if one or more 
-forks emerge shortly, along with other plugin/theme repositories and third party update servers.  Of course, the people in charge say they are absolutely fine with this option, and apparently are even encouraging it - I suspect if and when a fork or update repository emerges with a substantial backing, we will see a very public reversal of that encouragement.
+WordPress forks emerge shortly, along with other plugin/theme repositories and third party update servers.  Of course, the people in charge say they are absolutely fine with this option, and apparently are even encouraging it - I suspect if and when a fork or update repository emerges with a substantial backing, we will see a very public reversal of that encouragement.
 
 While I still intend to do what I can to help
 the WordPress community recover from the current fracturing, I'm also no longer motivated to keep promoting or using WordPress. 
