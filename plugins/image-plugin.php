@@ -35,7 +35,9 @@ class ImagePlugin extends Plugin {
                     $found_file
                 );
 
-                $content->markdown_html = str_replace( $image_file, $dest_url, $content->markdown_html );
+                if ( $dest_url->is_local ) {
+                     $content->markdown_html = str_replace( $image_file, $dest_url->url, $content->markdown_html );
+                }
             }
         }
 
@@ -157,18 +159,30 @@ class ImagePlugin extends Plugin {
         }
 
         if ( $force_width || $format_conversion ) {
-            // we have to process the image
             if ( $force_width ) {
                 if ( $format_conversion ) {
                     $destination_image = str_replace( '.' . $image_ext, '.avif', $destination_image );
+                    $destination_image = $this->_get_image_name_for_responsive( $destination_image, $force_width );
+                 } 
+            } else if ( $format_conversion ) {
+                $destination_image = str_replace( '.' . $image_ext, '.avif', $destination_image );
+            }
+        }
+
+        // skip if already done
+        if ( file_exists( $destination_image ) ) {
+            return ( $force_width ? $this->_get_image_information( $destination_image, false  ) : $this->_get_image_information( $destination_image, true  ) );
+        }
+
+        if ( $force_width || $format_conversion ) {
+            // we have to process the image
+            if ( $force_width ) {
+                if ( $format_conversion ) {
                     echo "............converting image to AVIF and width [" . $force_width . "]\n";
                 } else {
                     echo "............converting image to width [" . $force_width . "]\n";
                 }
-
-                $destination_image = $this->_get_image_name_for_responsive( $destination_image, $force_width );
             } else if ( $format_conversion ) {
-                $destination_image = str_replace( '.' . $image_ext, '.avif', $destination_image );
                 echo "............converting image to AVIF\n";
             }       
 
@@ -241,7 +255,7 @@ class ImagePlugin extends Plugin {
     private function _find_and_fix_image( $image_file, $current_path, $destination_path, $publish_date, &$found_file, $search_dirs = [ '', 'images/' ] ) {
         if ( $this->_is_remote_image( $image_file ) ) {
             echo "........skipping remote image [" . $image_file . "]\n";
-            return $image_file;
+            return $this->_get_image_information( $image_file );
         }
 
         $new_location = $image_file;
@@ -274,21 +288,25 @@ class ImagePlugin extends Plugin {
                 $found_file = $current_path . '/' . $original_image_file;
 
                 $main_image = $this->_convert_or_copy_image( $found_file, $destination_file );
-                if ( $this->generate_responsive ) {
+                if ( $main_image && $this->generate_responsive ) {
                     $image_400 = $this->_convert_or_copy_image( $found_file, $destination_file, 400 );
                     $image_640 = $this->_convert_or_copy_image( $found_file, $destination_file, 640 );
                     $image_800 = $this->_convert_or_copy_image( $found_file, $destination_file, 800 );
 
-                    print_r( $main_image ); 
-                    print_r( $image_400 );
-                    print_r( $image_640 );
-                    print_r( $image_800 );
-                    
-                    
-                    die;
+                    if ( $image_800 ) {
+                        $main_image->responsive_images[ 800 ] = $image_800;
+                    }
 
-                    die;
+                    if ( $image_640 ) {
+                        $main_image->responsive_images[ 640 ] = $image_640;
+                    }
+
+                    if ( $image_400 ) {
+                        $main_image->responsive_images[ 400 ] = $image_400;
+                    }
                 }
+
+                $new_location = $main_image;
 
                 /*
 

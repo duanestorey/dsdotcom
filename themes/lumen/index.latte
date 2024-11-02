@@ -39,7 +39,7 @@
 
                 <div class="content mt-3">
                     {if $item->featured_image}
-                        <img src="{$item->featured_image}" class="img-thumbnail" />
+                        <img src="{$item->featured_image->url}" class="img-thumbnail" />
                     {/if}
                     {$item->excerpt()|noescape}
                 </div>
