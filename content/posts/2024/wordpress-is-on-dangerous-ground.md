@@ -1,6 +1,6 @@
 ---
 title: "WordPress Is On Dangerous Ground"
-date: "2024-10-31"
+date: "2024-11-01"
 description: "Given recent events in the WordPress eco-system, I've decided to take a break from working on and promoting the platform."
 categories: 
   - "blogging"
