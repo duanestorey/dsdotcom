@@ -4,7 +4,7 @@
         <article>    
             <h1 class="mt-4">{$content->title}</h1>
             <div class="meta mb-2 text-primary fs-6 fw-light">
-                 Published on {$content->publish_date|date:'F jS, Y'}
+                 Published on <time>{$content->publish_date|date:'F jS, Y'}</time>
             </div>
 
             <div class="content mt-3">
