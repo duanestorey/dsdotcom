@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link rel="stylesheet" href="/assets/lumen.css?v=e607823c4788c7614679456aa8be7386">
-        <script src="/assets/lumen.min.js?v=e607823c4788c7614679456aa8be7386" async></script>
+        <link rel="stylesheet" href="/assets/lumen.css?v=36f7fcb29bdc4a8f4e4235fc9d95d779">
+        <script src="/assets/lumen.min.js?v=36f7fcb29bdc4a8f4e4235fc9d95d779" async></script>
         <title>The home of engineer and world traveller, Duane Storey</title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="utf-8">
-        <link rel="icon" type="image/x-icon" href="/assets/favicon.ico?v=e607823c4788c7614679456aa8be7386">
+        <link rel="icon" type="image/x-icon" href="/assets/favicon.ico?v=36f7fcb29bdc4a8f4e4235fc9d95d779">
 
     </head>
     <body class="posts">
@@ -42,7 +42,7 @@ an entry is due to what's been going on in the WordPress world. In case you've b
 there is currently a big public battle going on between Matt Mullenweg, the company he runs, 'Automattic', and a rival 
 called WP Engine.
 I can only speculate as to the real reasons for this public spat. On its surface, one side claims it's about a trademark dispute. But based on the actions of 
-that same s...
+that same side, it seems to be some poorly thought out plan to exert more control over the community, and to attempt ...
             </div>
 
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
@@ -58,7 +58,7 @@ that same s...
             <div class="content mt-3">
                     <img src="https://duanestorey.com/assets/posts/2015/managewp-review-3.jpg" class="img-thumbnail" />
                 I was recently attending WordCamp Europe near Amsterdam, and met Vladimir from ManageWP. I've heard lots about ManageWP over the last year or so, and even helped do an integration with WPtouch Pro to make it work with their system. But I've never actually sat down and spent any time with their system, and decided it was time to sign-up for an account, do a bit of exploring and write a basic ManageWP review to let people know what the service is all about.
-ManageWP is a service that basically hel...
+ManageWP is a service that basically helps you manage multiple WordPress websites, all from their own proprietary dashboard. As anyone who writes ...
             </div>
 
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
@@ -74,7 +74,7 @@ ManageWP is a service that basically hel...
             <div class="content mt-3">
                     <img src="https://duanestorey.com/assets/posts/2013/speed-scaled.jpg" class="img-thumbnail" />
                 After my recent mention on Reddit last week, I decided to try and improve the responsiveness of my little DigitalOcean VPS even more than it already was. I was definitely happy that I was able to withstand almost 20,000 visitors in just a few hours, but thought I might be able to improve things further by switching from Apache to Nginx.
-I debated it a long time ago, but never made the plunge for a few different reasons. First, I typically used hosting services based on cPanel. From what I gather...
+I debated it a long time ago, but never made the plunge for a few different reasons. First, I typically used hosting services based on cPanel. From what I gather, cPanel doesn't really work well with Nginx (or at all), so that was never really an option. And second, ...
             </div>
 
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
@@ -91,7 +91,9 @@ I debated it a long time ago, but never made the plunge for a few different reas
                     <img src="https://duanestorey.com/assets/posts/2013/tracking-code.png" class="img-thumbnail" />
                 I've been trying to track where exactly people go when they leave my website for a few pages recently, and wrote some code based on a few other examples on the Internet. Basically this bit of Javascript will force Google Analytics to log a special request so that you can see where the user went. It uses jQuery, so you have to make sure you have that included in your theme.
 Here's some code that will let you track outbound links on your WordPress website.
-jQuery( 'a' ).on( 'click',function( e ) {...
+jQuery( 'a' ).on( 'click',function( e ) {
+  var url = jQuery( this ).attr( 'href' );
+  var customName = jQuery( this ).attr( 'data-link-name' ...
             </div>
 
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
@@ -107,7 +109,10 @@ jQuery( 'a' ).on( 'click',function( e ) {...
             <div class="content mt-3">
                     <img src="https://duanestorey.com/assets/posts/2013/wp-logo.jpg" class="img-thumbnail" />
                 I've recently been optimizing a few different WordPress websites, and wanted to share with everyone some of the easy ways to speed up your WordPress website. Some of these tips are intended for server administrators and assume that you have root access to your server and/or cPanel/WHM (if you're using cPanel). Other tips are intended for any WordPress website administrator.
-This article has 5 different tips for how to speed up your WordPress website. If you currently don't have a WordPress websi...
+This article has 5 different tips for how to speed up your WordPress website. If you currently don't have a WordPress website but are considering setting one up, here is information on how to setup a WordPress blog.
+
+
+Install ...
             </div>
 
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
@@ -124,7 +129,7 @@ This article has 5 different tips for how to speed up your WordPress website. If
                     <img src="https://duanestorey.com/assets/posts/2013/launch-header.png" class="img-thumbnail" />
                 Two days ago we finally pulled the veil off of WPtouch Pro 3.0, the mobile plugin for WordPress, which is a fairly substantial update to WPtouch Pro. Most of my family and friends know just how hard we've been working on it over the last few months, and especially these last few weeks. Last night we had a little party with a few employees and some company friends, and today most of us finally get to relax a little.
 
-The amount of effort we put into this launch we basically an order of magnitude ...
+The amount of effort we put into this launch we basically an order of magnitude larger than the one we did almost three years ago. As if it wasn't hard enough launching just a new ...
             </div>
 
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
@@ -148,7 +153,10 @@ Plugin: Copyrighted Posts (Licensing Content)
 Plugin: Tweet, Like, Google +1 and Share (Sharing)
 Plugin: ShareThis (Sharing)
 Plugin: Sociable (Sharing)
-P...
+Plugin: Flickr RSS (Flickr)
+Plugin: MudSlideShow (Flickr/Picassa)
+Post From Flickr to WordPress (Flickr)
+Plugin: ...
             </div>
 
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
@@ -162,7 +170,7 @@ P...
             <div class="meta mb-2 text-primary fs-6 fw-light">Published on January 23rd, 2007</div>
 
             <div class="content mt-3">
-                Since some of the current readers are new to blogging, I thought I'd spend a bit of time explaining the whole concept of trackbacks. Trackbacks are sort of an automated form of commenting so that when a blog entry is referenced by another one, this is reflected in the comments of the original blog entry. For example, let's say I write a blog entry here, and Clay comes along like the bigshot he is and wants to link to it from his blog. There are two ways he can do it. First, he can link to the ac...
+                Since some of the current readers are new to blogging, I thought I'd spend a bit of time explaining the whole concept of trackbacks. Trackbacks are sort of an automated form of commenting so that when a blog entry is referenced by another one, this is reflected in the comments of the original blog entry. For example, let's say I write a blog entry here, and Clay comes along like the bigshot he is and wants to link to it from his blog. There are two ways he can do it. First, he can link to the actual blog entry itself, which at first seems like a good thing to do if you're Clay. Unfortunately, ...
             </div>
 
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">

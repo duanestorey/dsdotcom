@@ -22,4 +22,5 @@ class SeoPlugin extends Plugin {
 
         return $params;
     }
+
 }

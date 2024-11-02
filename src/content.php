@@ -36,12 +36,26 @@ class Content {
         $this->title = $title;
     }
 
-    public function excerpt( $length = 500, $include_ellipsis = true ) {
+    public function excerpt( $length = 600, $include_ellipsis = true ) {
+        $str = '';
+        $words = explode( ' ', strip_tags( $this->markdown_html ) );
+
+        $len = 0;
+        for ( $i = 0; $i < count( $words ); $i++ ) {
+            $str = $str . $words[ $i ] . ' ';
+            $len += strlen( $words[ $i ] ) + 1;
+
+            if ( $len >= $length ) {
+                break;
+            }
+        }
+        /*
         $str = substr( strip_tags( $this->markdown_html ), 0, $length );
+        */
         if ( $include_ellipsis ) {
             $str = $str . '...';
         }
 
-        return $str;
+        return rtrim( $str );
     }
 }
