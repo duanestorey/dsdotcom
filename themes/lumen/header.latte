@@ -29,6 +29,9 @@
         <meta property="og:image:height" content="{$content->featured_image->height}">
         {/if}
 
+        {else}
+        <meta name="description" content="{$page->description}">
+        <meta name="og:description" content="{$page->description}">
         {/if}
     </head>
     <body class="{$page->body_classses}">

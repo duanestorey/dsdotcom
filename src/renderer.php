@@ -76,7 +76,8 @@ class Renderer {
                 $body_class_array = ( $is_home ? [ 'home' ] : [] );
 
                 $params = $this->_get_default_render_params($content_type, $pagination->cur_page_link, $body_class_array );
-                $params->page->title = $this->config[ 'site' ][ 'description' ];
+                $params->page->title = $this->config[ 'site' ][ 'title' ];
+                $params->page->description = $this->config[ 'site' ][ 'description' ];
                 $params->content = array_slice( $entries, ( $pagination->current_page - 1 ) * $content_per_page, $content_per_page );
 
                 $params->is_home = $is_home;
