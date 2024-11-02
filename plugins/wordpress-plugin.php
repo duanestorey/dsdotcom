@@ -19,6 +19,15 @@ class WordPressPlugin extends Plugin {
                 $content->markdown_html = str_replace( $match[ 0 ], $replace, $content->markdown_html );
             }
         }       
+
+        // fix stray image closings
+        if ( preg_match_all( '#<img(.*)/>#iU', $content->markdown_html, $matches, PREG_SET_ORDER ) ) {
+            foreach( $matches as $key => $match ) {
+                // rewrite this, likely errors
+                $fixed_image = str_replace( array( ' />', '/>' ), array( '>', '>' ), $match[ 0 ] );
+                $content->markdown_html = str_replace( $match[ 0 ], $fixed_image, $content->markdown_html );
+            }
+        } 
         return $content;
     }    
 
