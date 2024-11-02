@@ -53,8 +53,7 @@ and the official WordPress accounts continue to talk down to their followers. Ev
 WordPress isn't a spring chicken anymore - it's been around over 20 years now, and powers 43% of the web. The codebase and the community owes much of its success to the thousands of 
 core, plugin, and theme contributors who submitted their work for free. I'd tried to do my part to contribute
 the success of WordPress in the early days, helping in the following ways:
-* I co-organized and ran three separate WordCamps in the Vancouver area (the photo above is from WordCamp Whistler, an event I 
-was not able to do twice due to the excessive limitations imposed by the WordPress Foundation). 
+* I co-organized and ran three separate WordCamps in the Vancouver area. I quit hosting WordCamps when the Foundation took them over and imposed limits which made running not-for-profit future events like WordCamp Whistler #2 completely impossible. 
 * In the early days, I helped sponsor many WordCamp events around the world, the majority of which I never even attended
 * I co-developed several popular plugins, one of which 
 for a time provided the default mobile experience on WordPress.com.  Several plugin contributors on X (including the author of WPGraphQL) recently told me that my plugin code was their first real introduction
