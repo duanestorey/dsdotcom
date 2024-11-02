@@ -305,7 +305,7 @@ class ImagePlugin extends Plugin {
                 $main_image = $this->_convert_or_copy_image( $found_file, $destination_file );
                 if ( $main_image && $this->generate_responsive ) {
 
-                    $responsive_sizes = [ 320, 640, 960, 1360, 1600 ];
+                    $responsive_sizes = [ 320, 480, 640, 960, 1360, 1600 ];
 
                     foreach( $responsive_sizes as $size ) {
                          $image = $this->_convert_or_copy_image( $found_file, $destination_file, $size );
