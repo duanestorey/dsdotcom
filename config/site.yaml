@@ -16,4 +16,6 @@ themes:
   dir: themes
 options:
   content_per_page: 20
+images:
+  convert_to_webp: false
 

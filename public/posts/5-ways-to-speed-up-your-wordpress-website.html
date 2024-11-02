@@ -14,8 +14,8 @@
         <meta name="twitter:title" content="5 Ways To Speed Up Your WordPress Website">
         <meta name="twitter:description" content="I&apos;ve recently been optimizing a few different WordPress websites, and wanted to share with everyone some of the easy way">
         <meta name="twitter:creator" content="@duanestorey">
-                <meta name="twitter:image" content="https://duanestorey.com/assets/posts/2013/wp-logo.webp">
-                <meta property="og:image" content="https://duanestorey.com/assets/posts/2013/wp-logo.webp">
+                <meta name="twitter:image" content="https://duanestorey.com/assets/posts/2013/wp-logo.jpg">
+                <meta property="og:image" content="https://duanestorey.com/assets/posts/2013/wp-logo.jpg">
                 <meta property="og:image:width" content="1024">
                 <meta property="og:image:height" content="682">
         <meta name="twitter:card" content="summary_large_image">    
@@ -47,7 +47,7 @@
             </div>
 
             <div class="content mt-3">
-                    <div class="mt-4 mb-4"><img src="https://duanestorey.com/assets/posts/2013/wp-logo.webp" alt="Featured Image" class="img-fluid" /></div>
+                    <div class="mt-4 mb-4"><img src="https://duanestorey.com/assets/posts/2013/wp-logo.jpg" alt="Featured Image" class="img-fluid" /></div>
                 <p>I've recently been optimizing a few different WordPress websites, and wanted to share with everyone some of the easy ways to speed up your WordPress website. Some of these tips are intended for server administrators and assume that you have root access to your server and/or cPanel/WHM (if you're using cPanel). Other tips are intended for any WordPress website administrator.</p>
 <p>This article has 5 different tips for how to speed up your WordPress website. If you currently don't have a WordPress website but are considering setting one up, here is information on <a href="/tips/blogging/how-to-set-up-a-wordpress-blog/">how to setup a WordPress blog</a>.</p>
 <ol>
@@ -150,7 +150,7 @@ apc.file_md5=0</code></pre>
 <p><em>Applies To: WordPress Administators</em></p>
 <p>If you have a lot of static (i.e. rarely changing) resources on your website such as images, Javascript, or CSS files, then you can definitely benefit from using a Content Distribution Network (CDN). Basically a CDN will make copies of your static content and redistribute them to various locations around the world. When a user visits your website from Japan, for example, they will be able to download your static resources from a server in Asia as opposed to wherever your server is, likely North America (if you live in Canada or the USA).</p>
 <p>Using a CDN won't really affect the amount of pages your server can serve, but it has an noticeable impact on the end-user responsiveness of your website since your static resources will load much quicker. It'll also likely improve your Google PageSpeed score, which also factors into your ranking on Google.</p>
-<p><img src="https://duanestorey.com/assets/posts/2013/w3-cdn-settings.webp" alt="W3 Total Cache CDN Settings" /><span class="caption text-center fst-italic"> W3 Total Cache CDN Settings</span></p>
+<p><img src="https://duanestorey.com/assets/posts/2013/w3-cdn-settings.jpg" alt="W3 Total Cache CDN Settings" /><span class="caption text-center fst-italic"> W3 Total Cache CDN Settings</span></p>
 <p>I personally use <a href="http://www.kqzyfj.com/click-4154459-11373487">MaxCDN</a> on this website, and we use them on <a href="http://www.bravenewcode.com">BraveNewCode</a> as well. If you use W3 Total Cache, there's a section in the configuration where you set up your <a href="http://www.kqzyfj.com/click-4154459-11373487">MaxCDN</a> account and automatically have your content hosted on their CDN.</p>
 <h3>Results</h3>
 <p>To test these changes, I used the Apache stress tester <em>ab</em> with a concurrency level of 2 and a total of 50 requests. I purposefully picked my latest posts page, as it has a lot of database queries on it. I also implemented these tips slightly out of order, since activating a caching plugin tends to mask the results of the other changes.</p>

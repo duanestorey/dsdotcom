@@ -4,9 +4,14 @@ namespace CR;
 
 class ImagePlugin extends Plugin {
     var $config = null;
+    var $convert_to_webp = false;
 
     public function __construct( $config ) {
         $this->config = $config;
+
+        if ( isset( $this->config[ 'image' ] ) && isset( $this->config[ 'image' ][ 'convert_to_webp' ] ) ) {
+            $this->convert_to_webp = $this->config[ 'image' ][ 'convert_to_webp' ];
+        }
     }
 
     public function content_filter( $content ) {
@@ -65,7 +70,7 @@ class ImagePlugin extends Plugin {
 
             $image_ext = pathinfo( $modified_image_file, PATHINFO_EXTENSION );
 
-            if ( ( $image_ext == 'jpg' || $image_ext == 'jpeg' ) ) {
+            if ( ( $image_ext == 'jpg' || $image_ext == 'jpeg' ) && $this->convert_to_webp ) {
                 $convert_to_webp = true;
                 $modified_image_file = str_replace( '.' . $image_ext, '.webp', $modified_image_file );
             } else {
