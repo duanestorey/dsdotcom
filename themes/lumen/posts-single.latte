@@ -9,7 +9,7 @@
 
             <div class="content mt-3">
                 {if $content->featured_image}
-                    <div class="mt-4 mb-4"><img src="{$content->featured_image}" alt="Featured Image" class="img-fluid"></div>
+                    <div class="mt-4 mb-4"><img src="{$content->featured_image}" width="{$content->featured_image_width}" height="{$content->featured_image_height}" alt="Featured Image" class="img-fluid"></div>
                 {/if}
                 {$content->markdown_html|noescape}
 
