@@ -50,7 +50,7 @@ class ImagePlugin extends Plugin {
 
                         $srcset_text = implode( ',', $srcset );
 
-                        $new_image_tag = str_replace( '<img ', '<img srcset="' . $srcset_text . '" ', $image_tag );
+                        $new_image_tag = str_replace( '<img ', '<img loading="lazy" srcset="' . $srcset_text . '" ', $image_tag );
                     }
 
                      $content->markdown_html = str_replace( $image_tag, $new_image_tag, $content->markdown_html );
