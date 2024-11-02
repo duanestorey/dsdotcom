@@ -8,6 +8,7 @@ class Renderer {
     var $plugin_manager = false;
     var $menu = false;
     var $theme = false;
+    var $start_time = false;
     
     public function __construct( $config, $template_engine, $plugin_manager, $menu, $theme ) {
         $this->config = $config;
@@ -15,6 +16,8 @@ class Renderer {
         $this->plugin_manager = $plugin_manager;
         $this->menu = $menu;
         $this->theme = $theme;
+
+        $this->start_time = time();
     }
 
     public function render_single_page( $entry, $template_files ) {
@@ -135,6 +138,8 @@ class Renderer {
 
         $params->is_single = false;
         $params->is_home = false;
+
+        $params->render_time = $this->start_time;
 
         return $params;
     }    
