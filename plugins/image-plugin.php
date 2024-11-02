@@ -165,7 +165,7 @@ class ImagePlugin extends Plugin {
         $image_ext = pathinfo( $source_image, PATHINFO_EXTENSION );
         if ( $format_conversion ) {
             // check to see if it's a jpg, otherwise disable conversion   
-            if ( $image_ext != 'jpeg' && $image_ext != 'jpg' ) {
+            if ( $image_ext != 'jpeg' && $image_ext != 'jpg' && $image_ext != 'png' ) {
                 $format_conversion = false;
             }
         }
