@@ -35,7 +35,9 @@ class ImagePlugin extends Plugin {
                     $found_file
                 );
 
-                $content->markdown_html = str_replace( $image_file, $dest_url, $content->markdown_html );
+                if ( $dest_url && $dest_url->is_local ) {
+                     $content->markdown_html = str_replace( $image_file, $dest_url->url, $content->markdown_html );
+                }
             }
         }
 
@@ -75,6 +77,10 @@ class ImagePlugin extends Plugin {
         $image_data = false;
         $image_size = getimagesize( $source_image );
 
+        if ( $image_size && $force_width && $force_width > $image_size[ 0 ] ) {
+            return false;
+        }
+
         switch( $souce_ext ) {
             case 'jpg':
             case 'jpeg':
@@ -95,24 +101,19 @@ class ImagePlugin extends Plugin {
         }
 
         if ( $image_data ) {
-            if ( $force_width && $image_size[ 0 ] ) {
-                // creating responsive image
+            // creating responsive image
 
-                if ( $force_width < $image_size[ 0 ] ) {
-                    // only resample if the image is larger than our target
-                    $new_width = $force_width;
-                    $new_height = floor( $force_width * $image_size[ 1 ] / $image_size[ 0 ] );
+            if ( $force_width && $force_width < $image_size[ 0 ] ) {
+                // only resample if the image is larger than our target
+                $new_width = $force_width;
+                $new_height = floor( $force_width * $image_size[ 1 ] / $image_size[ 0 ] );
 
-                    $new_image = imagecreatetruecolor( $new_width, $new_height );
-                    imagecopyresampled( $new_image, $image_data, 0, 0, 0, 0, $new_width, $new_height, $image_size[ 0 ], $image_size[ 1 ] );
+                $new_image = imagecreatetruecolor( $new_width, $new_height );
+                imagecopyresampled( $new_image, $image_data, 0, 0, 0, 0, $new_width, $new_height, $image_size[ 0 ], $image_size[ 1 ] );
 
-                    imagedestroy( $image_data );
-                    $image_data = $new_image;
-                } else {
-                    imagedestroy( $image_data );
-                    return false;
-                }
-            }
+                imagedestroy( $image_data );
+                $image_data = $new_image;
+            } 
 
             echo "..............writing image [" . $destination_image . "]\n";
 
@@ -157,18 +158,32 @@ class ImagePlugin extends Plugin {
         }
 
         if ( $force_width || $format_conversion ) {
-            // we have to process the image
             if ( $force_width ) {
                 if ( $format_conversion ) {
                     $destination_image = str_replace( '.' . $image_ext, '.avif', $destination_image );
-                    echo "............converting image to AVIF and width [" . $force_width . "]\n";
-                } else {
-                    echo "............converting image to width [" . $force_width . "]\n";
-                }
+                } 
 
                 $destination_image = $this->_get_image_name_for_responsive( $destination_image, $force_width );
             } else if ( $format_conversion ) {
                 $destination_image = str_replace( '.' . $image_ext, '.avif', $destination_image );
+            }
+        }
+
+        // skip if already done
+        if ( file_exists( $destination_image ) ) {
+           // echo "....skipping image " . $destination_image . "\n";
+            return ( $force_width ? $this->_get_image_information( $destination_image, false  ) : $this->_get_image_information( $destination_image, true  ) );
+        }
+
+        if ( $force_width || $format_conversion ) {
+            // we have to process the image
+            if ( $force_width ) {
+                if ( $format_conversion ) {
+                    echo "............potentially converting image to AVIF and width [" . $force_width . "]\n";
+                } else {
+                    echo "............potentially converting image to width [" . $force_width . "]\n";
+                }
+            } else if ( $format_conversion ) {
                 echo "............converting image to AVIF\n";
             }       
 
@@ -197,6 +212,7 @@ class ImagePlugin extends Plugin {
         $image_info = new \stdClass;
         $image_info->width = false;
         $image_info->height = false;
+        $image_info->responsive_largest_size = 0;
 
         if ( $is_remote || $this->_is_remote_image( $image_file ) ) {
             $image_info->url = $image_file;
@@ -209,8 +225,6 @@ class ImagePlugin extends Plugin {
                 $image_info->has_responsive = false;
                 $image_info->responsive_images = false;
             }
-           
-
         } else if ( file_exists( $image_file ) ) {
             $image_info = new \stdClass;
             $image_info->is_local = true;
@@ -233,7 +247,7 @@ class ImagePlugin extends Plugin {
             if ( $image_info->type == 'jpeg' ) {
                 $image_info->type = 'jpg';
             }
-        }   
+        } 
 
         return $image_info;
     }
@@ -241,10 +255,12 @@ class ImagePlugin extends Plugin {
     private function _find_and_fix_image( $image_file, $current_path, $destination_path, $publish_date, &$found_file, $search_dirs = [ '', 'images/' ] ) {
         if ( $this->_is_remote_image( $image_file ) ) {
             echo "........skipping remote image [" . $image_file . "]\n";
-            return $image_file;
+            return $this->_get_image_information( $image_file );
         }
 
-        $new_location = $image_file;
+        $found_file = false;
+        $image_found = false;
+        $new_location = false;
 
         foreach( $search_dirs as $search_dir ) {
             $convert_to_webp = false;
@@ -264,31 +280,41 @@ class ImagePlugin extends Plugin {
             $image_filename_only = pathinfo( $modified_image_file, PATHINFO_BASENAME );
 
             $image_destination_path_with_date = $destination_path;
-            @mkdir( $image_destination_path_with_date );
 
             echo "........checking image " . $current_path . '/' . $original_image_file . "\n";
 
             // we have a valid source file
             if ( file_exists( $current_path . '/' . $original_image_file ) ) {  
+                @mkdir( CROSSROAD_PUBLIC_DIR . $image_destination_path_with_date, 0755, true );
                 $destination_file = CROSSROAD_PUBLIC_DIR . $image_destination_path_with_date . '/' . $image_filename_only;
                 $found_file = $current_path . '/' . $original_image_file;
 
                 $main_image = $this->_convert_or_copy_image( $found_file, $destination_file );
-                if ( $this->generate_responsive ) {
-                    $image_400 = $this->_convert_or_copy_image( $found_file, $destination_file, 400 );
+                if ( $main_image && $this->generate_responsive ) {
+                    $image_320 = $this->_convert_or_copy_image( $found_file, $destination_file, 320 );
                     $image_640 = $this->_convert_or_copy_image( $found_file, $destination_file, 640 );
-                    $image_800 = $this->_convert_or_copy_image( $found_file, $destination_file, 800 );
+                    $image_960 = $this->_convert_or_copy_image( $found_file, $destination_file, 960 );
 
-                    print_r( $main_image ); 
-                    print_r( $image_400 );
-                    print_r( $image_640 );
-                    print_r( $image_800 );
-                    
-                    
-                    die;
+                    if ( $image_320 ) {
+                        $main_image->responsive_images[ 320 ] = $image_320;
+                    }
 
-                    die;
-                }
+                    if ( $image_640 ) {
+                        $main_image->responsive_images[ 640 ] = $image_640;
+                    }
+
+                    if ( $image_960 ) {
+                        $main_image->responsive_images[ 960 ] = $image_960;
+                    }     
+
+                    $main_image->has_responsive = ( count( $main_image->responsive_images ) > 0 );
+                    if ( $main_image->has_responsive ) {
+                        $main_image->responsive_largest_size = max( array_keys( $main_image->responsive_images ) );
+                    }
+                } 
+
+                $new_location = $main_image;
+                $image_found = true;
 
                 /*
 
