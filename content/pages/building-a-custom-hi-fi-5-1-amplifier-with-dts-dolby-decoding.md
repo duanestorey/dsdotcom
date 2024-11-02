@@ -27,15 +27,15 @@ The sections that aren't links yet are sections I intend to write, but haven't g
 a { color: #369; }
 
 - Overview
-    - [Project Goals](/building-a-custom-hi-fi-5-1-amplifier-with-dts-dolby-decoding/project-goals/)
-    - [Power Amplification](https://www.duanestorey.com/building-a-custom-hi-fi-5-1-amplifier-with-dts-dolby-decoding/power-amplification/)
-    - [The Microprocessor](/building-a-custom-hi-fi-5-1-amplifier-with-dts-dolby-decoding/the-microprocessor/)
+    - [Project Goals](/pages/project-goals.html)
+    - [Power Amplification](/pages/power-amplification.html)
+    - [The Microprocessor](/pages/the-microprocessor.html)
     - 5.1 Digital Decoding
-    - [Connectors and Interconnects](/building-a-custom-hi-fi-5-1-amplifier-with-dts-dolby-decoding/connectors-and-interconnects/)
+    - [Connectors and Interconnects](/pages/connectors-and-interconnects.html)
 - The Designs & Build
-    - [Chassis](/building-a-custom-hi-fi-5-1-amplifier-with-dts-dolby-decoding/chassis/)
-    - [IEC Input Connector & Fuse](https://www.duanestorey.com/building-a-custom-hi-fi-5-1-amplifier-with-dts-dolby-decoding/iec-input-connector-fuse/)
-    - [Primary Safety Connection](/building-a-custom-hi-fi-5-1-amplifier-with-dts-dolby-decoding/primary-safety-connection/)
+    - [Chassis](/pages/chassis.html)
+    - [IEC Input Connector & Fuse](/pages/iec-input-connector-fuse.html)
+    - [Primary Safety Connection](/pages/primary-safety-connection.html)
     - Main Power Transformer
     - Rectifier Board
     - Fuses and Capacitor Bank

@@ -83,6 +83,10 @@ article {
     opacity: 0.9;
 }
 
+footer {
+    font-weight: 100;
+}
+
 @media (max-width: 576px) { 
     .things-about-me .col-sm em {
         min-height: inherit;
