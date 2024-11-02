@@ -7,7 +7,7 @@ categories:
   - "personal"
 tags: 
   - "wordpress"
-coverImage: "images/wordcamp-whistler.jpg"
+coverImage: "images/2768623834_0296e88881_o.jpg"
 ---
 
 This is my first post in a long time, as you can tell. One of the reasons I'm writing 
