@@ -37,7 +37,7 @@ article {
     background-image: linear-gradient( 
         rgba(0,0,0,0.4),
         rgba(0,0,0,0.4) ), 
-        url( 'https://duanestorey77.s3-us-west-2.amazonaws.com/final-road-opt.jpg' );
+        url( '/assets/final-road-opt.jpg' );
     background-size: cover;
     background-position: bottom center;
     min-height: 550px;
