@@ -18,6 +18,8 @@ class Content {
     var $markdown_file = '';
     var $markdown_html = '';
     var $featured_image = false;
+    var $featured_image_width = 0;
+    var $featured_image_height = 0;
     var $description = '';
     var $slug = '';
     var $unique = '';
