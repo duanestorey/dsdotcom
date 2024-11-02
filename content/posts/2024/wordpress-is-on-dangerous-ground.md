@@ -23,10 +23,10 @@ Many members of the WordPress community, myself included, feel that recent actio
 been unethical and against the very principles of open-source itself.  As a previous plugin author that once had
 over five million downloads of one of my plugins, I was completely shocked that WordPress would usurp someone else's plugin and call it a fork
 (without changing the slug).  In addition, many of the communications from the official WordPress channels have shown complete contempt for the 
-very community it claims to represent. I find this all repulsive.
+very community it claims to represent. 
 
 My modus operandi is pretty simple - I believe what's fair and true for one person or group should be fair and true for any other group or individual.  That's it.
-I believe if we have rules and guidelines that they should apply to everyone, and not be enforced selectively.  
+I believe if we have rules and guidelines that they should apply to everyone, and not just be enforced selectively.  
 
 That's why I don't think it's right that someone can go up
 on stage at WordCamp US and disparage a $75,000 sponsor, when any other member of that same community would have likely received a ban for that same episode. I don't 
@@ -38,20 +38,19 @@ accessing the WordPress.org site, especially one who is alledgedly on the receiv
 I have been pretty vocal on X over the last few weeks due to all of this, partially to support the many community members who have been ostracized for expressing displeasure, and
 partially to continue to help advocate for the community that did so much to help me over the last 15 years.  It's been extremely hard to watch members of the 
 community, many of whom I've had beers with or been at WordCamps with, be selectively discarded for having opposing viewpoints. I have personally been blocked on 
-X by Matt, Automattic, and by the WordPress account itself. Sadly, it's become somewhat of a badge of honour, meaning at least we went out 
+X/Twitter by Matt, Automattic, and by the WordPress account itself. Sadly, it's become somewhat of a badge of honour, meaning at least we went out 
 standing up for what we believed in instead of staying silent.
 
 With that in mind, I've been personally saddened that many of the more popular plugin 
 authors (many of which I traded emails with and calls back in the day) have refused to publicy have a stance on this, probably hoping that this will all go
-away soon and they can just get back to business as usual.  These are trusted members of the community whose opinions and guidance would be appreciated at a time like this.
-And yet, their defeaning silence has reverberated through the fractured community.  
+away soon and they can just get back to business as usual.  These are trusted members of the community whose opinions and guidance would be appreciated at a time like this. And yet, their defeaning silence has reverberated through the fractured community.  
 
 I do not believe this is the time for silence in the WordPress community. It's fine to not take a side, but it's not
 fine to act like nothing is happening.  Not while contributors are quitting, members on Slack are getting banned, community members on X are getting blocked, 
 and the official WordPress accounts continue to talk down to their followers. Everybody should be speaking up now and advocating for what they believe in.
 
 WordPress isn't a spring chicken anymore - it's been around over 20 years now, and powers 43% of the web. The codebase and the community owes much of its success to the thousands of 
-core, plugin, and theme contributors who submitted their work for free. I'd tried to do my part to contribute
+core, plugin, and theme contributors who submitted their work for free onto what is now apparently Matt's personal website. I'd tried to do my part to contribute
 the success of WordPress in the early days, helping in the following ways:
 * I co-organized and ran three separate WordCamps in the Vancouver area. I quit hosting WordCamps when the Foundation took them over and imposed limits which made running not-for-profit future events like WordCamp Whistler #2 completely impossible. 
 * In the early days, I helped sponsor many WordCamp events around the world, the majority of which I never even attended
@@ -62,11 +61,11 @@ to the WordPress plugin ecosystem, and that they learned a lot from it. That's w
 
 As such, I'm saddened by what has been taking place and what's apparently happened to WordPress, primarily through the actions of its apparently not-so-benevolent 
 dictator. What separated WordPress from many of the various options in the early days was the vibrant and helpful community. When the people in charge of the project 
-show outright contempt and hostility towards many members of that community, in many cases simply for disagreeing with current actions and policies, that's a huge problem.
+show outright contempt and hostility towards many members of that same community - in many cases simply for disagreeing with current actions and policies - that's a huge problem. 
 
 It's clear we have all come to a very visible branch 
 in the road, one which may ultimately lead in other directions within WordPress, and for some people, outside of it.  I wouldn't be at all surprised if one or more 
-WordPress forks emerge shortly, along with other plugin/theme repositories and third party update servers.  Of course, the people in charge say they are absolutely fine with this option, and apparently are even encouraging it - I suspect if and when a fork or update repository emerges with a substantial backing, we will see a very public reversal of that encouragement.
+WordPress forks emerge shortly, along with other plugin/theme repositories and third party update servers.  Of course, the people in charge say they are absolutely fine with this option, and apparently are even encouraging it - but I suspect if and when a fork or update repository emerges with a substantial backing, we will see a very public reversal of that encouragement.
 
 While I still intend to do what I can to help
 the WordPress community recover from the current fracturing, I'm also no longer motivated to keep promoting or using WordPress. 
