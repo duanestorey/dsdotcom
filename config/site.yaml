@@ -18,6 +18,6 @@ themes:
 options:
   content_per_page: 20
 images:
-  convert_to_webp: false
+  convert_to_webp: true
   generate_responsive: true
 

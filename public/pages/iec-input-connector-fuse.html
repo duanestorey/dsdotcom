@@ -20,8 +20,8 @@
         <meta name="twitter:title" content="IEC Input Connector &amp; Fuse - The Duane Storey">
         <meta name="twitter:description" content="Once the chassis is assembled, the next step is to install the IEC power socket and fuse. The IEC socket is a standard size,">
         <meta name="twitter:creator" content="@duanestorey">
-        <meta name="twitter:image" content="https://duanestorey.com/assets/pages/2023/IMG_3280-Large-e1674928523883.jpeg">
-        <meta property="og:image" content="https://duanestorey.com/assets/pages/2023/IMG_3280-Large-e1674928523883.jpeg">
+        <meta name="twitter:image" content="https://duanestorey.com/assets/pages/2023/IMG_3280-Large-e1674928523883.avif">
+        <meta property="og:image" content="https://duanestorey.com/assets/pages/2023/IMG_3280-Large-e1674928523883.avif">
         <meta property="og:image:width" content="1280">
         <meta property="og:image:height" content="652">
 
@@ -54,22 +54,22 @@
             <div class="content mt-3">
                     <div class="mt-4 mb-4">
                         <picture>
-                                <source media="(max-width: 319px)" srcset="https://duanestorey.com/assets/pages/2023/IMG_3280-Large-e1674928523883-320w.jpeg">
-                                <source media="(max-width: 479px)" srcset="https://duanestorey.com/assets/pages/2023/IMG_3280-Large-e1674928523883-480w.jpeg">
-                                <source media="(max-width: 639px)" srcset="https://duanestorey.com/assets/pages/2023/IMG_3280-Large-e1674928523883-640w.jpeg">
-                                <source media="(max-width: 959px)" srcset="https://duanestorey.com/assets/pages/2023/IMG_3280-Large-e1674928523883-960w.jpeg">
-                                <source media="(min-width: 960px)" srcset="https://duanestorey.com/assets/pages/2023/IMG_3280-Large-e1674928523883.jpeg">
-                            <img src="https://duanestorey.com/assets/pages/2023/IMG_3280-Large-e1674928523883.jpeg" width="1280" height="652" alt="Featured Image" class="img-fluid">
+                                <source media="(max-width: 319px)" srcset="/assets/pages/2023/IMG_3280-Large-e1674928523883-320w.avif">
+                                <source media="(max-width: 479px)" srcset="/assets/pages/2023/IMG_3280-Large-e1674928523883-480w.avif">
+                                <source media="(max-width: 639px)" srcset="/assets/pages/2023/IMG_3280-Large-e1674928523883-640w.avif">
+                                <source media="(max-width: 959px)" srcset="/assets/pages/2023/IMG_3280-Large-e1674928523883-960w.avif">
+                                <source media="(min-width: 960px)" srcset="/assets/pages/2023/IMG_3280-Large-e1674928523883.avif">
+                            <img src="/assets/pages/2023/IMG_3280-Large-e1674928523883.avif" width="1280" height="652" alt="Featured Image" class="img-fluid">
                         </picture>
                     </div>
                 <p>Once the chassis is assembled, the next step is to install the IEC power socket and fuse. The IEC socket is a standard size, but make sure you match it for whatever chassis you have. For safety reasons, it's also important to ensure that the mains power supply is fused, that way if there is some type of catastrophic failure, the fuse will limit the damage that can occur (which is important, especially if the failure is damaging you).</p>
 <p>The fuse holder I'm using is 5x20mm chassis fuse holder. This holder works fine, but I find the spade terminals on it a little flimsy. I broke one of these on my prototype unit, and had to replace it. If I ever find anything slightly stronger, I'll switch to it.</p>
 <p>In terms of the fuse you use, it should be sized according to the power your transformer can potentially use. My custom made transformer has a power rating of 300VA, which means at 230V mains voltage it needs to be able to handle at least (300VA/230V) = 1.3A. So in my case, I'll install a 1.5A slow blow fuse.</p>
 <p>It's important to use a slow blow fuse here, because on initial power-on the rectifier surge currents that are needed to charge the main capacitors will be extremely large. On 500VA transformers with 120V mains, these surge currents can easily hit 100 Amps. The simulations I did while designing my power supply unit show my surge current will hit 22 Amps on power up. These currents, when large enough, can damage equipment or significantly reduce the lifespan of some. That's why on most transformer over 300VA, a soft start circuit is requirement (more on this later) to help reduce those currents to something manageable.</p>
-<p><a href="https://www.duanestorey.com/wp-content/uploads/2023/01/Screenshot-2023-01-28-at-6.53.53-PM.png"><img srcset="https://duanestorey.com/assets/pages/2023/Screenshot-2023-01-28-at-6.53.53-PM-1024x458-320w.png 320w,https://duanestorey.com/assets/pages/2023/Screenshot-2023-01-28-at-6.53.53-PM-1024x458-480w.png 480w,https://duanestorey.com/assets/pages/2023/Screenshot-2023-01-28-at-6.53.53-PM-1024x458-640w.png 640w,https://duanestorey.com/assets/pages/2023/Screenshot-2023-01-28-at-6.53.53-PM-1024x458-960w.png 960w" src="images/Screenshot-2023-01-28-at-6.53.53-PM-1024x458.png" alt=""><span class="caption text-center fst-italic"></a> PSUD2 Simulation Showing 22 Amp Spikes</span></p>
+<p><a href="https://www.duanestorey.com/wp-content/uploads/2023/01/Screenshot-2023-01-28-at-6.53.53-PM.png"><img srcset="/assets/pages/2023/Screenshot-2023-01-28-at-6.53.53-PM-1024x458-320w.png 320w,/assets/pages/2023/Screenshot-2023-01-28-at-6.53.53-PM-1024x458-480w.png 480w,/assets/pages/2023/Screenshot-2023-01-28-at-6.53.53-PM-1024x458-640w.png 640w,/assets/pages/2023/Screenshot-2023-01-28-at-6.53.53-PM-1024x458-960w.png 960w" src="images/Screenshot-2023-01-28-at-6.53.53-PM-1024x458.png" alt=""><span class="caption text-center fst-italic"></a> PSUD2 Simulation Showing 22 Amp Spikes</span></p>
 <p>If you look at most wiring on the primary side of a transformer, or even the interconnect wires to the transformer, they are often quite small. Yet how can small wire handle 100 Amps of current? In reality those current spikes only happen for a very short time when the rectifier diodes on in the "on" state, and then quickly go to zero again. On average, the currents work out to something reasonable, so the wires and other components (such as the mains breaker, which is often only 15-20 Amps on a receptacle circuit) can typically handle it.</p>
 <p>But a fast blow fuse here will pop immediately with those types of currents. Try not to over-size this fuse very much as small deviations in the fuse's value can cause large increases in the current it can handle and the time it takes for the fuse to blow. For example, a 2 Amp slow-blow fuse can handle 10 Amps of continuous current for a little over a second. That's a long time with a lot of current, especially since that current likely won't trip the main breaker. So try to size this as close to your requirements as possible.</p>
-<p><a href="https://www.duanestorey.com/wp-content/uploads/2023/01/IMG_3281-Large.jpeg"><img srcset="https://duanestorey.com/assets/pages/2023/IMG_3281-Large-1024x768-320w.jpeg 320w,https://duanestorey.com/assets/pages/2023/IMG_3281-Large-1024x768-480w.jpeg 480w,https://duanestorey.com/assets/pages/2023/IMG_3281-Large-1024x768-640w.jpeg 640w,https://duanestorey.com/assets/pages/2023/IMG_3281-Large-1024x768-960w.jpeg 960w" src="images/IMG_3281-Large-1024x768.jpeg" alt=""><span class="caption text-center fst-italic"></a> Installed IEC Power Socket and 5x20 Fuse Holder</span></p>
+<p><a href="https://www.duanestorey.com/wp-content/uploads/2023/01/IMG_3281-Large.jpeg"><img srcset="/assets/pages/2023/IMG_3281-Large-1024x768-320w.avif 320w,/assets/pages/2023/IMG_3281-Large-1024x768-480w.avif 480w,/assets/pages/2023/IMG_3281-Large-1024x768-640w.avif 640w,/assets/pages/2023/IMG_3281-Large-1024x768-960w.avif 960w" src="images/IMG_3281-Large-1024x768.jpeg" alt=""><span class="caption text-center fst-italic"></a> Installed IEC Power Socket and 5x20 Fuse Holder</span></p>
 <p>To install the IEC socket, I used a M3x6mm screw and nut (a screw size that's used often during this project).</p>
 <p>Once the fuse holder and IEC sockets are in, it's time to work on the main safety connection.</p>
             </div>
@@ -79,7 +79,7 @@
 
         <footer class="bg-dark pt-4 pb-4 mt-4 mb-4">
             <div class="container text-center text-white">
-                All content copyright &copy; 2024<br>Content generated using Crossroads static generator<br>Last Updated November 2nd, 2024 - 10:07pm UTC
+                All content copyright &copy; 2024<br>Content generated using Crossroads static generator<br>Last Updated November 2nd, 2024 - 10:45pm UTC
             </div>
 
             <script defer src="/assets/lumen.min.js?v=ec56d80803beeff368c34f608eb80ae9"></script>
