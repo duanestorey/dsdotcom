@@ -14,7 +14,7 @@ class SeoPlugin extends Plugin {
     }    
 
     public function template_param_filter( $params ) {
-        $params->page->title = $params->content->title;
+        $params->page->title = sprintf( "%s - %s", $params->content->title, $this->config[ 'site' ][ 'name' ] );
 
         if ( !$params->content->description ) {
             $params->content->description = $params->content->excerpt( 120, false );
