@@ -9,8 +9,8 @@ class ImagePlugin extends Plugin {
     public function __construct( $config ) {
         $this->config = $config;
 
-        if ( isset( $this->config[ 'image' ] ) && isset( $this->config[ 'image' ][ 'convert_to_webp' ] ) ) {
-            $this->convert_to_webp = $this->config[ 'image' ][ 'convert_to_webp' ];
+        if ( isset( $this->config[ 'images' ] ) && isset( $this->config[ 'images' ][ 'convert_to_webp' ] ) ) {
+            $this->convert_to_webp = $this->config[ 'images' ][ 'convert_to_webp' ];
         }
     }
 
