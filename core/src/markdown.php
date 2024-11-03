@@ -3,20 +3,20 @@
 namespace CR;
 
 class Markdown {
-    var $front_matter = false;
+    var $frontMatter = false;
     var $markdown = false;
 
     public function __construct() {}
-    public function load_file( $filename ) {
+    public function loadFile( $filename ) {
         $contents = file_get_contents( $filename );
 
         if ( $contents ) {
             // find front matter
-            $front = $this->_get_front_matter( $contents );
+            $front = $this->_getfrontMatter( $contents );
             if ( $front ) {
                 // Strip front matter from markdown
                 $this->markdown = str_replace( $front[ 0 ], '', $contents );
-                $this->front_matter = YAML::parse( trim( $front[ 1 ] ) );
+                $this->frontMatter = YAML::parse( trim( $front[ 1 ] ) );
             } else {
                 $this->markdown = $contents;
             }        
@@ -25,8 +25,8 @@ class Markdown {
         return ( $contents !== false );
     }
 
-    public function front_matter() {
-        return $this->front_matter;
+    public function frontMatter() {
+        return $this->frontMatter;
     }
 
     public function raw_markdown() {
@@ -38,7 +38,7 @@ class Markdown {
         return $parsedown->text( $this->markdown );
     }
 
-    private function _get_front_matter( &$contents ) {
+    private function _getfrontMatter( &$contents ) {
         if ( preg_match( '/---(.*)---/iUs', $contents, $matches ) ) {
             return $matches;
         } else {

@@ -11,77 +11,77 @@ class Entries {
         $this->config = $config;
     }
 
-    public function get( $content_type ) {
-        if ( isset( $this->entries[ $content_type ] ) ) {
-            return $this->entries[ $content_type ];
+    public function get( $contentType ) {
+        if ( isset( $this->entries[ $contentType ] ) ) {
+            return $this->entries[ $contentType ];
         } 
 
         return false;
     }
 
-    function getTaxTerms( $content_type ) {
-        if ( isset( $this->tax[ $content_type ] ) ) {
-            return array_keys( $this->tax[ $content_type ] );
+    function getTaxTerms( $contentType ) {
+        if ( isset( $this->tax[ $contentType ] ) ) {
+            return array_keys( $this->tax[ $contentType ] );
         }
 
         return false;
     }
 
-    function getTax( $content_type, $term ) {
-        if ( isset( $this->tax[ $content_type ] ) && isset( $this->tax[ $content_type ][ $term ] ) )  {
-            return $this->tax[ $content_type ][ $term ];
+    function getTax( $contentType, $term ) {
+        if ( isset( $this->tax[ $contentType ] ) && isset( $this->tax[ $contentType ][ $term ] ) )  {
+            return $this->tax[ $contentType ][ $term ];
         }
 
         return false;
     }
 
     public function getAll() {
-        $all_entries = array();
+        $allEntries = array();
 
         if ( isset( $this->config[ 'content' ][ 'types' ] ) ) {
-            foreach( $this->config[ 'content' ][ 'types' ] as $content_type => $content_config ) {
-                if ( isset( $this->entries[ $content_type ] ) ) {
-                    $all_entries = array_merge( $all_entries, $this->entries[ $content_type ] );
+            foreach( $this->config[ 'content' ][ 'types' ] as $contentType => $contentConfig ) {
+                if ( isset( $this->entries[ $contentType ] ) ) {
+                    $allEntries = array_merge( $allEntries, $this->entries[ $contentType ] );
                 }
             }
         }
 
-        return $all_entries;
+        return $allEntries;
     }
 
     public function loadAll() {
         if ( isset( $this->config[ 'content' ][ 'types' ] ) ) {
-            foreach( $this->config[ 'content' ][ 'types' ] as $content_type => $content_config ) {
-                if ( !isset( $this->entries[ $content_type ] ) ) {
-                    $this->entries[ $content_type ] = [];
-                    $this->tax[ $content_type ] = [];
+            foreach( $this->config[ 'content' ][ 'types' ] as $contentType => $contentConfig ) {
+                if ( !isset( $this->entries[ $contentType ] ) ) {
+                    $this->entries[ $contentType ] = [];
+                    $this->tax[ $contentType ] = [];
                 }
 
-                echo "....loading content type [" . $content_type . "]\n";
+                echo "....loading content type [" . $contentType . "]\n";
 
-                $content_directory = \CROSSROAD_BASE_DIR . '/content/' . $content_type;
+                $content_directory = \CROSSROAD_BASE_DIR . '/content/' . $contentType;
 
-                $all_markdown_files = $this->_findMarkdownFiles( $content_directory );
-                if ( is_array( $all_markdown_files ) && count( $all_markdown_files ) ) {
-                    foreach( $all_markdown_files as $markdown_file ) {
-                        echo "......processing content file " . pathinfo( $markdown_file, PATHINFO_FILENAME ) . "\n";
+                $allMarkdownFiles = $this->_findMarkdownFiles( $content_directory );
+                if ( is_array( $allMarkdownFiles ) && count( $allMarkdownFiles ) ) {
+                    foreach( $allMarkdownFiles as $markdownFile ) {
+                        echo "......processing content file " . pathinfo( $markdownFile, PATHINFO_FILENAME ) . "\n";
 
                         $markdown = new Markdown();
-                        if ( $markdown->load_file( $markdown_file ) ) {    
-                            $content_slug = '/' . $content_type . '/' . pathinfo( $markdown_file, PATHINFO_FILENAME ) . '.html';
+                        if ( $markdown->loadFile( $markdownFile ) ) {    
+                            $contentSlug = '/' . $contentType . '/' . pathinfo( $markdownFile, PATHINFO_FILENAME ) . '.html';
 
                             $content = new Content;
-                            $content->contentType = $content_type;
+                            $content->contentType = $contentType;
                             $content->markdownHtml = $markdown->html();
-                            $content->markdownFile = $markdown_file;
-                            $content->url = Utils::fixPath( $this->config[ 'site' ][ 'url' ] ) . $content_slug;
-                            $content->relUrl = $content_slug;
-                            $content->slug = $content_slug;
-                            $content->unique = md5( $content_slug );
+                            $content->markdownFile = $markdownFile;
+                            $content->url = Utils::fixPath( $this->config[ 'site' ][ 'url' ] ) . $contentSlug;
+                            $content->relUrl = $contentSlug;
+                            $content->slug = $contentSlug;
+                            $content->unique = md5( $contentSlug );
                             $content->taxonomy = array();
-                            $content->className = pathinfo( $markdown_file, PATHINFO_FILENAME );
+                            $content->className = pathinfo( $markdownFile, PATHINFO_FILENAME );
 
-                            if ( $front = $markdown->front_matter() ) {
+                            if ( $front = $markdown->frontMatter() ) {
                                 if ( isset( $front[ 'title' ] ) ) {
                                     $content->title = $front[ 'title' ];
                                 }
@@ -110,16 +110,16 @@ class Entries {
                             $content->taxonomy = array_map( function( $e ) { return Utils::cleanTerm( $e ); }, $content->taxonomy );
                             if ( count( $content->taxonomy ) ) {
                                 foreach( $content->taxonomy as $tax ) {
-                                    if ( !isset( $this->tax[ $content_type ][ $tax ] ) ) {
-                                        $this->tax[ $content_type ][ $tax ] = [];
+                                    if ( !isset( $this->tax[ $contentType ][ $tax ] ) ) {
+                                        $this->tax[ $contentType ][ $tax ] = [];
                                     }
 
-                                    $this->tax[ $content_type ][ $tax ][] = $content;
-                                    $content->taxonomyLinks[ $tax ] = '/' . $content_type . '/taxonomy/' . $tax;
+                                    $this->tax[ $contentType ][ $tax ][] = $content;
+                                    $content->taxonomyLinks[ $tax ] = '/' . $contentType . '/taxonomy/' . $tax;
                                 }
                             }
 
-                            $this->entries[ $content_type ][] = $content;
+                            $this->entries[ $contentType ][] = $content;
                         }
                     }
                 }
