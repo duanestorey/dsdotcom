@@ -40,8 +40,8 @@
                 <div class="content mt-3">
                     {if $item->featuredImage}
                         <picture>
-                            {if $item->featuredImage->has_responsive}
-                                {foreach $item->featuredImage->responsive_images as $size => $image}
+                            {if $item->featuredImage->hasResponsive}
+                                {foreach $item->featuredImage->responsiveImages as $size => $image}
                                 <source media="(max-width: {$size}px)" srcset="{$image->url}">
                                 {/foreach}
                                 <source media="(min-width: {$item->featuredImage->responsive_largest_size+1}px)" srcset="{$item->featuredImage->url}">
