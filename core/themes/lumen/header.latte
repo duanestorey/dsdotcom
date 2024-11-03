@@ -44,7 +44,7 @@
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
                         {foreach $menu as $menu_item}
-                        <a class="nav-item nav-link{if $menu_item->is_active} active{/if}" href="{$menu_item->url}">{$menu_item->name}</a>
+                        <a class="nav-item nav-link{if $menu_item->isActive} active{/if}" href="{$menu_item->url}">{$menu_item->name}</a>
                         {/foreach}
                     </div>
 

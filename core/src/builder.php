@@ -9,7 +9,7 @@ namespace CR;
 class Builder {
     var $config = null;
     var $startTime = null;
-    var $total_pages = 0;
+    var $totalPages = 0;
     var $templateEngine = null;
     var $entries = null;
     var $theme = null;
@@ -69,7 +69,7 @@ class Builder {
                     
                     foreach( $entries as $entry ) {
                         $this->renderer->renderSinglePage( $entry, [ $entry->contentType . '-single', $entry->contentType, 'index' ] );
-                        $this->total_pages++;
+                        $this->totalPages++;
                     }
                 }
 
@@ -107,12 +107,12 @@ class Builder {
         $this->_writeSitemapXml();
 
         $total_time = microtime( true ) - $this->startTime;
-        echo "..total page(s) generated, " . $this->total_pages . " - build completed in " . sprintf( "%0.4f", $total_time ) . "s\n";
+        echo "..total page(s) generated, " . $this->totalPages . " - build completed in " . sprintf( "%0.4f", $total_time ) . "s\n";
     }
 
     private function _writeSitemapXml() {
-        $sitemap_xml  = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
-        $sitemap_xml .= "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n";
+        $sitemapXml  = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+        $sitemapXml .= "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n";
 
         if ( isset( $this->config[ 'content' ][ 'types' ] ) ) {
             foreach( $this->config[ 'content' ][ 'types' ] as $content_type => $content_config ) {
@@ -121,33 +121,33 @@ class Builder {
                 usort( $entries, 'CR\cr_sort' );
 
                 foreach( $entries as $entry ) {
-                    $sitemap_xml = $this->_addSitemapEntry( $sitemap_xml, $entry->url );
+                    $sitemapXml = $this->_addSitemapEntry( $sitemapXml, $entry->url );
                 }
 
                 $tax_terms = $this->entries->getTaxTerms( $content_type );
                 if ( count( $tax_terms ) ) {
                     $tax_url = $this->config[ 'site' ][ 'url' ] . '/' . $content_type . '/taxonomy';
                     foreach( $tax_terms as $term ) {
-                        $sitemap_xml = $this->_addSitemapEntry( $sitemap_xml, $tax_url . '/' . $term, 'monthly' );
+                        $sitemapXml = $this->_addSitemapEntry( $sitemapXml, $tax_url . '/' . $term, 'monthly' );
                     }
                 }
             }
         }
 
-        $sitemap_xml = $this->_addSitemapEntry( $sitemap_xml, $this->config[ 'site' ][ 'url' ], 'daily' );
+        $sitemapXml = $this->_addSitemapEntry( $sitemapXml, $this->config[ 'site' ][ 'url' ], 'daily' );
 
-        $sitemap_xml .= "</urlset>\n";
+        $sitemapXml .= "</urlset>\n";
 
-        file_put_contents( CROSSROAD_PUBLIC_DIR . '/sitemap.xml', $sitemap_xml );
+        file_put_contents( CROSSROAD_PUBLIC_DIR . '/sitemap.xml', $sitemapXml );
     }
 
-    private function _addSitemapEntry( $sitemap_xml, $url, $freq = 'weekly' ) {
-        $sitemap_xml .= "\t<url>\n";
-        $sitemap_xml .= "\t\t<loc>" . $url . "</loc>\n";
-        $sitemap_xml .= "\t\t<changefreq>" . $freq . "</changefreq>\n";
-        $sitemap_xml .= "\t</url>\n";
+    private function _addSitemapEntry( $sitemapXml, $url, $freq = 'weekly' ) {
+        $sitemapXml .= "\t<url>\n";
+        $sitemapXml .= "\t\t<loc>" . $url . "</loc>\n";
+        $sitemapXml .= "\t\t<changefreq>" . $freq . "</changefreq>\n";
+        $sitemapXml .= "\t</url>\n";
 
-        return $sitemap_xml;
+        return $sitemapXml;
     }
 
     private function _writeRobots() {
@@ -159,7 +159,7 @@ class Builder {
 
     private function _setupMenus() {
         $this->menu = new Menu();
-        $this->menu->load_menus();
+        $this->menu->loadMenus();
     }
 
     private function _setupTheme() {

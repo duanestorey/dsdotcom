@@ -3,52 +3,52 @@
 namespace CR;
 
 class Menu {
-    var $menu_data = [];
-    var $menu_file = null;
+    var $menuData = [];
+    var $menuFile = null;
 
     public function __construct() {
-        $this->menu_file = \CROSSROAD_BASE_DIR . '/config/menus.yaml';
+        $this->menuFile = \CROSSROAD_BASE_DIR . '/config/menus.yaml';
     }
 
-    public function load_menus() {
-        if ( file_exists( $this->menu_file ) ) {
-            $this->menu_data = YAML::parse_file( $this->menu_file );
+    public function loadMenus() {
+        if ( file_exists( $this->menuFile ) ) {
+            $this->menuData = YAML::parse_file( $this->menuFile );
         }
     }
 
-    public function is_available( $menu_name ) {
-        return isset( $this->menu_data[ $menu_name ] );
+    public function isAvailable( $menuName ) {
+        return isset( $this->menuData[ $menuName ] );
     }
 
-    public function get_available() {
+    public function getAvailable() {
         $available = [];
 
-        foreach( $this->menu_data as $name => $data ) {
+        foreach( $this->menuData as $name => $data ) {
             $available[] = $name;
         }
 
         return $avilable;
     }
 
-    public function build( $menu_name, $current_page ) {
-        $menu_data = false;
-        if ( isset( $this->menu_data[ $menu_name ] ) ) {
-            $menu_data = [];
+    public function build( $menuName, $currentPage ) {
+        $menuData = false;
+        if ( isset( $this->menuData[ $menuName ] ) ) {
+            $menuData = [];
 
-            foreach( $this->menu_data[ $menu_name ] as $page_name => $page_slug ) {
-                $menu_item = new \stdClass;
-                $menu_item->name = $page_name;
-                $menu_item->url = $page_slug;
-                $menu_item->is_active = false;
+            foreach( $this->menuData[ $menuName ] as $pageName => $pageSlug ) {
+                $menuItem = new \stdClass;
+                $menuItem->name = $pageName;
+                $menuItem->url = $pageSlug;
+                $menuItem->isActive = false;
                 
-                if ( $current_page == $page_slug ) {
-                    $menu_item->is_active = true;
+                if ( $currentPage == $pageSlug ) {
+                    $menuItem->isActive = true;
                 }
 
-                $menu_data[] = $menu_item;
+                $menuData[] = $menuItem;
             }
         }
 
-        return $menu_data;
+        return $menuData;
     }
 }
