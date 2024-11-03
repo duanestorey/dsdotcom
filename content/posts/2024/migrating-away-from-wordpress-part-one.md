@@ -47,7 +47,7 @@ The top section contains the post meta data and is called *front matter* within 
 
 If you’re wondering what a static site generator is, it’s basically a way to take data and render it as a collection of HTML files. If you use WordPress without a caching plugin, every page is dynamically generated in real-time using PHP. That’s powerful, but also can be pretty slow depending on how much code is running each time. If you install a caching plugin, often they will take the output from the dynamic page and save a temporary HTML file, serving that file directly when people visit your website. That’s a pretty good compromise. But if you want to take it all the way to its conclusion, you can remove the dynamic aspect entirely, and just generate an entire website when you update your content.
 
-If that sounds funky and crazy, it wasn’t always that way. The popular Blogger platform used to publish content that same way in the 2000s, but over FTP. Nowadays there are plenty of great ways to host static websites, including a really handle combination of Github and [Cloudflare Pages](https://pages.cloudflare.com/), which actually works well for free.  Since static websites are once again all the rage, I decided it would be a great time to go completely static again.
+If that sounds funky and crazy, it wasn’t always that way. The popular Blogger platform used to publish content that same way in the 2000s, but over FTP. Nowadays there are plenty of great ways to host static websites, including a really handy combination of Github and [Cloudflare Pages](https://pages.cloudflare.com/), which actually works well for free.  Since static websites are once again all the rage, I decided it would be a great time to go completely static again.
 
 ### Next Steps
 
