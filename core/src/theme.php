@@ -74,7 +74,7 @@ class Theme {
         if ( isset( $this->config[ 'theme' ][ 'images' ] ) ) {
             foreach( $this->config[ 'theme' ][ 'images' ] as $imageFile ) {
                 if ( file_exists( $this->themeDir . '/assets/' . $imageFile ) ) {
-                    Utils::copy_file( $this->themeDir . '/assets/' . $imageFile, CROSSROAD_PUBLIC_DIR . '/assets/' . pathinfo( $imageFile, PATHINFO_BASENAME ) );
+                    Utils::copyFile( $this->themeDir . '/assets/' . $imageFile, CROSSROAD_PUBLIC_DIR . '/assets/' . pathinfo( $imageFile, PATHINFO_BASENAME ) );
 
                     echo "....copying static image file [" . $imageFile . "] to [" . CROSSROAD_PUBLIC_DIR . '/assets/' . pathinfo( $imageFile, PATHINFO_BASENAME ) . "\n";
                 }

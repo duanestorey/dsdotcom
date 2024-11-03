@@ -8,18 +8,18 @@ namespace CR;
 
 class ImagePlugin extends Plugin {
     var $config = null;
-    var $convert_to_webp = false;
-    var $generate_responsive = false;
+    var $convertToWebp = false;
+    var $generateResponsive = false;
 
     public function __construct( $config ) {
         $this->config = $config;
 
         if ( isset( $this->config[ 'images' ] ) && isset( $this->config[ 'images' ][ 'convert_to_webp' ] ) ) {
-            $this->convert_to_webp = $this->config[ 'images' ][ 'convert_to_webp' ];
+            $this->convertToWebp = $this->config[ 'images' ][ 'convert_to_webp' ];
         }
 
         if ( isset( $this->config[ 'images' ] ) && isset( $this->config[ 'images' ][ 'generate_responsive' ] ) ) {
-            $this->generate_responsive = $this->config[ 'images' ][ 'generate_responsive' ];
+            $this->generateResponsive = $this->config[ 'images' ][ 'generate_responsive' ];
         }
     }
 
@@ -257,7 +257,7 @@ class ImagePlugin extends Plugin {
 
             $image_info->type = pathinfo( $image_file, PATHINFO_EXTENSION );
             $image_info->url = str_replace( CROSSROAD_PUBLIC_DIR, '', $image_file );
-            $image_info->public_url = str_replace( CROSSROAD_PUBLIC_DIR, Utils::fix_path( $this->config[ 'site' ][ 'url'] ), $image_file );
+            $image_info->public_url = str_replace( CROSSROAD_PUBLIC_DIR, Utils::fixPath( $this->config[ 'site' ][ 'url'] ), $image_file );
 
             if ( $include_resp ) {
                 $image_info->has_responsive = false;
@@ -295,13 +295,13 @@ class ImagePlugin extends Plugin {
                 $destination_file = CROSSROAD_PUBLIC_DIR . $image_destination_path_with_date . '/' . $image_filename_only;
                 $found_file = $current_path . '/' . $original_image_file;
 
-                $main_image = $this->_convert_or_copy_image( $found_file, $destination_file, true, false, $this->convert_to_webp );
-                if ( $main_image && $this->generate_responsive ) {
+                $main_image = $this->_convert_or_copy_image( $found_file, $destination_file, true, false, $this->convertToWebp );
+                if ( $main_image && $this->generateResponsive ) {
 
                     $responsive_sizes = [ 320, 480, 640, 960, 1360, 1600 ];
 
                     foreach( $responsive_sizes as $size ) {
-                         $image = $this->_convert_or_copy_image( $found_file, $destination_file, false, $size, $this->convert_to_webp );
+                         $image = $this->_convert_or_copy_image( $found_file, $destination_file, false, $size, $this->convertToWebp );
 
                          if ( $image ) {
                             $main_image->responsive_images[ $size ] = $image;
@@ -319,33 +319,6 @@ class ImagePlugin extends Plugin {
                 $new_location = $main_image;
                 $image_found = true;
 
-                /*
-
-                if ( !file_exists( $destination_file ) ) {
-                    if ( $convert_to_webp ) {
-                        echo "........converting image [" . $original_image_file . "] to [" . $destination_file . "]\n";
-
-                        $image = false;
-                        if ( $image_ext == 'jpg' || $image_ext == 'jpeg' ) {
-                            $image = imagecreatefromjpeg( $current_path . '/' . $original_image_file );
-                        } 
-                        
-                        if ( $image ) {
-                            imagewebp( $image, $destination_file, 85 );
-                            imagedestroy( $image );
-                        }
-                    } else {
-                        echo "........copying image [" . $image_filename_only . "] to [" . $destination_file . "]\n";
-                        Utils::copy_file( $current_path . '/' . $original_image_file, $destination_file );   
-                    }             
-                }
-
-                $image_info = $this->_get_image_information( $destination_file );
-               // print_r( $image_info );
-               // die;
-
-                $new_location = $this->config[ 'site' ][ 'url'] . $destination_path . '/' . $image_filename_only;
-                */
                 break;
             }
         }

@@ -42,10 +42,10 @@ class Builder {
 
         // load all content here
         $this->entries = new Entries( $this->config, );
-        $this->entries->load_all();
+        $this->entries->loadAll();
 
         // do all content filtering
-        $all_entries = $this->entries->get_all();
+        $all_entries = $this->entries->getAll();
         foreach( $all_entries as $entry ) {
              $entry = $this->plugin_manager->content_filter( $entry );
         }
@@ -85,13 +85,13 @@ class Builder {
                 }
 
                  // tax
-                $tax_terms = $this->entries->get_tax_terms( $content_type );
+                $tax_terms = $this->entries->getTaxTerms( $content_type );
                 if ( count( $tax_terms ) ) {
                     Utils::mkdir( CROSSROAD_PUBLIC_DIR . '/' . $content_type . '/taxonomy' );
                     foreach( $tax_terms as $term ) {
                         Utils::mkdir( CROSSROAD_PUBLIC_DIR . '/' . $content_type . '/taxonomy/' . $term );
 
-                        $entries = $this->entries->get_tax( $content_type, $term );
+                        $entries = $this->entries->getTax( $content_type, $term );
 
                         usort( $entries, 'CR\cr_sort' );
 
@@ -124,7 +124,7 @@ class Builder {
                     $sitemap_xml = $this->_add_sitemap_entry( $sitemap_xml, $entry->url );
                 }
 
-                $tax_terms = $this->entries->get_tax_terms( $content_type );
+                $tax_terms = $this->entries->getTaxTerms( $content_type );
                 if ( count( $tax_terms ) ) {
                     $tax_url = $this->config[ 'site' ][ 'url' ] . '/' . $content_type . '/taxonomy';
                     foreach( $tax_terms as $term ) {
