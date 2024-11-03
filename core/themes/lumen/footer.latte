@@ -2,12 +2,12 @@
         <footer class="bg-dark pt-4 pb-4 mt-4 mb-4">
             <div class="container text-center text-white">
                 All content copyright &copy; 2024<br>Content generated using Crossroads static generator
-                {if $is_home}
-                <br>Last Updated {$render_time|date:'F jS, Y - g:ia'} UTC
+                {if $isHome}
+                <br>Last Updated {$renderTime|date:'F jS, Y - g:ia'} UTC
                 {/if}
             </div>
 
-            <script defer src="{$page->asset_url}/lumen.min.js?v={$page->asset_hash}"></script>
+            <script defer src="{$page->assetUrl}/lumen.min.js?v={$page->assetHash}"></script>
         </footer>   
     </body>
 </html>

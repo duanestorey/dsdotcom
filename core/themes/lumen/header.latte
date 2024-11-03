@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="{$site->lang}">
     <head>
-        <link rel="stylesheet" href="{$page->asset_url}/lumen.css?v={$page->asset_hash}">
+        <link rel="stylesheet" href="{$page->assetUrl}/lumen.css?v={$page->assetHash}">
         <title>{$page->title}</title>
-        <link rel="icon" type="image/x-icon" href="/assets/favicon.ico?v={$page->asset_hash}">
+        <link rel="icon" type="image/x-icon" href="/assets/favicon.ico?v={$page->assetHash}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" media="print" onload="this.media='all'">
 
         <meta charset="{$site->charset}">
         <meta name="generator" content="Crossroads 1.0">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        {if $is_single}
+        {if $isSingle}
         <link rel="canonical" href="{$content->url}">
 
         <meta name="description" content="{$content->description}">
@@ -22,11 +22,11 @@
         <meta name="twitter:title" content="{$page->title}">
         <meta name="twitter:description" content="{$content->description}">
         <meta name="twitter:creator" content="@duanestorey">
-        {if $content->featured_image}
-        <meta name="twitter:image" content="{$content->featured_image->public_url}">
-        <meta property="og:image" content="{$content->featured_image->public_url}">
-        <meta property="og:image:width" content="{$content->featured_image->width}">
-        <meta property="og:image:height" content="{$content->featured_image->height}">
+        {if $content->featuredImage}
+        <meta name="twitter:image" content="{$content->featuredImage->public_url}">
+        <meta property="og:image" content="{$content->featuredImage->public_url}">
+        <meta property="og:image:width" content="{$content->featuredImage->width}">
+        <meta property="og:image:height" content="{$content->featuredImage->height}">
         {/if}
 
         {else}
@@ -34,7 +34,7 @@
         <meta name="og:description" content="{$page->description}">
         {/if}
     </head>
-    <body class="{$page->body_classses}">
+    <body class="{$page->bodyClasses}">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" href="/">{$site->title}</a>

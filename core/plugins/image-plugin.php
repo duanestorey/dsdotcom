@@ -25,17 +25,17 @@ class ImagePlugin extends Plugin {
 
     public function content_filter( $content ) {
         $regexp = '(<img[^>]+src=(?:\"|\')\K(.[^">]+?)(?=\"|\'))';
-        $image_destination_path = CROSSROAD_PUBLIC_DIR . '/assets/' . $content->content_type;
+        $image_destination_path = CROSSROAD_PUBLIC_DIR . '/assets/' . $content->contentType;
 
-        if( preg_match_all( "/$regexp/", $content->markdown_html, $matches, PREG_SET_ORDER ) ) {
+        if( preg_match_all( "/$regexp/", $content->markdownHtml, $matches, PREG_SET_ORDER ) ) {
             //print_r( $matches ); die;
             foreach( $matches as $images ) {
                 $image_file = $images[ 0 ];
 
                 $dest_url = $this->_find_and_fix_image( 
                     $image_file,
-                    pathinfo( $content->markdown_file, PATHINFO_DIRNAME ),
-                    '/assets/' . $content->content_type . '/' . date( 'Y', $content->publishDate ),
+                    pathinfo( $content->markdownFile, PATHINFO_DIRNAME ),
+                    '/assets/' . $content->contentType . '/' . date( 'Y', $content->publishDate ),
                     $content->publishDate,
                     $found_file
                 );
@@ -57,18 +57,18 @@ class ImagePlugin extends Plugin {
                         $new_image_tag = str_replace( '<img ', '<img loading="lazy" srcset="' . $srcset_text . '" ', $image_tag );
                     }
 
-                     $content->markdown_html = str_replace( $image_tag, $new_image_tag, $content->markdown_html );
+                     $content->markdownHtml = str_replace( $image_tag, $new_image_tag, $content->markdownHtml );
 
                    // print_r( $matches ); die;
                 }
             }
         }
 
-        if ( $content->featured_image ) {
-            $content->featured_image = $this->_find_and_fix_image( 
-                $content->featured_image,
-                pathinfo( $content->markdown_file, PATHINFO_DIRNAME ),
-                '/assets/' . $content->content_type . '/' . date( 'Y', $content->publishDate ),
+        if ( $content->featuredImage ) {
+            $content->featuredImage = $this->_find_and_fix_image( 
+                $content->featuredImage,
+                pathinfo( $content->markdownFile, PATHINFO_DIRNAME ),
+                '/assets/' . $content->contentType . '/' . date( 'Y', $content->publishDate ),
                 $content->publishDate,
                 $found_file
             );

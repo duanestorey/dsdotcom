@@ -24,15 +24,15 @@ class Renderer {
         $this->startTime = time();
     }
 
-    public function render_single_page( $entry, $template_files ) {
+    public function renderSinglePage( $entry, $template_files ) {
         // set up page specific stuff like the page titel
-        $params = $this->_get_default_render_params( $entry->content_type, $entry->slug, [ $entry->content_type . '-' . $entry->class_name ] );
+        $params = $this->_getDefaultRenderParams( $entry->contentType, $entry->slug, [ $entry->contentType . '-' . $entry->className ] );
         $params->content = $entry;
         $params = $this->pluginManager->template_param_filter( $params );
 
-        $params->is_single = true;
+        $params->isSingle = true;
 
-        $template_name = $this->templateEngine->locate_template( $template_files );
+        $template_name = $this->templateEngine->locateTemplate( $template_files );
         if ( $template_name ) {
             $rendered_html = $this->templateEngine->render( $template_name, $params );
             file_put_contents( CROSSROAD_PUBLIC_DIR . $params->content->slug, $rendered_html );
@@ -41,7 +41,7 @@ class Renderer {
         }    
     }
 
-    public function render_index_page( $entries, $content_type, $path, $template_files ) {
+    public function renderIndexPage( $entries, $contentType, $path, $template_files ) {
         // this is wrong, but fix later
         $content_per_page = 10;
         if ( isset( $this->config[ 'options' ][ 'content_per_page' ] ) ) {
@@ -60,9 +60,9 @@ class Renderer {
             $pagination->total_pages = intdiv( count( $entries ), $content_per_page ) + 1;
         }
 
-        $pagination->links = $this->_get_pagination_links( $path, $pagination->total_pages );
+        $pagination->links = $this->_getPaginationLinks( $path, $pagination->total_pages );
 
-        $template_name = $this->templateEngine->locate_template( $template_files );
+        $template_name = $this->templateEngine->locateTemplate( $template_files );
         if ( $template_name ) {
             while ( $pagination->current_page <= $pagination->total_pages ) {
                 if ( $pagination->current_page == 1 ) {
@@ -82,13 +82,13 @@ class Renderer {
                 $is_home = ( $pagination->current_page == 1 && $path == '' );
                 $body_class_array = ( $is_home ? [ 'home' ] : [] );
 
-                $params = $this->_get_default_render_params($content_type, $pagination->cur_page_link, $body_class_array );
+                $params = $this->_getDefaultRenderParams( $contentType, $pagination->cur_page_link, $body_class_array );
                 
                 $params->page->title = $this->config[ 'site' ][ 'title' ];
                 $params->page->description = $this->config[ 'site' ][ 'description' ];
                 $params->content = array_slice( $entries, ( $pagination->current_page - 1 ) * $content_per_page, $content_per_page );
 
-                $params->is_home = $is_home;
+                $params->isHome = $is_home;
                 $params->pagination = $pagination;
 
                 $rendered_html = $this->templateEngine->render( $template_name, $params );
@@ -103,10 +103,10 @@ class Renderer {
         }    
     }
 
-    private function _get_pagination_links( $path, $total_pages ) {
+    private function _getPaginationLinks( $path, $totalPages ) {
         $links = array();
 
-        for ( $i = 0; $i < $total_pages; $i++ ) {
+        for ( $i = 0; $i < $totalPages; $i++ ) {
             $page = new \stdClass;
 
             $page->num = $i + 1;
@@ -118,7 +118,7 @@ class Renderer {
         return $links;
     }    
 
-    private function _get_default_render_params( $content_type, $current_page, $extra_body_classes = [] ) {
+    private function _getDefaultRenderParams( $contentType, $current_page, $extra_body_classes = [] ) {
         $params = new \stdClass;
         $params->site = new \stdClass;
         $params->site->title = $this->config[ 'site' ][ 'name' ];
@@ -136,15 +136,15 @@ class Renderer {
         $params->menu = $this->menu->build( 'main', $current_page );
 
         $params->page = new \stdClass;
-        $params->page->asset_url = '/assets';
-        $params->page->asset_hash = $this->theme->getAssetHash();
-        $params->page->body_classes_raw = array_merge( [ $content_type ], $extra_body_classes );
-        $params->page->body_classses = implode( ' ', $params->page->body_classes_raw );    
+        $params->page->assetUrl = '/assets';
+        $params->page->assetHash = $this->theme->getAssetHash();
+        $params->page->bodyClassesRaw = array_merge( [ $contentType ], $extra_body_classes );
+        $params->page->bodyClasses = implode( ' ', $params->page->bodyClassesRaw );    
 
-        $params->is_single = false;
-        $params->is_home = false;
+        $params->isSingle = false;
+        $params->isHome = false;
 
-        $params->render_time = $this->startTime;
+        $params->renderTime = $this->startTime;
 
         return $params;
     }    

@@ -21,7 +21,7 @@ class Builder {
         $this->config = $config;
 
         $this->template_engine = new TemplateEngine();
-        $this->template_engine->set_template_dir( CROSSROAD_THEME_DIR . '/' . $config[ 'site' ][ 'theme' ] );
+        $this->template_engine->setTemplateDir( CROSSROAD_THEME_DIR . '/' . $config[ 'site' ][ 'theme' ] );
 
         $this->plugin_manager = new PluginManager( $this->config );
         $this->plugin_manager->install_plugin( new ImagePlugin( $this->config ) );
@@ -53,22 +53,22 @@ class Builder {
         // build
         echo "..starting template building\n";
         if ( isset( $this->config[ 'content' ][ 'types' ] ) ) {
-            foreach( $this->config[ 'content' ][ 'types' ] as $content_type => $content_config ) {
-                $entries = $this->entries->get( $content_type );
+            foreach( $this->config[ 'content' ][ 'types' ] as $contentType => $content_config ) {
+                $entries = $this->entries->get( $contentType );
 
                 if ( $entries ) {
                     // Make the output directory for html
-                    Utils::mkdir( CROSSROAD_PUBLIC_DIR . '/' . $content_type );
+                    Utils::mkdir( CROSSROAD_PUBLIC_DIR . '/' . $contentType );
 
                     // Make the output directory for images
-                    $image_destination_path = CROSSROAD_PUBLIC_DIR . '/assets/' . $content_type;
+                    $image_destination_path = CROSSROAD_PUBLIC_DIR . '/assets/' . $contentType;
                     Utils::mkdir( $image_destination_path );
 
                     // Where the source content is
-                    $content_directory = \CROSSROAD_BASE_DIR . '/content/' . $content_type;
+                    $content_directory = \CROSSROAD_BASE_DIR . '/content/' . $contentType;
                     
                     foreach( $entries as $entry ) {
-                        $this->renderer->render_single_page( $entry, [ $entry->content_type . '-single', $entry->content_type, 'index' ] );
+                        $this->renderer->renderSinglePage( $entry, [ $entry->contentType . '-single', $entry->contentType, 'index' ] );
                         $this->total_pages++;
                     }
                 }
@@ -77,26 +77,26 @@ class Builder {
                 usort( $entries, 'CR\cr_sort' );
 
                 if ( isset( $content_config[ 'index' ] ) && $content_config[ 'index' ] ) {
-                    $this->renderer->render_index_page( $entries, $content_type, '/' . $content_type, [ 'index' ] );
+                    $this->renderer->renderIndexPage( $entries, $contentType, '/' . $content_type, [ 'index' ] );
                 }
 
-                if ( $content_type == $this->config[ 'site' ][ 'home' ] ) {
-                    $this->renderer->render_index_page( $entries, $content_type, '', [ 'index' ] );
+                if ( $contentType == $this->config[ 'site' ][ 'home' ] ) {
+                    $this->renderer->renderIndexPage( $entries, $contentType, '', [ 'index' ] );
                 }
 
                  // tax
-                $tax_terms = $this->entries->getTaxTerms( $content_type );
+                $tax_terms = $this->entries->getTaxTerms( $contentType );
                 if ( count( $tax_terms ) ) {
-                    Utils::mkdir( CROSSROAD_PUBLIC_DIR . '/' . $content_type . '/taxonomy' );
+                    Utils::mkdir( CROSSROAD_PUBLIC_DIR . '/' . $contentType . '/taxonomy' );
                     foreach( $tax_terms as $term ) {
-                        Utils::mkdir( CROSSROAD_PUBLIC_DIR . '/' . $content_type . '/taxonomy/' . $term );
+                        Utils::mkdir( CROSSROAD_PUBLIC_DIR . '/' . $contentType . '/taxonomy/' . $term );
 
-                        $entries = $this->entries->getTax( $content_type, $term );
+                        $entries = $this->entries->getTax( $contentType, $term );
 
                         usort( $entries, 'CR\cr_sort' );
 
                         if ( count( $entries ) ) {
-                            $this->renderer->render_index_page( $entries, $content_type, '/' . $content_type . '/taxonomy/' . $term, [ 'index' ] );
+                            $this->renderer->renderIndexPage( $entries, $contentType, '/' . $contentType . '/taxonomy/' . $term, [ 'index' ] );
                         }
                     }
                 }

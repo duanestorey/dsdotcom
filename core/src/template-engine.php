@@ -11,17 +11,17 @@ class TemplateEngine {
         $this->latte->setTempDirectory( sys_get_temp_dir() );
     }
 
-    public function set_template_dir( $template_dir ) {
+    public function setTemplateDir( $template_dir ) {
         $this->template_dir = rtrim( $template_dir, '/' );
     }
 
-    public function template_exists( $template_name ) {
+    public function templateExists( $template_name ) {
         return file_exists( $this->template_dir . '/' . $template_name . '.latte' );
     }
 
-    public function locate_template( $templates ) {
+    public function locateTemplate( $templates ) {
         foreach( $templates as $template ) {
-            if ( $this->template_exists( $template ) ) {
+            if ( $this->templateExists( $template ) ) {
                   return $template;
             }
         }

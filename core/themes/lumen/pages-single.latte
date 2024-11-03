@@ -5,20 +5,20 @@
             <h1 class="mt-4">{$content->title}</h1>
 
             <div class="content mt-3">
-                {if $content->featured_image}
+                {if $content->featuredImage}
                     <div class="mt-4 mb-4">
                         <picture>
-                            {if $content->featured_image->has_responsive}
-                                {foreach $content->featured_image->responsive_images as $size => $image}
+                            {if $content->featuredImage->has_responsive}
+                                {foreach $content->featuredImage->responsive_images as $size => $image}
                                 <source media="(max-width: {$size}px)" srcset="{$image->url}">
                                 {/foreach}
-                                <source media="(min-width: {$content->featured_image->responsive_largest_size+1}px)" srcset="{$content->featured_image->url}">
+                                <source media="(min-width: {$content->featuredImage->responsive_largest_size+1}px)" srcset="{$content->featuredImage->url}">
                             {/if}
-                            <img src="{$content->featured_image->url}" width="{$content->featured_image->width}" height="{$content->featured_image->height}" alt="Featured Image" class="img-fluid">
+                            <img src="{$content->featuredImage->url}" width="{$content->featuredImage->width}" height="{$content->featuredImage->height}" alt="Featured Image" class="img-fluid">
                         </picture>
                     </div>
                 {/if}
-                {$content->markdown_html|noescape}
+                {$content->markdownHtml|noescape}
             </div>
         </article>
     </div>

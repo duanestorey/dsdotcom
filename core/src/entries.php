@@ -71,15 +71,15 @@ class Entries {
                             $content_slug = '/' . $content_type . '/' . pathinfo( $markdown_file, PATHINFO_FILENAME ) . '.html';
 
                             $content = new Content;
-                            $content->content_type = $content_type;
-                            $content->markdown_html = $markdown->html();
-                            $content->markdown_file = $markdown_file;
+                            $content->contentType = $content_type;
+                            $content->markdownHtml = $markdown->html();
+                            $content->markdownFile = $markdown_file;
                             $content->url = Utils::fixPath( $this->config[ 'site' ][ 'url' ] ) . $content_slug;
-                            $content->rel_url = $content_slug;
+                            $content->relUrl = $content_slug;
                             $content->slug = $content_slug;
                             $content->unique = md5( $content_slug );
                             $content->taxonomy = array();
-                            $content->class_name = pathinfo( $markdown_file, PATHINFO_FILENAME );
+                            $content->className = pathinfo( $markdown_file, PATHINFO_FILENAME );
 
                             if ( $front = $markdown->front_matter() ) {
                                 if ( isset( $front[ 'title' ] ) ) {
@@ -91,7 +91,7 @@ class Entries {
                                 }
 
                                 if ( isset( $front[ 'coverImage' ] ) ) {
-                                    $content->featured_image = $front[ 'coverImage' ];
+                                    $content->featuredImage = $front[ 'coverImage' ];
                                 }
 
                                 if ( isset( $front[ 'description' ] ) ) {
@@ -115,7 +115,7 @@ class Entries {
                                     }
 
                                     $this->tax[ $content_type ][ $tax ][] = $content;
-                                    $content->taxonomy_links[ $tax ] = '/' . $content_type . '/taxonomy/' . $tax;
+                                    $content->taxonomyLinks[ $tax ] = '/' . $content_type . '/taxonomy/' . $tax;
                                 }
                             }
 

@@ -22,18 +22,18 @@ class Utils {
     }
 
     static function findAllFilesWithExtension( $directory, $ext ) {
-        $all_files = array();
+        $allFiles = array();
 
         $filenames = array_diff( scandir( $directory ), array( '.', '..' ) );
         foreach( $filenames as $one_file ) {
             $full_path = $directory . '/' . $one_file;
             if ( is_dir( $full_path ) ) {
-                $all_files = array_merge( $all_files, Utils::findAllFilesWithExtension( $full_path, $ext ) );
+                $allFiles = array_merge( $allFiles, Utils::findAllFilesWithExtension( $full_path, $ext ) );
             } else if ( pathinfo( $full_path, PATHINFO_EXTENSION ) == $ext ) {
-                $all_files[] = $full_path;
+                $allFiles[] = $full_path;
             }
         }
 
-        return $all_files;
+        return $allFiles;
     }    
 }

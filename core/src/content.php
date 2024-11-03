@@ -14,19 +14,17 @@ class Content {
     var $title = '';
     var $publishDate = 0;
     var $url = '';
-    var $rel_url = '';
-    var $markdown_file = '';
-    var $markdown_html = '';
-    var $featured_image = false;
-    var $featured_image_width = 0;
-    var $featured_image_height = 0;
+    var $relUrl = '';
+    var $markdownFile = '';
+    var $markdownHtml = '';
+    var $featuredImage = false;
     var $description = '';
     var $slug = '';
     var $unique = '';
     var $taxonomy = '';
-    var $taxonomy_links = [];
-    var $content_type = '';
-    var $class_name = '';
+    var $taxonomyLinks = [];
+    var $contentType = '';
+    var $className = '';
 
     public function __construct() {
         $this->publishDate = time();
@@ -38,7 +36,7 @@ class Content {
 
     public function excerpt( $length = 600, $include_ellipsis = true ) {
         $str = '';
-        $words = explode( ' ', strip_tags( $this->markdown_html ) );
+        $words = explode( ' ', strip_tags( $this->markdownHtml ) );
 
         $len = 0;
         for ( $i = 0; $i < count( $words ); $i++ ) {
