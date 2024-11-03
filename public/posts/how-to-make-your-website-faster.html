@@ -89,7 +89,7 @@
    ExpiresByType audio/mp3 "access plus 2 hours"
    ExpiresByType audio/x-m4a "access plus 2 hours"
    &lt;/IfModule&gt;</code></pre>
-<p>By setting the "ExpiresDefault" to "now", it is instructing Apache to make everything non-cacheable except for the items listed below it. Without this, Apache would cache everything, including PHP scripts (which since they are dynamic, would be a fairly bad thing).</p>
+<p>By setting the &quot;ExpiresDefault&quot; to &quot;now&quot;, it is instructing Apache to make everything non-cacheable except for the items listed below it. Without this, Apache would cache everything, including PHP scripts (which since they are dynamic, would be a fairly bad thing).</p>
 <p>As you can see, I've included a directive to cache JPEG images (with a MIME type of image/jpeg) for four hours, MP3 files for two hours, etc. You can modify this and add whatever MIME type you like, and the browsers will do the caching for you. The one downside to this is that the browser will not request that file again until the allotted time expires. What that means is that even if you change it on your webpage, it's possible people won't see those modifications for quite some time. If you set relatively small expires times, that isn't normally a problem. However if you want to set longer ones, the only way to force an immediate change to an item is to change the filename on the server (which is an easy work around).</p>
 <p>If you combine those three methods, you can make Wordpress a hell of a lot faster, and decrease the demands on your hosting server. Plus, you should be able to handle a Digg or any other sudden influx of traffic with relative ease.</p>
 

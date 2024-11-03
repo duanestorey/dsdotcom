@@ -29,6 +29,16 @@ class ComposerStaticInit1d14b066a73960476c178ecf92bed18f
         ),
     );
 
+    public static $prefixesPsr0 = array (
+        'P' => 
+        array (
+            'Parsedown' => 
+            array (
+                0 => __DIR__ . '/..' . '/erusev/parsedown',
+            ),
+        ),
+    );
+
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Latte\\Attributes\\TemplateFilter' => __DIR__ . '/..' . '/latte/latte/src/Latte/attributes.php',
@@ -219,6 +229,7 @@ class ComposerStaticInit1d14b066a73960476c178ecf92bed18f
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit1d14b066a73960476c178ecf92bed18f::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit1d14b066a73960476c178ecf92bed18f::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit1d14b066a73960476c178ecf92bed18f::$prefixesPsr0;
             $loader->classMap = ComposerStaticInit1d14b066a73960476c178ecf92bed18f::$classMap;
 
         }, null, ClassLoader::class);
