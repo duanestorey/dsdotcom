@@ -28,7 +28,7 @@ class Renderer {
         // set up page specific stuff like the page titel
         $params = $this->_getDefaultRenderParams( $entry->contentType, $entry->slug, [ $entry->contentType . '-' . $entry->className ] );
         $params->content = $entry;
-        $params = $this->pluginManager->template_param_filter( $params );
+        $params = $this->pluginManager->templateParamFilter( $params );
 
         $params->isSingle = true;
 

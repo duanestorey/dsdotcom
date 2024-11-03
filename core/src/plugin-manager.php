@@ -10,24 +10,24 @@ class PluginManager extends Plugin {
         $this->config = $config;
     }
 
-    public function install_plugin( $plugin ) {
+    public function installPlugin( $plugin ) {
         $this->plugins[] = $plugin;
     }
 
-    public function content_filter( $content ) {
+    public function contentFilter( $content ) {
         if ( count( $this->plugins ) ) {
             foreach( $this->plugins as $plugin ) {
-                $content = $plugin->content_filter( $content );
+                $content = $plugin->contentFilter( $content );
             }
         }
 
         return $content;
     }
 
-    public function template_param_filter( $params ) {
+    public function templateParamFilter( $params ) {
         if ( count( $this->plugins ) ) {
             foreach( $this->plugins as $plugin ) {
-                $params = $plugin->template_param_filter( $params );
+                $params = $plugin->templateParamFilter( $params );
             }
         }
 

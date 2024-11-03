@@ -9,11 +9,11 @@ class SeoPlugin extends Plugin {
         $this->config = $config;
     }
 
-    public function content_filter( $content ) {
+    public function contentFilter( $content ) {
         return $content;
     }    
 
-    public function template_param_filter( $params ) {
+    public function templateParamFilter( $params ) {
         $params->page->title = sprintf( "%s - %s", $params->content->title, $this->config[ 'site' ][ 'name' ] );
 
         if ( !$params->content->description ) {

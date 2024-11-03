@@ -8,37 +8,37 @@ namespace CR;
 
 class Builder {
     var $config = null;
-    var $start_time = null;
+    var $startTime = null;
     var $total_pages = 0;
-    var $template_engine = null;
+    var $templateEngine = null;
     var $entries = null;
     var $theme = null;
     var $menu = null;
-    var $plugin_manager = null;
+    var $pluginManager = null;
     var $renderer = null;
 
     public function __construct( $config ) {
         $this->config = $config;
 
-        $this->template_engine = new TemplateEngine();
-        $this->template_engine->setTemplateDir( CROSSROAD_THEME_DIR . '/' . $config[ 'site' ][ 'theme' ] );
+        $this->templateEngine = new TemplateEngine();
+        $this->templateEngine->setTemplateDir( CROSSROAD_THEME_DIR . '/' . $config[ 'site' ][ 'theme' ] );
 
-        $this->plugin_manager = new PluginManager( $this->config );
-        $this->plugin_manager->install_plugin( new ImagePlugin( $this->config ) );
-        $this->plugin_manager->install_plugin( new SeoPlugin( $this->config ) );
-        $this->plugin_manager->install_plugin( new WordPressPlugin( $this->config ) );
+        $this->pluginManager = new PluginManager( $this->config );
+        $this->pluginManager->installPlugin( new ImagePlugin( $this->config ) );
+        $this->pluginManager->installPlugin( new SeoPlugin( $this->config ) );
+        $this->pluginManager->installPlugin( new WordPressPlugin( $this->config ) );
     }
 
     public function run() {
         @mkdir( CROSSROAD_PUBLIC_DIR );
         @mkdir( CROSSROAD_PUBLIC_DIR . '/assets' );
 
-        $this->_setup_theme();
-        $this->_setup_menus();
+        $this->_setupTheme();
+        $this->_setupMenus();
 
-        $this->renderer = new Renderer( $this->config, $this->template_engine, $this->plugin_manager, $this->menu, $this->theme );
+        $this->renderer = new Renderer( $this->config, $this->templateEngine, $this->pluginManager, $this->menu, $this->theme );
 
-        $this->start_time = microtime( true );
+        $this->startTime = microtime( true );
 
         // load all content here
         $this->entries = new Entries( $this->config, );
@@ -47,7 +47,7 @@ class Builder {
         // do all content filtering
         $all_entries = $this->entries->getAll();
         foreach( $all_entries as $entry ) {
-             $entry = $this->plugin_manager->content_filter( $entry );
+             $entry = $this->pluginManager->contentFilter( $entry );
         }
 
         // build
@@ -103,14 +103,14 @@ class Builder {
             }
         }
 
-        $this->_write_robots();
-        $this->_write_sitemap_xml();
+        $this->_writeRobots();
+        $this->_writeSitemapXml();
 
-        $total_time = microtime( true ) - $this->start_time;
+        $total_time = microtime( true ) - $this->startTime;
         echo "..total page(s) generated, " . $this->total_pages . " - build completed in " . sprintf( "%0.4f", $total_time ) . "s\n";
     }
 
-    private function _write_sitemap_xml() {
+    private function _writeSitemapXml() {
         $sitemap_xml  = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
         $sitemap_xml .= "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n";
 
@@ -121,27 +121,27 @@ class Builder {
                 usort( $entries, 'CR\cr_sort' );
 
                 foreach( $entries as $entry ) {
-                    $sitemap_xml = $this->_add_sitemap_entry( $sitemap_xml, $entry->url );
+                    $sitemap_xml = $this->_addSitemapEntry( $sitemap_xml, $entry->url );
                 }
 
                 $tax_terms = $this->entries->getTaxTerms( $content_type );
                 if ( count( $tax_terms ) ) {
                     $tax_url = $this->config[ 'site' ][ 'url' ] . '/' . $content_type . '/taxonomy';
                     foreach( $tax_terms as $term ) {
-                        $sitemap_xml = $this->_add_sitemap_entry( $sitemap_xml, $tax_url . '/' . $term, 'monthly' );
+                        $sitemap_xml = $this->_addSitemapEntry( $sitemap_xml, $tax_url . '/' . $term, 'monthly' );
                     }
                 }
             }
         }
 
-        $sitemap_xml = $this->_add_sitemap_entry( $sitemap_xml, $this->config[ 'site' ][ 'url' ], 'daily' );
+        $sitemap_xml = $this->_addSitemapEntry( $sitemap_xml, $this->config[ 'site' ][ 'url' ], 'daily' );
 
         $sitemap_xml .= "</urlset>\n";
 
         file_put_contents( CROSSROAD_PUBLIC_DIR . '/sitemap.xml', $sitemap_xml );
     }
 
-    private function _add_sitemap_entry( $sitemap_xml, $url, $freq = 'weekly' ) {
+    private function _addSitemapEntry( $sitemap_xml, $url, $freq = 'weekly' ) {
         $sitemap_xml .= "\t<url>\n";
         $sitemap_xml .= "\t\t<loc>" . $url . "</loc>\n";
         $sitemap_xml .= "\t\t<changefreq>" . $freq . "</changefreq>\n";
@@ -150,19 +150,19 @@ class Builder {
         return $sitemap_xml;
     }
 
-    private function _write_robots() {
+    private function _writeRobots() {
         // write robots
         $robots = "user-agent: *\ndisallow: /assets/css/\ndisallow: /assets/js/\nallow: /\n\nUser-agent: Twitterbot\nallow: /\nSitemap: " . $this->config[ 'site' ][ 'url' ] . "/sitemap.xml";
         file_put_contents( CROSSROAD_PUBLIC_DIR . '/robots.txt', $robots );
         echo "....writing robots.txt\n";
     }
 
-    private function _setup_menus() {
+    private function _setupMenus() {
         $this->menu = new Menu();
         $this->menu->load_menus();
     }
 
-    private function _setup_theme() {
+    private function _setupTheme() {
         $this->theme = new Theme( $this->config[ 'site' ][ 'theme' ], CROSSROAD_THEME_DIR );
         echo "..attemping to load theme [" . $this->theme->name() . "]\n";
 

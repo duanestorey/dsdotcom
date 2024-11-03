@@ -23,7 +23,7 @@ class ImagePlugin extends Plugin {
         }
     }
 
-    public function content_filter( $content ) {
+    public function contentFilter( $content ) {
         $regexp = '(<img[^>]+src=(?:\"|\')\K(.[^">]+?)(?=\"|\'))';
         $image_destination_path = CROSSROAD_PUBLIC_DIR . '/assets/' . $content->contentType;
 
@@ -77,7 +77,7 @@ class ImagePlugin extends Plugin {
         return $content;
     }    
 
-    public function template_param_filter( $params ) {
+    public function templateParamFilter( $params ) {
         return $params;
     }
 

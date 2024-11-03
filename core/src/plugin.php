@@ -2,7 +2,12 @@
 
 namespace CR;
 
-abstract class Plugin {
-    abstract public function content_filter( $content );
-    abstract public function template_param_filter( $params );
+class Plugin {
+    public function contentFilter( $content ) { 
+        return $content;
+    }
+
+    public function templateParamFilter( $params ) {
+        return $params;
+    }
 }

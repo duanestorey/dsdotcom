@@ -13,7 +13,7 @@ class WordPressPlugin extends Plugin {
         $this->config = $config;
     }
 
-    public function content_filter( $content ) {
+    public function contentFilter( $content ) {
         // Remove stupid captions
         if ( preg_match_all( '#(\[caption\b[^\]]*\](.*)\[\/caption])#iU', $content->markdownHtml, $matches, PREG_SET_ORDER ) ) {
             foreach( $matches as $key => $match ) {
@@ -35,7 +35,7 @@ class WordPressPlugin extends Plugin {
         return $content;
     }    
 
-    public function template_param_filter( $params ) {
+    public function templateParamFilter( $params ) {
         return $params;
     }
 }
