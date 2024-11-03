@@ -62,22 +62,22 @@
             <div class="mt-4 pt-4 pb-4 mb-4">
                 <nav aria-label="page navigation">
                     <ul class="pagination justify-content-center ">
-                        {if $pagination->prev_page_link}
-                        <li class="page-item"><a class="page-link" href="{$pagination->prev_page_link}">Previous</a></li>
+                        {if $pagination->prevPageLink}
+                        <li class="page-item"><a class="page-link" href="{$pagination->prevPageLink}">Previous</a></li>
                         {else}
                         <li class="page-item disabled"><span class="page-link">Previous</span></li>
                         {/if}
                         <!--
                         {foreach $pagination->links as $link}
-                            {if $pagination->current_page == $link->num}
+                            {if $pagination->currentPage == $link->num}
                                 <li class="page-item active d-none d-lg-block"><a class="page-link" href="{$link->url}">{$link->num}</a></li>
                             {else}
                                 <li class="page-item d-none d-lg-block"><a class="page-link" href="{$link->url}">{$link->num}</a></li>
                             {/if}
                         {/foreach} 
                         -->
-                        {if $pagination->next_page_link}
-                        <li class="page-item"><a class="page-link" href="{$pagination->next_page_link}">Next</a></li>
+                        {if $pagination->nextPageLink}
+                        <li class="page-item"><a class="page-link" href="{$pagination->nextPageLink}">Next</a></li>
                         {/if}
                     </ul>
                 </nav>

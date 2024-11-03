@@ -53,7 +53,7 @@ class Builder {
         // build
         echo "..starting template building\n";
         if ( isset( $this->config[ 'content' ][ 'types' ] ) ) {
-            foreach( $this->config[ 'content' ][ 'types' ] as $contentType => $content_config ) {
+            foreach( $this->config[ 'content' ][ 'types' ] as $contentType => $contentConfig ) {
                 $entries = $this->entries->get( $contentType );
 
                 if ( $entries ) {
@@ -76,8 +76,8 @@ class Builder {
                 // process all content
                 usort( $entries, 'CR\cr_sort' );
 
-                if ( isset( $content_config[ 'index' ] ) && $content_config[ 'index' ] ) {
-                    $this->renderer->renderIndexPage( $entries, $contentType, '/' . $content_type, [ 'index' ] );
+                if ( isset( $contentConfig[ 'index' ] ) && $contentConfig[ 'index' ] ) {
+                    $this->renderer->renderIndexPage( $entries, $contentType, '/' . $contentType, [ 'index' ] );
                 }
 
                 if ( $contentType == $this->config[ 'site' ][ 'home' ] ) {
@@ -85,10 +85,10 @@ class Builder {
                 }
 
                  // tax
-                $tax_terms = $this->entries->getTaxTerms( $contentType );
-                if ( count( $tax_terms ) ) {
+                $taxTerms = $this->entries->getTaxTerms( $contentType );
+                if ( count( $taxTerms ) ) {
                     Utils::mkdir( CROSSROAD_PUBLIC_DIR . '/' . $contentType . '/taxonomy' );
-                    foreach( $tax_terms as $term ) {
+                    foreach( $taxTerms as $term ) {
                         Utils::mkdir( CROSSROAD_PUBLIC_DIR . '/' . $contentType . '/taxonomy/' . $term );
 
                         $entries = $this->entries->getTax( $contentType, $term );
@@ -115,8 +115,8 @@ class Builder {
         $sitemapXml .= "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n";
 
         if ( isset( $this->config[ 'content' ][ 'types' ] ) ) {
-            foreach( $this->config[ 'content' ][ 'types' ] as $content_type => $content_config ) {
-                $entries = $this->entries->get( $content_type );
+            foreach( $this->config[ 'content' ][ 'types' ] as $contentType => $contentConfig ) {
+                $entries = $this->entries->get( $contentType );
 
                 usort( $entries, 'CR\cr_sort' );
 
@@ -124,11 +124,11 @@ class Builder {
                     $sitemapXml = $this->_addSitemapEntry( $sitemapXml, $entry->url );
                 }
 
-                $tax_terms = $this->entries->getTaxTerms( $content_type );
-                if ( count( $tax_terms ) ) {
-                    $tax_url = $this->config[ 'site' ][ 'url' ] . '/' . $content_type . '/taxonomy';
-                    foreach( $tax_terms as $term ) {
-                        $sitemapXml = $this->_addSitemapEntry( $sitemapXml, $tax_url . '/' . $term, 'monthly' );
+                $taxTerms = $this->entries->getTaxTerms( $contentType );
+                if ( count( $taxTerms ) ) {
+                    $taxUrl = $this->config[ 'site' ][ 'url' ] . '/' . $contentType . '/taxonomy';
+                    foreach( $taxTerms as $term ) {
+                        $sitemapXml = $this->_addSitemapEntry( $sitemapXml, $taxUrl . '/' . $term, 'monthly' );
                     }
                 }
             }

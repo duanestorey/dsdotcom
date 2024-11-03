@@ -34,7 +34,7 @@ class Content {
         $this->title = $title;
     }
 
-    public function excerpt( $length = 600, $include_ellipsis = true ) {
+    public function excerpt( $length = 600, $includeEllipsis = true ) {
         $str = '';
         $words = explode( ' ', strip_tags( $this->markdownHtml ) );
 
@@ -47,10 +47,8 @@ class Content {
                 break;
             }
         }
-        /*
-        $str = substr( strip_tags( $this->markdown_html ), 0, $length );
-        */
-        if ( $include_ellipsis ) {
+    
+        if ( $includeEllipsis ) {
             $str = $str . '...';
         }
 
