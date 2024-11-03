@@ -31,7 +31,7 @@ Once you have the WordPress content in the form of an XML file, you need a way t
 
 After that, you can run the conversion script using *npm install && node index.js*. The Markdown converter will ask you a series of questions in terms of where your output will be located, and how it should be segmented. In my case I chose to use year-based folders, but not per-post folders (I figured this would be hard to manage when looking for old posts). Also didn’t add the date into my file names, as I’ll rely on the front matter (the text located at the start of the Markdown file) to handle this. The most important part of this process is to automatically have the tool download all the images in the XML file locally, so make sure you answer yes to these questions. This process takes a while as it’ll need to download a copy of each and every image file over the Internet to your local machine, but once it's done you’ll have a good snapshot of your content.
 
-One thing to mention is that all your content will be pulled down and convertged, including drafts and private posts. My plan was to check all my posts into Github, so I went through my WordPress site prior to doing my export and permanently removed all my private posts just so they wouldn’t end up in Github. If this is a concern of yours as well, it’s something to be aware of before you generate your WordPress export file.
+One thing to mention is that all your content will be pulled down and converted, including drafts and private posts. My plan was to check all my posts into Github, so I went through my WordPress site prior to doing my export and permanently removed all my private posts just so they wouldn’t end up in Github. If this is a concern of yours as well, it’s something to be aware of before you generate your WordPress export file.
 
 While this conversion tool is useful, it’s not an exhaustive capture of everything on your WordPress website.  Only a few of the post and page fields are transferred over, so if you have any custom meta data, it won’t be preserved. I imagine the tool could be expanded easily enough to get at some of the other data, but for my purposes it was good enough.
 
@@ -45,9 +45,15 @@ The top section contains the post meta data and is called *front matter* within 
 
 ### Static Site Generators
 
-If you’ve made it this far and followed along, you now have a pile of Markdown content to use. You can look into using popular static site generators like [Astro](https://astro.build/), [Hugo](https://gohugo.io/), or [Jekyll](https://jekyllrb.com/). 
+If you’re wondering what a static site generator is, it’s basically a way to take data and render it as a collection of HTML files. If you use WordPress without a caching plugin, every page is dynamically generated in real-time using PHP. That’s powerful, but also can be pretty slow depending on how much code is running each time. If you install a caching plugin, often they will take the output from the dynamic page and save a temporary HTML file, serving that file directly when people visit your website. That’s a pretty good compromise. But if you want to take it all the way to its conclusion, you can remove the dynamic aspect entirely, and just generate an entire website when you update your content.
 
-For my purposes though, I decided to try and code my own as a learning exercise. If you’re reading this on my website, then you’re already seeing the end result of that effort, and this is a purely static site generated from my own code. So stay tuned for more posts in this series detailing this effort shortly, and what I learned.
+If that sounds funky and crazy, it wasn’t always that way. The popular Blogger platform used to publish content that same way in the 2000s, but over FTP. Nowadays there are plenty of great ways to host static websites, including a really handle combination of Github and [Cloudflare Pages](https://pages.cloudflare.com/), which actually works well for free.  Since static websites are once again all the rage, I decided it would be a great time to go completely static again.
+
+### Next Steps
+
+If you’ve made it this far and followed along, you now have a pile of Markdown content to use. You can now use all your shiny Markdown data to generate a website using one of the many popular static site generators like [Astro](https://astro.build/), [Hugo](https://gohugo.io/), or [Jekyll](https://jekyllrb.com/). 
+
+For my purposes though, I decided to try and code my own as a learning exercise. If you’re reading this on my website, then you’re already seeing the end result of that effort, as this is a purely static site generated from my own code. So stay tuned for more posts in this series detailing this effort shortly, and what I learned.
   
 
 
