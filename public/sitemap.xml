@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
+		<loc>https://duanestorey.com/posts/migrating-away-from-wordpress-part-1.html</loc>
+		<changefreq>weekly</changefreq>
+	</url>
+	<url>
 		<loc>https://duanestorey.com/posts/wordpress-is-on-dangerous-ground.html</loc>
 		<changefreq>weekly</changefreq>
 	</url>
@@ -20290,6 +20294,10 @@
 	</url>
 	<url>
 		<loc>https://duanestorey.com/posts/taxonomy/ramen</loc>
+		<changefreq>monthly</changefreq>
+	</url>
+	<url>
+		<loc>https://duanestorey.com/posts/taxonomy/migration</loc>
 		<changefreq>monthly</changefreq>
 	</url>
 	<url>
