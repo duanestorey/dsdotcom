@@ -5,7 +5,7 @@ description: "A multipart series on the effort involved in permanent migrating a
 categories: 
   - "wordpress"
   - "migration"
-coverImage: "images/computer-code.jpg"
+coverImage: "images/computer-code2.jpg"
 ---
 
 I posted the other day about how, after 18 years of WordPress, [I finally migrated this blog to another framework](/posts/wordpress-is-on-dangerous-ground.html). While I started evaluating various popular frameworks like Astro and Hugo, I had some initial problems handling the type of content I had added to my website over time. Eighteen years is a long time to be writing, and WordPress itself changed quite a bit over that period of time. For example, much of my older content has various short codes intermixed within it, which doesn’t really translate well to a new system.  
