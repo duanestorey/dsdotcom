@@ -1,4 +1,8 @@
 <?php 
+/*
+    All code copyright (c) 2024 by Duane Storey - All rights reserved
+    You may use, distribute and modify this code under the terms of GPL version 3.0 license or later
+*/
 
 require_once 'vendor/autoload.php';
 require_once 'src/crossroads.php';

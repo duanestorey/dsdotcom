@@ -1,36 +1,40 @@
 <?php
+/*
+    All code copyright (c) 2024 by Duane Storey - All rights reserved
+    You may use, distribute and modify this code under the terms of GPL version 3.0 license or later
+*/
 
 namespace CR;
 
 class Renderer {
     var $config = false;
-    var $template_engine = false;
-    var $plugin_manager = false;
+    var $templateEngine = false;
+    var $pluginManager = false;
     var $menu = false;
     var $theme = false;
-    var $start_time = false;
+    var $startTime = false;
     
-    public function __construct( $config, $template_engine, $plugin_manager, $menu, $theme ) {
+    public function __construct( $config, $templateEngine, $pluginManager, $menu, $theme ) {
         $this->config = $config;
-        $this->template_engine = $template_engine;
-        $this->plugin_manager = $plugin_manager;
+        $this->templateEngine = $templateEngine;
+        $this->pluginManager = $pluginManager;
         $this->menu = $menu;
         $this->theme = $theme;
 
-        $this->start_time = time();
+        $this->startTime = time();
     }
 
     public function render_single_page( $entry, $template_files ) {
         // set up page specific stuff like the page titel
         $params = $this->_get_default_render_params( $entry->content_type, $entry->slug, [ $entry->content_type . '-' . $entry->class_name ] );
         $params->content = $entry;
-        $params = $this->plugin_manager->template_param_filter( $params );
+        $params = $this->pluginManager->template_param_filter( $params );
 
         $params->is_single = true;
 
-        $template_name = $this->template_engine->locate_template( $template_files );
+        $template_name = $this->templateEngine->locate_template( $template_files );
         if ( $template_name ) {
-            $rendered_html = $this->template_engine->render( $template_name, $params );
+            $rendered_html = $this->templateEngine->render( $template_name, $params );
             file_put_contents( CROSSROAD_PUBLIC_DIR . $params->content->slug, $rendered_html );
 
             echo "......outputting template file " . CROSSROAD_PUBLIC_DIR . $params->content->slug . "\n";
@@ -58,7 +62,7 @@ class Renderer {
 
         $pagination->links = $this->_get_pagination_links( $path, $pagination->total_pages );
 
-        $template_name = $this->template_engine->locate_template( $template_files );
+        $template_name = $this->templateEngine->locate_template( $template_files );
         if ( $template_name ) {
             while ( $pagination->current_page <= $pagination->total_pages ) {
                 if ( $pagination->current_page == 1 ) {
@@ -87,7 +91,7 @@ class Renderer {
                 $params->is_home = $is_home;
                 $params->pagination = $pagination;
 
-                $rendered_html = $this->template_engine->render( $template_name, $params );
+                $rendered_html = $this->templateEngine->render( $template_name, $params );
                 file_put_contents( $filename, $rendered_html );  
 
                 echo "......outputting template file " . $filename . "\n";
@@ -140,7 +144,7 @@ class Renderer {
         $params->is_single = false;
         $params->is_home = false;
 
-        $params->render_time = $this->start_time;
+        $params->render_time = $this->startTime;
 
         return $params;
     }    
