@@ -11,8 +11,10 @@ content:
   types: 
     posts:
       index: true
+      base: /posts
     pages:
       index: false
+      base: /
 themes:
   dir: themes
 options:

@@ -8,23 +8,23 @@ namespace CR;
 
 define( 'CROSSROADS_VERSION', '1.00' );
 
-require_once( 'src/builder.php' );
-require_once( 'src/entries.php' );
-require_once( 'src/markdown.php' );
-require_once( 'src/template-engine.php' );
-require_once( 'src/exception.php' );
-require_once( 'src/content.php' );
-require_once( 'src/menu.php' );
-require_once( 'src/yaml.php' );
-require_once( 'src/theme.php' );
-require_once( 'src/utils.php' );
-require_once( 'src/plugin.php' );
-require_once( 'src/plugin-manager.php' );
-require_once( 'src/renderer.php' );
+require_once( 'builder.php' );
+require_once( 'entries.php' );
+require_once( 'markdown.php' );
+require_once( 'template-engine.php' );
+require_once( 'exception.php' );
+require_once( 'content.php' );
+require_once( 'menu.php' );
+require_once( 'yaml.php' );
+require_once( 'theme.php' );
+require_once( 'utils.php' );
+require_once( 'plugin.php' );
+require_once( 'plugin-manager.php' );
+require_once( 'renderer.php' );
 
-require_once( 'plugins/image-plugin.php' );
-require_once( 'plugins/seo-plugin.php' );
-require_once( 'plugins/wordpress-plugin.php' );
+require_once( CROSSROAD_CORE_DIR . '/plugins/image-plugin.php' );
+require_once( CROSSROAD_CORE_DIR . '/plugins/seo-plugin.php' );
+require_once( CROSSROAD_CORE_DIR . '/plugins/wordpress-plugin.php' );
 
 class Engine {
     var $builder = null;
@@ -35,7 +35,7 @@ class Engine {
     public function run( $argc, $argv ) {
         $this->_branding();
 
-        $this->_load_config();
+        $this->_loadConfig();
 
         if ( $argc == 1 ) {
             $this->_usage();
@@ -44,6 +44,9 @@ class Engine {
                 case 'build':
                     $this->_build();
                     break;
+                case 'import':
+                    $this->_import();
+                    break;
                 case 'serve':
                     $this->_serve();
                     break;
@@ -51,11 +54,11 @@ class Engine {
         }
     }
 
-    private function _load_config() {
+    private function _loadConfig() {
         $this->config = YAML::parse_file( CROSSROAD_BASE_DIR . '/config/site.yaml' );
     }
 
-    private function _check_config() {
+    private function _checkConfig() {
         // check to make sure everything we need is here
     }
 
@@ -65,8 +68,13 @@ class Engine {
 
     private function _usage() {
         echo "..proper usage:\n\n";
-        echo "php crossroads.php build      Builds entire website\n";
-        echo "php crossroads.php serve      Start webserver\n";
+        echo "php crossroads build                      Builds entire website\n";
+        echo "php crossroads serve                      Start webserver\n";
+        echo "php crossroads import wordpress <url>     Import from a WordPress website\n";
+    }
+
+    private function _import() {
+    
     }
 
     private function _build() {

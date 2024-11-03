@@ -4,14 +4,18 @@
     You may use, distribute and modify this code under the terms of GPL version 3.0 license or later
 */
 
+namespace CR;
+
 require_once 'vendor/autoload.php';
-require_once 'src/crossroads.php';
 
 define( 'CROSSROAD_BASE_DIR', dirname( __FILE__ ) );
+define( 'CROSSROAD_CORE_DIR', dirname( __FILE__ ) . '/core' );
 define( 'CROSSROAD_PUBLIC_DIR', CROSSROAD_BASE_DIR . '/public' );
 define( 'CROSSROAD_THEME_DIR', CROSSROAD_BASE_DIR . '/themes' );
 
-$crossroads = new CR\Engine;
+require_once 'core/src/crossroads.php';
+
+$crossroads = new Engine;
 $crossroads->run( $argc, $argv );
 
 
