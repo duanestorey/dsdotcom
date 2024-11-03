@@ -133,7 +133,7 @@ class Renderer {
 
         $params->page = new \stdClass;
         $params->page->asset_url = '/assets';
-        $params->page->asset_hash = $this->theme->get_asset_hash();
+        $params->page->asset_hash = $this->theme->getAssetHash();
         $params->page->body_classes_raw = array_merge( [ $content_type ], $extra_body_classes );
         $params->page->body_classses = implode( ' ', $params->page->body_classes_raw );    
 

@@ -162,13 +162,13 @@ class Builder {
         $this->theme = new Theme( $this->config[ 'site' ][ 'theme' ], CROSSROAD_THEME_DIR );
         echo "..attemping to load theme [" . $this->theme->name() . "]\n";
 
-        if ( !$this->theme->is_sane() ) {
+        if ( !$this->theme->isSane() ) {
             throw new ThemeException( 'Broken theme' );
         }
 
-        $this->theme->load_config();
+        $this->theme->loadConfig();
         echo "....theme successfully loaded\n";
 
-        $this->theme->process_assets( CROSSROAD_PUBLIC_DIR . '/assets' );
+        $this->theme->processAssets( CROSSROAD_PUBLIC_DIR . '/assets' );
     }
 }
