@@ -11,7 +11,7 @@ require_once 'vendor/autoload.php';
 define( 'CROSSROAD_BASE_DIR', dirname( __FILE__ ) );
 define( 'CROSSROAD_CORE_DIR', dirname( __FILE__ ) . '/core' );
 define( 'CROSSROAD_PUBLIC_DIR', CROSSROAD_BASE_DIR . '/public' );
-define( 'CROSSROAD_THEME_DIR', CROSSROAD_BASE_DIR . '/themes' );
+define( 'CROSSROAD_THEME_DIR', CROSSROAD_BASE_DIR . '/core/themes' );
 
 require_once 'core/src/crossroads.php';
 

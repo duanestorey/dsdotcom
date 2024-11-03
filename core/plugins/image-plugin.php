@@ -35,8 +35,8 @@ class ImagePlugin extends Plugin {
                 $dest_url = $this->_find_and_fix_image( 
                     $image_file,
                     pathinfo( $content->markdown_file, PATHINFO_DIRNAME ),
-                    '/assets/' . $content->content_type . '/' . date( 'Y', $content->publish_date ),
-                    $content->publish_date,
+                    '/assets/' . $content->content_type . '/' . date( 'Y', $content->publishDate ),
+                    $content->publishDate,
                     $found_file
                 );
 
@@ -68,8 +68,8 @@ class ImagePlugin extends Plugin {
             $content->featured_image = $this->_find_and_fix_image( 
                 $content->featured_image,
                 pathinfo( $content->markdown_file, PATHINFO_DIRNAME ),
-                '/assets/' . $content->content_type . '/' . date( 'Y', $content->publish_date ),
-                $content->publish_date,
+                '/assets/' . $content->content_type . '/' . date( 'Y', $content->publishDate ),
+                $content->publishDate,
                 $found_file
             );
         }
@@ -272,7 +272,7 @@ class ImagePlugin extends Plugin {
         return $image_info;
     }
 
-    private function _find_and_fix_image( $image_file, $current_path, $destination_path, $publish_date, &$found_file, $search_dirs = [ '', 'images/' ] ) {
+    private function _find_and_fix_image( $image_file, $current_path, $destination_path, $publishDate, &$found_file, $search_dirs = [ '', 'images/' ] ) {
         if ( $this->_is_remote_image( $image_file ) ) {
             echo "........skipping remote image [" . $image_file . "]\n";
             return $this->_get_image_information( $image_file );

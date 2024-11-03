@@ -35,7 +35,7 @@
         {foreach $content as $item} 
             <article class="mt-4 mb-4">    
                 <a href="{$item->rel_url}" class="link-dark"><h2 class="mt-4">{$item->title}</h2></a>
-                <div class="meta mb-2 text-primary fs-6 fw-light">Published on <time>{$item->publish_date|date:'F jS, Y'}</time></div>
+                <div class="meta mb-2 text-primary fs-6 fw-light">Published on <time>{$item->publishDate|date:'F jS, Y'}</time></div>
 
                 <div class="content mt-3">
                     {if $item->featured_image}

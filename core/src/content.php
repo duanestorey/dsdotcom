@@ -3,16 +3,16 @@
 namespace CR;
 
 function cr_sort( $a, $b ) {
-    if ( $a->publish_date == $b->publish_date ) {
+    if ( $a->publishDate == $b->publishDate ) {
         return 0;
     }
 
-    return ( $b->publish_date < $a->publish_date ) ? -1 : 1;
+    return ( $b->publishDate < $a->publishDate ) ? -1 : 1;
 }
 
 class Content {
     var $title = '';
-    var $publish_date = 0;
+    var $publishDate = 0;
     var $url = '';
     var $rel_url = '';
     var $markdown_file = '';
@@ -29,10 +29,10 @@ class Content {
     var $class_name = '';
 
     public function __construct() {
-        $this->publish_date = time();
+        $this->publishDate = time();
     }
 
-    public function set_title( $title ) {
+    public function setTitle( $title ) {
         $this->title = $title;
     }
 

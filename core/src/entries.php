@@ -87,7 +87,7 @@ class Entries {
                                 }
 
                                 if ( isset( $front[ 'date' ] ) ) {
-                                    $content->publish_date = strtotime( $front[ 'date' ] );
+                                    $content->publishDate = strtotime( $front[ 'date' ] );
                                 }
 
                                 if ( isset( $front[ 'coverImage' ] ) ) {
