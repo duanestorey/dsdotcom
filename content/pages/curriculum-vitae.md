@@ -3,29 +3,24 @@ title: "Curriculum Vitae"
 date: "2017-08-24T21:08:52.000Z"
 ---
 
-## Education
+### Honours and Awards
 
-- **2006 - Master of Applied Science, The University of British Columbia, Electrical and Computer Engineering**
-    
-    I completed my master's degree in Electrical and Computer Engineering. My master's thesis proposed changes to the new H.264 video standard to increase efficiency and also a transition scalability scheme (H.264 extended layer on a MPEG-2 base layer) for cable operators. My supervisor for my degree was Dr. Panos Nasiopoulos, who was part of the original team that brought the digital video disc (DVD) to the world.
-    
-    I graduated with a perfect GPA - all “A”s in my academic courses, as well as my thesis and presentation.
-    
-- **2000 - Bachelor of Applied Science, The University of British Columbia, Engineering Physics**
-    
-    Engineering Physics was one of the only degrees offered at UBC that involved a full five years of academic study instead of four. As a result, it was thought to be the most difficult undergraduate degree offered in western Canada. The degree involved completion of many difficult physics courses (quantum mechanics, solid state physics, nuclear physics), as well as a combination of mechanical, electrical and computer engineering courses.
-    
-    I graduated with an “A” average, and completed my degree under the Chancellor’s Entrance Scholarship.
-    
-
-## Honours and Awards
-
+- 2019 - Codeable distinguished developer - in the top 2% of all WordPress developers as rated by their hiring process
 - 2011 - [Patent US7958276B2](https://patents.google.com/patent/US7958276B2/en), Automatic configuration of peripheral devices
+- 2009 - Co-developer of the #1 and #3 plugins for WordPress, as voted by users prior to WordCamp San Francisco
 - 1995-2000 - Academic Dean’s List, The University of British Columbia
 - 1995 - Chancellor’s Entrance Scholarship, The University of British Columbia
 - 1995 - Full Scholarship, Simon Fraser University (Turned down to attend UBC)
 
-## Work Experience
+### Work Experience
+- **2018 - 2024, Lindell Media Inc.**
+
+    I performed custom web development and consulting primarily in the WordPress space for various high-end clients. I was also a trusted developer on the Codeable platform, which only accepts the top 2% of all WordPress developers.
+
+- **2017 - 2018, One Year Sabbatical**
+
+    After selling my WordPress plugin company in 2016, I spent a year travelling the world and regrouping. I went to Spain and walked 800km of the Camino Frances (the french way), starting in St. Jean Pied de Port, France, and ending in Santiago de Compostela. A year later, I finished the hike off by regrouping in Santiago and 
+    walking to Finisterre with a few friends I met in 2017 on the Camino de Santiago.
 
 - **2008 - 2017, BraveNewCode Inc., Co-founder and Lead Developer**
     
@@ -46,9 +41,23 @@ date: "2017-08-24T21:08:52.000Z"
     I was responsible for the manufacturing of fibre-optic components used in networking. I was responsible, from an engineering perspective, for approximately $500,000 USD of revenue per week.
     
     I was given two promotions within my first year (with a corresponding 50% increase in salary) and was promoted to the New Product Introduction group in 2001 to help bring JDSU's most important products to market.
-    
 
-## Publications and Presentations
+### Education
+
+- **2006 - Master of Applied Science, The University of British Columbia, Electrical and Computer Engineering**
+    
+    I completed my master's degree in Electrical and Computer Engineering. My master's thesis proposed changes to the new H.264 video standard to increase efficiency and also a transition scalability scheme (H.264 extended layer on a MPEG-2 base layer) for cable operators. My supervisor for my degree was Dr. Panos Nasiopoulos, who was part of the original team that brought the digital video disc (DVD) to the world.
+    
+    I graduated with a perfect GPA - all “A”s in my academic courses, as well as my thesis and presentation.
+    
+- **2000 - Bachelor of Applied Science, The University of British Columbia, Engineering Physics**
+    
+    Engineering Physics was one of the only degrees offered at UBC that involved a full five years of academic study instead of four. As a result, it was thought to be the most difficult undergraduate degree offered in western Canada. The degree involved completion of many difficult physics courses (quantum mechanics, solid state physics, nuclear physics), as well as a combination of mechanical, electrical and computer engineering courses.
+    
+    I graduated with an “A” average, and completed my degree under the Chancellor’s Entrance Scholarship.
+      
+
+### Publications and Presentations
 
 - 2013 - Presentation, “Commercializing WordPress Plugins”, WordPress Sydney Meetup - Sydney, Australia
 - 2011 - Presentation, “Going Social - Social Media Enhancements to WordPress Websites”, WordPress Vancouver Meetup, Vancouver, Canada
@@ -57,7 +66,7 @@ date: "2017-08-24T21:08:52.000Z"
 - 2006 - Masters Thesis - Joint MPEG-2/H.264 scalable coding and enhancements to H.264 intra-mode prediction
 - 2004 - Journal Paper - “Multimodel Fine Resolution Ensembles for Short-Range Forecasts in Mountainous Terrain”, Bulletin of the American Meteorological Society
 
-## Recommendations
+### Recommendations
 
 - **Jason Fischl, Remind Inc., VP of Engineering**
     

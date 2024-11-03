@@ -22,8 +22,6 @@ require_once( 'plugins/image-plugin.php' );
 require_once( 'plugins/seo-plugin.php' );
 require_once( 'plugins/wordpress-plugin.php' );
 
-require_once( 'lib/parsedown/Parsedown.php' );
-
 class Engine {
     var $builder = null;
     var $config = null;

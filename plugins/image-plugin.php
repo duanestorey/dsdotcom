@@ -20,10 +20,11 @@ class ImagePlugin extends Plugin {
     }
 
     public function content_filter( $content ) {
-        $regexp = '<img[^>]+src=(?:\"|\')\K(.[^">]+?)(?=\"|\')';
+        $regexp = '(<img[^>]+src=(?:\"|\')\K(.[^">]+?)(?=\"|\'))';
         $image_destination_path = CROSSROAD_PUBLIC_DIR . '/assets/' . $content->content_type;
 
         if( preg_match_all( "/$regexp/", $content->markdown_html, $matches, PREG_SET_ORDER ) ) {
+            //print_r( $matches ); die;
             foreach( $matches as $images ) {
                 $image_file = $images[ 0 ];
 
@@ -36,7 +37,25 @@ class ImagePlugin extends Plugin {
                 );
 
                 if ( $dest_url && $dest_url->is_local ) {
-                     $content->markdown_html = str_replace( $image_file, $dest_url->url, $content->markdown_html );
+                    $image_tag = $images[ 1 ];
+                    $new_image_tag = str_replace( $image_file, $dest_url->url, $image_tag );
+
+                    // now add srcset
+                    if ( $dest_url->has_responsive ) {
+                        $srcset = array();
+
+                        foreach( $dest_url->responsive_images as $image ) {
+                            $srcset[] = $image->url . ' ' . $image->width . 'w';
+                        }
+
+                        $srcset_text = implode( ',', $srcset );
+
+                        $new_image_tag = str_replace( '<img ', '<img loading="lazy" srcset="' . $srcset_text . '" ', $image_tag );
+                    }
+
+                     $content->markdown_html = str_replace( $image_tag, $new_image_tag, $content->markdown_html );
+
+                   // print_r( $matches ); die;
                 }
             }
         }
@@ -49,12 +68,6 @@ class ImagePlugin extends Plugin {
                 $content->publish_date,
                 $found_file
             );
-
-            if ( $found_file ) {
-                $image_info = getimagesize( $found_file );
-                $content->featured_image_width = $image_info[ 0 ];
-                $content->featured_image_height = $image_info[ 1 ];
-            }
         }
 
         return $content;
@@ -71,7 +84,7 @@ class ImagePlugin extends Plugin {
     }
 
     private function _convert_image( $source_image, $destination_image, $force_width = false, $format_conversion = false ) {
-        $souce_ext = pathinfo( $destination_image, PATHINFO_EXTENSION );
+        $source_ext = pathinfo( $source_image, PATHINFO_EXTENSION );
         $dest_ext = pathinfo( $destination_image, PATHINFO_EXTENSION );
 
         $image_data = false;
@@ -81,7 +94,7 @@ class ImagePlugin extends Plugin {
             return false;
         }
 
-        switch( $souce_ext ) {
+        switch( $source_ext ) {
             case 'jpg':
             case 'jpeg':
                 $image_data = imagecreatefromjpeg( $source_image );
@@ -148,11 +161,11 @@ class ImagePlugin extends Plugin {
         return false;
     }
 
-    private function _convert_or_copy_image( $source_image, $destination_image, $force_width = false, $format_conversion = false ) {
-        $image_ext = pathinfo( $destination_image, PATHINFO_EXTENSION );
+    private function _convert_or_copy_image( $source_image, $destination_image, $is_primary = true, $force_width = false, $format_conversion = false ) {
+        $image_ext = pathinfo( $source_image, PATHINFO_EXTENSION );
         if ( $format_conversion ) {
             // check to see if it's a jpg, otherwise disable conversion   
-            if ( $image_ext != 'jpeg' && $image_ext != 'jpg' ) {
+            if ( $image_ext != 'jpeg' && $image_ext != 'jpg' && $image_ext != 'png' ) {
                 $format_conversion = false;
             }
         }
@@ -171,8 +184,8 @@ class ImagePlugin extends Plugin {
 
         // skip if already done
         if ( file_exists( $destination_image ) ) {
-           // echo "....skipping image " . $destination_image . "\n";
-            return ( $force_width ? $this->_get_image_information( $destination_image, false  ) : $this->_get_image_information( $destination_image, true  ) );
+            //echo "....skipping image " . $destination_image . "\n";
+            return $this->_get_image_information( $destination_image, $is_primary  );
         }
 
         if ( $force_width || $format_conversion ) {
@@ -189,13 +202,15 @@ class ImagePlugin extends Plugin {
 
             $result = $this->_convert_image( $source_image, $destination_image, $force_width, $format_conversion );      
 
-            return ( $result ? $this->_get_image_information( $destination_image, false ) : $result );
+          //  echo "result " . ( $result ? '1' : '0' ) . "\n";
+
+            return ( $result ? $this->_get_image_information( $destination_image, $is_primary ) : $result );
         } else {
             // direct copy
             echo "..........copying image to [" . $destination_image . "]\n";
             Utils::copy_file( $source_image, $destination_image );
 
-            return $this->_get_image_information( $destination_image, true );
+            return $this->_get_image_information( $destination_image, $is_primary );
         }
     }
 
@@ -237,7 +252,8 @@ class ImagePlugin extends Plugin {
             }
 
             $image_info->type = pathinfo( $image_file, PATHINFO_EXTENSION );
-            $image_info->url = str_replace( CROSSROAD_PUBLIC_DIR, Utils::fix_path( $this->config[ 'site' ][ 'url'] ), $image_file );
+            $image_info->url = str_replace( CROSSROAD_PUBLIC_DIR, '', $image_file );
+            $image_info->public_url = str_replace( CROSSROAD_PUBLIC_DIR, Utils::fix_path( $this->config[ 'site' ][ 'url'] ), $image_file );
 
             if ( $include_resp ) {
                 $image_info->has_responsive = false;
@@ -263,22 +279,8 @@ class ImagePlugin extends Plugin {
         $new_location = false;
 
         foreach( $search_dirs as $search_dir ) {
-            $convert_to_webp = false;
-
             $original_image_file = $search_dir . $image_file;
-            $modified_image_file = $original_image_file;
-
-            $image_ext = pathinfo( $modified_image_file, PATHINFO_EXTENSION );
-
-            if ( ( $image_ext == 'jpg' || $image_ext == 'jpeg' ) && $this->convert_to_webp ) {
-                $convert_to_webp = true;
-                $modified_image_file = str_replace( '.' . $image_ext, '.webp', $modified_image_file );
-            } else {
-                $modified_image_file = $original_image_file;
-            }
-
-            $image_filename_only = pathinfo( $modified_image_file, PATHINFO_BASENAME );
-
+            $image_filename_only = pathinfo( $original_image_file, PATHINFO_BASENAME );
             $image_destination_path_with_date = $destination_path;
 
             echo "........checking image " . $current_path . '/' . $original_image_file . "\n";
@@ -289,23 +291,20 @@ class ImagePlugin extends Plugin {
                 $destination_file = CROSSROAD_PUBLIC_DIR . $image_destination_path_with_date . '/' . $image_filename_only;
                 $found_file = $current_path . '/' . $original_image_file;
 
-                $main_image = $this->_convert_or_copy_image( $found_file, $destination_file );
+                $main_image = $this->_convert_or_copy_image( $found_file, $destination_file, true, false, $this->convert_to_webp );
                 if ( $main_image && $this->generate_responsive ) {
-                    $image_320 = $this->_convert_or_copy_image( $found_file, $destination_file, 320 );
-                    $image_640 = $this->_convert_or_copy_image( $found_file, $destination_file, 640 );
-                    $image_960 = $this->_convert_or_copy_image( $found_file, $destination_file, 960 );
 
-                    if ( $image_320 ) {
-                        $main_image->responsive_images[ 320 ] = $image_320;
+                    $responsive_sizes = [ 320, 480, 640, 960, 1360, 1600 ];
+
+                    foreach( $responsive_sizes as $size ) {
+                         $image = $this->_convert_or_copy_image( $found_file, $destination_file, false, $size, $this->convert_to_webp );
+
+                         if ( $image ) {
+                            $main_image->responsive_images[ $size ] = $image;
+                         }
                     }
 
-                    if ( $image_640 ) {
-                        $main_image->responsive_images[ 640 ] = $image_640;
-                    }
-
-                    if ( $image_960 ) {
-                        $main_image->responsive_images[ 960 ] = $image_960;
-                    }     
+                    //print_r( $main_image );
 
                     $main_image->has_responsive = ( count( $main_image->responsive_images ) > 0 );
                     if ( $main_image->has_responsive ) {

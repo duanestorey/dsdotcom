@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link rel="stylesheet" href="/assets/lumen.css?v=26154ad9897ef2dfa0c569a895180cfc">
-        <script defer src="/assets/lumen.min.js?v=26154ad9897ef2dfa0c569a895180cfc"></script>
-        <title>How SSL Works</title>
-        <link rel="icon" type="image/x-icon" href="/assets/favicon.ico?v=26154ad9897ef2dfa0c569a895180cfc">
+        <link rel="stylesheet" href="/assets/lumen.css?v=58db42e81ee2013a23a476dd0cbbe88f">
+        <title>How SSL Works - The Duane Storey</title>
+        <link rel="icon" type="image/x-icon" href="/assets/favicon.ico?v=58db42e81ee2013a23a476dd0cbbe88f">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" media="print" onload="this.media='all'">
 
         <meta charset="utf-8">
         <meta name="generator" content="Crossroads 1.0">
@@ -16,11 +16,11 @@
 It&apos;s been a long time since I did a technology post, but I&apos;ve recently had security on my mind and thought I would give">
         <meta name="og:description" content="
 It&apos;s been a long time since I did a technology post, but I&apos;ve recently had security on my mind and thought I would give">
-        <meta property="og:title" content="How SSL Works">
+        <meta property="og:title" content="How SSL Works - The Duane Storey">
         <meta property="og:url" content="https://duanestorey.com/posts/how-ssl-works.html">
         <meta property="og:type" content="article">
         <meta name="twitter:card" content="summary_large_image">   
-        <meta name="twitter:title" content="How SSL Works">
+        <meta name="twitter:title" content="How SSL Works - The Duane Storey">
         <meta name="twitter:description" content="
 It&apos;s been a long time since I did a technology post, but I&apos;ve recently had security on my mind and thought I would give">
         <meta name="twitter:creator" content="@duanestorey">
@@ -41,9 +41,29 @@ It&apos;s been a long time since I did a technology post, but I&apos;ve recently
                     <div class="navbar-nav">
                         <a class="nav-item nav-link" href="/">Home</a>
                         <a class="nav-item nav-link" href="/pages/hiking.html">Hiking</a>
+                        <a class="nav-item nav-link" href="/pages/building-a-custom-hi-fi-5-1-amplifier-with-dts-dolby-decoding.html">Hi-Fi Amp</a>
+                        <a class="nav-item nav-link" href="/pages/curriculum-vitae.html">CV</a>
                         <a class="nav-item nav-link" href="/pages/about.html">About</a>
                         <a class="nav-item nav-link" href="/pages/contact.html">Contact</a>
                     </div>
+
+                    <ul class="navbar-nav d-flex flex-row">
+                        <li class="nav-item me-3 me-lg-0">
+                            <a class="nav-link" rel="nofollow" href="https://x.com/duanestorey" aria-label="Twitter">
+                                <i class="fa-brands fa-x-twitter text-white"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item me-3 me-lg-0">
+                            <a class="nav-link" rel="nofollow" href="https://instagram.com/duanestorey" aria-label="Instagram">
+                                <i class="fa-brands fa-instagram text-white"></i>
+                            </a>
+                        </li>
+                            <li class="nav-item me-3 me-lg-0">
+                            <a class="nav-link" rel="nofollow" href="https://bsky.app/profile/duanestorey.com" aria-label="Bluesky">
+                                <i class="fa-brands fa-bluesky text-white"></i>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>
@@ -53,15 +73,16 @@ It&apos;s been a long time since I did a technology post, but I&apos;ve recently
         <article>    
             <h1 class="mt-4">How SSL Works</h1>
             <div class="meta mb-2 text-primary fs-6 fw-light">
-                 Published on February 11th, 2011
+                 Published on <time>February 11th, 2011</time>
             </div>
 
             <div class="content mt-3">
                     <div class="mt-4 mb-4">
                         <picture>
-                                <source media="(max-width: 319px)" srcset="https://duanestorey.com/assets/posts/2011/openLock-320w.png">
-                                <source media="(min-width: 320px)" srcset="https://duanestorey.com/assets/posts/2011/openLock.png">
-                            <img src="https://duanestorey.com/assets/posts/2011/openLock.png" width="600" height="514" alt="Featured Image" class="img-fluid">
+                                <source media="(max-width: 320px)" srcset="/assets/posts/2011/openLock-320w.png">
+                                <source media="(max-width: 480px)" srcset="/assets/posts/2011/openLock-480w.png">
+                                <source media="(min-width: 481px)" srcset="/assets/posts/2011/openLock.png">
+                            <img src="/assets/posts/2011/openLock.png" width="600" height="514" alt="Featured Image" class="img-fluid">
                         </picture>
                     </div>
                 <p><a href="http://www.migratorynerd.com/wordpress/wp-content/uploads/2011/02/openLock.png"><img src="images/openLock-300x257.png" alt="" title="openLock"></a></p>
@@ -69,7 +90,7 @@ It&apos;s been a long time since I did a technology post, but I&apos;ve recently
 <p>First, you need to understand the two different types of encryption.</p>
 <h3>Symmetric Encryption</h3>
 <p>Symmetric encryption is any encryption that involves one key and can be decoded in exactly the same manner that it was encoded. In fact, often decoding a message is simply the result of encoding an already encoded message, which produces the original plain text.</p>
-<p>For example, one could simply replace the letter "e" with the letter "i" in a document (and vice versa) and send it to a friend. Obviously it's a pretty crappy form of encryption, but the result would be symmetric. If your friend applied the same algorithm when he or she received the message, the original plain text would be decoded and they could read the message.</p>
+<p>For example, one could simply replace the letter &quot;e&quot; with the letter &quot;i&quot; in a document (and vice versa) and send it to a friend. Obviously it's a pretty crappy form of encryption, but the result would be symmetric. If your friend applied the same algorithm when he or she received the message, the original plain text would be decoded and they could read the message.</p>
 <p>Symmetric encryption is extremely fast, but it requires both parties have access to the encryption key (often a passphrase) before hand. If it's a shared secret, then it works well. But if someone needs to get that key to a friend, then the question becomes how does one get an encryption passphrase to someone else without compromising the original message? More on this in a sec.</p>
 <h3>Asymmetric Encryption - Also Known As Private/Public Key</h3>
 <p>Asymmetric Encryption involves mathematical algorithms that are easy to compute in the forward direction, but nearly impossible to compute in the reverse direction. As a result, they are nearly impossible to crack using computers, not unless you have huge mainframes at your disposal. The entire security infrastructure of most governments are based on these encryption algorithms, some of which are called DES, NSA, RSA, etc.</p>
@@ -114,15 +135,7 @@ It&apos;s been a long time since I did a technology post, but I&apos;ve recently
                 All content copyright &copy; 2024<br>Content generated using Crossroads static generator
             </div>
 
-            <!-- Google tag (gtag.js) -->
-            <script defer src="https://www.googletagmanager.com/gtag/js?id=G-9YTETF9LXH"></script>
-            <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){ dataLayer.push(arguments); }
-            gtag('js', new Date());
-
-            gtag('config', 'G-9YTETF9LXH');
-            </script>
+            <script defer src="/assets/lumen.min.js?v=58db42e81ee2013a23a476dd0cbbe88f"></script>
         </footer>   
     </body>
 </html>

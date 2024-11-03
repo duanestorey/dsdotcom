@@ -45,7 +45,7 @@ article {
     background-image: linear-gradient( 
         rgba(0,0,0,0.4),
         rgba(0,0,0,0.4) ), 
-        url( '/assets/final-road-opt.jpg' );
+        url( '/assets/final-road-opt.avif' );
     background-size: cover;
     background-position: bottom center;
     min-height: 550px;
@@ -83,8 +83,16 @@ article {
     opacity: 0.9;
 }
 
+footer {
+    font-weight: 100;
+}
+
 @media (max-width: 576px) { 
     .things-about-me .col-sm em {
         min-height: inherit;
+    }
+
+    .jumbotron h1 {
+        padding-top: 20px;
     }
 }

@@ -8,6 +8,7 @@ class Renderer {
     var $plugin_manager = false;
     var $menu = false;
     var $theme = false;
+    var $start_time = false;
     
     public function __construct( $config, $template_engine, $plugin_manager, $menu, $theme ) {
         $this->config = $config;
@@ -15,6 +16,8 @@ class Renderer {
         $this->plugin_manager = $plugin_manager;
         $this->menu = $menu;
         $this->theme = $theme;
+
+        $this->start_time = time();
     }
 
     public function render_single_page( $entry, $template_files ) {
@@ -76,7 +79,9 @@ class Renderer {
                 $body_class_array = ( $is_home ? [ 'home' ] : [] );
 
                 $params = $this->_get_default_render_params($content_type, $pagination->cur_page_link, $body_class_array );
-                $params->page->title = $this->config[ 'site' ][ 'description' ];
+                
+                $params->page->title = $this->config[ 'site' ][ 'title' ];
+                $params->page->description = $this->config[ 'site' ][ 'description' ];
                 $params->content = array_slice( $entries, ( $pagination->current_page - 1 ) * $content_per_page, $content_per_page );
 
                 $params->is_home = $is_home;
@@ -128,12 +133,14 @@ class Renderer {
 
         $params->page = new \stdClass;
         $params->page->asset_url = '/assets';
-        $params->page->asset_hash = $this->theme->get_asset_hash();
+        $params->page->asset_hash = $this->theme->getAssetHash();
         $params->page->body_classes_raw = array_merge( [ $content_type ], $extra_body_classes );
         $params->page->body_classses = implode( ' ', $params->page->body_classes_raw );    
 
         $params->is_single = false;
         $params->is_home = false;
+
+        $params->render_time = $this->start_time;
 
         return $params;
     }    

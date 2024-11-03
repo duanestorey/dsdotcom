@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link rel="stylesheet" href="/assets/lumen.css?v=26154ad9897ef2dfa0c569a895180cfc">
-        <script defer src="/assets/lumen.min.js?v=26154ad9897ef2dfa0c569a895180cfc"></script>
-        <title>How To Make A Better Wordpress - Entry #1: Sitemaps</title>
-        <link rel="icon" type="image/x-icon" href="/assets/favicon.ico?v=26154ad9897ef2dfa0c569a895180cfc">
+        <link rel="stylesheet" href="/assets/lumen.css?v=58db42e81ee2013a23a476dd0cbbe88f">
+        <title>How To Make A Better Wordpress - Entry #1: Sitemaps - The Duane Storey</title>
+        <link rel="icon" type="image/x-icon" href="/assets/favicon.ico?v=58db42e81ee2013a23a476dd0cbbe88f">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" media="print" onload="this.media='all'">
 
         <meta charset="utf-8">
         <meta name="generator" content="Crossroads 1.0">
@@ -14,11 +14,11 @@
 
         <meta name="description" content="I&apos;ve decided to do a multipart series on how to take your Wordpress installation to the next level. Most people seem to">
         <meta name="og:description" content="I&apos;ve decided to do a multipart series on how to take your Wordpress installation to the next level. Most people seem to">
-        <meta property="og:title" content="How To Make A Better Wordpress - Entry #1: Sitemaps">
+        <meta property="og:title" content="How To Make A Better Wordpress - Entry #1: Sitemaps - The Duane Storey">
         <meta property="og:url" content="https://duanestorey.com/posts/how-to-make-a-better-wordpress-sitemaps.html">
         <meta property="og:type" content="article">
         <meta name="twitter:card" content="summary_large_image">   
-        <meta name="twitter:title" content="How To Make A Better Wordpress - Entry #1: Sitemaps">
+        <meta name="twitter:title" content="How To Make A Better Wordpress - Entry #1: Sitemaps - The Duane Storey">
         <meta name="twitter:description" content="I&apos;ve decided to do a multipart series on how to take your Wordpress installation to the next level. Most people seem to">
         <meta name="twitter:creator" content="@duanestorey">
 
@@ -34,9 +34,29 @@
                     <div class="navbar-nav">
                         <a class="nav-item nav-link" href="/">Home</a>
                         <a class="nav-item nav-link" href="/pages/hiking.html">Hiking</a>
+                        <a class="nav-item nav-link" href="/pages/building-a-custom-hi-fi-5-1-amplifier-with-dts-dolby-decoding.html">Hi-Fi Amp</a>
+                        <a class="nav-item nav-link" href="/pages/curriculum-vitae.html">CV</a>
                         <a class="nav-item nav-link" href="/pages/about.html">About</a>
                         <a class="nav-item nav-link" href="/pages/contact.html">Contact</a>
                     </div>
+
+                    <ul class="navbar-nav d-flex flex-row">
+                        <li class="nav-item me-3 me-lg-0">
+                            <a class="nav-link" rel="nofollow" href="https://x.com/duanestorey" aria-label="Twitter">
+                                <i class="fa-brands fa-x-twitter text-white"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item me-3 me-lg-0">
+                            <a class="nav-link" rel="nofollow" href="https://instagram.com/duanestorey" aria-label="Instagram">
+                                <i class="fa-brands fa-instagram text-white"></i>
+                            </a>
+                        </li>
+                            <li class="nav-item me-3 me-lg-0">
+                            <a class="nav-link" rel="nofollow" href="https://bsky.app/profile/duanestorey.com" aria-label="Bluesky">
+                                <i class="fa-brands fa-bluesky text-white"></i>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>
@@ -46,14 +66,14 @@
         <article>    
             <h1 class="mt-4">How To Make A Better Wordpress - Entry #1: Sitemaps</h1>
             <div class="meta mb-2 text-primary fs-6 fw-light">
-                 Published on February 11th, 2008
+                 Published on <time>February 11th, 2008</time>
             </div>
 
             <div class="content mt-3">
                 <p>I've decided to do a multipart series on how to take your Wordpress installation to the next level. Most people seem to have an out-of-the-box Wordpress installation, and I think they are really missing out on a few things that can really improve the quality of their blog.</p>
-<p>The first topic I'd like to cover is search engines. Most of you know how a search engine works, but for those who don't, here's a really quick primer. Search engines employ little agents called "Bots" that basically roam around the internet taking snapshots of the content. Google's little guy is called "GoogleBot", and identifies itself by a unique User-Agent header in all HTTP requests (if you have some kind of data analytics program, you might see GoogleBot show up from time to time).</p>
+<p>The first topic I'd like to cover is search engines. Most of you know how a search engine works, but for those who don't, here's a really quick primer. Search engines employ little agents called &quot;Bots&quot; that basically roam around the internet taking snapshots of the content. Google's little guy is called &quot;GoogleBot&quot;, and identifies itself by a unique User-Agent header in all HTTP requests (if you have some kind of data analytics program, you might see GoogleBot show up from time to time).</p>
 <p>Whenever a search engine encounters a hyperlink, it checks to see if it's in its database, and if not, adds to a queue of future web crawls. If you set up a new blog, you can either wait patiently for someone else to link to it (which will cause the Bot to eventually get to it), or you can manually submit it (usually there's a manual way for most big search engines).</p>
-<p>The problem with this method is that unless your site gets indexed very quickly, chances are the Bot may miss some of your content from time to time. So if you write a new blog entry one day, it may be on page 2 or 3 of your blog before each Bot actually visits your site. Since most search engines only do "deep" crawls (these are crawls that actually go deep within your tags and archive pages, as opposed to shallow ones that the Bots do every few days usually) every month or so, that entry may not get indexed at all until then (or ever if it ends up being too deep).</p>
+<p>The problem with this method is that unless your site gets indexed very quickly, chances are the Bot may miss some of your content from time to time. So if you write a new blog entry one day, it may be on page 2 or 3 of your blog before each Bot actually visits your site. Since most search engines only do &quot;deep&quot; crawls (these are crawls that actually go deep within your tags and archive pages, as opposed to shallow ones that the Bots do every few days usually) every month or so, that entry may not get indexed at all until then (or ever if it ends up being too deep).</p>
 <p>So while most people are content to wait around and let each Bot eventually figure out the layout of your website, there's a more pro-active approach that you can take. That my friends, is a Sitemap.</p>
 <p>Most search engines look for a sitemap on your website that tells the Bot which URLs to crawl. In the site map is a list of pages, and a hint for how often the Bot should travel your website. By creating a sitemap, you basically instruct the Bots which URLs to travel and the frequency they should travel your website. One advantage to this is that entries that have no links pointing to them (or the links are deep within your website) may actually still get indexed.</p>
 <p>If you want to see what a sample sitemap looks like, you can check out the one for my site by clicking here: <a href="http://www.migratorynerd.com/sitemap.xml">sitemap</a>.</p>
@@ -84,15 +104,7 @@
                 All content copyright &copy; 2024<br>Content generated using Crossroads static generator
             </div>
 
-            <!-- Google tag (gtag.js) -->
-            <script defer src="https://www.googletagmanager.com/gtag/js?id=G-9YTETF9LXH"></script>
-            <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){ dataLayer.push(arguments); }
-            gtag('js', new Date());
-
-            gtag('config', 'G-9YTETF9LXH');
-            </script>
+            <script defer src="/assets/lumen.min.js?v=58db42e81ee2013a23a476dd0cbbe88f"></script>
         </footer>   
     </body>
 </html>

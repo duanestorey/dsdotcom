@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link rel="stylesheet" href="/assets/lumen.css?v=26154ad9897ef2dfa0c569a895180cfc">
-        <script defer src="/assets/lumen.min.js?v=26154ad9897ef2dfa0c569a895180cfc"></script>
+        <link rel="stylesheet" href="/assets/lumen.css?v=58db42e81ee2013a23a476dd0cbbe88f">
         <title>The home of engineer and world traveller, Duane Storey</title>
-        <link rel="icon" type="image/x-icon" href="/assets/favicon.ico?v=26154ad9897ef2dfa0c569a895180cfc">
+        <link rel="icon" type="image/x-icon" href="/assets/favicon.ico?v=58db42e81ee2013a23a476dd0cbbe88f">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" media="print" onload="this.media='all'">
 
         <meta charset="utf-8">
         <meta name="generator" content="Crossroads 1.0">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <meta name="description" content="The Duane Storey - the personal website and blog of engineer and world traveler, Duane Storey">
+        <meta name="og:description" content="The Duane Storey - the personal website and blog of engineer and world traveler, Duane Storey">
     </head>
     <body class="posts">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -22,9 +24,29 @@
                     <div class="navbar-nav">
                         <a class="nav-item nav-link" href="/">Home</a>
                         <a class="nav-item nav-link" href="/pages/hiking.html">Hiking</a>
+                        <a class="nav-item nav-link" href="/pages/building-a-custom-hi-fi-5-1-amplifier-with-dts-dolby-decoding.html">Hi-Fi Amp</a>
+                        <a class="nav-item nav-link" href="/pages/curriculum-vitae.html">CV</a>
                         <a class="nav-item nav-link" href="/pages/about.html">About</a>
                         <a class="nav-item nav-link" href="/pages/contact.html">Contact</a>
                     </div>
+
+                    <ul class="navbar-nav d-flex flex-row">
+                        <li class="nav-item me-3 me-lg-0">
+                            <a class="nav-link" rel="nofollow" href="https://x.com/duanestorey" aria-label="Twitter">
+                                <i class="fa-brands fa-x-twitter text-white"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item me-3 me-lg-0">
+                            <a class="nav-link" rel="nofollow" href="https://instagram.com/duanestorey" aria-label="Instagram">
+                                <i class="fa-brands fa-instagram text-white"></i>
+                            </a>
+                        </li>
+                            <li class="nav-item me-3 me-lg-0">
+                            <a class="nav-link" rel="nofollow" href="https://bsky.app/profile/duanestorey.com" aria-label="Bluesky">
+                                <i class="fa-brands fa-bluesky text-white"></i>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>
@@ -33,8 +55,24 @@
 
         <div class="container mt-4">
             <article class="mt-4 mb-4">    
+                <a href="/posts/centos-repositories.html" class="link-dark"><h2 class="mt-4">Centos Repositories</h2></a>
+                <div class="meta mb-2 text-primary fs-6 fw-light">Published on <time>April 26th, 2008</time></div>
+
+                <div class="content mt-3">
+                    I set up a Linux box at home a while ago, mainly so that I'd have a stable place to run my blog. To that end, I installed Centos on it, which is an enterprise grade version of Linux (many hosting companies use it).
+The one downside to using Centos is that most of the packages in the repositories are rather old (although they are usually stable). So if you want to stay on the cutting edge, it's fairly hard using this distribution.
+While trying to install PHP 5.2 tonight, I stumbled upon a a really great up-to-date Centos repository. Thankfully it has prebuilt PHP and MYSQL versions. ...
+                </div>
+
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <a href="https://duanestorey.com/posts/centos-repositories.html" class="btn btn-primary mt-4" title="Centos Repositories" aria-label="Read More 'Centos Repositories'">Read More</a>
+                </div>
+
+                <div class="clearfix"></div>
+            </article>
+            <article class="mt-4 mb-4">    
                 <a href="/posts/not-a-very-good-job.html" class="link-dark"><h2 class="mt-4">Not A Very Good Job</h2></a>
-                <div class="meta mb-2 text-primary fs-6 fw-light">Published on April 26th, 2008</div>
+                <div class="meta mb-2 text-primary fs-6 fw-light">Published on <time>April 26th, 2008</time></div>
 
                 <div class="content mt-3">
                      From Wikipedia
@@ -42,43 +80,43 @@
                 </div>
 
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <a href="https://duanestorey.com/posts/not-a-very-good-job.html" class="btn btn-primary mt-4">Read More</a>
+                    <a href="https://duanestorey.com/posts/not-a-very-good-job.html" class="btn btn-primary mt-4" title="Not A Very Good Job" aria-label="Read More 'Not A Very Good Job'">Read More</a>
                 </div>
 
                 <div class="clearfix"></div>
             </article>
             <article class="mt-4 mb-4">    
                 <a href="/posts/new-wordpress.html" class="link-dark"><h2 class="mt-4">New Wordpress</h2></a>
-                <div class="meta mb-2 text-primary fs-6 fw-light">Published on April 25th, 2008</div>
+                <div class="meta mb-2 text-primary fs-6 fw-light">Published on <time>April 25th, 2008</time></div>
 
                 <div class="content mt-3">
                     Wordpress 2.5.1 came out today. Wordpress 2.5 was actually a bit buggy (IMO), so I'm happy to incorporate this new release. I was for some reason still running a 2.6 beta version, and now I'm officially back on the stable line. If you're a Wordpress user, you might want to download it and install it -- apparently it has a few rather important security releases. ...
                 </div>
 
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <a href="https://duanestorey.com/posts/new-wordpress.html" class="btn btn-primary mt-4">Read More</a>
+                    <a href="https://duanestorey.com/posts/new-wordpress.html" class="btn btn-primary mt-4" title="New Wordpress" aria-label="Read More 'New Wordpress'">Read More</a>
                 </div>
 
                 <div class="clearfix"></div>
             </article>
             <article class="mt-4 mb-4">    
                 <a href="/posts/feedburner-messing-up.html" class="link-dark"><h2 class="mt-4">Feedburner Messing Up</h2></a>
-                <div class="meta mb-2 text-primary fs-6 fw-light">Published on April 24th, 2008</div>
+                <div class="meta mb-2 text-primary fs-6 fw-light">Published on <time>April 24th, 2008</time></div>
 
                 <div class="content mt-3">
-                    I accidentally stumbled onto my own feed in Google reader today and noticed some photos I actually didn't take. For whatever reasons, it seems like feed burner is not filtering the content based on my user account at Flickr, but instead is including public photos tagged "feedburner", something it never used to do.
-I checked my settings, and it's definitely setup to only include photos from my stream, so the problem seems to be on their end. I tried finding a contact email on their site, but all they do is push you to the support forums (I hate this practice by companies nowadays -- support your ...
+                    I accidentally stumbled onto my own feed in Google reader today and noticed some photos I actually didn't take. For whatever reasons, it seems like feed burner is not filtering the content based on my user account at Flickr, but instead is including public photos tagged &quot;feedburner&quot;, something it never used to do.
+I checked my settings, and it's definitely setup to only include photos from my stream, so the problem seems to be on their end. I tried finding a contact email on their site, but all they do is push you to the support forums (I hate this practice by companies nowadays -- support ...
                 </div>
 
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <a href="https://duanestorey.com/posts/feedburner-messing-up.html" class="btn btn-primary mt-4">Read More</a>
+                    <a href="https://duanestorey.com/posts/feedburner-messing-up.html" class="btn btn-primary mt-4" title="Feedburner Messing Up" aria-label="Read More 'Feedburner Messing Up'">Read More</a>
                 </div>
 
                 <div class="clearfix"></div>
             </article>
             <article class="mt-4 mb-4">    
                 <a href="/posts/a-medical-update.html" class="link-dark"><h2 class="mt-4">A Medical Update</h2></a>
-                <div class="meta mb-2 text-primary fs-6 fw-light">Published on April 24th, 2008</div>
+                <div class="meta mb-2 text-primary fs-6 fw-light">Published on <time>April 24th, 2008</time></div>
 
                 <div class="content mt-3">
                     After originally being denied access to see the specialist, St. Paul's contacted me the other day and said they could fit me in this morning. So I went down to the hospital and went over my last test results and had a chance to talk to the doctor.
@@ -86,28 +124,28 @@ The good news is that my test came back c. diff negative, and although that's no
                 </div>
 
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <a href="https://duanestorey.com/posts/a-medical-update.html" class="btn btn-primary mt-4">Read More</a>
+                    <a href="https://duanestorey.com/posts/a-medical-update.html" class="btn btn-primary mt-4" title="A Medical Update" aria-label="Read More 'A Medical Update'">Read More</a>
                 </div>
 
                 <div class="clearfix"></div>
             </article>
             <article class="mt-4 mb-4">    
                 <a href="/posts/juno-awards-after-party.html" class="link-dark"><h2 class="mt-4">Juno Awards After Party</h2></a>
-                <div class="meta mb-2 text-primary fs-6 fw-light">Published on April 23rd, 2008</div>
+                <div class="meta mb-2 text-primary fs-6 fw-light">Published on <time>April 23rd, 2008</time></div>
 
                 <div class="content mt-3">
                     I found a bunch more videos from the Junos. After the Gala on the Saturday night, a few of us headed to some after party. Here's a shot from the Jam Room upstairs in the VIP room. ...
                 </div>
 
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <a href="https://duanestorey.com/posts/juno-awards-after-party.html" class="btn btn-primary mt-4">Read More</a>
+                    <a href="https://duanestorey.com/posts/juno-awards-after-party.html" class="btn btn-primary mt-4" title="Juno Awards After Party" aria-label="Read More 'Juno Awards After Party'">Read More</a>
                 </div>
 
                 <div class="clearfix"></div>
             </article>
             <article class="mt-4 mb-4">    
                 <a href="/posts/score-a-big-zero-for-canadian-medical.html" class="link-dark"><h2 class="mt-4">Score A Big Zero For Canadian Medical</h2></a>
-                <div class="meta mb-2 text-primary fs-6 fw-light">Published on April 21st, 2008</div>
+                <div class="meta mb-2 text-primary fs-6 fw-light">Published on <time>April 21st, 2008</time></div>
 
                 <div class="content mt-3">
                     Here comes another rant:
@@ -115,14 +153,14 @@ As most of you know, back in November I was in the hospital with pneumonia. Whil
                 </div>
 
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <a href="https://duanestorey.com/posts/score-a-big-zero-for-canadian-medical.html" class="btn btn-primary mt-4">Read More</a>
+                    <a href="https://duanestorey.com/posts/score-a-big-zero-for-canadian-medical.html" class="btn btn-primary mt-4" title="Score A Big Zero For Canadian Medical" aria-label="Read More 'Score A Big Zero For Canadian Medical'">Read More</a>
                 </div>
 
                 <div class="clearfix"></div>
             </article>
             <article class="mt-4 mb-4">    
                 <a href="/posts/the-case-of-the-disappearing-hard-drive.html" class="link-dark"><h2 class="mt-4">The Case Of The Disappearing Hard Drive</h2></a>
-                <div class="meta mb-2 text-primary fs-6 fw-light">Published on April 20th, 2008</div>
+                <div class="meta mb-2 text-primary fs-6 fw-light">Published on <time>April 20th, 2008</time></div>
 
                 <div class="content mt-3">
                     Ever since I upgraded to Leopard a few months ago, I've been plagued with disk space issues on my Macbook Pro. Normally, when shooting photographs, you use your hard drive as permanent storage and your compact flash cards as temporary storage. I had so little space on my hard drive during the Junos though that I was forced to reverse the two, and was literally using extra CF cards to make up the hard drive difference.
@@ -130,14 +168,14 @@ Today I sat down to see if I could figure out where it all went. The key applica
                 </div>
 
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <a href="https://duanestorey.com/posts/the-case-of-the-disappearing-hard-drive.html" class="btn btn-primary mt-4">Read More</a>
+                    <a href="https://duanestorey.com/posts/the-case-of-the-disappearing-hard-drive.html" class="btn btn-primary mt-4" title="The Case Of The Disappearing Hard Drive" aria-label="Read More 'The Case Of The Disappearing Hard Drive'">Read More</a>
                 </div>
 
                 <div class="clearfix"></div>
             </article>
             <article class="mt-4 mb-4">    
                 <a href="/posts/waking-up-at-noon.html" class="link-dark"><h2 class="mt-4">Waking Up At Noon</h2></a>
-                <div class="meta mb-2 text-primary fs-6 fw-light">Published on April 20th, 2008</div>
+                <div class="meta mb-2 text-primary fs-6 fw-light">Published on <time>April 20th, 2008</time></div>
 
                 <div class="content mt-3">
                     Yes, today I briefly debated getting out of my bed at around nine, but decided sleeping in until noon was a better idea. I've had this recurring dream for the last few years that always feels so real. In it, someone (usually my friend Jeff) tells me about some university exam that I'm late for. Of course, everyone is completely prepared for the exam except for me. So I get to the exam and struggle for a good portion of my dream trying to come up with answers I don't have.
@@ -145,14 +183,14 @@ For whatever reason, that one always seems real to me. When I wake up, I sometim
                 </div>
 
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <a href="https://duanestorey.com/posts/waking-up-at-noon.html" class="btn btn-primary mt-4">Read More</a>
+                    <a href="https://duanestorey.com/posts/waking-up-at-noon.html" class="btn btn-primary mt-4" title="Waking Up At Noon" aria-label="Read More 'Waking Up At Noon'">Read More</a>
                 </div>
 
                 <div class="clearfix"></div>
             </article>
             <article class="mt-4 mb-4">    
                 <a href="/posts/vancouver-fashion-week-opening-gala.html" class="link-dark"><h2 class="mt-4">Vancouver Fashion Week Opening Gala</h2></a>
-                <div class="meta mb-2 text-primary fs-6 fw-light">Published on April 20th, 2008</div>
+                <div class="meta mb-2 text-primary fs-6 fw-light">Published on <time>April 20th, 2008</time></div>
 
                 <div class="content mt-3">
                     This was on Thursday night. Good times.
@@ -160,14 +198,14 @@ For whatever reason, that one always seems real to me. When I wake up, I sometim
                 </div>
 
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <a href="https://duanestorey.com/posts/vancouver-fashion-week-opening-gala.html" class="btn btn-primary mt-4">Read More</a>
+                    <a href="https://duanestorey.com/posts/vancouver-fashion-week-opening-gala.html" class="btn btn-primary mt-4" title="Vancouver Fashion Week Opening Gala" aria-label="Read More 'Vancouver Fashion Week Opening Gala'">Read More</a>
                 </div>
 
                 <div class="clearfix"></div>
             </article>
             <article class="mt-4 mb-4">    
                 <a href="/posts/another-friday.html" class="link-dark"><h2 class="mt-4">Another Friday</h2></a>
-                <div class="meta mb-2 text-primary fs-6 fw-light">Published on April 18th, 2008</div>
+                <div class="meta mb-2 text-primary fs-6 fw-light">Published on <time>April 18th, 2008</time></div>
 
                 <div class="content mt-3">
                     I've been taking it fairly easy this week, spending a lot of time at home (when not at work) resting up. I've been on anti-biotics for a few days now, and while my bronchitis is subsiding, my stomach has been bothering me. Not sure if that's related to the infection I acquired last fall, or if it's just the anti-biotics upsetting my stomach -- I guess I'll know for sure when I stop taking them.
@@ -175,14 +213,14 @@ There are a few things going on this weekend, but to be honest, I think I'm goin
                 </div>
 
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <a href="https://duanestorey.com/posts/another-friday.html" class="btn btn-primary mt-4">Read More</a>
+                    <a href="https://duanestorey.com/posts/another-friday.html" class="btn btn-primary mt-4" title="Another Friday" aria-label="Read More 'Another Friday'">Read More</a>
                 </div>
 
                 <div class="clearfix"></div>
             </article>
             <article class="mt-4 mb-4">    
                 <a href="/posts/catch-the-vibe.html" class="link-dark"><h2 class="mt-4">Catch The Vibe</h2></a>
-                <div class="meta mb-2 text-primary fs-6 fw-light">Published on April 16th, 2008</div>
+                <div class="meta mb-2 text-primary fs-6 fw-light">Published on <time>April 16th, 2008</time></div>
 
                 <div class="content mt-3">
                     Last week both Rebecca and I got contacted by General Motors asking if we wanted to take part in GM's Catch The Vibe event. It's basically a huge multi-day adventure race, where we would have, as teams of four, gotten to test drive the new 2009 Vibe, live-blog using new Blackberry's, and drive all over the city looking for clues and what-not. Included with the festivities was a free night at the Opus Hotel in Yaletown.
@@ -191,14 +229,14 @@ Unfortunately both her and I have day-jobs, and we just couldn't manage the time
                 </div>
 
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <a href="https://duanestorey.com/posts/catch-the-vibe.html" class="btn btn-primary mt-4">Read More</a>
+                    <a href="https://duanestorey.com/posts/catch-the-vibe.html" class="btn btn-primary mt-4" title="Catch The Vibe" aria-label="Read More 'Catch The Vibe'">Read More</a>
                 </div>
 
                 <div class="clearfix"></div>
             </article>
             <article class="mt-4 mb-4">    
                 <a href="/posts/vancouver-fashion-week-april-2008.html" class="link-dark"><h2 class="mt-4">Vancouver Fashion Week, April 2008</h2></a>
-                <div class="meta mb-2 text-primary fs-6 fw-light">Published on April 16th, 2008</div>
+                <div class="meta mb-2 text-primary fs-6 fw-light">Published on <time>April 16th, 2008</time></div>
 
                 <div class="content mt-3">
                     Tomorrow marks the first event for the Vancouver Fashion Week, 2008 Spring Edition. I had a media pass last year and spent a few evenings taking photos. If I remember correctly, the only downside to the event (in my opinion) was that I thought most of the models lacked enthusiasm. I also remember wishing I had brought a flash to the opening event, so if anyone is going, I'd recommend bringing one.
@@ -207,14 +245,14 @@ While I love photography, it's fairly dull sitting at the end of a runway for an
                 </div>
 
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <a href="https://duanestorey.com/posts/vancouver-fashion-week-april-2008.html" class="btn btn-primary mt-4">Read More</a>
+                    <a href="https://duanestorey.com/posts/vancouver-fashion-week-april-2008.html" class="btn btn-primary mt-4" title="Vancouver Fashion Week, April 2008" aria-label="Read More 'Vancouver Fashion Week, April 2008'">Read More</a>
                 </div>
 
                 <div class="clearfix"></div>
             </article>
             <article class="mt-4 mb-4">    
                 <a href="/posts/17-days.html" class="link-dark"><h2 class="mt-4">17 Days</h2></a>
-                <div class="meta mb-2 text-primary fs-6 fw-light">Published on April 16th, 2008</div>
+                <div class="meta mb-2 text-primary fs-6 fw-light">Published on <time>April 16th, 2008</time></div>
 
                 <div class="content mt-3">
                     For those of you who actually come to my site from time to time, you'll have undoubtedly noticed my little counter in the right corner of the sidebar. What that tracks is how long my website has been active in the corner of my living room. If you're on a paid hosting account, fire me off an email whenever your server goes down so I can keep track against how mine's doing. So far I'm at 17 days straight without any downtime.
@@ -222,14 +260,14 @@ If you check out Media Temple's status blog, you can see that they've had 50 min
                 </div>
 
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <a href="https://duanestorey.com/posts/17-days.html" class="btn btn-primary mt-4">Read More</a>
+                    <a href="https://duanestorey.com/posts/17-days.html" class="btn btn-primary mt-4" title="17 Days" aria-label="Read More '17 Days'">Read More</a>
                 </div>
 
                 <div class="clearfix"></div>
             </article>
             <article class="mt-4 mb-4">    
                 <a href="/posts/congrats-to-strutta.html" class="link-dark"><h2 class="mt-4">Congrats To Strutta</h2></a>
-                <div class="meta mb-2 text-primary fs-6 fw-light">Published on April 16th, 2008</div>
+                <div class="meta mb-2 text-primary fs-6 fw-light">Published on <time>April 16th, 2008</time></div>
 
                 <div class="content mt-3">
                     Today marked the launch of Strutta, a local company that has been working hard to create a unique gaming experience. I had the opportunity to check out their product about six weeks ago and play with an early alpha. I think these guys have some great things in store for them, so make sure you head on over and check them out.
@@ -237,14 +275,14 @@ So on behalf of everyone here at duanestorey.com (yah I know, it's only me), I w
                 </div>
 
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <a href="https://duanestorey.com/posts/congrats-to-strutta.html" class="btn btn-primary mt-4">Read More</a>
+                    <a href="https://duanestorey.com/posts/congrats-to-strutta.html" class="btn btn-primary mt-4" title="Congrats To Strutta" aria-label="Read More 'Congrats To Strutta'">Read More</a>
                 </div>
 
                 <div class="clearfix"></div>
             </article>
             <article class="mt-4 mb-4">    
                 <a href="/posts/waves-coffee-in-yaletown.html" class="link-dark"><h2 class="mt-4">Waves Coffee In Yaletown</h2></a>
-                <div class="meta mb-2 text-primary fs-6 fw-light">Published on April 16th, 2008</div>
+                <div class="meta mb-2 text-primary fs-6 fw-light">Published on <time>April 16th, 2008</time></div>
 
                 <div class="content mt-3">
                     A few days ago I started getting a soreness in my throat and lungs that has since progressed into what I figured was bronchitis. I hit the medical clinic in Yaletown tonight and got a full check-up, and sure enough, it's what I thought it was. They've prescribed Zithromax, which should hopefully have me feeling a lot better in a day or two.
@@ -252,14 +290,14 @@ After filling my prescription on Pacific, I decided to check out a new coffee sh
                 </div>
 
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <a href="https://duanestorey.com/posts/waves-coffee-in-yaletown.html" class="btn btn-primary mt-4">Read More</a>
+                    <a href="https://duanestorey.com/posts/waves-coffee-in-yaletown.html" class="btn btn-primary mt-4" title="Waves Coffee In Yaletown" aria-label="Read More 'Waves Coffee In Yaletown'">Read More</a>
                 </div>
 
                 <div class="clearfix"></div>
             </article>
             <article class="mt-4 mb-4">    
                 <a href="/posts/wikipedia-and-creative-commons.html" class="link-dark"><h2 class="mt-4">Wikipedia And Creative Commons</h2></a>
-                <div class="meta mb-2 text-primary fs-6 fw-light">Published on April 15th, 2008</div>
+                <div class="meta mb-2 text-primary fs-6 fw-light">Published on <time>April 15th, 2008</time></div>
 
                 <div class="content mt-3">
                     I received an email a while ago from an editor at Wikipedia, asking me if I would mind if they using one of my juno photos on a page. The only catch is that they wanted me to change the license of the photo to allow for commercial use and derivative works.
@@ -267,14 +305,14 @@ I'm a big fan of Wikipedia -- I use it all the time. So I really wanted to help 
                 </div>
 
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <a href="https://duanestorey.com/posts/wikipedia-and-creative-commons.html" class="btn btn-primary mt-4">Read More</a>
+                    <a href="https://duanestorey.com/posts/wikipedia-and-creative-commons.html" class="btn btn-primary mt-4" title="Wikipedia And Creative Commons" aria-label="Read More 'Wikipedia And Creative Commons'">Read More</a>
                 </div>
 
                 <div class="clearfix"></div>
             </article>
             <article class="mt-4 mb-4">    
                 <a href="/posts/oh-fuck.html" class="link-dark"><h2 class="mt-4">A Big Oops</h2></a>
-                <div class="meta mb-2 text-primary fs-6 fw-light">Published on April 15th, 2008</div>
+                <div class="meta mb-2 text-primary fs-6 fw-light">Published on <time>April 15th, 2008</time></div>
 
                 <div class="content mt-3">
                     I was just lying on my bed, opening some mail from the last few months that I haven't gotten around to opening. I thought since I have an appointment for taxes coming up that I should get all my receipts and everything in order.
@@ -287,14 +325,14 @@ FAILURE TO ANSWER A SUMMONS IN PERSON ...
                 </div>
 
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <a href="https://duanestorey.com/posts/oh-fuck.html" class="btn btn-primary mt-4">Read More</a>
+                    <a href="https://duanestorey.com/posts/oh-fuck.html" class="btn btn-primary mt-4" title="A Big Oops" aria-label="Read More 'A Big Oops'">Read More</a>
                 </div>
 
                 <div class="clearfix"></div>
             </article>
             <article class="mt-4 mb-4">    
                 <a href="/posts/tax-season.html" class="link-dark"><h2 class="mt-4">Tax Season</h2></a>
-                <div class="meta mb-2 text-primary fs-6 fw-light">Published on April 15th, 2008</div>
+                <div class="meta mb-2 text-primary fs-6 fw-light">Published on <time>April 15th, 2008</time></div>
 
                 <div class="content mt-3">
                     For those that are interested, I finally found an account downtown that I think is willing to do my taxes. I've typically always done them myself, except for one year when I had a bunch of stock and moving expenses I wasn't sure how to deal with. I have income from multiple sources this year (thanks to photography and the odd web job), which should mean (in theory) that I'm eligible to write off some of my photography and computer expenses.
@@ -302,14 +340,14 @@ Unfortunately, I'm not the most organized person in the world, and I somehow hav
                 </div>
 
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <a href="https://duanestorey.com/posts/tax-season.html" class="btn btn-primary mt-4">Read More</a>
+                    <a href="https://duanestorey.com/posts/tax-season.html" class="btn btn-primary mt-4" title="Tax Season" aria-label="Read More 'Tax Season'">Read More</a>
                 </div>
 
                 <div class="clearfix"></div>
             </article>
             <article class="mt-4 mb-4">    
                 <a href="/posts/a-kid-no-more.html" class="link-dark"><h2 class="mt-4">A Kid No More</h2></a>
-                <div class="meta mb-2 text-primary fs-6 fw-light">Published on April 15th, 2008</div>
+                <div class="meta mb-2 text-primary fs-6 fw-light">Published on <time>April 15th, 2008</time></div>
 
                 <div class="content mt-3">
                     One of the strange things I find about getting older is the fact that I no longer enjoy the same things I used to. Board games are a good example -- I just plain don't like them these days. I don't mind sitting around a camp fire and playing asshole for eight hours, but I can't be bothered with something like monopoly.
@@ -317,22 +355,7 @@ Another strange change is that I don't really enjoy drinking or bars that much t
                 </div>
 
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <a href="https://duanestorey.com/posts/a-kid-no-more.html" class="btn btn-primary mt-4">Read More</a>
-                </div>
-
-                <div class="clearfix"></div>
-            </article>
-            <article class="mt-4 mb-4">    
-                <a href="/posts/i-call-bullshit.html" class="link-dark"><h2 class="mt-4">I Call Bullshit</h2></a>
-                <div class="meta mb-2 text-primary fs-6 fw-light">Published on April 14th, 2008</div>
-
-                <div class="content mt-3">
-                    I have, over the course of my career, given a pile of interviews. One of the trends I've seen a lot in recent years is people who feel the need to lie or exaggerate on their resumes.
-There's nothing wrong with wording your experience in such a way to promote you a bit better, just so long as you don't lie or stretch the truth to the point where it's unbelievable. In fact, when I started in the realm of software development, I had basically zero real world experience in the area, and that was often looked as a complete detriment to me (even though I had been coding since I was about 15 years old). ...
-                </div>
-
-                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <a href="https://duanestorey.com/posts/i-call-bullshit.html" class="btn btn-primary mt-4">Read More</a>
+                    <a href="https://duanestorey.com/posts/a-kid-no-more.html" class="btn btn-primary mt-4" title="A Kid No More" aria-label="Read More 'A Kid No More'">Read More</a>
                 </div>
 
                 <div class="clearfix"></div>
@@ -459,15 +482,7 @@ There's nothing wrong with wording your experience in such a way to promote you 
                 All content copyright &copy; 2024<br>Content generated using Crossroads static generator
             </div>
 
-            <!-- Google tag (gtag.js) -->
-            <script defer src="https://www.googletagmanager.com/gtag/js?id=G-9YTETF9LXH"></script>
-            <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){ dataLayer.push(arguments); }
-            gtag('js', new Date());
-
-            gtag('config', 'G-9YTETF9LXH');
-            </script>
+            <script defer src="/assets/lumen.min.js?v=58db42e81ee2013a23a476dd0cbbe88f"></script>
         </footer>   
     </body>
 </html>
