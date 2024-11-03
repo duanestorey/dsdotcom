@@ -12,20 +12,20 @@ I posted the other day about how, after 18 years of WordPress, [I finally migrat
 
 Considering I have a bit of time on my hands while I visit some family in Canada, I thought it would be a good learning exercise to try and code a complete static site generator from scratch to replace my WordPress website. Since Cloudflare Pages allows a static website to be hosted for free, I decided against using any sort of database for now, and instead decided to simply use the popular Markdown format for my website going forward.
 
-### What Is Markdown 
+## What Is Markdown 
 
 If you’ve ever used Github or any similar tool, you’ve likely been exposed to Markdown files. Markdown files usually end in .md and provide a really simply way to edit content. For example, to do bold a sequence of text, instead of remembering what HTML tags you need, you can simply surround your text in two asterisks, like this \*\*this\*\*, which then turns into **this** when it’s rendered. Super simple. No HTML tags to remember, just a few simple text tricks to do what you need.
 
 For a full list of markdown, [you can visit this site](https://www.markdownguide.org/basic-syntax/). 
 
-### Generating an XML Export File
+## Generating an XML Export File
 
 One of the main methods for taking content off of a WordPress site involves the use of the internal WordPress XML export file.  This file basically contains the majority of your website data, including blog posts, pages, comments, etc. While it’s not as exhaustive as a full site backup (which includes the entirety of the file system as well, including the images), for our purposes it’s good enough. 
 
 
 To export an XML file, you simply need to go into the WordPress admin panel, choose *Tools*, and then *Export*. In terms of content, make sure you select *All Content*.  Once this is done, you’ll have a downloaded file representing the bulk of your WordPress site content, excluding images. 
 
-### Converting The Content to Markdown
+## Converting The Content to Markdown
 
 Once you have the WordPress content in the form of an XML file, you need a way to convert it into a series of Markdown files. Thankfully a few different tools exist, and I ended up using [the wordpress-export-to-markdown project code on Github](https://github.com/lonekorean/wordpress-export-to-markdown).  I cloned a copy of the repository locally, then copied my WordPress XML into the root directory of the repository as wordpress.xml.
 
@@ -35,7 +35,7 @@ One thing to mention is that all your content will be pulled down and converted,
 
 While this conversion tool is useful, it’s not an exhaustive capture of everything on your WordPress website.  Only a few of the post and page fields are transferred over, so if you have any custom meta data, it won’t be preserved. I imagine the tool could be expanded easily enough to get at some of the other data, but for my purposes it was good enough.
 
-### An Example Post
+## An Example Post
 
 Once it’s complete, you’ll have a series of folders representing all your posts and pages. In each directory should be a series of Markdown files ending in the .md prefix, along with an image directory containing all the downloaded images.  You can see an example of a blog post in Markdown format in the image below.   
 
@@ -43,13 +43,13 @@ Once it’s complete, you’ll have a series of folders representing all your po
 
 The top section contains the post meta data and is called *front matter* within the Markdown. It contains the taxonomies in the form of categories and tags, the post publication date, the title, and the featured image from WordPress. The only piece that’s missing that I really need is the ability to add rich SEO description field on a per-post basis, so I’ll use a new front matter term called *description* going forward.
 
-### Static Site Generators
+## Static Site Generators
 
 If you’re wondering what a static site generator is, it’s basically a way to take data and render it as a collection of HTML files. If you use WordPress without a caching plugin, every page is dynamically generated in real-time using PHP. That’s powerful, but also can be pretty slow depending on how much code is running each time. If you install a caching plugin, often they will take the output from the dynamic page and save a temporary HTML file, serving that file directly when people visit your website. That’s a pretty good compromise. But if you want to take it all the way to its conclusion, you can remove the dynamic aspect entirely, and just generate an entire website when you update your content.
 
 If that sounds funky and crazy, it wasn’t always that way. The popular Blogger platform used to publish content that same way in the 2000s, but over FTP. Nowadays there are plenty of great ways to host static websites, including a really handy combination of Github and [Cloudflare Pages](https://pages.cloudflare.com/), which actually works well for free.  Since static websites are once again all the rage, I decided it would be a great time to go completely static again.
 
-### Next Steps
+## Next Steps
 
 If you’ve made it this far and followed along, you now have a pile of Markdown content to use. You can now use all your shiny Markdown data to generate a website using one of the many popular static site generators like [Astro](https://astro.build/), [Hugo](https://gohugo.io/), or [Jekyll](https://jekyllrb.com/). 
 
