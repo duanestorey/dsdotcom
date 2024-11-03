@@ -23,7 +23,7 @@ For a full list of markdown, [you can visit this site](https://www.markdownguide
 One of the main methods for taking content off of a WordPress site involves the use of the internal WordPress XML export file.  This file basically contains the majority of your website data, including blog posts, pages, comments, etc. While it’s not as exhaustive as a full site backup (which includes the entirety of the file system as well, including the images), for our purposes it’s good enough. 
 
 
-To export an XML file, you simply need to go into the WordPress admin panel, choose *Tools*, and then *Export*. In terms of content, make sure you select *All Content*.  Once this is down, you’ll have a downloaded file representing the bulk of your WordPress site content, excluding images. 
+To export an XML file, you simply need to go into the WordPress admin panel, choose *Tools*, and then *Export*. In terms of content, make sure you select *All Content*.  Once this is done, you’ll have a downloaded file representing the bulk of your WordPress site content, excluding images. 
 
 ### Converting The Content to Markdown
 
