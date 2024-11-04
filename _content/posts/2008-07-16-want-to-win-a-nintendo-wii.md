@@ -15,7 +15,7 @@ tag:
 
 The company where I currently work is currently offering a draw for at least one Nintendo Wii (more if I remember correctly). To be eligible, they are asking people to fill out a quick survey to get a bit of data with regards to telecommunications. Everyone reading this blog should be eligible.
 
-[![](http://www.migratorynerd.com/wp-content/uploads/2008/07/nintendo-wii.jpg "Nintendo Wii")](http://www.migratorynerd.com/wp-content/uploads/2008/07/nintendo-wii.jpg)
+[![](_images/want-to-win-a-nintendo-wii-1.jpg "Nintendo Wii")](_images/want-to-win-a-nintendo-wii-1.jpg)
 
 So, if you’d like to potentially win a Nintendo Wii, I’d ask if you guys could please fill out a five minute survey.
 

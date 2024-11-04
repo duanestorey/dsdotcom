@@ -17,4 +17,4 @@ tag:
 
 I’m sitting here with John and Rebecca waiting for the Northern Voice keynote to begin. This year it’s WordPress’ own Matt Mullenweg, who will be talking about blogging and WordPress 2.5.
 
-![](http://www.migratorynerd.com/wp-content/uploads/2008/02/2285617075_9700155202.jpg)Boris Mann and Matt MullenwegKeynote is over. It was really entertaining and enlightening, and I thought some of the points about advertising overload with sites like Facebook were interesting.
+![](_images/northern-voice-day-2--keynote-with-matt-mullenweg-1.jpg)Boris Mann and Matt MullenwegKeynote is over. It was really entertaining and enlightening, and I thought some of the points about advertising overload with sites like Facebook were interesting.

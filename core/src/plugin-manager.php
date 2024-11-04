@@ -33,4 +33,27 @@ class PluginManager extends Plugin {
 
         return $params;
     }
+
+    public function processOne( $entry ) {
+        if ( count( $this->plugins ) ) {
+            foreach( $this->plugins as $plugin ) {
+                return $plugin->processOne( $entry );
+            }
+        }   
+
+        return false;
+    }
+
+    public function processAll( $entries ) {
+        if ( count( $this->plugins ) ) {
+            foreach( $this->plugins as $plugin ) {
+                LOG( "Processing plugin [" . $plugin->name() . "]", 2, LOG::INFO );
+
+                $entries = $plugin->processAll( $entries );
+            }
+        }
+
+        return $entries;       
+    }
+
 } 

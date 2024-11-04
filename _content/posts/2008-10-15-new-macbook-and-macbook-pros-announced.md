@@ -17,6 +17,6 @@ I’m sure it’s old news by new, but Apple announced updates for their Macbook
 
 As I’ve indicated previously, I’m focusing on paying off my student loans for the next little while, which basically means no major purchases. For the time being I’m going to try and stick with my Macbook Pro, even though the backslash key stopped working a few weeks ago.
 
-![MacBook Pro](http://www.migratorynerd.com/wp-content/uploads/2008/10/picture-1.png)
+![MacBook Pro](_images/new-macbook-and-macbook-pros-announced-1.png)
 
 What does everyone else think of the announcements?

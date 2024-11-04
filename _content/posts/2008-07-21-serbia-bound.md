@@ -25,7 +25,7 @@ Photo by [Niels van Kampenhout](http://flickr.com/photos/nielsvk/)
 
 Other than a quick trip to Finland about 18 months ago, I haven’t really spent any time in Europe. Serbia is supposed to be really beautiful, and the weather is consistently hotter out there this time of year, so it should be a good trip.
 
-[![Vancouvet To Serbia](http://www.migratorynerd.com/wp-content/uploads/2008/07/picture-16.png "Far Away")](http://www.migratorynerd.com/2008/07/serbia-bound/picture-16/)
+[![Vancouvet To Serbia](_images/serbia-bound-2.png "Far Away")](http://www.migratorynerd.com/2008/07/serbia-bound/picture-16/)
 
 It’s a strange thing to be gone more than a week though. I do lots of traveling, and whenever I leave I generally approach packing a certain way. If I’m going to be gone for three days or less, I just pack a quick weekender suitcase. Anything from about three days until ten days is one suitcase. After that, I’m in uncharted territory. I actually think I’m going to pack really light and just plan to buy some clothes out there. I’d like to keep myself mobile in case I have a few days at the end where I can possibly see Rome or Prague before coming home.
 

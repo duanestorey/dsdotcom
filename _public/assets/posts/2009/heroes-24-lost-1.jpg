@@ -62,7 +62,7 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
 		htlbid.setTargeting("kv", ["baltimore-city-paper"]);
 		htlbid.setTargeting("page", "tag");
 		htlbid.setTargeting("content", []);
-		htlbid.setTargeting("RPN", "321534302445");
+		htlbid.setTargeting("RPN", "185387794922");
 		htlbid.setTargeting("rurl", "");
 		htlbid.setTargeting("articleid", "");
 		window.htlbid.pubads().setPublisherProvidedId("72724c953ae08358b73122192fc5a28168731eb8eb1ef4559fd0cb91573f0ae6");
@@ -250,12 +250,12 @@ var article_config = {"article_sharing_faq":""};
 					<div class="weather-date">
 					
 	<div class='dfm_accuweather_current_conditions'>
-		<a target="_blank" href="http://www.accuweather.com/en/us/baltimore-md/21202/current-weather/8844_pc?lang=en-us" title="Current Weather Conditions" aria-label="Current temperature is 49&deg;F, view full weather conditions in a new window">
-			<span>49&deg;F</span>
-			<i class="bi-moon-stars" role="img" aria-label="weather icon moon-stars"></i>
+		<a target="_blank" href="http://www.accuweather.com/en/us/baltimore-md/21202/current-weather/8844_pc?lang=en-us" title="Current Weather Conditions" aria-label="Current temperature is 62&deg;F, view full weather conditions in a new window">
+			<span>62&deg;F</span>
+			<i class="bi-clouds" role="img" aria-label="weather icon clouds"></i>
 		</a>
 	</div>						<div class="date">
-							Sunday, November 3rd 2024									<a title="Link to E-Edition opens in a new window" target="_blank" href="https://digitaledition.baltimoresun.com/">
+							Monday, November 4th 2024									<a title="Link to E-Edition opens in a new window" target="_blank" href="https://digitaledition.baltimoresun.com/">
 									<p class="e-edition">Baltimore Sun eNewspaper</p>									</a>
 														</div>
 					</div>
@@ -290,9 +290,9 @@ var article_config = {"article_sharing_faq":""};
 	<li id="menu-item-9132071" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9132071 menu-large"><a href="https://www.baltimoresunspecialsections.com/">Special Sections</a></li>
 </ul>
 </li>
-<li id="menu-item-8552626" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-has-children menu-item-8552626 menu-large"><a href="https://www.baltimoresun.com/news/" aria-expanded="false" aria-haspopup="true">News</a>
+<li id="menu-item-8552626" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-8552626 menu-large"><a href="https://www.baltimoresun.com/news/" aria-expanded="false" aria-haspopup="true">News</a>
 <ul class="sub-menu">
-	<li id="menu-item-9118180" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-9118180 menu-large"><a href="https://www.baltimoresun.com/news/">News</a></li>
+	<li id="menu-item-9118180" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-9118180 menu-large"><a href="https://www.baltimoresun.com/news/">News</a></li>
 	<li id="menu-item-9097822" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-9097822 menu-large"><a href="https://www.baltimoresun.com/latest-headlines/">Latest</a></li>
 	<li id="menu-item-9097823" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-9097823 menu-large"><a href="https://www.baltimoresun.com/news/crime-public-safety/">Crime and Public Safety</a></li>
 	<li id="menu-item-8552630" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-8552630 menu-large"><a href="https://www.baltimoresun.com/news/education/">Education</a></li>
@@ -493,12 +493,12 @@ var article_config = {"article_sharing_faq":""};
 					<div class="weather-date">
 					
 	<div class='dfm_accuweather_current_conditions'>
-		<a target="_blank" href="http://www.accuweather.com/en/us/baltimore-md/21202/current-weather/8844_pc?lang=en-us" title="Current Weather Conditions" aria-label="Current temperature is 49&deg;F, view full weather conditions in a new window">
-			<span>49&deg;F</span>
-			<i class="bi-moon-stars" role="img" aria-label="weather icon moon-stars"></i>
+		<a target="_blank" href="http://www.accuweather.com/en/us/baltimore-md/21202/current-weather/8844_pc?lang=en-us" title="Current Weather Conditions" aria-label="Current temperature is 62&deg;F, view full weather conditions in a new window">
+			<span>62&deg;F</span>
+			<i class="bi-clouds" role="img" aria-label="weather icon clouds"></i>
 		</a>
 	</div>						<div class="date">
-							Sunday, November 3rd 2024									<a title="Link to E-Edition opens in a new window" target="_blank" href="https://digitaledition.baltimoresun.com/">
+							Monday, November 4th 2024									<a title="Link to E-Edition opens in a new window" target="_blank" href="https://digitaledition.baltimoresun.com/">
 									<p class="e-edition">Baltimore Sun eNewspaper</p>									</a>
 														</div>
 					</div>
@@ -537,7 +537,7 @@ var article_config = {"article_sharing_faq":""};
 				
 	<li class="entry-title">
 
-<div class="entry-section"><a href="https://www.baltimoresun.com/sports/high-school-sports/">High School Sports | </a></div>			<a class="article-title" href="https://www.baltimoresun.com/2024/11/03/2024-voter-guide/" title="2024 voter guide">
+<div class="entry-section"><a href="https://www.baltimoresun.com/sports/high-school-sports/">High School Sports | </a></div>			<a class="article-title" href="https://www.baltimoresun.com/2024/11/04/2024-voter-guide/" title="2024 voter guide: Tuesday is Election Day. Get ready to vote here.">
 	
 				<span class="dfm-title free">
 			🇺🇸 Voter guide		</span>
@@ -565,7 +565,7 @@ var article_config = {"article_sharing_faq":""};
 
 	<li class="entry-title">
 
-<div class="entry-section"><a href="https://www.baltimoresun.com/sports/high-school-sports/">High School Sports | </a></div>			<a class="article-title" href="https://www.baltimoresun.com/2024/11/01/maryland-early-voting-numbers/" title="Maryland early in-person voting passes 2020 total. View charts of early voting, mail-in turnout.">
+<div class="entry-section"><a href="https://www.baltimoresun.com/sports/high-school-sports/">High School Sports | </a></div>			<a class="article-title" href="https://www.baltimoresun.com/2024/11/04/maryland-early-voting-numbers/" title="Maryland early in-person voting passes 2020 total. View charts of early voting, mail-in turnout.">
 	
 				<span class="dfm-title free">
 			📊 Early voting tops 2020		</span>

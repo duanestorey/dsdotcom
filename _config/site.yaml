@@ -8,13 +8,12 @@ site:
   charset: 'utf-8'
   home: posts
 content:
-  types: 
-    posts:
-      index: true
-      base: /posts
-    pages:
-      index: false
-      base: /
+  posts:
+    index: true
+    base: /posts
+  pages:
+    index: false
+    base: /
 themes:
   dir: themes
 options:

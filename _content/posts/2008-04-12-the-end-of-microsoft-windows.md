@@ -24,4 +24,4 @@ Contrast that with Microsoft, who at each step see to try to reinvent the wheel 
 
 In terms of my website, here’s the latest data on operating systems:
 
-![](http://www.migratorynerd.com/wp-content/uploads/2008/04/picture-3.png)As you can see, Mac is slowly growing on my list (they were
+![](_images/the-end-of-microsoft-windows-1.png)As you can see, Mac is slowly growing on my list (they were

@@ -10,10 +10,10 @@ class LogListenerShell extends LogListener {
 
         switch( $level ) {
             case Log::INFO:
-                echo "\033[32;10m" . $message . "\033[0m\n";
+                echo "\033[32;10m" . "[INFO] " . $message . "\033[0m\n";
                 break;
             case Log::WARNING:
-                echo "\033[33;10m" . $message . "\033[0m\n"; 
+                echo "\033[33;10m" . "[WARN] " . $message . "\033[0m\n"; 
                 break;
         }
     }

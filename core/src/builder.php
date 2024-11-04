@@ -8,7 +8,6 @@ namespace CR;
 
 class Builder {
     var $config = null;
-    var $startTime = null;
     var $totalPages = 0;
     var $templateEngine = null;
     var $entries = null;
@@ -21,7 +20,7 @@ class Builder {
         $this->config = $config;
 
         $this->templateEngine = new TemplateEngine();
-        $this->templateEngine->setTemplateDir( CROSSROAD_THEME_DIR . '/' . $config[ 'site' ][ 'theme' ] );
+        $this->templateEngine->setTemplateDir( CROSSROAD_THEME_DIR . '/' . $config->get( 'site.theme' ) );
 
         $this->pluginManager = new PluginManager( $this->config );
         $this->pluginManager->installPlugin( new ImagePlugin( $this->config ) );
@@ -38,112 +37,119 @@ class Builder {
 
         $this->renderer = new Renderer( $this->config, $this->templateEngine, $this->pluginManager, $this->menu, $this->theme );
 
-        $this->startTime = microtime( true );
-
         // load all content here
-        $this->entries = new Entries( $this->config, );
+        $this->entries = new Entries( $this->config );
         $this->entries->loadAll();
 
         // do all content filtering
-        $all_entries = $this->entries->getAll();
-        foreach( $all_entries as $entry ) {
-             $entry = $this->pluginManager->contentFilter( $entry );
+        $all_entries = [];
+
+        foreach( $this->config->get( 'content', [] ) as $contentType => $contentConfig ) {
+            $entries = $this->entries->get( $contentType );
+
+            if ( count( $entries ) ) {
+                LOG( "Processing plugins for [" . $contentType . "]", 1, LOG::INFO );
+
+                $entries = $this->pluginManager->processAll( $entries );
+                $all_entries = array_merge( $all_entries, $entries );
+            }
         }
+        
+      //  $this->entries->getAll();
+//        $this->pluginManager->processAll( $all_entries );
 
-        // build
-        LOG( "Generating static pages", 1, LOG::INFO );
+        foreach( $this->config->get( 'content', [] ) as $contentType => $contentConfig ) {
+            $entries = $this->entries->get( $contentType );
 
-        if ( isset( $this->config[ 'content' ][ 'types' ] ) ) {
-            foreach( $this->config[ 'content' ][ 'types' ] as $contentType => $contentConfig ) {
-                $entries = $this->entries->get( $contentType );
+            if ( $entries ) {
+                LOG( "Generating single content pages for [" . $contentType . "]", 1, LOG::INFO );
 
-                if ( $entries ) {
-                    LOG( "Generating single content pages for [" . $contentType . "]", 1, LOG::INFO );
+                // Make the output directory for html
+                Utils::mkdir( CROSSROAD_PUBLIC_DIR . '/' . $contentType );
 
-                    // Make the output directory for html
-                    Utils::mkdir( CROSSROAD_PUBLIC_DIR . '/' . $contentType );
+                // Make the output directory for images
+                $image_destination_path = CROSSROAD_PUBLIC_DIR . '/assets/' . $contentType;
+                Utils::mkdir( $image_destination_path );
 
-                    // Make the output directory for images
-                    $image_destination_path = CROSSROAD_PUBLIC_DIR . '/assets/' . $contentType;
-                    Utils::mkdir( $image_destination_path );
-
-                    // Where the source content is
-                    $content_directory = \CROSSROAD_BASE_DIR . '/content/' . $contentType;
-                    
-                    foreach( $entries as $entry ) {
-                        $this->renderer->renderSinglePage( $entry, [ $entry->contentType . '-single', $entry->contentType, 'index' ] );
-                        $this->totalPages++;
-                    }
+                // Where the source content is
+                $content_directory = \CROSSROAD_BASE_DIR . '/content/' . $contentType;
+                
+                foreach( $entries as $entry ) {
+                    LOG( "Writing content for [" . $entry->relUrl . "]", 2, LOG::DEBUG );
+                    $this->renderer->renderSinglePage( $entry, [ $entry->contentType . '-single', $entry->contentType, 'index' ] );
+                    $this->totalPages++;
                 }
+            }
 
-                // process all content
-                usort( $entries, 'CR\cr_sort' );
+            // process all content
+            usort( $entries, 'CR\cr_sort' );
 
-                if ( isset( $contentConfig[ 'index' ] ) && $contentConfig[ 'index' ] ) {
-                    LOG( "Generating index & paginated content for [" . $contentType . "]", 1, LOG::INFO );
+            if ( isset( $contentConfig[ 'index' ] ) && $contentConfig[ 'index' ] ) {
+                LOG( "Generating index & paginated content for [" . $contentType . "]", 1, LOG::INFO );
 
-                    $this->renderer->renderIndexPage( $entries, $contentType, '/' . $contentType, [ 'index' ] );
-                }
+                $this->renderer->renderIndexPage( $entries, $contentType, '/' . $contentType, [ 'index' ] );
+            }
 
-                if ( $contentType == $this->config[ 'site' ][ 'home' ] ) {
-                    LOG( "Generating home content [" . $contentType . "]", 1, LOG::INFO );
+            if ( $contentType == $this->config->get( 'site.home' ) ) {
+                LOG( "Generating home content [" . $contentType . "]", 1, LOG::INFO );
 
-                    $this->renderer->renderIndexPage( $entries, $contentType, '', [ 'index' ] );
-                }
+                $this->renderer->renderIndexPage( $entries, $contentType, '', [ 'index' ] );
+            }
 
-                 // tax
-                $taxTerms = $this->entries->getTaxTerms( $contentType );
-                if ( count( $taxTerms ) ) {
-                    LOG( "Generating taxonomy pages for [" . $contentType . "]", 1, LOG::INFO );
-                    Utils::mkdir( CROSSROAD_PUBLIC_DIR . '/' . $contentType . '/taxonomy' );
+                // tax
+            $taxTerms = $this->entries->getTaxTerms( $contentType );
+            sort( $taxTerms );
+            if ( count( $taxTerms ) ) {
+                LOG( "Generating taxonomy pages for [" . $contentType . "]", 1, LOG::INFO );
 
-                    foreach( $taxTerms as $term ) {
-                        Utils::mkdir( CROSSROAD_PUBLIC_DIR . '/' . $contentType . '/taxonomy/' . $term );
+                Utils::mkdir( CROSSROAD_PUBLIC_DIR . '/' . $contentType . '/taxonomy' );
 
-                        $entries = $this->entries->getTax( $contentType, $term );
+                foreach( $taxTerms as $term ) {
+                    Utils::mkdir( CROSSROAD_PUBLIC_DIR . '/' . $contentType . '/taxonomy/' . $term );
 
-                        usort( $entries, 'CR\cr_sort' );
+                    LOG( "Writing taxonomy for [" . $contentType . "/" . $term . "]", 2, LOG::DEBUG );
 
-                        if ( count( $entries ) ) {
-                            $this->renderer->renderIndexPage( $entries, $contentType, '/' . $contentType . '/taxonomy/' . $term, [ 'index' ] );
-                        }
+                    $entries = $this->entries->getTax( $contentType, $term );
+
+                    usort( $entries, 'CR\cr_sort' );
+
+                    if ( count( $entries ) ) {
+                        $this->renderer->renderIndexPage( $entries, $contentType, '/' . $contentType . '/taxonomy/' . $term, [ 'index' ] );
                     }
                 }
             }
         }
 
+
         $this->_writeRobots();
         $this->_writeSitemapXml();
 
-        $total_time = microtime( true ) - $this->startTime;
-        echo "..total page(s) generated, " . $this->totalPages . " - build completed in " . sprintf( "%0.4f", $total_time ) . "s\n";
+        LOG ( "Total page(s) generated [" . $this->totalPages . "]", 0, LOG::INFO );
     }
 
     private function _writeSitemapXml() {
         $sitemapXml  = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
         $sitemapXml .= "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n";
 
-        if ( isset( $this->config[ 'content' ][ 'types' ] ) ) {
-            foreach( $this->config[ 'content' ][ 'types' ] as $contentType => $contentConfig ) {
-                $entries = $this->entries->get( $contentType );
+        foreach( $this->config->get( 'content', [] ) as $contentType => $contentConfig ) {
+            $entries = $this->entries->get( $contentType );
 
-                usort( $entries, 'CR\cr_sort' );
+            usort( $entries, 'CR\cr_sort' );
 
-                foreach( $entries as $entry ) {
-                    $sitemapXml = $this->_addSitemapEntry( $sitemapXml, $entry->url );
-                }
+            foreach( $entries as $entry ) {
+                $sitemapXml = $this->_addSitemapEntry( $sitemapXml, $entry->url );
+            }
 
-                $taxTerms = $this->entries->getTaxTerms( $contentType );
-                if ( count( $taxTerms ) ) {
-                    $taxUrl = $this->config[ 'site' ][ 'url' ] . '/' . $contentType . '/taxonomy';
-                    foreach( $taxTerms as $term ) {
-                        $sitemapXml = $this->_addSitemapEntry( $sitemapXml, $taxUrl . '/' . $term, 'monthly' );
-                    }
+            $taxTerms = $this->entries->getTaxTerms( $contentType );
+            if ( count( $taxTerms ) ) {
+                $taxUrl = $this->config->get( 'site.url' ) . '/' . $contentType . '/taxonomy';
+                foreach( $taxTerms as $term ) {
+                    $sitemapXml = $this->_addSitemapEntry( $sitemapXml, $taxUrl . '/' . $term, 'monthly' );
                 }
             }
         }
 
-        $sitemapXml = $this->_addSitemapEntry( $sitemapXml, $this->config[ 'site' ][ 'url' ], 'daily' );
+        $sitemapXml = $this->_addSitemapEntry( $sitemapXml, $this->config->get( 'site.url '), 'daily' );
 
         $sitemapXml .= "</urlset>\n";
 
@@ -163,7 +169,7 @@ class Builder {
 
     private function _writeRobots() {
         // write robots
-        $robots = "user-agent: *\ndisallow: /assets/css/\ndisallow: /assets/js/\nallow: /\n\nUser-agent: Twitterbot\nallow: /\nSitemap: " . $this->config[ 'site' ][ 'url' ] . "/sitemap.xml";
+        $robots = "user-agent: *\ndisallow: /assets/css/\ndisallow: /assets/js/\nallow: /\n\nUser-agent: Twitterbot\nallow: /\nSitemap: " . $this->config->get( 'site.url ') . "/sitemap.xml";
         file_put_contents( CROSSROAD_PUBLIC_DIR . '/robots.txt', $robots );
         LOG( "Writing robots.txt", 1, LOG::INFO );
     }
@@ -174,7 +180,7 @@ class Builder {
     }
 
     private function _setupTheme() {
-        $this->theme = new Theme( $this->config[ 'site' ][ 'theme' ], CROSSROAD_THEME_DIR );
+        $this->theme = new Theme( $this->config->get( 'site.theme' ), CROSSROAD_THEME_DIR );
         LOG( "Loading theme [" . $this->theme->name() . "]", 1, LOG::INFO );
 
         if ( !$this->theme->isSane() ) {

@@ -10,7 +10,15 @@ class WordPressPlugin extends Plugin {
     var $config = null;
 
     public function __construct( $config ) {
+        parent::__construct( 'wordpress' );
+
         $this->config = $config;
+    }
+
+    public function processOne( $entry ) {
+        $entry = $this->contentFilter( $entry );
+        
+        return $entry;
     }
 
     public function contentFilter( $content ) {

@@ -7,6 +7,8 @@ author: "Duane Storey"
 featuredImage: "_images/about-featured.jpg"
 ---
 
+![](_images/about-1.jpg)
+
 Duane Storey is a Vancouver-based photographer, researcher and web developer. Back in 2007, he was one of the first individuals in Vancouver to experiment with a process called High Dynamic Range photography. Since that time he has established himself as a sought-after event, wedding and concert photographer. In 2008, Duane was invited backstage to the Canadian Juno Awards in Calgary, Alberta, and photographed many celebrities during the night, including Leslie Feist and Michael Bublé. In 2009, Duane’s images of Leslie Feist and Sarah McLachlan were the top photos from the BC Festival 150 event in Victoria, BC, Canada, and were acquired by the event promoters for future marketing purposes.
 
 Duane received his Bachelor of Applied Science in Engineering Physics from the University of British Columbia, and completed his degree under the Chancellor’s Entrance Scholarship, making the Dean’s List several times. After a brief stint in Ottawa developing fiber optics components, Duane went back to university and obtained his Master’s of Applied Science in Electrical and Computer engineering. He has published several research papers in the fields of weather forecasting and also in video compression &amp; high definition scalability schemes, and was awarded a patent in the voice over IP space.

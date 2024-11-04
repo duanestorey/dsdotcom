@@ -19,7 +19,7 @@ tag:
 
 San Francisco is without a doubt one of my favourite cities in the world. It’s situated right on the Pacific Ocean, nestled snugly between Marin Country and Oakland. While Napa Valley is usually extremely hot, San Francisco boasts a fairly moderate climate, with sunshine occurring on most days of the year.
 
-![](http://www.migratorynerd.com/wp-content/uploads/2008/07/picture-9.png)In August, there’s going to be a [WordCamp session down in San Francisco](http://2008.sf.wordcamp.org/). Given that I’m a huge WordPress advocate, and that I love the Bay Area, I registered today and made the quick, impromptu decision to attend. Flights out of Vancouver are around $400, but are only around $250 return out of Seattle. So I think I’ll try and grab a late night flight on Friday and spend the weekend down in San Francisco.
+![](_images/entry-2-wordcamp-san-francisco-1.png)In August, there’s going to be a [WordCamp session down in San Francisco](http://2008.sf.wordcamp.org/). Given that I’m a huge WordPress advocate, and that I love the Bay Area, I registered today and made the quick, impromptu decision to attend. Flights out of Vancouver are around $400, but are only around $250 return out of Seattle. So I think I’ll try and grab a late night flight on Friday and spend the weekend down in San Francisco.
 
 [Lloyd Budd](http://foolswisdon.com) is also heading down, so undoubtedly I’ll run into him during the event. Of course, [Matt Mullenweg](http://ma.tt) will be there too, and hopefully he’ll bring his new and improved camera out (since he last one apparently got stolen while traveling).
 

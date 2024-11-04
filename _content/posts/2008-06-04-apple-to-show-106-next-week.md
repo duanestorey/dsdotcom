@@ -14,7 +14,7 @@ tag:
   - "tiger"
 ---
 
-![](http://www.migratorynerd.com/wp-content/uploads/2008/06/apple-logo1.jpg)
+![](_images/apple-to-show-106-next-week-1.jpg)
 
 I’ve seen a few rumour sites suggest that Apple is preparing to seed developers with an early 10.6 release of their operating system. You can [read about it here.](http://www.tuaw.com/2008/06/03/rumor-mac-os-x-10-6-to-debut-at-wwdc-08/) If true, it sounds like it’s more of a maintenance/stability release, which makes me really wonder why they would name it a 10.6 instead of a 10.5.4. And to be honest, I’d be really disappointed if they were to release 10.6 as a real, full fledged (i.e. you have to pay more money) update to the operating system, considering Leopard isn’t that old and that it’s far from stable as it is.
 

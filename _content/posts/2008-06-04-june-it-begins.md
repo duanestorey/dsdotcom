@@ -17,7 +17,7 @@ A while ago I mentioned just how much fun June is going to be, and tomorrow it b
 
 I booked Friday off a few weeks ago, thinking that it would in fact be nice and sunny in June. Unfortunately mother nature doesn’t really look like she’s going to cooperate, and rain is definitely in the forecast. But no matter — we’re troopers and have several hundred square feet of tarp at our disposal.
 
-![](http://www.migratorynerd.com/wp-content/uploads/2008/06/picture-11.png)
+![](_images/june-it-begins-1.png)
 
 A week from this Sunday I’ll be getting on a plane and heading down to San Francisco for a few days in Mountainview. I haven’t been down that way since roughly this time last year, so I’m looking forward to being in the Bay Area again. After that, I’ll be boarding a plane and hitting the Los Angeles area for a few days.
 

@@ -31,6 +31,6 @@ This not only improves the appearance of your titles in Google and other search 
 
 Another problem with WordPress is that your post title is the part that usually ends up in the title of the post. That’s fine and dandy if you always make clear, descriptive titles for all your posts. But not only is that often hard, it doesn’t lead to very artistic or snappy titles.
 
-![](http://www.migratorynerd.com/wp-content/uploads/2008/03/picture-19.png "Wordpress SEO Title Tag Plugin")
+![](_images/title-tags-and-wordpress-1.png "Wordpress SEO Title Tag Plugin")
 
 Thankfully there’s the [SEO Title Tag Plugin](http://www.netconcepts.com/seo-title-tag-plugin/) that you can download that will change the behaviour. Once it’s installed you’ll get an extra option in your WP-Admin panel where you can specify the actual html title element you want used for the post, decoupling it completely from the title the user sees in the blog entry. You’ll have to make a small change in your theme header to get that title to appear in the title tag, but it’s not very difficult.

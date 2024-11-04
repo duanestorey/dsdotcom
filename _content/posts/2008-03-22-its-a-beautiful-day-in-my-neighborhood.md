@@ -15,7 +15,7 @@ tag:
 
 Ah yes. The sun is almost shining, and I had a good sleep. I free pretty good. I’m just packing my bags to head to Chilliwack for the day and hang out a bit with my nephew on his birthday. First order of business is to run downstairs and get some coffee though.
 
-[![](http://www.migratorynerd.com/wp-content/uploads/2008/03/rogers_trolley.jpg "Mr Roger\'s Troller")](http://www.migratorynerd.com/wp-content/uploads/2008/03/rogers_trolley.jpg)
+[![](_images/its-a-beautiful-day-in-my-neighborhood-1.jpg "Mr Roger\'s Troller")](_images/its-a-beautiful-day-in-my-neighborhood-1.jpg)
 
 The best part is there’s still a pile of weekend left, so I can do some more relaxing back home on the couch. I’ll probably head back out to Vancouver tomorrow afternoon as I have some stuff I want to get finished up out here.
 

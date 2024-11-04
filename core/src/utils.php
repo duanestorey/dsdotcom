@@ -34,7 +34,6 @@ class Utils {
             if ( $result !== false ) {
                 $status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
                 if ( $status != 200 ) {
-                    echo "failed " . $url . "\n";
                     $result = false;
                 }
             }

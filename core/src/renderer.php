@@ -43,10 +43,7 @@ class Renderer {
 
     public function renderIndexPage( $entries, $contentType, $path, $templateFiles ) {
         // this is wrong, but fix later
-        $contentPerPage = 10;
-        if ( isset( $this->config[ 'options' ][ 'content_per_page' ] ) ) {
-            $contentPerPage = $this->config[ 'options' ][ 'content_per_page' ];
-        }
+        $contentPerPage = $this->config->get( 'options.content_per_page', 10 ); 
 
         $pagination = new \stdClass;
         $pagination->currentPage = 1;
@@ -84,8 +81,8 @@ class Renderer {
 
                 $params = $this->_getDefaultRenderParams( $contentType, $pagination->curPageLink, $body_class_array );
                 
-                $params->page->title = $this->config[ 'site' ][ 'title' ];
-                $params->page->description = $this->config[ 'site' ][ 'description' ];
+                $params->page->title = $this->config->get( 'site.title' ); 
+                $params->page->description = $this->config->get( 'site.description' ); 
                 $params->content = array_slice( $entries, ( $pagination->currentPage - 1 ) * $contentPerPage, $contentPerPage );
 
                 $params->isHome = $is_home;
@@ -121,17 +118,10 @@ class Renderer {
     private function _getDefaultRenderParams( $contentType, $currentPage, $extra_body_classes = [] ) {
         $params = new \stdClass;
         $params->site = new \stdClass;
-        $params->site->title = $this->config[ 'site' ][ 'name' ];
+        $params->site->title = $this->config->get( 'site.name' ); 
 
-        $params->site->lang = 'en';
-        if ( isset( $this->config[ 'site' ][ 'lang' ] ) ) {
-            $params->site->lang = $this->config[ 'site' ][ 'lang' ];
-        }
-
-        $params->site->charset = 'utf-8';
-        if ( isset( $this->config[ 'site' ][ 'charset' ] ) ) {
-            $params->site->charset = $this->config[ 'site' ][ 'charset' ];
-        }
+        $params->site->lang = $this->config->get( 'site.lang', 'en' );
+        $params->site->charset = $this->config->get( 'site.charset', 'utf-8' );
 
         $params->menu = $this->menu->build( 'main', $currentPage );
 

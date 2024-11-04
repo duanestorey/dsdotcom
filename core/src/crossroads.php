@@ -6,7 +6,7 @@
 
 namespace CR;
 
-define( 'CROSSROADS_VERSION', '1.00' );
+define( 'CROSSROADS_VERSION', '0.0.3' );
 
 require_once( 'builder.php' );
 require_once( 'entries.php' );
@@ -22,6 +22,7 @@ require_once( 'plugin.php' );
 require_once( 'plugin-manager.php' );
 require_once( 'renderer.php' );
 require_once( 'log.php' );
+require_once( 'config.php' );
 require_once( 'log-listener.php' );
 require_once( 'log-listener-shell.php' );
 
@@ -32,6 +33,7 @@ require_once( CROSSROAD_CORE_DIR . '/plugins/wordpress-plugin.php' );
 class Engine {
     var $builder = null;
     var $config = null;
+    var $startTime = null;
 
     public function __construct() {
     }
@@ -44,6 +46,10 @@ class Engine {
             $this->_usage();
         } else {
             Log::instance()->installListener( new LogListenerShell() );
+
+            LOG( "Executing [" . strtoupper( $argv[ 1 ] ) . "] command", 0, LOG::INFO );
+            $this->startTime = microtime( true );
+
             switch( $argv[ 1 ] ) {
                 case 'build':
                     $this->_build();
@@ -54,12 +60,19 @@ class Engine {
                 case 'serve':
                     $this->_serve();
                     break;
+                case 'clean':
+                    break;
             }
+
+            LOG( sprintf( "Finished executing [" . strtoupper( $argv[ 1 ] ) . "] command, total time taken %0.4fs", microtime( true ) - $this->startTime ), 0, LOG::INFO );
         }
     }
 
     private function _loadConfig() {
-        $this->config = YAML::parse_file( CROSSROAD_BASE_DIR . '/_config/site.yaml' );
+        $this->config = new Config( YAML::parse_file( CROSSROAD_BASE_DIR . '/_config/site.yaml', true ) );
+
+         print_r( $this->config );
+       // die;
     }
 
     private function _checkConfig() {
@@ -67,14 +80,17 @@ class Engine {
     }
 
     private function _branding() {
+        echo "\n----------------------------\n";
         echo "Crossroads " . CROSSROADS_VERSION . " starting up\n";
+        echo "----------------------------\n";
     }
 
     private function _usage() {
         echo "..proper usage:\n\n";
         echo "php crossroads build                      Builds entire website\n";
-        echo "php crossroads serve                      Start webserver\n";
+        echo "php crossroads clean                      Cleans entire website\n";
         echo "php crossroads import wordpress <url>     Import from a WordPress website\n";
+        echo "php crossroads serve                      Start webserver\n";
     }
 
     private function _import() {

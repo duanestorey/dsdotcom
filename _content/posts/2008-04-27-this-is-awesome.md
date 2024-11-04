@@ -15,6 +15,6 @@ tag:
 
 When adult chat time doesn’t quite go as expected:
 
-![](http://www.migratorynerd.com/wp-content/uploads/2008/04/picture-8.png)
+![](_images/this-is-awesome-1.png)
 
 From [here](http://www.myconfinedspace.com/2008/04/25/sexy-chat-time/c12e371d79/).

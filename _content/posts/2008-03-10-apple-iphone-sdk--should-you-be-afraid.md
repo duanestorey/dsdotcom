@@ -18,7 +18,7 @@ tag:
 
 Going through Google reader tonight, I’ve encountered a lot of shared articles about the Apple iPhone SDK. And for the most part, every one of the articles praises the SDK and Apple’s approach with it.
 
-[![](http://www.migratorynerd.com/wp-content/uploads/2008/03/2170718888_75bb3e63d9.jpg "Apple iPhone")](http://www.migratorynerd.com/2008/03/apple-iphone-sdk-whats-the-big-deal/2170718888_75bb3e63d9/)Photo by [John Biehler](http://johnbiehler.com)
+[![](_images/apple-iphone-sdk--should-you-be-afraid-1.jpg "Apple iPhone")](http://www.migratorynerd.com/2008/03/apple-iphone-sdk-whats-the-big-deal/2170718888_75bb3e63d9/)Photo by [John Biehler](http://johnbiehler.com)
 
 But in pure Office Space style, I’m going to have to go ahead and, you know, sort of disagree with you all. In particular, I’m going to outline a few points from [one specific article](http://mobileopportunity.blogspot.com/2008/03/iphone-sdk-apple-gets-it-right.html) and give my take as a cross platform application developer who actually \*has\* developed software from scratch on the Mac using both Carbon and Cocoa.
 

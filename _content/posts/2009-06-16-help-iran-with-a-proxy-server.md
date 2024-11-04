@@ -52,6 +52,6 @@ Update – apparently I accidentally included my cert file in the AMI. I’ve si
 
 Once you setup a proxy server and give the IP address to someone, they can simply set that IP address as their web proxy. For example, in Safari you set it in Network preferences:
 
-![](http://www.migratorynerd.com/wp-content/uploads/2009/06/Picture-14.png)
+![](_images/help-iran-with-a-proxy-server-1.png)
 
 For everyone outbound request, the browser will contact the proxy instead and ask it to grab the actual information itself and forward it along. That way, if a service such as Twitter is blocked, the proxy will get the information from Twitter itself and forward it onto the client. So once you have a public IP address associated with your EC2 instance, simply get that into the hands of someone in Iran, and they’ll be able to use your proxy server to access sites on the Internet that are blocked in Iran.

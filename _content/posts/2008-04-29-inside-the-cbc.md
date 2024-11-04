@@ -15,6 +15,6 @@ tag:
 
 So it’s been fairly cool passively watching the WordPress blogs on the internet slowly convert to [BraveNewCode’s](http://bravenewcode) WPtouch iPhone theme. Tod Maffin just sent me a link to the [CBC’s Official Blog](http://insidethecbc.com/iphon), which now sports a fancy new WPtouch theme.
 
-![](http://www.migratorynerd.com/wp-content/uploads/2008/04/picture-15.png)
+![](_images/inside-the-cbc-1.png)
 
 Check it out.

@@ -37,10 +37,10 @@ And a photo of my crackberry transformed:
 
 Here’s me video blogging the process.
 
-![Video blogging the process. Watch my video blog at the top right corner for all the action from last night.](http://www.migratorynerd.com/wp-content/uploads/2008/07/n679200914_1527805_7855.jpg)
+![Video blogging the process. Watch my video blog at the top right corner for all the action from last night.](_images/entry-26-guest-entry-from-shira-lazar-4.jpg)
 
 Here’s one of me hanging out with da boyz. Including from left my friend and [Doctoc.com](http://docstoc.com/) founder (and the guy who got me out for the event) Jason Nazar and his Scribd competitor. I made sure they didn’t get into a brawl.
 
-![Shira and Group](http://www.migratorynerd.com/wp-content/uploads/2008/07/n679200914_1527796_5437.jpg)
+![Shira and Group](_images/entry-26-guest-entry-from-shira-lazar-5.jpg)
 
 This entry was written for [Blogathon 2008](http://www.migratorynerd.com/tag/blogathon), and in support of the [Union Gospel Mission](http://ugm.ca) charity. If you’d like to donate to the cause, please visit [the blogathon donation page](http://miss604.com/blogathon) and fill out the form near the middle. You can also [follow the blogathon RSS feed for this site by clicking here](http://www.migratorynerd.com/tag/blogathon/feed).

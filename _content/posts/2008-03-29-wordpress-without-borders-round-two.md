@@ -29,13 +29,13 @@ A couple of the new changes I made are:
 - If there is no direct conversion available between two languages (for example, chinese to french), english is used as a proxy language to assist with the translation
 - All menus are in the requested language as well
 
-![](http://www.migratorynerd.com/wp-content/uploads/2008/03/picture-38.png)
+![](_images/wordpress-without-borders-round-two-1.png)
 
 As you can see in the above photo, a menu will appear at the top of the screen if a translation can be performed on the page. Simply click the link if it appears and it will translate the content for you. The menu will also hover up top as you scroll down the page so you can switch back and forth between translated content.
 
 If you are viewing the content in a different language, the menu will adjust to reflect that. For example, here’s how the menu looks on an english site when the viewer has their default language set to chinese.
 
-![](http://www.migratorynerd.com/wp-content/uploads/2008/03/picture-39.png)
+![](_images/wordpress-without-borders-round-two-2.png)
 
 I encourage everyone to try it out on my blog. If you know a second language, feel free to post a comment in that language. Also, if you have Firefox or any other browser that lets you adjust the language, try switching it to something else and trying it out. If you notice a menu at the top of your browser window, make sure you click on it to see what happens!
 

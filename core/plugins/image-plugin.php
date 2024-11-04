@@ -11,16 +11,19 @@ class ImagePlugin extends Plugin {
     var $convertToWebp = false;
     var $generateResponsive = false;
 
-    public function __construct( $config ) {
+    public function __construct( $config ) {   
+        parent::__construct( 'image' );
+
         $this->config = $config;
 
-        if ( isset( $this->config[ 'images' ] ) && isset( $this->config[ 'images' ][ 'convert_to_webp' ] ) ) {
-            $this->convertToWebp = $this->config[ 'images' ][ 'convert_to_webp' ];
-        }
+        $this->convertToWebp = $config->get( 'images.convert_to_webp' );
+        $this->generateResponsive = $config->get( 'images.generate_responsive' ); 
+    }
 
-        if ( isset( $this->config[ 'images' ] ) && isset( $this->config[ 'images' ][ 'generate_responsive' ] ) ) {
-            $this->generateResponsive = $this->config[ 'images' ][ 'generate_responsive' ];
-        }
+    public function processOne( $entry ) {
+        $entry = $this->contentFilter( $entry );
+
+        return $entry;
     }
 
     public function contentFilter( $content ) {
@@ -58,8 +61,6 @@ class ImagePlugin extends Plugin {
                     }
 
                      $content->markdownHtml = str_replace( $image_tag, $newImageTag, $content->markdownHtml );
-
-                   // print_r( $matches ); die;
                 }
             }
         }
@@ -131,7 +132,7 @@ class ImagePlugin extends Plugin {
                 $imageData = $newImage;
             } 
 
-            echo "..............writing image [" . $destinationImage . "]\n";
+            LOG( "Writing new image [" . $destinationImage . "]", 2, LOG::DEBUG );
 
             if ( $formatConversion ) {
                 imagepalettetotruecolor( $imageData );
@@ -215,7 +216,7 @@ class ImagePlugin extends Plugin {
             }
         } else {
             // direct copy
-            echo "..........copying image to [" . $destinationImage . "]\n";
+            LOG( "Directly copying image to [" . $destinationImage . "]", 2, LOG::DEBUG );
             Utils::copyFile( $sourceImage, $destinationImage );
 
             return $this->_getImageInformation( $destinationImage, $isPrimary );
@@ -275,7 +276,7 @@ class ImagePlugin extends Plugin {
 
             $imageInfo->type = pathinfo( $imageFile, PATHINFO_EXTENSION );
             $imageInfo->url = str_replace( CROSSROAD_PUBLIC_DIR, '', $imageFile );
-            $imageInfo->public_url = str_replace( CROSSROAD_PUBLIC_DIR, Utils::fixPath( $this->config[ 'site' ][ 'url'] ), $imageFile );
+            $imageInfo->public_url = str_replace( CROSSROAD_PUBLIC_DIR, Utils::fixPath( $this->config->get( 'site.url' ) ), $imageFile );
 
             if ( $includeResp ) {
                 $imageInfo->hasResponsive = false;

@@ -28,7 +28,7 @@ At the recommendation of my friend Jason, I’m going to be flying with [Virgin 
 - Red, our in-flight entertainment system, has over 25 pay-per-view Hollywood movies on demand.
 - Virgin America is a cashless airline. Place your order, swipe your card, and you’re done.
 
-![Virgin America Mood Lighting](http://www.migratorynerd.com/wp-content/uploads/2008/08/virgin-america-mood-lighting.png)
+![Virgin America Mood Lighting](_images/california-bound-once-again-1.png)
 
 Since they have plugins on every seat, I’m going to bring my laptop and hopefully do a few hours of catch-up work on the plane. Granted, there’s no internet connection, but I have quite a few things I can accomplish without one. Turns out they might have Wi-Fi on the planes, so we’ll see for sure tomorrow.
 

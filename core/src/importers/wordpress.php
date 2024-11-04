@@ -2,6 +2,7 @@
 
 namespace CR\Importers;
 
+use CR\LOG;
 use League\HTMLToMarkdown\HtmlConverter;
 
 class WordPress {
@@ -10,6 +11,8 @@ class WordPress {
     public function __construct() {}
 
     public function import( $homeUrl ) {
+        \CR\LOG( "Starting import of WordPress site at [" . $homeUrl . "]", 0, LOG::INFO );
+
         $wpJsonUrl = \CR\Utils::fixPath( $homeUrl )  . '/wp-json/wp/v2';
 
         $converter = new HtmlConverter( array('header_style'=>'atx') );
@@ -17,10 +20,10 @@ class WordPress {
 
         @mkdir( CROSSROADS_CONTENT_DIR );
 
-        $totalEntries = 0;
-
         foreach( $this->_contentTypes() as $contentType ) {
-            echo "Processing content type [" . $contentType . "]\n";
+            $totalEntries = 0;
+
+            \CR\LOG( "Processing WordPress content of type [" . $contentType . "]", 1, LOG::INFO );
 
             $contentUrl = $wpJsonUrl . '/' . $contentType . '?_embed&per_page=' . $this->perPage; 
             $currentPage = 1;
@@ -28,13 +31,15 @@ class WordPress {
             $contentDir = CROSSROADS_CONTENT_DIR . '/' . $contentType;
             @mkdir( $contentDir );
 
+            $brokenImages = [];
+
             $imageDir = CROSSROADS_CONTENT_DIR . '/' . $contentType . '/_images';
             \CR\Utils::mkDir( $imageDir );
 
             while ( true ) {
                 $content = \CR\Utils::curlDownloadFile( $contentUrl . '&page=' . $currentPage );
                 if ( $content ) {
-                    echo "..processing page " . ( $currentPage ) . ' ' . ( $totalEntries + 1 ) . "\n";
+                    \CR\LOG( "Processing page [" . $currentPage . "], entries processed so far [" . $totalEntries . "]", 2, LOG::INFO );
 
                     $decoded = json_decode( $content );
 
@@ -44,8 +49,6 @@ class WordPress {
 
                     if ( $decoded && count( $decoded ) ) {
                         foreach( $decoded as $entry ) {
-                            echo "....processing entry " . $totalEntries . "\n";
-
                             $wp_entry = new \stdClass;
                             $wp_entry->publishDate = strtotime( $entry->date_gmt );
                             $wp_entry->modifiedDate = strtotime( $entry->modified_gmt );
@@ -55,6 +58,8 @@ class WordPress {
                             $wp_entry->author = false;
                             $wp_entry->featured = false;
                             $wp_entry->taxonomy = [];
+
+                            \CR\LOG( "Processing individual entry with slug [" . $wp_entry->permalink . "]", 3, LOG::DEBUG );
 
                             if ( isset( $entry->_embedded ) ) {
                                 if ( isset( $entry->_embedded->author ) ) {
@@ -84,9 +89,13 @@ class WordPress {
 
                             $fileSlug = str_replace( ' ', '-', strtolower( preg_replace("/[^a-zA-Z0-9 ]/", "", $wp_entry->title ) ) );
                             $filename = $contentDir . '/' . $wp_entry->permalink . '.md';
-
+                            
+                           
                             if ( $contentType == 'posts' ) {
                                 $filename = $contentDir . '/' . date( 'Y-m-d', $wp_entry->publishDate ) . '-' . $fileSlug . '.md';
+                                $mdFile = $contentType . '/' . $wp_entry->permalink . '.md';
+                            } else {
+                                $mdFile = $contentType . '/' . date( 'Y-m-d', $wp_entry->publishDate ) . '/' . $wp_entry->permalink . '.md';
                             }
                           
                             $file_content = "---\n";
@@ -103,6 +112,8 @@ class WordPress {
                                 $result = $this->maybeDownloadFile( $wp_entry->featured, $imageDir, $homeUrl, $fileSlug . '-featured' );
                                 if ( $result ) {
                                     $file_content .= sprintf( "%s: \"%s\"\n", 'featuredImage', '_images/' . $result );
+                                } else {
+                                    $brokenImages[ $mdFile ][] = $wp_entry->featured;
                                 }
                             }
 
@@ -112,6 +123,7 @@ class WordPress {
                                 foreach( $matches[ 1 ] as $num => $image ) {
                                     $new_image = str_replace( 'www.duanestorey.com', 'old.duanestorey.com', $image );
                                     $new_image = str_replace( 'www.migratorynerd.com/wordpress/', 'old.duanestorey.com/', $new_image );
+                                    $new_image = str_replace( 'www.migratorynerd.com/', 'old.duanestorey.com/', $new_image );
                                     $new_image = str_replace( '/duanestorey.com/wordpress/', '/duanestorey.com/', $new_image );
                                     $new_image = str_replace( '/duanestorey.com', '/old.duanestorey.com', $new_image );
                                     $new_image = str_replace( '/old.duanestorey.com/wordpress/', '/old.duanestorey.com/', $new_image );
@@ -126,6 +138,8 @@ class WordPress {
                                     $result = $this->maybeDownloadFile( $new_image, $imageDir, $homeUrl, $fileSlug . '-' . ( $num + 1 ) );
                                     if ( $result ) {
                                         $entry->content->rendered = str_replace( $image, '_images/' . $result, $entry->content->rendered );
+                                    } else {
+                                        $brokenImages[ $mdFile ][] = $new_image;
                                     }
                                 }
                             }
@@ -154,11 +168,19 @@ class WordPress {
                     }
                     $currentPage++;
                 } else {
-                    echo "returned no content\n";
                     break; 
                 }
+            }
 
-                
+            \CR\LOG( "Finished processing content of type [" . $contentType . "], entries processed [" . $totalEntries . "]", 1, LOG::INFO );
+
+            // output broken images
+            if ( count( $brokenImages ) ) {
+                foreach( $brokenImages as $slug => $images ) {
+                    foreach( $images as $image ) {
+                        \CR\LOG( "Broken image for entry [" . $slug . "], image [" . $image . "]", 2, LOG::WARNING );
+                    }
+                }
             }
         }
     }
@@ -172,12 +194,15 @@ class WordPress {
     }
 
     private function maybeDownloadFile( $url, $destPath, $wpUrl, $renameSlug = false ) {
+        $origUrl = $url;
+
         if ( strpos( $url, 'www.assoc-amazon.com' ) !== false ) {
-            echo "......skipping image " . $url . "\n";
+          //  echo "......skipping image " . $url . "\n";
             return $url;
         }
 
-        echo "......processing image " . $url . "\n";
+        \CR\LOG( "Processing image [" . $url . "]", 3, LOG::DEBUG );
+
         if ( !$this->hasHttpOrHttps( $url ) ) {
             $url = $wpUrl . '/wp-content/uploads/'. $url;
         }
@@ -197,7 +222,7 @@ class WordPress {
                 return basename( $urlPath );
             }
         } else {
-            echo "[ERROR] - file not found [" . $url . "]\n";
+          //  \CR\LOG( "Image not found [" . $origUrl . "]", 3, LOG::WARNING );
         }
 
         return false;

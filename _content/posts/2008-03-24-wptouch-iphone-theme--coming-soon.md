@@ -16,6 +16,6 @@ tag:
   - "wptouch"
 ---
 
-[![](http://www.migratorynerd.com/wp-content/uploads/2008/03/picture-3.png "WPTouch iPhone/iPod-Touch WordPress Theme")](http://www.bravenewcode.com)
+[![](_images/wptouch-iphone-theme--coming-soon-1.png "WPTouch iPhone/iPod-Touch WordPress Theme")](http://www.bravenewcode.com)
 
 The official home for the theme will be over on [BraveNewCode](http://www.bravenewcode.com/), so add a link and keep track if you’re interested.
