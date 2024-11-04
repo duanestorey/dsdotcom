@@ -74,7 +74,9 @@ class Engine {
     }
 
     private function _import() {
-    
+        require_once( 'core/src/importers/wordpress.php' );
+        $importer = new Importers\WordPress;
+        $importer->import( 'https://old.duanestorey.com' );
     }
 
     private function _build() {
