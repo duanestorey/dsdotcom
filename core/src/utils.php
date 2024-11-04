@@ -17,6 +17,23 @@ class Utils {
         }
     }
 
+    static function recursiveRmdir( $directory ) {
+        $files = array_diff( scandir( $directory ), array( '.', '..' ) );
+        if ( count( $files ) ) {
+            foreach( $files as $file ) {
+                $cur_location = $directory . '/' . $file;
+
+                if ( is_dir( $cur_location ) ) {
+                    Utils::recursiveRmdir( $cur_location );
+                } else {
+                   unlink( $cur_location );
+                }
+            } 
+        }
+
+        rmdir( $directory );
+    }
+
     static function curlDownloadFile( $url ) {
         $result = false;
 

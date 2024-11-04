@@ -61,18 +61,16 @@ class Engine {
                     $this->_serve();
                     break;
                 case 'clean':
+                    $this->_clean();
                     break;
             }
 
-            LOG( sprintf( "Finished executing [" . strtoupper( $argv[ 1 ] ) . "] command, total time taken %0.4fs", microtime( true ) - $this->startTime ), 0, LOG::INFO );
+            LOG( sprintf( "Finished executing [" . strtoupper( $argv[ 1 ] ) . "] command, total time taken %0.3fs", microtime( true ) - $this->startTime ), 0, LOG::INFO );
         }
     }
 
     private function _loadConfig() {
         $this->config = new Config( YAML::parse_file( CROSSROAD_BASE_DIR . '/_config/site.yaml', true ) );
-
-         print_r( $this->config );
-       // die;
     }
 
     private function _checkConfig() {
@@ -95,6 +93,7 @@ class Engine {
 
     private function _import() {
         require_once( 'core/src/importers/wordpress.php' );
+
         $importer = new Importers\WordPress;
         $importer->import( 'https://old.duanestorey.com' );
     }
@@ -110,6 +109,10 @@ class Engine {
             echo "..build stopped due to exception [" . $e->name() . "] with message [" . $e->msg() . "]\n";
         }
         
+    }
+
+    private function _clean() {
+        Utils::recursiveRmdir( CROSSROAD_PUBLIC_DIR );
     }
 
     private function _serve() {

@@ -16,7 +16,6 @@ class YAML {
         }
 
         if ( $flatten ) {
-            print_r( $value );
             return YAML::flatten( $value );
         }
         

@@ -19,7 +19,7 @@ One of the pieces of technology I’ve always thought was pretty cool was the ne
 But somewhere, after a few beers, some genius came up with the great idea of simply etching the label on the CD using the laser built into the CD burner. And thus, Lightscribe was created.
 
   
-![](_images/lightscribe-on-the-mac-1.jpg)  
+![](http://www.hp.com/hpinfo/newsroom/press_kits/2005/ces/images/lightscribe_label.jpg)  
 A sample CD burned using Lightscribe – photo from hp.com  
 A while ago I was in Future Shop and saw a Lightscribe external CD burner for around $50. At that price, I thought, it would be cool to pick up so that when I do wedding DVDs etc from anything I shoot, I could do a really nice custom CD label using a photo from the shoot or something of that nature. I thought it would provide a really custom experience, and make people happy when they got the final DVD.
 

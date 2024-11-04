@@ -47,7 +47,7 @@ class PluginManager extends Plugin {
     public function processAll( $entries ) {
         if ( count( $this->plugins ) ) {
             foreach( $this->plugins as $plugin ) {
-                LOG( "Processing plugin [" . $plugin->name() . "]", 2, LOG::INFO );
+                LOG( "Executing plugin [" . $plugin->name() . "]", 2, LOG::INFO );
 
                 $entries = $plugin->processAll( $entries );
             }

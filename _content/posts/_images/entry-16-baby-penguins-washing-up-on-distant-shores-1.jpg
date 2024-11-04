@@ -357,7 +357,7 @@
 					<path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z"></path>
 				</svg>
 			</button>
-			<input type='hidden' name='TOKEN381260849X1730746598' value='ABlDfegFXgMGlSOMDHesHRzW/UorcgwH' class='_post_token' /><style type='text/css'>#subscribe_whywhere{display:none;}</style>
+			<input type='hidden' name='TOKEN718876944X1730754630' value='RkkS1yO.XAu1hTgTnssmltJNwGAmLOrD' class='_post_token' /><style type='text/css'>#subscribe_whywhere{display:none;}</style>
 		</form></div>			<div class="keep-in-touch">
 				<h1>Keep in touch</h1>
 				<div class="wide"><ul class="col1"><li><a class="facebook" href="https://www.facebook.com/AusAntarctic"><span class="social-icon"><svg role="img" aria-label="Follow us on Facebook @AusAntarctic">Follow us on Facebook @AusAntarctic<use href="#facebook-icon" aria-hidden="true"/></svg></span> <span class="social-text">/AusAntarctic</span></a></li><li><a class="twitter" href="https://twitter.com/AusAntarctic"><span class="social-icon"><svg role="img" aria-label="Follow us on Twitter @AusAntarctic">Follow us on Twitter @AusAntarctic<use href="#twitter-icon" aria-hidden="true"/></svg></span> <span class="social-text">@AusAntarctic</span></a></li><li><a class="instagram" href="https://www.instagram.com/ausantarctic/"><span class="social-icon"><svg role="img" aria-label="Follow us on Instagram /AusAntarctic">Follow us on Instagram /AusAntarctic<use href="#instagram-icon" aria-hidden="true"/></svg></span> <span class="social-text">/AusAntarctic</span></a></li></ul><ul class="col2"><li><a class="linkedin" href="https://www.linkedin.com/company/43865"><span class="social-icon"><svg role="img" aria-label="Follow us on LinkedIn @AusAntarctic">Follow us on LinkedIn @AusAntarctic<use href="#linkedin-icon" aria-hidden="true"/></svg></span> <span class="social-text">@AusAntarctic</span></a></li><li><a class="youtube" href="https://www.youtube.com/user/AusAntarctic"><span class="social-icon"><svg role="img" aria-label="Follow us on YouTube /AusAntarctic">Follow us on YouTube /AusAntarctic<use href="#youtube-icon" aria-hidden="true"/></svg></span> <span class="social-text">/AusAntarctic</span></a></li><li><a class="rss" href="/news/rss/"><span class="social-icon"><svg role="img" aria-label="Subscribe to our RSS feed">Subscribe to our RSS feed<use href="#rss-icon" aria-hidden="true"/></svg></span> <span class="social-text">RSS feed</span></a></li></ul></div><div class="narrow"><a class="facebook" href="https://www.facebook.com/AusAntarctic"><svg role="img" aria-label="Follow us on Facebook @AusAntarctic">Follow us on Facebook @AusAntarctic<use href="#facebook-icon" aria-hidden="true"/></svg></a><a class="twitter" href="https://twitter.com/AusAntarctic"><svg role="img" aria-label="Follow us on Twitter @AusAntarctic">Follow us on Twitter @AusAntarctic<use href="#twitter-icon" aria-hidden="true"/></svg></a><a class="instagram" href="https://www.instagram.com/ausantarctic/"><svg role="img" aria-label="Follow us on Instagram /AusAntarctic">Follow us on Instagram /AusAntarctic<use href="#instagram-icon" aria-hidden="true"/></svg></a><a class="linkedin" href="https://www.linkedin.com/company/43865"><svg role="img" aria-label="Follow us on LinkedIn @AusAntarctic">Follow us on LinkedIn @AusAntarctic<use href="#linkedin-icon" aria-hidden="true"/></svg></a><a class="youtube" href="https://www.youtube.com/user/AusAntarctic"><svg role="img" aria-label="Follow us on YouTube /AusAntarctic">Follow us on YouTube /AusAntarctic<use href="#youtube-icon" aria-hidden="true"/></svg></a><a class="rss" href="/news/rss/"><svg role="img" aria-label="Subscribe to our RSS feed">Subscribe to our RSS feed<use href="#rss-icon" aria-hidden="true"/></svg></a></div>			</div>
@@ -408,33 +408,53 @@
 	<div class="carousel-inner">
 		<div class='carousel-item active'>
 	<picture>
-		<source media="(max-width: 44em)" srcset="/site/assets/files/1/rs63703.514x600.jpg" />
-		<source media="(min-width: 44em)" srcset="/site/assets/files/1/rs63703.1920x768.jpg" />
-		<img class="d-block w-100 bannerimg" src="/site/assets/files/1/rs63703.1920x768.jpg"
-		alt="Long exposure at night with star trails and green Aurora lights, in the distance buildings have lights on." />
+		<source media="(max-width: 44em)" srcset="/site/assets/files/1/rs71811.514x600.jpg?nc=2576" />
+		<source media="(min-width: 44em)" srcset="/site/assets/files/1/rs71811.1920x768.jpg?nc=2576" />
+		<img class="d-block w-100 bannerimg" src="/site/assets/files/1/rs71811.1920x768.jpg?nc=2576"
+		alt="An orange and white ship sails through the ocean, surrounded by floating chunks of ice. The sun is setting in a clear sky." />
 	</picture>
 	<p class='text-left text-md-right my-2 mx-3'>
-<span class='image-caption mr-sm-2'>Star trails and aurora over Davis</span>
-<span class='image-photographer'>Photo: Neil Brown</span></p>
+<span class='image-caption mr-sm-2'>RSV Nuyina pushes through pack ice</span>
+<span class='image-photographer'>Photo: Pete Harmsen</span></p>
+</div><div class='carousel-item'>
+	<picture>
+		<source media="(max-width: 44em)" srcset="/site/assets/files/1/rs72126.514x600.jpg?nc=6f89" />
+		<source media="(min-width: 44em)" srcset="/site/assets/files/1/rs72126.1920x768.jpg?nc=6f89" />
+		<img class="d-block w-100 bannerimg" src="/site/assets/files/1/rs72126.1920x768.jpg?nc=6f89"
+		alt="An aerial drone photo of an orange and white ship breaking through sea ice. There is a long channel of water behind the ship where it has broken a path through." />
+	</picture>
+	<p class='text-left text-md-right my-2 mx-3'>
+<span class='image-caption mr-sm-2'>Icebreaking on RSV Nuyina</span>
+<span class='image-photographer'>Photo: Pete Harmsen</span></p>
+</div><div class='carousel-item'>
+	<picture>
+		<source media="(max-width: 44em)" srcset="/site/assets/files/1/rs74618.514x600.jpg?nc=7db3" />
+		<source media="(min-width: 44em)" srcset="/site/assets/files/1/rs74618.1920x768.jpg?nc=7db3" />
+		<img class="d-block w-100 bannerimg" src="/site/assets/files/1/rs74618.1920x768.jpg?nc=7db3"
+		alt="An aerial drone photo of an orange and white ship in a blue ocean with icebergs." loading="lazy"/>
+	</picture>
+	<p class='text-left text-md-right my-2 mx-3'>
+<span class='image-caption mr-sm-2'>RSV Nuyina</span>
+<span class='image-photographer'>Photo: Pete Harmsen</span></p>
 </div><div class='carousel-item'>
 	<picture>
 		<source media="(max-width: 44em)" srcset="/site/assets/files/1/rs62739.514x600.jpg" />
 		<source media="(min-width: 44em)" srcset="/site/assets/files/1/rs62739.1920x768.jpg" />
 		<img class="d-block w-100 bannerimg" src="/site/assets/files/1/rs62739.1920x768.jpg"
-		alt="Aurora Australis green lights over the coastline" />
+		alt="Aurora Australis green lights over the coastline" loading="lazy"/>
 	</picture>
 	<p class='text-left text-md-right my-2 mx-3'>
 <span class='image-caption mr-sm-2'>Aurora over Casey coastline</span>
 <span class='image-photographer'>Photo: Justin Chambers</span></p>
 </div><div class='carousel-item'>
 	<picture>
-		<source media="(max-width: 44em)" srcset="/site/assets/files/1/rs75285.514x600.jpg" />
-		<source media="(min-width: 44em)" srcset="/site/assets/files/1/rs75285.1920x768.jpg" />
-		<img class="d-block w-100 bannerimg" src="/site/assets/files/1/rs75285.1920x768.jpg"
-		alt="The Aurora Australis in the sky above a signpost, flagpoles and a shed. It appears like lakes and bands of green light, fading through dull red on their upper edges into a starry night sky." loading="lazy"/>
+		<source media="(max-width: 44em)" srcset="/site/assets/files/1/rs75284.514x600.jpg" />
+		<source media="(min-width: 44em)" srcset="/site/assets/files/1/rs75284.1920x768.jpg" />
+		<img class="d-block w-100 bannerimg" src="/site/assets/files/1/rs75284.1920x768.jpg"
+		alt="A cloud formation reaching a very great height in the sky. It has many wavelike layers, all seeming to converge downward to a point on the horizon." loading="lazy"/>
 	</picture>
 	<p class='text-left text-md-right my-2 mx-3'>
-<span class='image-caption mr-sm-2'>Aurora Australis at Casey&#039;s flagpoles</span>
+<span class='image-caption mr-sm-2'>Lenticular clouds over Casey</span>
 <span class='image-photographer'>Photo: Barry Becker</span></p>
 </div><div class='carousel-item'>
 	<picture>
@@ -448,34 +468,24 @@
 <span class='image-photographer'>Photo: Kim de Laive</span></p>
 </div><div class='carousel-item'>
 	<picture>
-		<source media="(max-width: 44em)" srcset="/site/assets/files/1/rs75284.514x600.jpg" />
-		<source media="(min-width: 44em)" srcset="/site/assets/files/1/rs75284.1920x768.jpg" />
-		<img class="d-block w-100 bannerimg" src="/site/assets/files/1/rs75284.1920x768.jpg"
-		alt="A cloud formation reaching a very great height in the sky. It has many wavelike layers, all seeming to converge downward to a point on the horizon." loading="lazy"/>
+		<source media="(max-width: 44em)" srcset="/site/assets/files/1/rs63703.514x600.jpg" />
+		<source media="(min-width: 44em)" srcset="/site/assets/files/1/rs63703.1920x768.jpg" />
+		<img class="d-block w-100 bannerimg" src="/site/assets/files/1/rs63703.1920x768.jpg"
+		alt="Long exposure at night with star trails and green Aurora lights, in the distance buildings have lights on." loading="lazy"/>
 	</picture>
 	<p class='text-left text-md-right my-2 mx-3'>
-<span class='image-caption mr-sm-2'>Lenticular clouds over Casey</span>
+<span class='image-caption mr-sm-2'>Star trails and aurora over Davis</span>
+<span class='image-photographer'>Photo: Neil Brown</span></p>
+</div><div class='carousel-item'>
+	<picture>
+		<source media="(max-width: 44em)" srcset="/site/assets/files/1/rs74943_lpr.514x600.jpg?nc=803b" />
+		<source media="(min-width: 44em)" srcset="/site/assets/files/1/rs74943_lpr.1920x768.jpg?nc=803b" />
+		<img class="d-block w-100 bannerimg" src="/site/assets/files/1/rs74943_lpr.1920x768.jpg?nc=803b"
+		alt="Large, illuminated clouds roll in over an icy and rocky landscape. There are a couple of buildings in the foreground." loading="lazy"/>
+	</picture>
+	<p class='text-left text-md-right my-2 mx-3'>
+<span class='image-caption mr-sm-2'>Clouds rolling in over Casey</span>
 <span class='image-photographer'>Photo: Barry Becker</span></p>
-</div><div class='carousel-item'>
-	<picture>
-		<source media="(max-width: 44em)" srcset="/site/assets/files/1/rs71811.514x600.jpg?nc=2576" />
-		<source media="(min-width: 44em)" srcset="/site/assets/files/1/rs71811.1920x768.jpg?nc=2576" />
-		<img class="d-block w-100 bannerimg" src="/site/assets/files/1/rs71811.1920x768.jpg?nc=2576"
-		alt="An orange and white ship sails through the ocean, surrounded by floating chunks of ice. The sun is setting in a clear sky." loading="lazy"/>
-	</picture>
-	<p class='text-left text-md-right my-2 mx-3'>
-<span class='image-caption mr-sm-2'>RSV Nuyina pushes through pack ice</span>
-<span class='image-photographer'>Photo: Pete Harmsen</span></p>
-</div><div class='carousel-item'>
-	<picture>
-		<source media="(max-width: 44em)" srcset="/site/assets/files/1/rs72126.514x600.jpg?nc=6f89" />
-		<source media="(min-width: 44em)" srcset="/site/assets/files/1/rs72126.1920x768.jpg?nc=6f89" />
-		<img class="d-block w-100 bannerimg" src="/site/assets/files/1/rs72126.1920x768.jpg?nc=6f89"
-		alt="An aerial drone photo of an orange and white ship breaking through sea ice. There is a long channel of water behind the ship where it has broken a path through." loading="lazy"/>
-	</picture>
-	<p class='text-left text-md-right my-2 mx-3'>
-<span class='image-caption mr-sm-2'>Icebreaking on RSV Nuyina</span>
-<span class='image-photographer'>Photo: Pete Harmsen</span></p>
 </div><div class='carousel-item'>
 	<picture>
 		<source media="(max-width: 44em)" srcset="/site/assets/files/1/rs68323.514x600.jpg" />
@@ -488,23 +498,13 @@
 <span class='image-photographer'>Photo: Michael Brill</span></p>
 </div><div class='carousel-item'>
 	<picture>
-		<source media="(max-width: 44em)" srcset="/site/assets/files/1/rs74618.514x600.jpg?nc=7db3" />
-		<source media="(min-width: 44em)" srcset="/site/assets/files/1/rs74618.1920x768.jpg?nc=7db3" />
-		<img class="d-block w-100 bannerimg" src="/site/assets/files/1/rs74618.1920x768.jpg?nc=7db3"
-		alt="An aerial drone photo of an orange and white ship in a blue ocean with icebergs." loading="lazy"/>
+		<source media="(max-width: 44em)" srcset="/site/assets/files/1/rs75285.514x600.jpg" />
+		<source media="(min-width: 44em)" srcset="/site/assets/files/1/rs75285.1920x768.jpg" />
+		<img class="d-block w-100 bannerimg" src="/site/assets/files/1/rs75285.1920x768.jpg"
+		alt="The Aurora Australis in the sky above a signpost, flagpoles and a shed. It appears like lakes and bands of green light, fading through dull red on their upper edges into a starry night sky." loading="lazy"/>
 	</picture>
 	<p class='text-left text-md-right my-2 mx-3'>
-<span class='image-caption mr-sm-2'>RSV Nuyina</span>
-<span class='image-photographer'>Photo: Pete Harmsen</span></p>
-</div><div class='carousel-item'>
-	<picture>
-		<source media="(max-width: 44em)" srcset="/site/assets/files/1/rs74943_lpr.514x600.jpg?nc=803b" />
-		<source media="(min-width: 44em)" srcset="/site/assets/files/1/rs74943_lpr.1920x768.jpg?nc=803b" />
-		<img class="d-block w-100 bannerimg" src="/site/assets/files/1/rs74943_lpr.1920x768.jpg?nc=803b"
-		alt="Large, illuminated clouds roll in over an icy and rocky landscape. There are a couple of buildings in the foreground." loading="lazy"/>
-	</picture>
-	<p class='text-left text-md-right my-2 mx-3'>
-<span class='image-caption mr-sm-2'>Clouds rolling in over Casey</span>
+<span class='image-caption mr-sm-2'>Aurora Australis at Casey&#039;s flagpoles</span>
 <span class='image-photographer'>Photo: Barry Becker</span></p>
 </div>
 	</div>
@@ -640,20 +640,20 @@
 			<div class="view-on">View on Facebook</div>
 		</div>
 	</div>
-</a><a class="item" href="https://www.facebook.com/259670439520404/posts/850435653777210">
-	<img loading="lazy" src="/site/assets/files/67362/1289263877758626_850435653777210.400x400.jpg" alt="">
+</a><a class="item" href="https://www.facebook.com/259670439520404/posts/849056937248415">
+	<img loading="lazy" src="/site/assets/files/67306/1289263877758626_849056937248415.400x400.jpg" alt="">
 	<div class="text-icon">
-		<div class="text">This International Day for Women in Maritime, we&#039;re celebrating the hardworking crew on RSV Nuyina. #womeninmaritime</div>
+		<div class="text">Macquarie Island research station is home to around 25 expeditioners over winter and is buffeted by high winds and huge seas. The island is…</div>
 		<div class="details">
-			<div class="date">18 May 2024</div>
+			<div class="date">16 May 2024</div>
 			<div class="icon"><svg role="img" aria-label="Facebook icon"><use href="#facebook-icon" aria-hidden="true"/></svg></div>
 			<div class="view-on">View on Facebook</div>
 		</div>
 	</div>
-</a><a class="item" href="https://www.facebook.com/259670439520404/posts/850390373781738">
-	<img loading="lazy" src="/site/assets/files/67363/1289263877758626_850390373781738.400x400.jpg" alt="">
+</a><a class="item" href="https://www.facebook.com/259670439520404/posts/850435653777210">
+	<img loading="lazy" src="/site/assets/files/67362/1289263877758626_850435653777210.400x400.jpg" alt="">
 	<div class="text-icon">
-		<div class="text">It&#039;s International Day for Women in Maritime! Deck cadets Ayla from Serco and Freya from the Port Authority of NSW are learning the…</div>
+		<div class="text">This International Day for Women in Maritime, we&#039;re celebrating the hardworking crew on RSV Nuyina. #womeninmaritime</div>
 		<div class="details">
 			<div class="date">18 May 2024</div>
 			<div class="icon"><svg role="img" aria-label="Facebook icon"><use href="#facebook-icon" aria-hidden="true"/></svg></div>
@@ -670,12 +670,12 @@
 			<div class="view-on">View on Facebook</div>
 		</div>
 	</div>
-</a><a class="item" href="https://www.facebook.com/share/p/QnYKuDv1n1HMWDoM/">
-	<img loading="lazy" src="/site/assets/files/67926/449822234_880014137486028_5067791508719763716_n.400x400.jpg" alt="">
+</a><a class="item" href="https://www.facebook.com/share/p/vKw22Cd7rMLhiXgE/">
+	<img loading="lazy" src="/site/assets/files/67758/448373947_870619161758859_2920390530011473261_n.400x400.jpg" alt="">
 	<div class="text-icon">
-		<div class="text">Ensuring genetic diversity within wild species, is a critical part of maintaining the world’s biodiversity. But a study of more than 900…</div>
+		<div class="text">Today is World Albatross Day! This year’s theme, Marine Protected Areas – Safeguarding our Oceans, focuses on the connection between…</div>
 		<div class="details">
-			<div class="date">3 Jul 2024</div>
+			<div class="date">19 Jun 2024</div>
 			<div class="icon"><svg role="img" aria-label="Facebook icon"><use href="#facebook-icon" aria-hidden="true"/></svg></div>
 			<div class="view-on">View on Facebook</div>
 		</div>
@@ -727,7 +727,7 @@
 					<path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z"></path>
 				</svg>
 			</button>
-			<input type='hidden' name='TOKEN381260849X1730746598' value='ABlDfegFXgMGlSOMDHesHRzW/UorcgwH' class='_post_token' /><style type='text/css'>#subscribe_whywhere{display:none;}</style>
+			<input type='hidden' name='TOKEN718876944X1730754630' value='RkkS1yO.XAu1hTgTnssmltJNwGAmLOrD' class='_post_token' /><style type='text/css'>#subscribe_whywhere{display:none;}</style>
 		</form></div>		</footer>
 	</div>
 	<script src='/site/templates/lib/pushy-1.4.0/js/pushy.min.js'></script>
