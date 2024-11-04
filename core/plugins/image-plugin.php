@@ -165,7 +165,7 @@ class ImagePlugin extends Plugin {
         return false;
     }
 
-    private function _convert_or_copy_image( $sourceImage, $destinationImage, $isPrimary = true, $forceWidth = false, $formatConversion = false ) {
+    private function _convertOrCopyImage( $sourceImage, $destinationImage, $isPrimary = true, $forceWidth = false, $formatConversion = false ) {
         $imageExt = pathinfo( $sourceImage, PATHINFO_EXTENSION );
         if ( $formatConversion ) {
             // check to see if it's a jpg, otherwise disable conversion   
@@ -212,7 +212,7 @@ class ImagePlugin extends Plugin {
         } else {
             // direct copy
             echo "..........copying image to [" . $destinationImage . "]\n";
-            Utils::copy_file( $sourceImage, $destinationImage );
+            Utils::copyFile( $sourceImage, $destinationImage );
 
             return $this->_getImageInformation( $destinationImage, $isPrimary );
         }
@@ -285,23 +285,23 @@ class ImagePlugin extends Plugin {
         foreach( $search_dirs as $search_dir ) {
             $originalImageFile = $search_dir . $imageFile;
             $imageFilename_only = pathinfo( $originalImageFile, PATHINFO_BASENAME );
-            $imageDestinationPath_with_date = $destinationPath;
+            $imageDestinationPathWithDate = $destinationPath;
 
             echo "........checking image " . $currentPath . '/' . $originalImageFile . "\n";
 
             // we have a valid source file
             if ( file_exists( $currentPath . '/' . $originalImageFile ) ) {  
-                @mkdir( CROSSROAD_PUBLIC_DIR . $imageDestinationPath_with_date, 0755, true );
-                $destinationFile = CROSSROAD_PUBLIC_DIR . $imageDestinationPath_with_date . '/' . $imageFilename_only;
+                @mkdir( CROSSROAD_PUBLIC_DIR . $imageDestinationPathWithDate, 0755, true );
+                $destinationFile = CROSSROAD_PUBLIC_DIR . $imageDestinationPathWithDate . '/' . $imageFilename_only;
                 $foundFile = $currentPath . '/' . $originalImageFile;
 
-                $mainImage = $this->_convert_or_copy_image( $foundFile, $destinationFile, true, false, $this->convertToWebp );
+                $mainImage = $this->_convertOrCopyImage( $foundFile, $destinationFile, true, false, $this->convertToWebp );
                 if ( $mainImage && $this->generateResponsive ) {
 
                     $responsiveSizes = [ 320, 480, 640, 960, 1360, 1600 ];
 
                     foreach( $responsiveSizes as $size ) {
-                         $image = $this->_convert_or_copy_image( $foundFile, $destinationFile, false, $size, $this->convertToWebp );
+                         $image = $this->_convertOrCopyImage( $foundFile, $destinationFile, false, $size, $this->convertToWebp );
 
                          if ( $image ) {
                             $mainImage->responsiveImages[ $size ] = $image;

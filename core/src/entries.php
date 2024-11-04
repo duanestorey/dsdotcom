@@ -59,7 +59,7 @@ class Entries {
 
                 echo "....loading content type [" . $contentType . "]\n";
 
-                $content_directory = \CROSSROAD_BASE_DIR . '/content/' . $contentType;
+                $content_directory = \CROSSROADS_CONTENT_DIR . '/' . $contentType;
 
                 $allMarkdownFiles = $this->_findMarkdownFiles( $content_directory );
                 if ( is_array( $allMarkdownFiles ) && count( $allMarkdownFiles ) ) {
@@ -68,44 +68,29 @@ class Entries {
 
                         $markdown = new Markdown();
                         if ( $markdown->loadFile( $markdownFile ) ) {    
-                            $contentSlug = '/' . $contentType . '/' . pathinfo( $markdownFile, PATHINFO_FILENAME ) . '.html';
-
                             $content = new Content;
+                            $content->slug = $this->getSlugFromName( pathinfo( $markdownFile, PATHINFO_FILENAME ) );
+                            $content->taxonomy = array();
+
+                            if ( $front = $markdown->frontMatter() ) {
+                                $content->title = $this->_findDataInFrontMatter( [ 'title' ], $front,$content->title );
+                                $content->slug = $this->_findDataInFrontMatter( [ 'slug' ], $front,$content->slug );
+                                $content->publishDate = strtotime( $this->_findDataInFrontMatter( [ 'date', 'publishDate' ], $front, date( 'Y-m-d' ) ) );
+                                $content->featuredImage = $this->_findDataInFrontMatter( [ 'featuredImage', 'coverImage', 'heroImage' ], $front, $content->featuredImage );
+                                $content->description = $this->_findDataInFrontMatter( [ 'description' ], $front, $content->description );
+                                $content->taxonomy = array_merge( $this->_findDataInFrontMatter( [ 'category', 'categories' ], $front, [] ), $content->taxonomy ); 
+                                $content->taxonomy = array_merge( $this->_findDataInFrontMatter( [ 'tag', 'tags' ], $front, [] ), $content->taxonomy );
+                            }
+
+                            $contentLink = '/' . $contentType . '/' . $content->slug . '.html';
+
                             $content->contentType = $contentType;
                             $content->markdownHtml = $markdown->html();
                             $content->markdownFile = $markdownFile;
-                            $content->url = Utils::fixPath( $this->config[ 'site' ][ 'url' ] ) . $contentSlug;
-                            $content->relUrl = $contentSlug;
-                            $content->slug = $contentSlug;
-                            $content->unique = md5( $contentSlug );
-                            $content->taxonomy = array();
-                            $content->className = pathinfo( $markdownFile, PATHINFO_FILENAME );
-
-                            if ( $front = $markdown->frontMatter() ) {
-                                if ( isset( $front[ 'title' ] ) ) {
-                                    $content->title = $front[ 'title' ];
-                                }
-
-                                if ( isset( $front[ 'date' ] ) ) {
-                                    $content->publishDate = strtotime( $front[ 'date' ] );
-                                }
-
-                                if ( isset( $front[ 'coverImage' ] ) ) {
-                                    $content->featuredImage = $front[ 'coverImage' ];
-                                }
-
-                                if ( isset( $front[ 'description' ] ) ) {
-                                    $content->description = $front[ 'description' ];
-                                }
-
-                                if ( isset( $front[ 'categories'] ) ) {
-                                    $content->taxonomy = array_merge( $content->taxonomy, $front[ 'categories'] );
-                                }
-
-                                if ( isset( $front[ 'tags'] ) ) {
-                                    $content->taxonomy = array_merge( $content->taxonomy, $front[ 'tags'] );
-                                }
-                            }
+                            $content->url = Utils::fixPath( $this->config[ 'site' ][ 'url' ] ) . $contentLink;
+                            $content->relUrl = $contentLink;
+                            $content->unique = md5( $contentLink ); 
+                            $content->className = $content->slug;
 
                             $content->taxonomy = array_map( function( $e ) { return Utils::cleanTerm( $e ); }, $content->taxonomy );
                             if ( count( $content->taxonomy ) ) {
@@ -127,6 +112,23 @@ class Entries {
         }
     }
 
+    private function getSlugFromName( $name ) {
+        echo $name;
+        if ( preg_match( '#(\d+-\d+-\d+)-(.*)#', $name, $match ) ) {
+            $name = $match[ 2 ];
+        }
+        return $name;
+    }
+
+    private function _findDataInFrontMatter( $fields, $frontMatter, $default ) {
+        foreach( $fields as $field ) {
+            if ( isset( $frontMatter[ $field ] ) ) {
+                return $frontMatter[ $field ];
+            }
+        }
+
+        return $default;
+    }
 
     private function _findMarkdownFiles( $directory ) {
         return Utils::findAllFilesWithExtension( $directory, 'md' );

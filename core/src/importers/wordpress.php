@@ -5,7 +5,7 @@ namespace CR\Importers;
 use League\HTMLToMarkdown\HtmlConverter;
 
 class WordPress {
-    var $perPage = 25;
+    var $perPage = 50;
 
     public function __construct() {}
 
@@ -17,10 +17,13 @@ class WordPress {
 
         @mkdir( CROSSROADS_CONTENT_DIR );
 
+        $totalEntries = 0;
+
         foreach( $this->_contentTypes() as $contentType ) {
+            echo "Processing content type [" . $contentType . "]\n";
+
             $contentUrl = $wpJsonUrl . '/' . $contentType . '?_embed&per_page=' . $this->perPage; 
             $currentPage = 1;
-            $totalEntries = 0;
 
             $contentDir = CROSSROADS_CONTENT_DIR . '/' . $contentType;
             @mkdir( $contentDir );
@@ -29,12 +32,20 @@ class WordPress {
             \CR\Utils::mkDir( $imageDir );
 
             while ( true ) {
-                $content = @file_get_contents( $contentUrl . '&page=' . $currentPage );
+                $content = \CR\Utils::curlDownloadFile( $contentUrl . '&page=' . $currentPage );
                 if ( $content ) {
+                    echo "..processing page " . ( $currentPage ) . ' ' . ( $totalEntries + 1 ) . "\n";
+
                     $decoded = json_decode( $content );
+
+                    if ( isset( $decoded->data ) && isset( $decoded->data->status ) && $decoded->data->status == 400 ) {
+                        break;
+                    } 
 
                     if ( $decoded && count( $decoded ) ) {
                         foreach( $decoded as $entry ) {
+                            echo "....processing entry " . $totalEntries . "\n";
+
                             $wp_entry = new \stdClass;
                             $wp_entry->publishDate = strtotime( $entry->date_gmt );
                             $wp_entry->modifiedDate = strtotime( $entry->modified_gmt );
@@ -60,27 +71,32 @@ class WordPress {
                                     foreach( $entry->_embedded->{'wp:term'} as $num => $tax ) {
                                         //print_r( $terms );
                                         foreach( $tax as $one_term ) {
-                                            $wp_entry->taxonomy[ $one_term->taxonomy ] = html_entity_decode ( $one_term->name );
+                                            $taxFullName = $one_term->taxonomy;
+                                            if ( $taxFullName == 'post_tag' ) {
+                                                $taxFullName = 'tag';
+                                            }
+
+                                            $wp_entry->taxonomy[ $taxFullName ][] = html_entity_decode ( $one_term->name );
                                         }
                                     }
                                 }
                             }
 
                             $fileSlug = str_replace( ' ', '-', strtolower( preg_replace("/[^a-zA-Z0-9 ]/", "", $wp_entry->title ) ) );
-                            $filename = $contentDir . '/' . $fileSlug . '.md';
+                            $filename = $contentDir . '/' . $wp_entry->permalink . '.md';
 
                             if ( $contentType == 'posts' ) {
                                 $filename = $contentDir . '/' . date( 'Y-m-d', $wp_entry->publishDate ) . '-' . $fileSlug . '.md';
                             }
                           
                             $file_content = "---\n";
-                            $file_content .= sprintf( "%s: \"%s\"\n", 'title', $wp_entry->title );
+                            $file_content .= sprintf( "%s: \"%s\"\n", 'title', $this->_escapeYaml( $wp_entry->title ) );
                             $file_content .= sprintf( "%s: \"%s\"\n", 'publishDate', date( "Y-m-d", $wp_entry->publishDate ) );
                             $file_content .= sprintf( "%s: \"%s\"\n", 'modifiedDate', date( "Y-m-d", $wp_entry->modifiedDate ) );
-                            $file_content .= sprintf( "%s: \"%s\"\n", 'slug', $wp_entry->permalink );
+                            $file_content .= sprintf( "%s: \"%s\"\n", 'slug', $this->_escapeYaml( $wp_entry->permalink ) );
 
                             if ( $wp_entry->author ) {
-                                $file_content .= sprintf( "%s: \"%s\"\n", 'author', $wp_entry->author );
+                                $file_content .= sprintf( "%s: \"%s\"\n", 'author', $this->_escapeYaml( $wp_entry->author ) );
                             }
 
                             if ( $wp_entry->featured ) {
@@ -102,8 +118,8 @@ class WordPress {
 
                                     // let's remove the shit from the end
                                     $fullInfo = parse_url( $new_image );
-                                    $filename = basename( $fullInfo[ 'path' ] );
-                                    if ( preg_match( '#(.*)(-(\d+)x(\d+)).(.*)#', $filename, $match ) ) {
+                                    $imageFilename = basename( $fullInfo[ 'path' ] );
+                                    if ( preg_match( '#(.*)(-(\d+)x(\d+)).(.*)#', $imageFilename, $match ) ) {
                                         $new_image = str_replace( $match[ 2 ], '', $new_image );
                                     }
 
@@ -111,6 +127,17 @@ class WordPress {
                                     if ( $result ) {
                                         $entry->content->rendered = str_replace( $image, '_images/' . $result, $entry->content->rendered );
                                     }
+                                }
+                            }
+
+                            if ( count( $wp_entry->taxonomy ) ) {
+                                foreach( $wp_entry->taxonomy as $taxName => $taxContent ) {
+                                    $taxFrontMatter = $this->_escapeYaml( $taxName ) . ":\n";
+                                    foreach( $taxContent as $taxNum => $taxTerm ) {
+                                        $taxFrontMatter = $taxFrontMatter . "  - \"" . $this->_escapeYaml( $taxTerm ) . "\"\n";
+                                    }
+
+                                    $file_content .= $taxFrontMatter;
                                 }
                             }
 
@@ -127,12 +154,17 @@ class WordPress {
                     }
                     $currentPage++;
                 } else {
+                    echo "returned no content\n";
                     break; 
                 }
 
-                echo "..processed page " . ( $currentPage - 1 ) . ' ' . $totalEntries . "\n";
+                
             }
         }
+    }
+
+    private function _escapeYaml( $str ) {
+        return str_replace( "\"", "\\\"", $str );
     }
 
     private function hasHttpOrHttps( $url ) {
@@ -140,29 +172,38 @@ class WordPress {
     }
 
     private function maybeDownloadFile( $url, $destPath, $wpUrl, $renameSlug = false ) {
+        if ( strpos( $url, 'www.assoc-amazon.com' ) !== false ) {
+            echo "......skipping image " . $url . "\n";
+            return $url;
+        }
+
+        echo "......processing image " . $url . "\n";
         if ( !$this->hasHttpOrHttps( $url ) ) {
             $url = $wpUrl . '/wp-content/uploads/'. $url;
         }
 
-        $contents = file_get_contents( $url );
+        $contents = \CR\Utils::curlDownloadFile( $url );
         if ( $contents ) {
             $urlInfo = parse_url( $url );
             $urlPath = $urlInfo[ 'path' ];
             
             if ( $renameSlug ) {
                 $fileExt = pathinfo( $urlPath, PATHINFO_EXTENSION );
+               // echo "...storing " . $url . " as " . $destPath . '/' . $renameSlug . '.' . $fileExt . "\n";
                 file_put_contents( $destPath . '/' . $renameSlug . '.' . $fileExt, $contents );
                 return basename( $renameSlug . '.' . $fileExt );
             } else {
                 file_put_contents( $destPath . '/' . basename( $urlPath ), $contents );
                 return basename( $urlPath );
             }
+        } else {
+            echo "[ERROR] - file not found [" . $url . "]\n";
         }
 
         return false;
     }
 
     private function _contentTypes() {
-        return [ 'posts', 'pages' ];;
+        return [ 'pages', 'posts' ];;
     }
 };

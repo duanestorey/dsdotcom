@@ -55,7 +55,7 @@ class Engine {
     }
 
     private function _loadConfig() {
-        $this->config = YAML::parse_file( CROSSROAD_BASE_DIR . '/config/site.yaml' );
+        $this->config = YAML::parse_file( CROSSROAD_BASE_DIR . '/_config/site.yaml' );
     }
 
     private function _checkConfig() {

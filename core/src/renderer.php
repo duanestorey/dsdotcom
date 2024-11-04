@@ -26,7 +26,7 @@ class Renderer {
 
     public function renderSinglePage( $entry, $templateFiles ) {
         // set up page specific stuff like the page titel
-        $params = $this->_getDefaultRenderParams( $entry->contentType, $entry->slug, [ $entry->contentType . '-' . $entry->className ] );
+        $params = $this->_getDefaultRenderParams( $entry->contentType, $entry->relUrl, [ $entry->contentType . '-' . $entry->className ] );
         $params->content = $entry;
         $params = $this->pluginManager->templateParamFilter( $params );
 
@@ -35,9 +35,9 @@ class Renderer {
         $templateName = $this->templateEngine->locateTemplate( $templateFiles );
         if ( $templateName ) {
             $renderedHtml = $this->templateEngine->render( $templateName, $params );
-            file_put_contents( CROSSROAD_PUBLIC_DIR . $params->content->slug, $renderedHtml );
+            file_put_contents( CROSSROAD_PUBLIC_DIR . $params->content->relUrl, $renderedHtml );
 
-            echo "......outputting template file " . CROSSROAD_PUBLIC_DIR . $params->content->slug . "\n";
+            echo "......outputting template file " . CROSSROAD_PUBLIC_DIR . $params->content->relUrl . "\n";
         }    
     }
 

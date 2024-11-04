@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="/assets/lumen.css?v=58db42e81ee2013a23a476dd0cbbe88f">
+        <title>The Microprocessor - The Duane Storey</title>
+        <link rel="icon" type="image/x-icon" href="/assets/favicon.ico?v=58db42e81ee2013a23a476dd0cbbe88f">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" media="print" onload="this.media='all'">
+
+        <meta charset="utf-8">
+        <meta name="generator" content="Crossroads 1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="canonical" href="https://duanestorey.com/pages/the-microprocessor.html">
+
+        <meta name="description" content="While I don’t have a ton of experience making PCBs or designing hardware, I do have a small amount. During the COVID lockdowns">
+        <meta name="og:description" content="While I don’t have a ton of experience making PCBs or designing hardware, I do have a small amount. During the COVID lockdowns">
+        <meta property="og:title" content="The Microprocessor - The Duane Storey">
+        <meta property="og:url" content="https://duanestorey.com/pages/the-microprocessor.html">
+        <meta property="og:type" content="article">
+        <meta name="twitter:card" content="summary_large_image">   
+        <meta name="twitter:title" content="The Microprocessor - The Duane Storey">
+        <meta name="twitter:description" content="While I don’t have a ton of experience making PCBs or designing hardware, I do have a small amount. During the COVID lockdowns">
+        <meta name="twitter:creator" content="@duanestorey">
+
+    </head>
+    <body class="pages pages-the-microprocessor">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="/">The Duane Storey</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-item nav-link" href="/">Home</a>
+                        <a class="nav-item nav-link" href="/pages/hiking.html">Hiking</a>
+                        <a class="nav-item nav-link" href="/pages/building-a-custom-hi-fi-5-1-amplifier-with-dts-dolby-decoding.html">Hi-Fi Amp</a>
+                        <a class="nav-item nav-link" href="/pages/curriculum-vitae.html">CV</a>
+                        <a class="nav-item nav-link" href="/pages/about.html">About</a>
+                        <a class="nav-item nav-link" href="/pages/contact.html">Contact</a>
+                    </div>
+
+                    <ul class="navbar-nav d-flex flex-row">
+                        <li class="nav-item me-3 me-lg-0">
+                            <a class="nav-link" rel="nofollow" href="https://x.com/duanestorey" aria-label="Twitter">
+                                <i class="fa-brands fa-x-twitter text-white"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item me-3 me-lg-0">
+                            <a class="nav-link" rel="nofollow" href="https://instagram.com/duanestorey" aria-label="Instagram">
+                                <i class="fa-brands fa-instagram text-white"></i>
+                            </a>
+                        </li>
+                            <li class="nav-item me-3 me-lg-0">
+                            <a class="nav-link" rel="nofollow" href="https://bsky.app/profile/duanestorey.com" aria-label="Bluesky">
+                                <i class="fa-brands fa-bluesky text-white"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+    <div class="container mt-4">
+        <article>    
+            <h1 class="mt-4">The Microprocessor</h1>
+
+            <div class="content mt-3">
+                <p>While I don’t have a ton of experience making PCBs or designing hardware, I do have a small amount. During the COVID lockdowns I started playing with some tube amplifier designs, and to make them more interesting, I threw in some digital logic to control a display and what not.</p>
+<p>At the time, my only hardware experience was using the Arduino platform. But since them I’ve played a tiny bit with both Raspberry Pi and the STM32 ecosystem. Arduino is great for tinkering around, but the general consensus is that it’s mostly for just tinkering at home, and not used in anything serious.</p>
+<p>As I stated previously, one of the goals of this entire endeavour was to improve my skills in the domain of electrical engineering. So I figured if I’m pushing my boundaries, I may as well push all of them at the same time. So I figured I might as well get some real world experience using the STM32 family of microprocessors, even though it would involve a bit of a learning curve.</p>
+<p>Unlike Arduinos, where the Arduino editor does a lot of the work for you in making things work, the STM32 is a much more complicated processor that involves a ton of bootsrapping code to configure clocks, pins, timers, etc. While you can do simple programs with it using the Arduino tools, there’s no way to unlock any of the more sophisticated functionality without diving right into some of the STM32 tools like the Cube IDE.</p>
+<p><a href="https://www.duanestorey.com/wp-content/uploads/2023/01/IMG_3216-2-Large-e1674943414317.jpeg"><img loading="lazy" srcset="/assets/pages/2023/the-microprocessor-1-320w.jpeg 320w,/assets/pages/2023/the-microprocessor-1-480w.jpeg 480w,/assets/pages/2023/the-microprocessor-1-640w.jpeg 640w,/assets/pages/2023/the-microprocessor-1-960w.jpeg 960w" src="_images/the-microprocessor-1.jpeg" alt=""></a>STM32 Microprocessor Board</p>
+<p>A few of the core features I liked in the STM32 ecosystem that I figured I may need to utilize were:</p>
+<ul>
+<li>Timers that support an encoder mode – basically the hardware would handle increasing and decreasing an internal counter based on a rotary encoder input. I figured this would probably be useful for a volume knob.</li>
+<li>I2C &amp; SMP buses – to communicate with any other hardware, you need to support either the I2C or the SPI bus interfaces, and most chips support both</li>
+<li>I2S bus – 1 in the cheaper chips, 4 in the more expensive chips. I2S is the hardware format for digital audio. I liked right away that these chips could communicate over an I2S bus. Not without issues, of course, since doing high end audio is pretty difficult, but I figured it might come in handy.</li>
+<li>Multiple pin configurations – some of the smaller chips only have 64 pins, but you go all the way up to 200 pin variants if you need more GPIO pins</li>
+</ul>
+<p>To start getting acquainted with the ecosystem further, I bought a few Nucleo test boards to play with. It took some getting used to, but in a few hours I managed to write my first simple “blink” program to toggle a few LEDs. Knowing that I could write code and get it onto the chip was enough for me to plunge forward, and I decided to just roll with the STM32 architecture.</p>
+            </div>
+        </article>
+    </div>
+
+
+        <footer class="bg-dark pt-4 pb-4 mt-4 mb-4">
+            <div class="container text-center text-white">
+                All content copyright &copy; 2024<br>Content generated using Crossroads static generator
+            </div>
+
+            <script defer src="/assets/lumen.min.js?v=58db42e81ee2013a23a476dd0cbbe88f"></script>
+        </footer>   
+    </body>
+</html>

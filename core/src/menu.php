@@ -7,7 +7,7 @@ class Menu {
     var $menuFile = null;
 
     public function __construct() {
-        $this->menuFile = \CROSSROAD_BASE_DIR . '/config/menus.yaml';
+        $this->menuFile = \CROSSROAD_BASE_DIR . '/_config/menus.yaml';
     }
 
     public function loadMenus() {

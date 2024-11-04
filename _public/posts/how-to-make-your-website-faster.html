@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="/assets/lumen.css?v=58db42e81ee2013a23a476dd0cbbe88f">
+        <title>How To Make Your Website Or Blog Faster - The Duane Storey</title>
+        <link rel="icon" type="image/x-icon" href="/assets/favicon.ico?v=58db42e81ee2013a23a476dd0cbbe88f">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" media="print" onload="this.media='all'">
+
+        <meta charset="utf-8">
+        <meta name="generator" content="Crossroads 1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="canonical" href="https://duanestorey.com/posts/how-to-make-your-website-faster.html">
+
+        <meta name="description" content="There are a lot of different ways you can increase the speed of your website, even if you have relatively cheap hosting.">
+        <meta name="og:description" content="There are a lot of different ways you can increase the speed of your website, even if you have relatively cheap hosting.">
+        <meta property="og:title" content="How To Make Your Website Or Blog Faster - The Duane Storey">
+        <meta property="og:url" content="https://duanestorey.com/posts/how-to-make-your-website-faster.html">
+        <meta property="og:type" content="article">
+        <meta name="twitter:card" content="summary_large_image">   
+        <meta name="twitter:title" content="How To Make Your Website Or Blog Faster - The Duane Storey">
+        <meta name="twitter:description" content="There are a lot of different ways you can increase the speed of your website, even if you have relatively cheap hosting.">
+        <meta name="twitter:creator" content="@duanestorey">
+
+    </head>
+    <body class="posts posts-how-to-make-your-website-faster">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="/">The Duane Storey</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-item nav-link" href="/">Home</a>
+                        <a class="nav-item nav-link" href="/pages/hiking.html">Hiking</a>
+                        <a class="nav-item nav-link" href="/pages/building-a-custom-hi-fi-5-1-amplifier-with-dts-dolby-decoding.html">Hi-Fi Amp</a>
+                        <a class="nav-item nav-link" href="/pages/curriculum-vitae.html">CV</a>
+                        <a class="nav-item nav-link" href="/pages/about.html">About</a>
+                        <a class="nav-item nav-link" href="/pages/contact.html">Contact</a>
+                    </div>
+
+                    <ul class="navbar-nav d-flex flex-row">
+                        <li class="nav-item me-3 me-lg-0">
+                            <a class="nav-link" rel="nofollow" href="https://x.com/duanestorey" aria-label="Twitter">
+                                <i class="fa-brands fa-x-twitter text-white"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item me-3 me-lg-0">
+                            <a class="nav-link" rel="nofollow" href="https://instagram.com/duanestorey" aria-label="Instagram">
+                                <i class="fa-brands fa-instagram text-white"></i>
+                            </a>
+                        </li>
+                            <li class="nav-item me-3 me-lg-0">
+                            <a class="nav-link" rel="nofollow" href="https://bsky.app/profile/duanestorey.com" aria-label="Bluesky">
+                                <i class="fa-brands fa-bluesky text-white"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+    <div class="container mt-4">
+        <article>    
+            <h1 class="mt-4">How To Make Your Website Or Blog Faster</h1>
+            <div class="meta mb-2 text-primary fs-6 fw-light">
+                 Published on <time>February 18th, 2008</time>
+            </div>
+
+            <div class="content mt-3">
+                <p>There are a lot of different ways you can increase the speed of your website, even if you have relatively cheap hosting. If you’re lucky, your blogging platform already has a caching engine built in (Drupal does). If you’re unlucky, and running something like WordPress, you have to do a bit more work.</p>
+<p>Caching makes a website more responsive because it takes an expensive operation (such as a long database query) and stores it so that next time it doesn’t have to recompute it entirely. For example, when you go to this website, normally Apache would execute PHP, parse the WordPress code, do some MySQL database queries, and then finally output the HTML page. Depending on the hosting service, this may take a long time. With a cache, the final HTML page is simply written to disk (or memory if a memory cache is being used) so that when that page is requested the second time, it is merely read from disk and sent, which by comparison is relatively fast.</p>
+<p>The first thing I’d recommend everyone with WordPress to do is to enable the built in object cache. It’s not very well documented, but WordPress has the built in ability to cache many of the expensive database queries. To enable it, locate your wp-config.php file (which is usually in the root directory of your web installation), and add the following line to it:</p>
+<p><code>define('ENABLE_CACHE', true);</code></p>
+<p>That’s it. You should get a fair performance increase just be turning that on.</p>
+<p>I also suggest you WordPress people download the <a href="http://mnm.uib.es/gallir/wp-cache-2/">Wp-Cache</a> plugin. It’s fairly easy to install, and gives you a huge speed increase as soon as it’s up and running. Also, if your site ever gets to the front page of a website such as Digg, your website will most likely choke and die without some type of caching enabled. If you’re <strong>really</strong> adventurous, you can help me test out my <a href="http://www.migratorynerd.com/2008/02/wordpress-viper-cache-alpha/">Viper Cache plugin</a> that should ultimately be faster that Wp-Cache (and it’s in use on this website).</p>
+<p>While that solution will increase the speed of your PHP scripts, it doesn’t do much to help JPEGs or other files on your server. Thankfully, there is another easy way to make those a lot faster using the Apache mod_expires module.</p>
+<p>With mod_expires, you can tell Apache to insert caching directives for particular types of files as they are requested. For example, you can make it so that Apache instructs all browsers to store images in their local caches for four hours. With that directive, a browser will only have to download that image once and, for the next four hours, can simply retrieve it from it’s local cache. This not only saves you bandwidth, but makes its seem like the pages on your website load a lot faster.</p>
+<p>If your website supports .htaccess along with mod_expires, you can simply add something like this to it:</p>
+<pre><code>
+   &lt;ifmodule mod_expires.c=""&gt;
+   ExpiresActive on
+   ExpiresDefault now
+   ExpiresByType image/gif "access plus 4 hours"
+   ExpiresByType image/jpeg "access plus 4 hours"
+   ExpiresByType image/png "access plus 4 hours"
+   ExpiresByType audio/mp3 "access plus 2 hours"
+   ExpiresByType audio/x-m4a "access plus 2 hours"
+   &lt;/ifmodule&gt;
+</code></pre>
+<p>By setting the “ExpiresDefault” to “now”, it is instructing Apache to make everything non-cacheable except for the items listed below it. Without this, Apache would cache everything, including PHP scripts (which since they are dynamic, would be a fairly bad thing).</p>
+<p>As you can see, I’ve included a directive to cache JPEG images (with a MIME type of image/jpeg) for four hours, MP3 files for two hours, etc. You can modify this and add whatever MIME type you like, and the browsers will do the caching for you. The one downside to this is that the browser will not request that file again until the allotted time expires. What that means is that even if you change it on your webpage, it’s possible people won’t see those modifications for quite some time. If you set relatively small expires times, that isn’t normally a problem. However if you want to set longer ones, the only way to force an immediate change to an item is to change the filename on the server (which is an easy work around).</p>
+<p>If you combine those three methods, you can make WordPress a hell of a lot faster, and decrease the demands on your hosting server. Plus, you should be able to handle a Digg or any other sudden influx of traffic with relative ease.</p>
+
+                    <div class="tax">
+                        <a href="/posts/taxonomy/apache" class="btn btn-secondary btn-sm">apache</a>
+                        <a href="/posts/taxonomy/caching" class="btn btn-secondary btn-sm">caching</a>
+                        <a href="/posts/taxonomy/digg" class="btn btn-secondary btn-sm">digg</a>
+                        <a href="/posts/taxonomy/drupal" class="btn btn-secondary btn-sm">drupal</a>
+                        <a href="/posts/taxonomy/htaccess" class="btn btn-secondary btn-sm">htaccess</a>
+                        <a href="/posts/taxonomy/speed" class="btn btn-secondary btn-sm">speed</a>
+                        <a href="/posts/taxonomy/tips" class="btn btn-secondary btn-sm">tips</a>
+                        <a href="/posts/taxonomy/viper-cache" class="btn btn-secondary btn-sm">viper cache</a>
+                        <a href="/posts/taxonomy/journal" class="btn btn-secondary btn-sm">journal</a>
+                    </div>
+            </div>
+
+            <div class="comments mt-4 pt-4">
+                <div id="disqus_thread"></div>
+            </div>
+        </article>  
+    </div>
+
+
+        <footer class="bg-dark pt-4 pb-4 mt-4 mb-4">
+            <div class="container text-center text-white">
+                All content copyright &copy; 2024<br>Content generated using Crossroads static generator
+            </div>
+
+            <script defer src="/assets/lumen.min.js?v=58db42e81ee2013a23a476dd0cbbe88f"></script>
+        </footer>   
+    </body>
+</html>
