@@ -37,7 +37,7 @@ class Renderer {
             $renderedHtml = $this->templateEngine->render( $templateName, $params );
             file_put_contents( CROSSROAD_PUBLIC_DIR . $params->content->relUrl, $renderedHtml );
 
-            echo "......outputting template file " . CROSSROAD_PUBLIC_DIR . $params->content->relUrl . "\n";
+            LOG( ".Outputting template file [" . CROSSROAD_PUBLIC_DIR . $params->content->relUrl . "]", 4, LOG::DEBUG );
         }    
     }
 
@@ -94,7 +94,7 @@ class Renderer {
                 $renderedHtml = $this->templateEngine->render( $templateName, $params );
                 file_put_contents( $filename, $renderedHtml );  
 
-                echo "......outputting template file " . $filename . "\n";
+                LOG( ".Outputting template file [" . $filename . "]", 4, LOG::DEBUG );
 
                 $pagination->currentPage++;
 

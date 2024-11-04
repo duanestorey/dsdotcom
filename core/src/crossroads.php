@@ -21,6 +21,9 @@ require_once( 'utils.php' );
 require_once( 'plugin.php' );
 require_once( 'plugin-manager.php' );
 require_once( 'renderer.php' );
+require_once( 'log.php' );
+require_once( 'log-listener.php' );
+require_once( 'log-listener-shell.php' );
 
 require_once( CROSSROAD_CORE_DIR . '/plugins/image-plugin.php' );
 require_once( CROSSROAD_CORE_DIR . '/plugins/seo-plugin.php' );
@@ -30,16 +33,17 @@ class Engine {
     var $builder = null;
     var $config = null;
 
-    public function __construct() {}
+    public function __construct() {
+    }
 
     public function run( $argc, $argv ) {
         $this->_branding();
-
         $this->_loadConfig();
 
         if ( $argc == 1 ) {
             $this->_usage();
         } else {
+            Log::instance()->installListener( new LogListenerShell() );
             switch( $argv[ 1 ] ) {
                 case 'build':
                     $this->_build();
@@ -80,7 +84,7 @@ class Engine {
     }
 
     private function _build() {
-        echo "..building website\n";
+        LOG( "Starting static website build" );
 
         $this->builder = new Builder( $this->config );
 

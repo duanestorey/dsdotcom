@@ -52,21 +52,22 @@ class Theme {
     public function processAssets( $destination_dir ) {
         if ( isset( $this->config[ 'theme' ][ 'assets' ] ) ) {
             foreach( $this->config[ 'theme' ][ 'assets' ] as $destName => $sources ) {
-                echo "......processing asset [" . $destName . "]\n";
+                LOG( "Processing asset [" . $destName . "]", 3, LOG::DEBUG );
 
                 $content = '';
                 
                 foreach( $sources as $key => $source ) {
                     if ( file_exists( $this->themeDir . '/assets/' . $source ) ) {
                         
-                        echo "........adding file [" . $source . "]\n";
+                        LOG( "Adding file [" . $source . "]", 4, LOG::DEBUG );
                         $content = $content . "\n\n" . file_get_contents( $this->themeDir . '/assets/' . $source );
                     } else {
                         echo "........unable to find source [" . $this->themeDir . '/assets/' . $source . "]\n";
+                        LOG( "Unable to find source [" . $this->themeDir . '/assets/' . $source . "]", 4, LOG::WARNING );
                     }
                 }
 
-                echo "....writing static file [" . $destName . "]\n";
+                LOG( "Writing static file [" . $destName . "]", 4, LOG::DEBUG );
                 file_put_contents( CROSSROAD_PUBLIC_DIR . '/assets/' . $destName, $content );
             }
         }
@@ -76,7 +77,7 @@ class Theme {
                 if ( file_exists( $this->themeDir . '/assets/' . $imageFile ) ) {
                     Utils::copyFile( $this->themeDir . '/assets/' . $imageFile, CROSSROAD_PUBLIC_DIR . '/assets/' . pathinfo( $imageFile, PATHINFO_BASENAME ) );
 
-                    echo "....copying static image file [" . $imageFile . "] to [" . CROSSROAD_PUBLIC_DIR . '/assets/' . pathinfo( $imageFile, PATHINFO_BASENAME ) . "\n";
+                    LOG( "Copying static image file [" . $imageFile . "] to [" . CROSSROAD_PUBLIC_DIR . '/assets/' . pathinfo( $imageFile, PATHINFO_BASENAME ), 3, LOG::DEBUG );
                 }
             }
         }

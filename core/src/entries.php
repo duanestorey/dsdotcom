@@ -57,14 +57,14 @@ class Entries {
                     $this->tax[ $contentType ] = [];
                 }
 
-                echo "....loading content type [" . $contentType . "]\n";
+                LOG( "Loading content type [" . $contentType . "]", 1, LOG::INFO );
 
                 $content_directory = \CROSSROADS_CONTENT_DIR . '/' . $contentType;
 
                 $allMarkdownFiles = $this->_findMarkdownFiles( $content_directory );
                 if ( is_array( $allMarkdownFiles ) && count( $allMarkdownFiles ) ) {
                     foreach( $allMarkdownFiles as $markdownFile ) {
-                        echo "......processing content file " . pathinfo( $markdownFile, PATHINFO_FILENAME ) . "\n";
+                        LOG( "Processing content file " . pathinfo( $markdownFile, PATHINFO_FILENAME ), 2, LOG::DEBUG );
 
                         $markdown = new Markdown();
                         if ( $markdown->loadFile( $markdownFile ) ) {    
@@ -113,7 +113,6 @@ class Entries {
     }
 
     private function getSlugFromName( $name ) {
-        echo $name;
         if ( preg_match( '#(\d+-\d+-\d+)-(.*)#', $name, $match ) ) {
             $name = $match[ 2 ];
         }

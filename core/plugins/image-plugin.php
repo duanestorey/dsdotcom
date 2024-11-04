@@ -101,19 +101,18 @@ class ImagePlugin extends Plugin {
         switch( $sourceExt ) {
             case 'jpg':
             case 'jpeg':
-                $imageData = imagecreatefromjpeg( $sourceImage );
+                $imageData = @imagecreatefromjpeg( $sourceImage );
                 break;
             case 'gif':
-                $imageData = imagecreatefromgif( $sourceImage );
+                $imageData = @imagecreatefromgif( $sourceImage );
                 break;
             case 'webp';
-                $imageData = imagecreatefromwebp( $sourceImage );
+                $imageData = @imagecreatefromwebp( $sourceImage );
                 break;
             case 'png';
-                $imageData = imagecreatefrompng( $sourceImage );
+                $imageData = @imagecreatefrompng( $sourceImage );
                 break;
             default:
-                echo "............unknown image format\n";
                 break;
         }
 
@@ -153,13 +152,16 @@ class ImagePlugin extends Plugin {
                         imagepng( $imageData, $destinationImage );
                         break;
                     default:
-                        echo "............unknown image format\n";
+                        echo "............unknown image format writing\n";
                         break;                
                 }
             }
 
             imagedestroy( $imageData );
             return true;
+        } else {
+            LOG( "Unable to load image [" . $sourceImage . "]", 2, LOG::WARNING );
+            return false;
         }
 
         return false;
@@ -188,27 +190,29 @@ class ImagePlugin extends Plugin {
 
         // skip if already done
         if ( file_exists( $destinationImage ) ) {
-            //echo "....skipping image " . $destinationImage . "\n";
-            return $this->_getImageInformation( $destinationImage, $isPrimary  );
+            ///echo "....skipping image " . $destinationImage . "\n";
+            return $this->_getImageInformation( $destinationImage, $isPrimary );
         }
 
         if ( $forceWidth || $formatConversion ) {
             // we have to process the image
             if ( $forceWidth ) {
                 if ( $formatConversion ) {
-                    echo "............potentially converting image to AVIF and width [" . $forceWidth . "]\n";
+                    LOG( "Potentially converting image to AVIF and width [" . $forceWidth . "]", 2, LOG::DEBUG );
                 } else {
-                    echo "............potentially converting image to width [" . $forceWidth . "]\n";
+                    LOG( "Potentially converting image to width [" . $forceWidth . "]", 2, LOG::DEBUG );
                 }
             } else if ( $formatConversion ) {
                 echo "............converting image to AVIF\n";
             }       
 
-            $result = $this->_convert_image( $sourceImage, $destinationImage, $forceWidth, $formatConversion );      
+            $result = $this->_convert_image( $sourceImage, $destinationImage, $forceWidth, $formatConversion );     
 
-          //  echo "result " . ( $result ? '1' : '0' ) . "\n";
-
-            return ( $result ? $this->_getImageInformation( $destinationImage, $isPrimary ) : $result );
+            if ( $result !== false ) {
+                return $this->_getImageInformation( $destinationImage, $isPrimary );
+            } else {
+                return false;
+            }
         } else {
             // direct copy
             echo "..........copying image to [" . $destinationImage . "]\n";
@@ -216,6 +220,19 @@ class ImagePlugin extends Plugin {
 
             return $this->_getImageInformation( $destinationImage, $isPrimary );
         }
+    }
+
+    private function _isValidImage( $imageFile ) {
+        $a = getimagesize($imageFile);
+        if ( $a ) {
+           $image_type = $a[2];
+
+            if ( in_array( $image_type , array( IMAGETYPE_GIF, IMAGETYPE_JPEG, IMAGETYPE_PNG, IMAGETYPE_WEBP  ) ) ) {
+                return true;
+            }     
+        }
+    
+        return false;   
     }
 
     private function _isRemoteImage( $imageFile ) {
@@ -248,6 +265,7 @@ class ImagePlugin extends Plugin {
             $imageInfo = new \stdClass;
             $imageInfo->is_local = true;
             $imageInfo->path = $imageFile;
+            $imageInfo->isValid = $this->_isValidImage( $imageFile );
 
             $imageSize = getimagesize( $imageFile );
             if ( $imageSize ) {
@@ -274,7 +292,7 @@ class ImagePlugin extends Plugin {
 
     private function _findAndFixImage( $imageFile, $currentPath, $destinationPath, $publishDate, &$foundFile, $search_dirs = [ '', 'images/' ] ) {
         if ( $this->_isRemoteImage( $imageFile ) ) {
-            echo "........skipping remote image [" . $imageFile . "]\n";
+            LOG( "........skipping remote image [" . $imageFile . "]", 3, LOG::DEBUG );
             return $this->_getImageInformation( $imageFile );
         }
 
@@ -287,7 +305,7 @@ class ImagePlugin extends Plugin {
             $imageFilename_only = pathinfo( $originalImageFile, PATHINFO_BASENAME );
             $imageDestinationPathWithDate = $destinationPath;
 
-            echo "........checking image " . $currentPath . '/' . $originalImageFile . "\n";
+            LOG( "Checking image " . $currentPath . '/' . $originalImageFile, 4, LOG::DEBUG );
 
             // we have a valid source file
             if ( file_exists( $currentPath . '/' . $originalImageFile ) ) {  
@@ -297,22 +315,25 @@ class ImagePlugin extends Plugin {
 
                 $mainImage = $this->_convertOrCopyImage( $foundFile, $destinationFile, true, false, $this->convertToWebp );
                 if ( $mainImage && $this->generateResponsive ) {
+                    if ( $mainImage->is_local && $mainImage->isValid ) {
+                        $responsiveSizes = [ 320, 480, 640, 960, 1360, 1600 ];
 
-                    $responsiveSizes = [ 320, 480, 640, 960, 1360, 1600 ];
+                        foreach( $responsiveSizes as $size ) {
+                            $image = $this->_convertOrCopyImage( $foundFile, $destinationFile, false, $size, $this->convertToWebp );
 
-                    foreach( $responsiveSizes as $size ) {
-                         $image = $this->_convertOrCopyImage( $foundFile, $destinationFile, false, $size, $this->convertToWebp );
+                            if ( $image ) {
+                                $mainImage->responsiveImages[ $size ] = $image;
+                            }
+                        }
 
-                         if ( $image ) {
-                            $mainImage->responsiveImages[ $size ] = $image;
-                         }
-                    }
+                        //print_r( $mainImage );
 
-                    //print_r( $mainImage );
-
-                    $mainImage->hasResponsive = ( count( $mainImage->responsiveImages ) > 0 );
-                    if ( $mainImage->hasResponsive ) {
-                        $mainImage->responsive_largest_size = max( array_keys( $mainImage->responsiveImages ) );
+                        $mainImage->hasResponsive = ( count( $mainImage->responsiveImages ) > 0 );
+                        if ( $mainImage->hasResponsive ) {
+                            $mainImage->responsive_largest_size = max( array_keys( $mainImage->responsiveImages ) );
+                        }
+                    } else {
+                        LOG( "Corrupted image file [" . $mainImage->path . "]", 2, LOG::WARNING );
                     }
                 } 
 
