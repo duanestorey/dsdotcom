@@ -6,8 +6,6 @@
 
 namespace CR;
 
-define( 'CROSSROADS_VERSION', '0.0.3' );
-
 require_once( 'builder.php' );
 require_once( 'entries.php' );
 require_once( 'markdown.php' );
