@@ -9,6 +9,7 @@ namespace CR;
 class Builder {
     var $config = null;
     var $totalPages = 0;
+
     var $templateEngine = null;
     var $entries = null;
     var $theme = null;
@@ -54,9 +55,6 @@ class Builder {
                 $all_entries = array_merge( $all_entries, $entries );
             }
         }
-        
-      //  $this->entries->getAll();
-//        $this->pluginManager->processAll( $all_entries );
 
         foreach( $this->config->get( 'content', [] ) as $contentType => $contentConfig ) {
             $entries = $this->entries->get( $contentType );
@@ -77,8 +75,7 @@ class Builder {
                 foreach( $entries as $entry ) {
                     LOG( "Writing content for [" . $entry->relUrl . "]", 2, LOG::DEBUG );
                     $this->renderer->renderSinglePage( $entry, [ $entry->contentType . '-single', $entry->contentType, 'index' ] );
-                    $this->totalPages++;
-                }
+                    $this->totalPages++;                }
             }
 
             // process all content
@@ -87,13 +84,13 @@ class Builder {
             if ( isset( $contentConfig[ 'index' ] ) && $contentConfig[ 'index' ] ) {
                 LOG( "Generating index & paginated content for [" . $contentType . "]", 1, LOG::INFO );
 
-                $this->renderer->renderIndexPage( $entries, $contentType, '/' . $contentType, [ 'index' ] );
+                $this->totalPages += $this->renderer->renderIndexPage( $entries, $contentType, '/' . $contentType, [ 'index' ] );
             }
 
             if ( $contentType == $this->config->get( 'site.home' ) ) {
                 LOG( "Generating home content [" . $contentType . "]", 1, LOG::INFO );
 
-                $this->renderer->renderIndexPage( $entries, $contentType, '', [ 'index' ] );
+                $this->totalPages += $this->renderer->renderIndexPage( $entries, $contentType, '', [ 'index' ] );
             }
 
                 // tax
@@ -114,17 +111,16 @@ class Builder {
                     usort( $entries, 'CR\cr_sort' );
 
                     if ( count( $entries ) ) {
-                        $this->renderer->renderIndexPage( $entries, $contentType, '/' . $contentType . '/taxonomy/' . $term, [ 'index' ] );
+                        $this->totalPages += $this->renderer->renderIndexPage( $entries, $contentType, '/' . $contentType . '/taxonomy/' . $term, [ 'index' ] );
                     }
                 }
             }
         }
 
-
         $this->_writeRobots();
         $this->_writeSitemapXml();
 
-        LOG ( "Total page(s) generated [" . $this->totalPages . "]", 0, LOG::INFO );
+        LOG( "Total entries processed [" . $this->entries->getEntryCount() . "], HTML pages generated [" . $this->totalPages . "]", 0, LOG::INFO );
     }
 
     private function _writeSitemapXml() {

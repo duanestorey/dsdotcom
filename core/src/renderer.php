@@ -42,6 +42,8 @@ class Renderer {
     }
 
     public function renderIndexPage( $entries, $contentType, $path, $templateFiles ) {
+        $totalPages = 0;
+
         // this is wrong, but fix later
         $contentPerPage = $this->config->get( 'options.content_per_page', 10 ); 
 
@@ -91,13 +93,17 @@ class Renderer {
                 $renderedHtml = $this->templateEngine->render( $templateName, $params );
                 file_put_contents( $filename, $renderedHtml );  
 
-                LOG( ".Outputting template file [" . $filename . "]", 4, LOG::DEBUG );
+                LOG( "Outputting template file [" . $filename . "]", 4, LOG::DEBUG );
+
+                $totalPages++;
 
                 $pagination->currentPage++;
 
                 $pagination->prevPageLink = $pagination->curPageLink;
             }
         }    
+
+        return $totalPages;
     }
 
     private function _getPaginationLinks( $path, $totalPages ) {

@@ -6,9 +6,14 @@ class Entries {
     var $config = null;
     var $entries = array();
     var $tax = array();
+    var $totalEntries = 0;
 
     public function __construct( $config ) {
         $this->config = $config;
+    }
+
+    public function getEntryCount() {
+        return $this->totalEntries;
     }
 
     public function get( $contentType ) {
@@ -102,6 +107,7 @@ class Entries {
                         }
 
                         $this->entries[ $contentType ][] = $content;
+                        $this->totalEntries++;
                     }
                 }
             }

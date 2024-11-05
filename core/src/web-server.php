@@ -15,6 +15,7 @@ class WebServer {
         $this->socket = socket_create( AF_INET, SOCK_STREAM, 0 );
         if ( $this->socket ) {
             socket_bind( $this->socket, '127.0.0.1', $this->boundPort ); 
+            
             socket_getsockname( $this->socket, $address, $this->boundPort );
 
             if ( $this->boundPort ) {
@@ -99,6 +100,7 @@ class WebServer {
                 'gif' => 'image/gif',
                 'png' => 'image/png',
                 'css' => 'text/css',
+                'webp' => 'image/webp',
                 'js' => 'text/javascript',
                 'avif' => 'image/avif',
                 'ico' => 'image/x-icon',
