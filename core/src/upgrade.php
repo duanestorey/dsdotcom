@@ -6,7 +6,7 @@ class Upgrade {
     var $config = null;
 
     var $mainUrl = 'https://raw.githubusercontent.com/duanestorey/dsdotcom/refs/heads/main/crossroads';
-    var $mainZip = 'https://github.com/duanestorey/crossroads/archive/refs/heads/stable.zip';
+    var $mainZip = 'https://codeload.github.com/duanestorey/crossroads/zip/refs/heads/stable';
 
     public function __construct( $config ) {
         $this->config = $config;
@@ -25,21 +25,47 @@ class Upgrade {
             if ( $compare != 0 ) {
                 LOG( sprintf( _i18n( 'core.upgrade.up_to_date' ), $currentVersion ), 1, LOG::INFO );
             } else if ( $compare == 0 ) {
-                $this->downloadZipAndExpand();
+                $zipFile = $this->downloadZipAndExpand();
 
-                LOG( _i18n( 'core.upgrade.composer' ), 1, LOG::INFO );
-                exec( 'composer update' );  
+                if ( $zipFile ) {
+                  LOG( _i18n( 'core.upgrade.unzip' ), 2, LOG::INFO );
+
+                    $tempDir = sys_get_temp_dir();
+                    $destinationDir = $tempDir;
+
+                    @mkdir( $destinationDir );
+
+                    $unzipDirectory =  $destinationDir . '/crossroads-stable';
+
+                    Utils::recursiveRmdir( $unzipDirectory );
+
+                    $command = sprintf( 'unzip -d %s %s', $destinationDir, $zipFile );
+                    $output = shell_exec( $command );
+                    
+                    if ( file_exists( $unzipDirectory ) && is_dir( $unzipDirectory ) ) {
+                        // we can copy the files now
+
+                        LOG( _i18n( 'core.upgrade.composer' ), 2, LOG::INFO );
+                        exec( 'composer update' ); 
+                    }             
+                }
             }  
         }
     }
 
     public function downloadZipAndExpand() {
-        LOG( _i18n( 'core.upgrade.downloading' ), 1, LOG::INFO );
+        LOG( _i18n( 'core.upgrade.downloading' ), 2, LOG::INFO );
+        
         $zipFile = Utils::curlDownloadFile( $this->mainZip );
         if ( $zipFile ) {
-            
             $tempDir = sys_get_temp_dir();
-            $destinationFile = Utils::fixPath( $tempDir ) . '/' . basename( $zipFile );
+            $destinationFile = tempnam( Utils::fixPath( $tempDir ), 'crossroads-' ) . '.zip';
+
+            file_put_contents( $destinationFile, $zipFile );
+
+            return $destinationFile;
         }
+
+        return false;
     }
 }

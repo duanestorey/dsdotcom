@@ -60,7 +60,8 @@ core:
     cur_ver: "Your current version is [%s]"
     next_ver: "The latest stable version is [%s]"
     up_to_date: "You are running the latest version, no upgrade required"
-    downloading: "Download the latest version of Crossroads"
+    downloading: "Downloading the latest version of Crossroads from Github"
+    unzip: "Expanding the archive"
 plugins:
   image:
     corrupt: "Corrupted image file [%s]"

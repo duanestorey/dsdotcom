@@ -5,9 +5,14 @@ namespace CR;
 class TemplateEngine {
     var $latte = null;
     var $template_dir = '.';
+    var $config = null;
 
-    public function __construct() {
+    public function __construct( $config ) {
+        $this->config = $config;
+
         $this->latte = new \Latte\Engine;
+        $this->latte->setLocale( $config->get( 'site.lang', 'en' ) );
+        
         $this->latte->setTempDirectory( sys_get_temp_dir() );
     }
 

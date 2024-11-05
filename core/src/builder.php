@@ -20,7 +20,7 @@ class Builder {
     public function __construct( $config ) {
         $this->config = $config;
 
-        $this->templateEngine = new TemplateEngine();
+        $this->templateEngine = new TemplateEngine( $config );
         $this->templateEngine->setTemplateDir( CROSSROADS_BASE_DIR . '/' . $this->config->get( 'dirs.themes', 'core/themes' ) . '/' . $config->get( 'site.theme' ) );
 
         $this->pluginManager = new PluginManager( $this->config );
