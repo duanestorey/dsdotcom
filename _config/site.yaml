@@ -8,14 +8,16 @@ site:
   charset: 'utf-8'
   home: posts
 content:
-  posts:
-    index: true
-    base: /posts
   pages:
     index: false
     base: /
-themes:
-  dir: themes
+    singular: page
+  posts:
+    index: true
+    base: /posts
+    singular: post
+dirs:
+  themes: "core/themes"
 options:
   content_per_page: 20
 images:

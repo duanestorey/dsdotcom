@@ -83,13 +83,13 @@ class Builder {
             usort( $entries, 'CR\cr_sort' );
 
             if ( isset( $contentConfig[ 'index' ] ) && $contentConfig[ 'index' ] ) {
-                LOG( "Generating index & paginated content for [" . $contentType . "]", 1, LOG::INFO );
+                LOG( sprintf( _i18n( 'core.build.generating.index' ), $contentType ), 1, LOG::INFO );
 
                 $this->totalPages += $this->renderer->renderIndexPage( $entries, $contentType, '/' . $contentType, [ 'index' ] );
             }
 
             if ( $contentType == $this->config->get( 'site.home' ) ) {
-                LOG( "Generating home content [" . $contentType . "]", 1, LOG::INFO );
+                LOG( sprintf( _i18n( 'core.build.generating.home' ), $contentType ), 1, LOG::INFO );
 
                 $this->totalPages += $this->renderer->renderIndexPage( $entries, $contentType, '', [ 'index' ] );
             }
@@ -98,14 +98,14 @@ class Builder {
             $taxTerms = $this->entries->getTaxTerms( $contentType );
             sort( $taxTerms );
             if ( count( $taxTerms ) ) {
-                LOG( "Generating taxonomy pages for [" . $contentType . "]", 1, LOG::INFO );
+                LOG( sprintf( _i18n( 'core.build.generating.tax' ), $contentType ), 1, LOG::INFO );
 
                 Utils::mkdir( CROSSROAD_PUBLIC_DIR . '/' . $contentType . '/taxonomy' );
 
                 foreach( $taxTerms as $term ) {
                     Utils::mkdir( CROSSROAD_PUBLIC_DIR . '/' . $contentType . '/taxonomy/' . $term );
 
-                    LOG( "Writing taxonomy for [" . $contentType . "/" . $term . "]", 2, LOG::DEBUG );
+                    LOG( sprintf( _i18n( 'core.build.generating.tax' ), $contentType . "/" . $term ), 2, LOG::DEBUG );
 
                     $entries = $this->entries->getTax( $contentType, $term );
 
@@ -152,7 +152,7 @@ class Builder {
 
         file_put_contents( CROSSROAD_PUBLIC_DIR . '/sitemap.xml', $sitemapXml );
 
-        LOG( "Writing sitemap.xml", 1, LOG::INFO );
+        LOG( sprintf( _i18n( 'core.build.writing' ), "sitemap.xml" ), 1, LOG::INFO );
     }
 
     private function _addSitemapEntry( $sitemapXml, $url, $freq = 'weekly' ) {
@@ -168,7 +168,8 @@ class Builder {
         // write robots
         $robots = "user-agent: *\ndisallow: /assets/css/\ndisallow: /assets/js/\nallow: /\n\nUser-agent: Twitterbot\nallow: /\nSitemap: " . $this->config->get( 'site.url ') . "/sitemap.xml";
         file_put_contents( CROSSROAD_PUBLIC_DIR . '/robots.txt', $robots );
-        LOG( "Writing robots.txt", 1, LOG::INFO );
+
+        LOG( sprintf( _i18n( 'core.build.writing' ), "robots.txt" ), 1, LOG::INFO );
     }
 
     private function _setupMenus() {
@@ -177,7 +178,7 @@ class Builder {
     }
 
     private function _setupTheme() {
-        $this->theme = new Theme( $this->config->get( 'site.theme' ), CROSSROAD_THEME_DIR );
+        $this->theme = new Theme( $this->config->get( 'site.theme' ), CROSSROAD_BASE_DIR . '/' . $this->config->get( 'dirs.themes', 'core/themes' ) );
         LOG( "Loading theme [" . $this->theme->name() . "]", 1, LOG::INFO );
 
         if ( !$this->theme->isSane() ) {

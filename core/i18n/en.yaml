@@ -12,7 +12,12 @@ core:
       executing: "Executing plugin [%s]"
     generating:
       single: "Generating single content pages for [%s]"
+      index: "Generating index & paginated content for [%s]"
+      home: "Generating home content for [%s]"
+      tax: "Generating taxonomy pages for [%s]"
+      writing_tax: "Writing taxonomy for [%s]"
     total: "Total entries processed [%d], HTML pages generated [%d]"
+    writing: "Writing [%s]"
   import:
     unknown: "Unknown importer [%s]"
   usage:
@@ -23,7 +28,18 @@ core:
     import:
       wordpress:
         "Imports from a WordPress website"
+    new:
+      content: "Creates new content of type [%s]"
+      cmd: "php crossroads new %s"
+    create:
+      plugin: "Creates a new plugin"
+      theme: "Creates a new theme"
+      child: "Creates a new child theme"
+    upgrade: "Upgrades the core system"
   server:
     started: "Web server successfully started at %s:%s"
     stopping: "Shutting down web server"
     incoming: "Incoming HTTP request from [%s]"
+plugins:
+  image:
+    corrupt: "Corrupted image file [%s]"

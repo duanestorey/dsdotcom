@@ -115,11 +115,23 @@ class Engine {
     }
 
     private function _usage() {
+        $spacing = "%-50s";
+
         echo _i18n( 'core.usage.proper' ) . "\n\n";
-        echo "php crossroads build                      " . _i18n( 'core.usage.build') . "\n";
-        echo "php crossroads clean                      " . _i18n( 'core.usage.clean') . "\n";
-        echo "php crossroads import wordpress <url>     " . _i18n( 'core.usage.import.wordpress') . "\n";
-        echo "php crossroads serve                      " . _i18n( 'core.usage.serve') . "\n";
+        echo sprintf( $spacing, "php crossroads build" ) . _i18n( 'core.usage.build') . "\n";
+        echo sprintf( $spacing, "php crossroads clean" ) . _i18n( 'core.usage.clean') . "\n";
+        echo sprintf( $spacing, "php crossroads create plugin" ) . _i18n( 'core.usage.create.plugin') . "\n";
+        echo sprintf( $spacing, "php crossroads create theme" ) . _i18n( 'core.usage.create.theme') . "\n";
+        echo sprintf( $spacing, "php crossroads create child-theme" ) . _i18n( 'core.usage.create.child') . "\n";
+        echo sprintf( $spacing, "php crossroads import wordpress <url>" ) . _i18n( 'core.usage.import.wordpress') . "\n";
+
+        foreach ( $this->config->get( 'content', [] ) as $contentType => $configData ) {
+            echo sprintf( $spacing, sprintf( _i18n( 'core.usage.new.cmd' ), $this->config->get( 'content.' . $contentType . '.singular', $contentType ) ) );
+            echo sprintf( _i18n( 'core.usage.new.content' ) . "\n", $contentType );
+        }
+
+        echo sprintf( $spacing, "php crossroads serve" ) . _i18n( 'core.usage.serve' ) . "\n";
+        echo sprintf( $spacing, "php crossroads upgrade" ) . _i18n( 'core.usage.upgrade' ) . "\n";
     }
 
     private function _import( $argc, $argv ) {

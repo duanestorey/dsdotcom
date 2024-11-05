@@ -334,7 +334,7 @@ class ImagePlugin extends Plugin {
                             $mainImage->responsive_largest_size = max( array_keys( $mainImage->responsiveImages ) );
                         }
                     } else {
-                        LOG( "Corrupted image file [" . $mainImage->path . "]", 3, LOG::WARNING );
+                        LOG( sprintf( _i18n( 'plugins.image.corrupt' ), $mainImage->url ), 3, LOG::WARNING );
                     }
                 } 
 

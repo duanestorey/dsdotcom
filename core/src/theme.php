@@ -32,11 +32,9 @@ class Theme {
     public function getAssetHash() {
         $hashValue = 0;
 
-        if ( isset( $this->config[ 'theme' ][ 'assets' ] ) ) {
-            foreach( $this->config[ 'theme' ][ 'assets' ] as $destName => $sources ) {
-                if ( file_exists( CROSSROAD_PUBLIC_DIR . '/assets/' . $destName ) ) {
-                    $hashValue = $hashValue . filesize( CROSSROAD_PUBLIC_DIR . '/assets/' . $destName );
-                }
+        foreach( $this->config->get( 'theme.assets', [] ) as $destName => $sources ) {
+            if ( file_exists( CROSSROAD_PUBLIC_DIR . '/assets/' . $destName ) ) {
+                $hashValue = $hashValue . filesize( CROSSROAD_PUBLIC_DIR . '/assets/' . $destName );
             }
         }
 
@@ -45,40 +43,36 @@ class Theme {
 
     public function loadConfig() {
         if ( $this->config == null && file_exists( $this->themeDir . '/theme.yaml' ) ) {
-            $this->config = YAML::parse_file( $this->themeDir . '/theme.yaml' );
+            $this->config = new Config( YAML::parse_file( $this->themeDir . '/theme.yaml', true ) );
         }
     }
 
     public function processAssets( $destination_dir ) {
-        if ( isset( $this->config[ 'theme' ][ 'assets' ] ) ) {
-            foreach( $this->config[ 'theme' ][ 'assets' ] as $destName => $sources ) {
-                LOG( "Processing asset [" . $destName . "]", 3, LOG::DEBUG );
+        foreach( $this->config->get( 'theme.assets', [] ) as $destName => $sources ) {
+            LOG( "Processing asset [" . $destName . "]", 3, LOG::DEBUG );
 
-                $content = '';
-                
-                foreach( $sources as $key => $source ) {
-                    if ( file_exists( $this->themeDir . '/assets/' . $source ) ) {
-                        
-                        LOG( "Adding file [" . $source . "]", 4, LOG::DEBUG );
-                        $content = $content . "\n\n" . file_get_contents( $this->themeDir . '/assets/' . $source );
-                    } else {
-                        echo "........unable to find source [" . $this->themeDir . '/assets/' . $source . "]\n";
-                        LOG( "Unable to find source [" . $this->themeDir . '/assets/' . $source . "]", 4, LOG::WARNING );
-                    }
+            $content = '';
+            
+            foreach( $sources as $key => $source ) {
+                if ( file_exists( $this->themeDir . '/assets/' . $source ) ) {
+                    
+                    LOG( "Adding file [" . $source . "]", 4, LOG::DEBUG );
+                    $content = $content . "\n\n" . file_get_contents( $this->themeDir . '/assets/' . $source );
+                } else {
+                    echo "........unable to find source [" . $this->themeDir . '/assets/' . $source . "]\n";
+                    LOG( "Unable to find source [" . $this->themeDir . '/assets/' . $source . "]", 4, LOG::WARNING );
                 }
-
-                LOG( "Writing static file [" . $destName . "]", 4, LOG::DEBUG );
-                file_put_contents( CROSSROAD_PUBLIC_DIR . '/assets/' . $destName, $content );
             }
+
+            LOG( "Writing static file [" . $destName . "]", 4, LOG::DEBUG );
+            file_put_contents( CROSSROAD_PUBLIC_DIR . '/assets/' . $destName, $content );
         }
 
-        if ( isset( $this->config[ 'theme' ][ 'images' ] ) ) {
-            foreach( $this->config[ 'theme' ][ 'images' ] as $imageFile ) {
-                if ( file_exists( $this->themeDir . '/assets/' . $imageFile ) ) {
-                    Utils::copyFile( $this->themeDir . '/assets/' . $imageFile, CROSSROAD_PUBLIC_DIR . '/assets/' . pathinfo( $imageFile, PATHINFO_BASENAME ) );
+        foreach( $this->config->get( 'theme.images', '[]' ) as $imageFile ) {
+            if ( file_exists( $this->themeDir . '/assets/' . $imageFile ) ) {
+                Utils::copyFile( $this->themeDir . '/assets/' . $imageFile, CROSSROAD_PUBLIC_DIR . '/assets/' . pathinfo( $imageFile, PATHINFO_BASENAME ) );
 
-                    LOG( "Copying static image file [" . $imageFile . "] to [" . CROSSROAD_PUBLIC_DIR . '/assets/' . pathinfo( $imageFile, PATHINFO_BASENAME ), 3, LOG::DEBUG );
-                }
+                LOG( "Copying static image file [" . $imageFile . "] to [" . CROSSROAD_PUBLIC_DIR . '/assets/' . pathinfo( $imageFile, PATHINFO_BASENAME ), 3, LOG::DEBUG );
             }
         }
     }
