@@ -54,7 +54,7 @@ article {
     background-image: linear-gradient( 
         rgba(0,0,0,0.4),
         rgba(0,0,0,0.4) ), 
-        url( '/assets/final-road-opt.avif' );
+        url( '/assets/final-road-opt.jpg' );
     background-size: cover;
     background-position: bottom center;
     min-height: 550px;

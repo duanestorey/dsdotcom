@@ -23,6 +23,7 @@ require_once( 'plugin-manager.php' );
 require_once( 'renderer.php' );
 require_once( 'log.php' );
 require_once( 'config.php' );
+require_once( 'web-server.php' );
 require_once( 'log-listener.php' );
 require_once( 'log-listener-shell.php' );
 
@@ -42,31 +43,42 @@ class Engine {
         $this->_branding();
         $this->_loadConfig();
 
-        if ( $argc == 1 ) {
+        if ( $argc <= 1 ) {
             $this->_usage();
         } else {
-            Log::instance()->installListener( new LogListenerShell() );
+            $command = $argv[ 1 ];
 
-            LOG( "Executing [" . strtoupper( $argv[ 1 ] ) . "] command", 0, LOG::INFO );
-            $this->startTime = microtime( true );
+            $allowable_commands = $this->_getAllowableCommands();
+            foreach( $allowable_commands as $one_command => $required_params ) {
+                if ( $command == $one_command ) {
+                    // right command, let's check params
+                    if ( $argc != ( $required_params + 2 ) ) {
+                        $this->_usage();
+                    } else {
+                        // we are good to go
+                        Log::instance()->installListener( new LogListenerShell() );
 
-            switch( $argv[ 1 ] ) {
-                case 'build':
-                    $this->_build();
-                    break;
-                case 'import':
-                    $this->_import();
-                    break;
-                case 'serve':
-                    $this->_serve();
-                    break;
-                case 'clean':
-                    $this->_clean();
-                    break;
+                        LOG( "Executing [" . strtoupper( $argv[ 1 ] ) . "] command", 0, LOG::INFO );
+                        $this->startTime = microtime( true );
+
+                        $function = '_' . $command;
+
+                        $this->{$function}( $argc, $argv );
+
+                        LOG( sprintf( "Finished executing [" . strtoupper( $argv[ 1 ] ) . "] command, total time taken %0.3fs", microtime( true ) - $this->startTime ), 0, LOG::INFO );
+                    }
+                }
             }
-
-            LOG( sprintf( "Finished executing [" . strtoupper( $argv[ 1 ] ) . "] command, total time taken %0.3fs", microtime( true ) - $this->startTime ), 0, LOG::INFO );
         }
+    }
+
+    private function _getAllowableCommands() {
+        return array(
+            'build' => 0,
+            'import' => 2,
+            'serve' => 0,
+            'clean' => 0
+        );
     }
 
     private function _loadConfig() {
@@ -91,14 +103,25 @@ class Engine {
         echo "php crossroads serve                      Start webserver\n";
     }
 
-    private function _import() {
-        require_once( 'core/src/importers/wordpress.php' );
+    private function _import( $argc, $argv ) {
+        if ( $argc == 4 ) {
+            $importer = $argv[ 2 ];
+            $url = $argv[ 3 ];
 
-        $importer = new Importers\WordPress;
-        $importer->import( 'https://old.duanestorey.com' );
+            if ( file_exists( 'core/src/importers/' . $importer . '.php' ) ) {
+                require_once( 'core/src/importers/' . $importer . '.php' );
+
+                $importer = new Importers\WordPress;
+              //  $importer->import( Utils::fixPath( $url ) );
+            } else {
+                LOG( "Unknown importer [" . $importer . "]", 1, LOG::ERROR );
+            }
+        } else {
+             $this->_usage();
+        }
     }
 
-    private function _build() {
+    private function _build( $argc, $argv ) {
         LOG( "Starting static website build" );
 
         $this->builder = new Builder( $this->config );
@@ -111,11 +134,13 @@ class Engine {
         
     }
 
-    private function _clean() {
+    private function _clean( $argc, $argv ) {
         Utils::recursiveRmdir( CROSSROAD_PUBLIC_DIR );
     }
 
-    private function _serve() {
-        echo "..building website\n";
+    private function _serve(  $argc, $argv ) {
+        $server = new WebServer();
+        $server->init();
+        $server->serve();
     }
 }

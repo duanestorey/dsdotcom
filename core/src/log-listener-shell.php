@@ -15,6 +15,9 @@ class LogListenerShell extends LogListener {
             case Log::WARNING:
                 echo "\033[33;10m" . "[WARN] " . $message . "\033[0m\n"; 
                 break;
+            case Log::ERROR:
+                echo "\033[33;10m" . "[ERR ] " . $message . "\033[0m\n"; 
+                break;    
         }
     }
 
