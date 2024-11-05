@@ -20,6 +20,7 @@ require_once( 'plugin.php' );
 require_once( 'plugin-manager.php' );
 require_once( 'renderer.php' );
 require_once( 'international.php' );
+require_once( 'upgrade.php' );
 require_once( 'log.php' );
 require_once( 'config.php' );
 require_once( 'web-server.php' );
@@ -188,8 +189,8 @@ class Engine {
     }
 
     private function _upgrade() {
-        LOG( _i18n( 'core.upgrade.composer' ), 1, LOG::INFO );
-        exec( 'composer update' );
+        $upgrade = new Upgrade( $this->config );
+        $upgrade->runUpgrader();
     }
 
     private function _branding() {

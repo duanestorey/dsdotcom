@@ -57,6 +57,10 @@ core:
     incoming: "Incoming HTTP request from [%s]"
   upgrade:
     composer: "Upgrading commposer packages"
+    cur_ver: "Your current version is [%s]"
+    next_ver: "The latest stable version is [%s]"
+    up_to_date: "You are running the latest version, no upgrade required"
+    downloading: "Download the latest version of Crossroads"
 plugins:
   image:
     corrupt: "Corrupted image file [%s]"
