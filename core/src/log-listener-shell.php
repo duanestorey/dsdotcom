@@ -23,7 +23,7 @@ class LogListenerShell extends LogListener {
                 echo "\033[90;10m" . "[DEBUG] " . $message . "\033[0m\n";
                 break;
             case Log::INFO:
-                echo "\033[32;10m" . "[INFO ] " . $message . "\033[0m\n";
+                echo "\033[92;10m" . "[INFO ] " . $message . "\033[0m\n";
                 break;
             case Log::WARNING:
                 echo "\033[33;10m" . "[WARN ] " . $message . "\033[0m\n"; 

@@ -66,25 +66,14 @@ class Engine {
                         // we are good to go
                         Log::instance()->installListener( new LogListenerShell() );
 
-                        if ( $this->_checkInit() || $command == 'init' ) {
-                            LOG( sprintf( _i18n( 'core.app.exec_command' ), strtoupper( $argv[ 1 ] ), date( 'Y-m-d' ), date( 'H:i' ) ), 0, LOG::INFO );
+                        if ( $this->_checkInit() || $command == 'init' ) {  
+                            $this->_setupFileLogs( $command );
+
+                            LOG( sprintf( _i18n( 'core.app.exec_command' ), strtoupper( $argv[ 1 ] ), date( 'Y-m-d' ), date( 'H:i:s' ) ), 0, LOG::INFO );
+
                             $this->startTime = microtime( true );
 
                             $function = '_' . $command;
-
-                            Utils::mkdir( CROSSROADS_LOG_DIR );
-                            $logSlug = date( 'Y-m-d' ) . '-' . $command . '.log';
-                            $logfile = CROSSROADS_LOG_DIR . '/' . $logSlug;
-
-                            $this->fileLog = new LogListenerFile( $logfile );
-                            $this->fileLog->setLevel( LOG::INFO );
-                            Log::instance()->installListener( $this->fileLog );
-
-                            $debugLog = new LogListenerFile( CROSSROADS_LOG_DIR . '/' . date( 'Y-m-d' ) . '-' . $command . '-debug.log' );
-                            $debugLog->setLevel( LOG::DEBUG );
-                            Log::instance()->installListener( $debugLog );
-
-                            LOG( sprintf( _i18n( 'core.app.log' ), CROSSROADS_LOG_SLUG . '/' . $logSlug ), 0, LOG::INFO );
 
                             $this->{$function}( $argc, $argv );
 
@@ -104,6 +93,25 @@ class Engine {
         }
     }
 
+    private function _setupFileLogs( $command ) {
+        Utils::mkdir( CROSSROADS_LOG_DIR );
+        $logSlug = date( 'Y-m-d' ) . '-' . $command . '.log';
+        $logfile = CROSSROADS_LOG_DIR . '/' . $logSlug;
+
+        $this->fileLog = new LogListenerFile( $logfile );
+        $this->fileLog->setLevel( LOG::INFO );
+        Log::instance()->installListener( $this->fileLog );
+
+        // Add debug logs if debug is enabled
+        if ( $this->config->get( 'options.debug' ) ) {
+            $debugLog = new LogListenerFile( CROSSROADS_LOG_DIR . '/' . date( 'Y-m-d' ) . '-' . $command . '-debug.log' );
+            $debugLog->setLevel( LOG::DEBUG );
+            Log::instance()->installListener( $debugLog );
+        }
+        
+        LOG( sprintf( _i18n( 'core.app.log' ), CROSSROADS_LOG_SLUG . '/' . $logSlug ), 0, LOG::INFO );    
+    }
+
     private function _newGetContentType( $singularOrPlural ) {
         foreach( $this->config->get( 'content' ) as $contentType => $contentConfig ) {
             if ( ( $contentType == $singularOrPlural ) || ( $singularOrPlural == $this->config->get( 'content.' . $contentType . '.singular' ) ) ) {
@@ -113,6 +121,11 @@ class Engine {
     }
 
     private function _init( $argc, $argv ) {    
+        if ( $this->_checkInit() ) {
+            LOG( _i18n( 'core.init.not_needed' ), 1, LOG::INFO );
+            return;
+        }
+
         LOG( _i18n( 'core.init.starting' ), 0, LOG::INFO );
 
         LOG( _i18n( 'core.init.git' ), 1, LOG::INFO );

@@ -25,6 +25,7 @@ class LogListenerFile extends LogListener {
             
         if ( !$this->fileHandle ) {
             $this->fileHandle = fopen( $this->fileName, "a+" );
+            fprintf( $this->fileHandle, "\n" );
         }
 
         $message = $this->getTabsAsSpaces( $tabs ) . $message;

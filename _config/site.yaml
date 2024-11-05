@@ -24,6 +24,7 @@ content:
 dirs:
   themes: "core/themes"
 options:
+  debug: true
   content_per_page: 20
   markdown:
     auto: true

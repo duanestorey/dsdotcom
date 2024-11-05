@@ -30,6 +30,7 @@ core:
     git: "Writing .gitignore file"
     starting: "Initializing your new Crossroads website"
     version: "Writing version information"
+    not_needed: "Your website has previously been initialized: you're good to go!"
     done: "Congratulations, your website is ready to go. Run 'php crossroads build' next."
   import:
     unknown: "Unknown importer [%s]"
