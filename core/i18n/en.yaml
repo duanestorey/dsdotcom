@@ -17,13 +17,27 @@ core:
       tax: "Generating taxonomy pages for [%s]"
       writing_tax: "Writing taxonomy for [%s]"
     total: "Total entries processed [%d], HTML pages generated [%d]"
+    done: "Your website is now ready to view. You can run 'php crossroads serve' to view it."
     writing: "Writing [%s]"
+  new:
+    content: "Creating new [%s]"
+    title: "Enter new title: "
+    unknown: "Unknown conetnt type [%s]"
+    created: "Created new [%s], markdown file is: %s"
+    start: "Create something beautiful today."
+  init:
+    git: "Writing .gitignore file"
+    starting: "Initializing your new Crossroads website"
+    version: "Writing version information"
+    done: "Congratulations, your website is ready to go. Run 'php crossroads build' next."
   import:
     unknown: "Unknown importer [%s]"
   usage:
     build: "Builds entire website"
     clean: "Cleans entire website"
     serve: "Starts local webserver"
+    init: "Initialize the website (run only once)"
+    need_init: "To get started, please run the init command, 'php crossroads init'"
     proper: "..Proper usage"
     import:
       wordpress:
@@ -37,9 +51,12 @@ core:
       child: "Creates a new child theme"
     upgrade: "Upgrades the core system"
   server:
-    started: "Web server successfully started at %s:%s"
+    started: "Web server started, please open your browser to %s:%s"
+    to_close: "To shutdown the web server, press Ctrl-C"
     stopping: "Shutting down web server"
     incoming: "Incoming HTTP request from [%s]"
+  upgrade:
+    composer: "Upgrading commposer packages"
 plugins:
   image:
     corrupt: "Corrupted image file [%s]"

@@ -10,16 +10,27 @@ site:
 content:
   pages:
     index: false
+    include_date: false
     base: /
-    singular: page
+    singular: "page"
   posts:
     index: true
+    include_date: true
     base: /posts
-    singular: post
+    singular: "post"
+    taxonomy:
+      - "category"
+      - "tag"
 dirs:
   themes: "core/themes"
 options:
   content_per_page: 20
+  markdown:
+    auto: true
+    open_command: "open %s"
+  browser:
+    auto: false
+    open_command: "open %s"
 images:
   convert_to_webp: false
   generate_responsive: true

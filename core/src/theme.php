@@ -33,8 +33,8 @@ class Theme {
         $hashValue = 0;
 
         foreach( $this->config->get( 'theme.assets', [] ) as $destName => $sources ) {
-            if ( file_exists( CROSSROAD_PUBLIC_DIR . '/assets/' . $destName ) ) {
-                $hashValue = $hashValue . filesize( CROSSROAD_PUBLIC_DIR . '/assets/' . $destName );
+            if ( file_exists( CROSSROADS_PUBLIC_DIR . '/assets/' . $destName ) ) {
+                $hashValue = $hashValue . filesize( CROSSROADS_PUBLIC_DIR . '/assets/' . $destName );
             }
         }
 
@@ -65,14 +65,14 @@ class Theme {
             }
 
             LOG( "Writing static file [" . $destName . "]", 4, LOG::DEBUG );
-            file_put_contents( CROSSROAD_PUBLIC_DIR . '/assets/' . $destName, $content );
+            file_put_contents( CROSSROADS_PUBLIC_DIR . '/assets/' . $destName, $content );
         }
 
         foreach( $this->config->get( 'theme.images', '[]' ) as $imageFile ) {
             if ( file_exists( $this->themeDir . '/assets/' . $imageFile ) ) {
-                Utils::copyFile( $this->themeDir . '/assets/' . $imageFile, CROSSROAD_PUBLIC_DIR . '/assets/' . pathinfo( $imageFile, PATHINFO_BASENAME ) );
+                Utils::copyFile( $this->themeDir . '/assets/' . $imageFile, CROSSROADS_PUBLIC_DIR . '/assets/' . pathinfo( $imageFile, PATHINFO_BASENAME ) );
 
-                LOG( "Copying static image file [" . $imageFile . "] to [" . CROSSROAD_PUBLIC_DIR . '/assets/' . pathinfo( $imageFile, PATHINFO_BASENAME ), 3, LOG::DEBUG );
+                LOG( "Copying static image file [" . $imageFile . "] to [" . CROSSROADS_PUBLIC_DIR . '/assets/' . pathinfo( $imageFile, PATHINFO_BASENAME ), 3, LOG::DEBUG );
             }
         }
     }

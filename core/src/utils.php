@@ -17,6 +17,10 @@ class Utils {
         }
     }
 
+    static function titleToSlug( $title ) {
+        return preg_replace( '/[^a-zA-Z0-9-]/', '', str_replace( array( ' ', '_', '-' ), '-', strtolower( $title ) ) );
+    }
+
     static function recursiveRmdir( $directory ) {
         $files = array_diff( scandir( $directory ), array( '.', '..' ) );
         if ( count( $files ) ) {

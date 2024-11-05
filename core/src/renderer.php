@@ -35,9 +35,9 @@ class Renderer {
         $templateName = $this->templateEngine->locateTemplate( $templateFiles );
         if ( $templateName ) {
             $renderedHtml = $this->templateEngine->render( $templateName, $params );
-            file_put_contents( CROSSROAD_PUBLIC_DIR . $params->content->relUrl, $renderedHtml );
+            file_put_contents( CROSSROADS_PUBLIC_DIR . $params->content->relUrl, $renderedHtml );
 
-            LOG( ".Outputting template file [" . CROSSROAD_PUBLIC_DIR . $params->content->relUrl . "]", 4, LOG::DEBUG );
+            LOG( ".Outputting template file [" . CROSSROADS_PUBLIC_DIR . $params->content->relUrl . "]", 4, LOG::DEBUG );
         }    
     }
 
@@ -65,10 +65,10 @@ class Renderer {
         if ( $templateName ) {
             while ( $pagination->currentPage <= $pagination->totalPages ) {
                 if ( $pagination->currentPage == 1 ) {
-                    $filename = CROSSROAD_PUBLIC_DIR . $path . '/index.html';
+                    $filename = CROSSROADS_PUBLIC_DIR . $path . '/index.html';
                     $pagination->curPageLink = $path . '/index.html';
                 } else {
-                    $filename = CROSSROAD_PUBLIC_DIR . $path . '/index-page-' . $pagination->currentPage . '.html';
+                    $filename = CROSSROADS_PUBLIC_DIR . $path . '/index-page-' . $pagination->currentPage . '.html';
                     $pagination->curPageLink = $path . '/index-page-' . $pagination->currentPage . '.html';
                 }
 

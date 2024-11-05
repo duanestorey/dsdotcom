@@ -21,7 +21,7 @@ class Builder {
         $this->config = $config;
 
         $this->templateEngine = new TemplateEngine();
-        $this->templateEngine->setTemplateDir( CROSSROAD_THEME_DIR . '/' . $config->get( 'site.theme' ) );
+        $this->templateEngine->setTemplateDir( CROSSROADS_BASE_DIR . '/' . $this->config->get( 'dirs.themes', 'core/themes' ) . '/' . $config->get( 'site.theme' ) );
 
         $this->pluginManager = new PluginManager( $this->config );
         $this->pluginManager->installPlugin( new ImagePlugin( $this->config ) );
@@ -30,8 +30,8 @@ class Builder {
     }
 
     public function run() {
-        @mkdir( CROSSROAD_PUBLIC_DIR );
-        @mkdir( CROSSROAD_PUBLIC_DIR . '/assets' );
+        @mkdir( CROSSROADS_PUBLIC_DIR );
+        @mkdir( CROSSROADS_PUBLIC_DIR . '/assets' );
 
         $this->_setupTheme();
         $this->_setupMenus();
@@ -63,14 +63,14 @@ class Builder {
                 LOG( sprintf( _i18n( 'core.build.generating.single' ), $contentType ), 1, LOG::INFO );
 
                 // Make the output directory for html
-                Utils::mkdir( CROSSROAD_PUBLIC_DIR . '/' . $contentType );
+                Utils::mkdir( CROSSROADS_PUBLIC_DIR . '/' . $contentType );
 
                 // Make the output directory for images
-                $image_destination_path = CROSSROAD_PUBLIC_DIR . '/assets/' . $contentType;
+                $image_destination_path = CROSSROADS_PUBLIC_DIR . '/assets/' . $contentType;
                 Utils::mkdir( $image_destination_path );
 
                 // Where the source content is
-                $content_directory = \CROSSROAD_BASE_DIR . '/content/' . $contentType;
+                $content_directory = \CROSSROADS_BASE_DIR . '/content/' . $contentType;
                 
                 foreach( $entries as $entry ) {
                     LOG( "Writing content for [" . $entry->relUrl . "]", 2, LOG::DEBUG );
@@ -100,10 +100,10 @@ class Builder {
             if ( count( $taxTerms ) ) {
                 LOG( sprintf( _i18n( 'core.build.generating.tax' ), $contentType ), 1, LOG::INFO );
 
-                Utils::mkdir( CROSSROAD_PUBLIC_DIR . '/' . $contentType . '/taxonomy' );
+                Utils::mkdir( CROSSROADS_PUBLIC_DIR . '/' . $contentType . '/taxonomy' );
 
                 foreach( $taxTerms as $term ) {
-                    Utils::mkdir( CROSSROAD_PUBLIC_DIR . '/' . $contentType . '/taxonomy/' . $term );
+                    Utils::mkdir( CROSSROADS_PUBLIC_DIR . '/' . $contentType . '/taxonomy/' . $term );
 
                     LOG( sprintf( _i18n( 'core.build.generating.tax' ), $contentType . "/" . $term ), 2, LOG::DEBUG );
 
@@ -122,6 +122,8 @@ class Builder {
         $this->_writeSitemapXml();
 
         LOG( sprintf( _i18n( 'core.build.total' ), $this->entries->getEntryCount(), $this->totalPages ), 0, LOG::INFO );
+
+        LOG( _i18n( 'core.build.done' ), 0, LOG::INFO );
     }
 
     private function _writeSitemapXml() {
@@ -150,7 +152,7 @@ class Builder {
 
         $sitemapXml .= "</urlset>\n";
 
-        file_put_contents( CROSSROAD_PUBLIC_DIR . '/sitemap.xml', $sitemapXml );
+        file_put_contents( CROSSROADS_PUBLIC_DIR . '/sitemap.xml', $sitemapXml );
 
         LOG( sprintf( _i18n( 'core.build.writing' ), "sitemap.xml" ), 1, LOG::INFO );
     }
@@ -167,7 +169,7 @@ class Builder {
     private function _writeRobots() {
         // write robots
         $robots = "user-agent: *\ndisallow: /assets/css/\ndisallow: /assets/js/\nallow: /\n\nUser-agent: Twitterbot\nallow: /\nSitemap: " . $this->config->get( 'site.url ') . "/sitemap.xml";
-        file_put_contents( CROSSROAD_PUBLIC_DIR . '/robots.txt', $robots );
+        file_put_contents( CROSSROADS_PUBLIC_DIR . '/robots.txt', $robots );
 
         LOG( sprintf( _i18n( 'core.build.writing' ), "robots.txt" ), 1, LOG::INFO );
     }
@@ -178,7 +180,7 @@ class Builder {
     }
 
     private function _setupTheme() {
-        $this->theme = new Theme( $this->config->get( 'site.theme' ), CROSSROAD_BASE_DIR . '/' . $this->config->get( 'dirs.themes', 'core/themes' ) );
+        $this->theme = new Theme( $this->config->get( 'site.theme' ), CROSSROADS_BASE_DIR . '/' . $this->config->get( 'dirs.themes', 'core/themes' ) );
         LOG( "Loading theme [" . $this->theme->name() . "]", 1, LOG::INFO );
 
         if ( !$this->theme->isSane() ) {
@@ -188,6 +190,6 @@ class Builder {
         $this->theme->loadConfig();
         LOG( "Theme successfull loaded", 2, LOG::INFO );
 
-        $this->theme->processAssets( CROSSROAD_PUBLIC_DIR . '/assets' );
+        $this->theme->processAssets( CROSSROADS_PUBLIC_DIR . '/assets' );
     }
 }

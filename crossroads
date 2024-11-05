@@ -8,12 +8,18 @@ namespace CR;
 
 require_once 'vendor/autoload.php';
 
-define( 'CROSSROAD_BASE_DIR', dirname( __FILE__ ) );
-define( 'CROSSROADS_CONTENT_DIR', CROSSROAD_BASE_DIR . '/_content' );
-define( 'CROSSROAD_CORE_DIR', dirname( __FILE__ ) . '/core' );
-define( 'CROSSROAD_PUBLIC_DIR', CROSSROAD_BASE_DIR . '/_public' );
-define( 'CROSSROAD_THEME_DIR', CROSSROAD_BASE_DIR . '/core/themes' );
-define( 'CROSSROAD_LOCALE_DIR', CROSSROAD_BASE_DIR . '/core/i18n' );
+define( 'CROSSROADS_BASE_DIR', dirname( __FILE__ ) );
+define( 'CROSSROADS_CONTENT_SLUG', '_content' );
+define( 'CROSSROADS_CONFIG_SLUG', '_config' );
+define( 'CROSSROADS_PUBLIC_SLUG', '_public' );
+
+define( 'CROSSROADS_CONTENT_DIR', CROSSROADS_BASE_DIR . '/' . CROSSROADS_CONTENT_SLUG );
+define( 'CROSSROADS_CONFIG_DIR', CROSSROADS_BASE_DIR . '/' . CROSSROADS_CONFIG_SLUG );
+define( 'CROSSROADS_PUBLIC_DIR', CROSSROADS_BASE_DIR . '/' . CROSSROADS_PUBLIC_SLUG );
+
+define( 'CROSSROADS_CORE_DIR', CROSSROADS_BASE_DIR . '/core' );
+define( 'CROSSROADS_SRC_DIR', CROSSROADS_CORE_DIR . '/src' );
+define( 'CROSSROADS_LOCALE_DIR', CROSSROADS_CORE_DIR . '/i18n' );
 
 require_once 'core/src/crossroads.php';
 

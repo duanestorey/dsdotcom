@@ -28,9 +28,9 @@ require_once( 'web-server.php' );
 require_once( 'log-listener.php' );
 require_once( 'log-listener-shell.php' );
 
-require_once( CROSSROAD_CORE_DIR . '/plugins/image-plugin.php' );
-require_once( CROSSROAD_CORE_DIR . '/plugins/seo-plugin.php' );
-require_once( CROSSROAD_CORE_DIR . '/plugins/wordpress-plugin.php' );
+require_once( CROSSROADS_CORE_DIR . '/plugins/image-plugin.php' );
+require_once( CROSSROADS_CORE_DIR . '/plugins/seo-plugin.php' );
+require_once( CROSSROADS_CORE_DIR . '/plugins/wordpress-plugin.php' );
 
 class Engine {
     var $builder = null;
@@ -43,34 +43,119 @@ class Engine {
     public function run( $argc, $argv ) {
         $this->_loadConfig();
         $this->_setupLocales();
-        $this->_branding();
 
         if ( $argc <= 1 ) {
+            $this->_branding();
             $this->_usage();
         } else {
             $command = $argv[ 1 ];
 
-            $allowable_commands = $this->_getAllowableCommands();
-            foreach( $allowable_commands as $one_command => $required_params ) {
-                if ( $command == $one_command ) {
+            $foundCommand = false;
+            $allowableCommands = $this->_getAllowableCommands();
+            $this->_branding();
+
+            foreach( $allowableCommands as $oneCommand => $required_params ) {
+                if ( $command == $oneCommand ) {
                     // right command, let's check params
                     if ( $argc != ( $required_params + 2 ) ) {
                         $this->_usage();
-                    } else {
+                    } else {    
+                        $foundCommand = true;
+
                         // we are good to go
                         Log::instance()->installListener( new LogListenerShell() );
 
-                        LOG( sprintf( _i18n( 'core.app.exec_command' ), strtoupper( $argv[ 1 ] ) ), 0, LOG::INFO );
-                        $this->startTime = microtime( true );
+                        if ( $this->_checkInit() || $command == 'init' ) {
+                            LOG( sprintf( _i18n( 'core.app.exec_command' ), strtoupper( $argv[ 1 ] ) ), 0, LOG::INFO );
+                            $this->startTime = microtime( true );
 
-                        $function = '_' . $command;
+                            $function = '_' . $command;
 
-                        $this->{$function}( $argc, $argv );
+                            $this->{$function}( $argc, $argv );
 
-                        LOG( sprintf( _i18n( 'core.app.finished' ), strtoupper( $argv[ 1 ] ), microtime( true ) - $this->startTime ), 0, LOG::INFO );
+                            LOG( sprintf( _i18n( 'core.app.finished' ), strtoupper( $argv[ 1 ] ), microtime( true ) - $this->startTime ), 0, LOG::INFO );
+                        } else {
+                            LOG( _i18n( 'core.usage.need_init' ), 0, LOG::WARNING );
+                        }
+
+                        echo "\n";
                     }
                 }
             }
+
+            if ( !$foundCommand ) {
+                $this->_usage();
+            }
+        }
+    }
+
+    private function _newGetContentType( $singularOrPlural ) {
+        foreach( $this->config->get( 'content' ) as $contentType => $contentConfig ) {
+            if ( ( $contentType == $singularOrPlural ) || ( $singularOrPlural == $this->config->get( 'content.' . $contentType . '.singular' ) ) ) {
+                return $contentType;
+            }
+        }
+    }
+
+    private function _init( $argc, $argv ) {    
+        LOG( _i18n( 'core.init.starting' ), 0, LOG::INFO );
+
+        LOG( _i18n( 'core.init.git' ), 1, LOG::INFO );
+        if ( !file_exists( CROSSROADS_BASE_DIR . '/.gitignore' ) ) {
+            // write git file
+            $gitContents = "vendor\n";
+            file_put_contents( CROSSROADS_BASE_DIR . '/.gitignore', $gitContents );
+        }
+
+        LOG( _i18n( 'core.init.version' ), 1, LOG::INFO );
+        file_put_contents( CROSSROADS_BASE_DIR . '/.crossroadsinit', CROSSROADS_VERSION );
+
+        LOG( _i18n( 'core.init.done' ), 0, LOG::INFO );
+    }
+
+    private function _new( $argc, $argv ) {
+        $contentSingular = $argv[ 2 ];
+        $contentType = $this->_newGetContentType( $contentSingular );
+        
+        if ( $contentType ) {
+            LOG( sprintf( _i18n( 'core.new.content' ), $contentSingular ), 1, LOG::INFO );
+            echo "  " . _i18n( 'core.new.title' );
+            $s = readline();
+
+            if ( $s ) {
+                $slug = Utils::titleToSlug( $s );
+                $now = date( 'Y-m-d' );
+
+                $content =  "---\n";
+                $content .= "title: \"" . $s . "\"\n";
+                $content .= "publishDate: \"" . $now . "\"\n";
+                $content .= "slug: \"" . $slug . "\"\n";
+
+                $taxonomies = $this->config->get( 'content.' . $contentType . '.taxonomy', [] );
+                foreach( $taxonomies as $tax ) {
+                    $content .= $tax . ":\n";
+                }
+
+                $content .= "---\n\n";
+                $content .= _i18n( 'core.new.start' ) . "\n";
+
+                if ( $this->config->get( 'content.' . $contentType . '.include_date', false ) ) {
+                    $slug = $now . '-' . $slug; 
+                } 
+
+                $markdownFile = $contentType . '/' . $slug . '.md';
+
+                LOG( sprintf( _i18n( 'core.new.created' ), $contentSingular, CROSSROADS_CONTENT_SLUG . '/' . $markdownFile ), 1, LOG::INFO );
+
+                file_put_contents( CROSSROADS_CONTENT_DIR . '/' . $markdownFile, $content );
+
+                $openCommand = $this->config->get( 'options.markdown.open_command' );
+                if ( $openCommand && $this->config->get( 'options.markdown.auto' ) ) {
+                    exec( sprintf( $openCommand, CROSSROADS_CONTENT_DIR . '/' . $markdownFile ) );
+                } 
+            }                  
+        } else {
+            LOG( sprintf( _i18n( 'core.new.unknown' ), $contentSingular ), 0, LOG::ERROR );
         }
     }
 
@@ -79,14 +164,17 @@ class Engine {
             'build' => 0,
             'import' => 2,
             'serve' => 0,
-            'clean' => 0
+            'clean' => 0,
+            'new' => 1,
+            'init' => 0,
+            'upgrade' => 0
         );
     }
 
     private function _setupLocales() {
         $currentLocale = $this->config->get( 'site.lang' );
         if ( $currentLocale ) {
-            $localeFile = CROSSROAD_LOCALE_DIR . '/' . $currentLocale . '.yaml';
+            $localeFile = CROSSROADS_LOCALE_DIR . '/' . $currentLocale . '.yaml';
             if ( file_exists( $localeFile ) ) {
                 International::instance()->loadLocaleFile( $localeFile );
             }
@@ -94,11 +182,16 @@ class Engine {
     }
 
     private function _loadConfig() {
-        $this->config = new Config( YAML::parse_file( CROSSROAD_BASE_DIR . '/_config/site.yaml', true ) );
+        $this->config = new Config( YAML::parse_file( CROSSROADS_CONFIG_DIR . '/site.yaml', true ) );
     }
 
     private function _checkConfig() {
         // check to make sure everything we need is here
+    }
+
+    private function _upgrade() {
+        LOG( _i18n( 'core.upgrade.composer' ), 1, LOG::INFO );
+        exec( 'composer update' );
     }
 
     private function _branding() {
@@ -124,6 +217,7 @@ class Engine {
         echo sprintf( $spacing, "php crossroads create theme" ) . _i18n( 'core.usage.create.theme') . "\n";
         echo sprintf( $spacing, "php crossroads create child-theme" ) . _i18n( 'core.usage.create.child') . "\n";
         echo sprintf( $spacing, "php crossroads import wordpress <url>" ) . _i18n( 'core.usage.import.wordpress') . "\n";
+        echo sprintf( $spacing, "php crossroads init" ) . _i18n( 'core.usage.init') . "\n";
 
         foreach ( $this->config->get( 'content', [] ) as $contentType => $configData ) {
             echo sprintf( $spacing, sprintf( _i18n( 'core.usage.new.cmd' ), $this->config->get( 'content.' . $contentType . '.singular', $contentType ) ) );
@@ -166,12 +260,24 @@ class Engine {
     }
 
     private function _clean( $argc, $argv ) {
-        Utils::recursiveRmdir( CROSSROAD_PUBLIC_DIR );
+        Utils::recursiveRmdir( CROSSROADS_PUBLIC_DIR );
+    }
+
+    private function _checkInit() {
+        return ( file_exists( CROSSROADS_BASE_DIR . '/.crossroadsinit' ) );
     }
 
     private function _serve(  $argc, $argv ) {
         $server = new WebServer();
         $server->init();
+
+        $openCommand = $this->config->get( 'options.browser.open_command' );
+        if ( $openCommand && $this->config->get( 'options.browser.auto' ) ) {
+            exec( sprintf( $openCommand, 'http://' . $server->addressAndPort() ) );
+        } 
+
+        LOG( _i18n( 'core.server.to_close' ), 1, LOG::INFO );
+
         $server->serve();
     }
 }

@@ -25,7 +25,7 @@ class International {
             ksort( $this->strings );
         }
 
-        print_r( $this->strings );
+       //print_r( $this->strings );
     }
 
     public function get( $name ) {

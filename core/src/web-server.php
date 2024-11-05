@@ -24,6 +24,18 @@ class WebServer {
         }
     }
 
+    public function port() {
+        return $this->boundPort;
+    }
+
+    public function address() {
+        return $this->address;
+    }
+
+    public function addressAndPort() {
+        return $this->address() . ':' . $this->port();
+    }
+
     public function serve() {
         $connection = false;
 
@@ -65,7 +77,7 @@ class WebServer {
                 $filePath = $parsedUrl[ 'path' ];
 
                 if ( $protocol == 'get' ) {
-                    $localUrl = CROSSROAD_PUBLIC_DIR . $filePath;
+                    $localUrl = CROSSROADS_PUBLIC_DIR . $filePath;
                     if ( is_dir( $localUrl ) ) {
                         // directory
                         if ( file_exists( $localUrl . 'index.html' ) ) {

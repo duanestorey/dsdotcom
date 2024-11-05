@@ -28,7 +28,7 @@ class ImagePlugin extends Plugin {
 
     public function contentFilter( $content ) {
         $regexp = '(<img[^>]+src=(?:\"|\')\K(.[^">]+?)(?=\"|\'))';
-        $imageDestinationPath = CROSSROAD_PUBLIC_DIR . '/assets/' . $content->contentType;
+        $imageDestinationPath = CROSSROADS_PUBLIC_DIR . '/assets/' . $content->contentType;
 
         if( preg_match_all( "/$regexp/", $content->markdownHtml, $matches, PREG_SET_ORDER ) ) {
             //print_r( $matches ); die;
@@ -275,8 +275,8 @@ class ImagePlugin extends Plugin {
             }
 
             $imageInfo->type = pathinfo( $imageFile, PATHINFO_EXTENSION );
-            $imageInfo->url = str_replace( CROSSROAD_PUBLIC_DIR, '', $imageFile );
-            $imageInfo->public_url = str_replace( CROSSROAD_PUBLIC_DIR, Utils::fixPath( $this->config->get( 'site.url' ) ), $imageFile );
+            $imageInfo->url = str_replace( CROSSROADS_PUBLIC_DIR, '', $imageFile );
+            $imageInfo->public_url = str_replace( CROSSROADS_PUBLIC_DIR, Utils::fixPath( $this->config->get( 'site.url' ) ), $imageFile );
 
             if ( $includeResp ) {
                 $imageInfo->hasResponsive = false;
@@ -310,8 +310,8 @@ class ImagePlugin extends Plugin {
 
             // we have a valid source file
             if ( file_exists( $currentPath . '/' . $originalImageFile ) ) {  
-                @mkdir( CROSSROAD_PUBLIC_DIR . $imageDestinationPathWithDate, 0755, true );
-                $destinationFile = CROSSROAD_PUBLIC_DIR . $imageDestinationPathWithDate . '/' . $imageFilename_only;
+                @mkdir( CROSSROADS_PUBLIC_DIR . $imageDestinationPathWithDate, 0755, true );
+                $destinationFile = CROSSROADS_PUBLIC_DIR . $imageDestinationPathWithDate . '/' . $imageFilename_only;
                 $foundFile = $currentPath . '/' . $originalImageFile;
 
                 $mainImage = $this->_convertOrCopyImage( $foundFile, $destinationFile, true, false, $this->convertToWebp );
@@ -326,8 +326,6 @@ class ImagePlugin extends Plugin {
                                 $mainImage->responsiveImages[ $size ] = $image;
                             }
                         }
-
-                        //print_r( $mainImage );
 
                         $mainImage->hasResponsive = ( count( $mainImage->responsiveImages ) > 0 );
                         if ( $mainImage->hasResponsive ) {
