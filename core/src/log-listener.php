@@ -3,5 +3,6 @@
 namespace CR;
 
 abstract class LogListener {
-     abstract function log( $message, $tabs, $level );
+    abstract function setLevel( $level );
+    abstract function log( $message, $tabs, $level );
 }

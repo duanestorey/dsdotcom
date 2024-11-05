@@ -93,7 +93,7 @@ class Renderer {
                 $renderedHtml = $this->templateEngine->render( $templateName, $params );
                 file_put_contents( $filename, $renderedHtml );  
 
-                LOG( "Outputting template file [" . $filename . "]", 4, LOG::DEBUG );
+                LOG( "Outputting template file [" . CROSSROADS_PUBLIC_SLUG . $pagination->curPageLink . "]", 3, LOG::DEBUG );
 
                 $totalPages++;
 

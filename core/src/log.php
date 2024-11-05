@@ -9,8 +9,6 @@ class Log {
     const ERROR = 3;
     const FATAL = 10;
 
-    var $currentLevel = LOG::INFO;
-
     private static $instance = null;
     var $listeners = [];
 
@@ -18,10 +16,6 @@ class Log {
     }
 
     public function log( $message, $tabs = 0, $level = Log::INFO ) {
-        if ( $level < $this->currentLevel ) {
-            return;
-        }
-
         if ( count( $this->listeners ) ) {
             foreach( $this->listeners as $listener ) {
                 $listener->log( $message, $tabs, $level );

@@ -26,6 +26,7 @@ require_once( 'config.php' );
 require_once( 'web-server.php' );
 require_once( 'log-listener.php' );
 require_once( 'log-listener-shell.php' );
+require_once( 'log-listener-file.php' );
 
 require_once( CROSSROADS_CORE_DIR . '/plugins/image-plugin.php' );
 require_once( CROSSROADS_CORE_DIR . '/plugins/seo-plugin.php' );
@@ -35,6 +36,7 @@ class Engine {
     var $builder = null;
     var $config = null;
     var $startTime = null;
+    var $fileLog = null;
 
     public function __construct() {
     }
@@ -65,10 +67,24 @@ class Engine {
                         Log::instance()->installListener( new LogListenerShell() );
 
                         if ( $this->_checkInit() || $command == 'init' ) {
-                            LOG( sprintf( _i18n( 'core.app.exec_command' ), strtoupper( $argv[ 1 ] ) ), 0, LOG::INFO );
+                            LOG( sprintf( _i18n( 'core.app.exec_command' ), strtoupper( $argv[ 1 ] ), date( 'Y-m-d' ), date( 'H:i' ) ), 0, LOG::INFO );
                             $this->startTime = microtime( true );
 
                             $function = '_' . $command;
+
+                            Utils::mkdir( CROSSROADS_LOG_DIR );
+                            $logSlug = date( 'Y-m-d' ) . '-' . $command . '.log';
+                            $logfile = CROSSROADS_LOG_DIR . '/' . $logSlug;
+
+                            $this->fileLog = new LogListenerFile( $logfile );
+                            $this->fileLog->setLevel( LOG::INFO );
+                            Log::instance()->installListener( $this->fileLog );
+
+                            $debugLog = new LogListenerFile( CROSSROADS_LOG_DIR . '/' . date( 'Y-m-d' ) . '-' . $command . '-debug.log' );
+                            $debugLog->setLevel( LOG::DEBUG );
+                            Log::instance()->installListener( $debugLog );
+
+                            LOG( sprintf( _i18n( 'core.app.log' ), CROSSROADS_LOG_SLUG . '/' . $logSlug ), 0, LOG::INFO );
 
                             $this->{$function}( $argc, $argv );
 
