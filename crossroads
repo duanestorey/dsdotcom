@@ -13,6 +13,7 @@ define( 'CROSSROADS_CONTENT_DIR', CROSSROAD_BASE_DIR . '/_content' );
 define( 'CROSSROAD_CORE_DIR', dirname( __FILE__ ) . '/core' );
 define( 'CROSSROAD_PUBLIC_DIR', CROSSROAD_BASE_DIR . '/_public' );
 define( 'CROSSROAD_THEME_DIR', CROSSROAD_BASE_DIR . '/core/themes' );
+define( 'CROSSROAD_LOCALE_DIR', CROSSROAD_BASE_DIR . '/core/i18n' );
 
 require_once 'core/src/crossroads.php';
 

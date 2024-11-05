@@ -49,7 +49,7 @@ class Builder {
             $entries = $this->entries->get( $contentType );
 
             if ( count( $entries ) ) {
-                LOG( "Processing plugins for [" . $contentType . "]", 1, LOG::INFO );
+                LOG( sprintf( _i18n( 'core.build.plugins.processing' ), $contentType ), 1, LOG::INFO );
 
                 $entries = $this->pluginManager->processAll( $entries );
                 $all_entries = array_merge( $all_entries, $entries );
@@ -60,7 +60,7 @@ class Builder {
             $entries = $this->entries->get( $contentType );
 
             if ( $entries ) {
-                LOG( "Generating single content pages for [" . $contentType . "]", 1, LOG::INFO );
+                LOG( sprintf( _i18n( 'core.build.generating.single' ), $contentType ), 1, LOG::INFO );
 
                 // Make the output directory for html
                 Utils::mkdir( CROSSROAD_PUBLIC_DIR . '/' . $contentType );
@@ -74,6 +74,7 @@ class Builder {
                 
                 foreach( $entries as $entry ) {
                     LOG( "Writing content for [" . $entry->relUrl . "]", 2, LOG::DEBUG );
+
                     $this->renderer->renderSinglePage( $entry, [ $entry->contentType . '-single', $entry->contentType, 'index' ] );
                     $this->totalPages++;                }
             }
@@ -120,7 +121,7 @@ class Builder {
         $this->_writeRobots();
         $this->_writeSitemapXml();
 
-        LOG( "Total entries processed [" . $this->entries->getEntryCount() . "], HTML pages generated [" . $this->totalPages . "]", 0, LOG::INFO );
+        LOG( sprintf( _i18n( 'core.build.total' ), $this->entries->getEntryCount(), $this->totalPages ), 0, LOG::INFO );
     }
 
     private function _writeSitemapXml() {

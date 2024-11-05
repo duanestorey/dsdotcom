@@ -21,6 +21,7 @@ require_once( 'utils.php' );
 require_once( 'plugin.php' );
 require_once( 'plugin-manager.php' );
 require_once( 'renderer.php' );
+require_once( 'international.php' );
 require_once( 'log.php' );
 require_once( 'config.php' );
 require_once( 'web-server.php' );
@@ -40,8 +41,9 @@ class Engine {
     }
 
     public function run( $argc, $argv ) {
-        $this->_branding();
         $this->_loadConfig();
+        $this->_setupLocales();
+        $this->_branding();
 
         if ( $argc <= 1 ) {
             $this->_usage();
@@ -58,14 +60,14 @@ class Engine {
                         // we are good to go
                         Log::instance()->installListener( new LogListenerShell() );
 
-                        LOG( "Executing [" . strtoupper( $argv[ 1 ] ) . "] command", 0, LOG::INFO );
+                        LOG( sprintf( _i18n( 'core.app.exec_command' ), strtoupper( $argv[ 1 ] ) ), 0, LOG::INFO );
                         $this->startTime = microtime( true );
 
                         $function = '_' . $command;
 
                         $this->{$function}( $argc, $argv );
 
-                        LOG( sprintf( "Finished executing [" . strtoupper( $argv[ 1 ] ) . "] command, total time taken %0.3fs", microtime( true ) - $this->startTime ), 0, LOG::INFO );
+                        LOG( sprintf( _i18n( 'core.app.finished' ), strtoupper( $argv[ 1 ] ), microtime( true ) - $this->startTime ), 0, LOG::INFO );
                     }
                 }
             }
@@ -81,6 +83,16 @@ class Engine {
         );
     }
 
+    private function _setupLocales() {
+        $currentLocale = $this->config->get( 'site.lang' );
+        if ( $currentLocale ) {
+            $localeFile = CROSSROAD_LOCALE_DIR . '/' . $currentLocale . '.yaml';
+            if ( file_exists( $localeFile ) ) {
+                International::instance()->loadLocaleFile( $localeFile );
+            }
+        }
+    }
+
     private function _loadConfig() {
         $this->config = new Config( YAML::parse_file( CROSSROAD_BASE_DIR . '/_config/site.yaml', true ) );
     }
@@ -90,17 +102,24 @@ class Engine {
     }
 
     private function _branding() {
-        echo "\n----------------------------\n";
-        echo "Crossroads " . CROSSROADS_VERSION . " starting up\n";
-        echo "----------------------------\n";
+        $brandAndVersion = '| ' . sprintf( _i18n( 'core.app.starting' ), 'Crossroads', CROSSROADS_VERSION ) . ' |';
+        $header = '';
+        for( $i = 0; $i < mb_strlen( $brandAndVersion ); $i++ ) {
+            $header .= '-';
+        }
+
+        echo "\n";
+        echo $header . "\n";
+        echo $brandAndVersion . "\n";
+        echo $header . "\n";    
     }
 
     private function _usage() {
-        echo "..proper usage:\n\n";
-        echo "php crossroads build                      Builds entire website\n";
-        echo "php crossroads clean                      Cleans entire website\n";
-        echo "php crossroads import wordpress <url>     Import from a WordPress website\n";
-        echo "php crossroads serve                      Start webserver\n";
+        echo _i18n( 'core.usage.proper' ) . "\n\n";
+        echo "php crossroads build                      " . _i18n( 'core.usage.build') . "\n";
+        echo "php crossroads clean                      " . _i18n( 'core.usage.clean') . "\n";
+        echo "php crossroads import wordpress <url>     " . _i18n( 'core.usage.import.wordpress') . "\n";
+        echo "php crossroads serve                      " . _i18n( 'core.usage.serve') . "\n";
     }
 
     private function _import( $argc, $argv ) {
@@ -112,9 +131,9 @@ class Engine {
                 require_once( 'core/src/importers/' . $importer . '.php' );
 
                 $importer = new Importers\WordPress;
-              //  $importer->import( Utils::fixPath( $url ) );
+                $importer->import( Utils::fixPath( $url ) );
             } else {
-                LOG( "Unknown importer [" . $importer . "]", 1, LOG::ERROR );
+                LOG( sprintf( _i18n( 'core.import.unknown' ), $importer ), 1, LOG::ERROR );
             }
         } else {
              $this->_usage();
@@ -122,14 +141,14 @@ class Engine {
     }
 
     private function _build( $argc, $argv ) {
-        LOG( "Starting static website build" );
+        LOG( _i18n( 'core.build.starting' ) );
 
         $this->builder = new Builder( $this->config );
 
         try {
             $this->builder->run();
         } catch( Exception $e ) {
-            echo "..build stopped due to exception [" . $e->name() . "] with message [" . $e->msg() . "]\n";
+            LOG( sprintf( _i18n( 'core.app.exception' ), $e->name(), $e->msg() ), 0, LOG::ERROR );
         }
         
     }

@@ -15,11 +15,11 @@ class WebServer {
         $this->socket = socket_create( AF_INET, SOCK_STREAM, 0 );
         if ( $this->socket ) {
             socket_bind( $this->socket, '127.0.0.1', $this->boundPort ); 
-            
+
             socket_getsockname( $this->socket, $address, $this->boundPort );
 
             if ( $this->boundPort ) {
-                LOG( "Web server successfully started at http://127.0.0.1:" . $this->boundPort, 1, LOG::INFO );
+                LOG( sprintf( _i18n( 'core.server.started' ), 'http://127.0.0.1', $this->boundPort ), 1, LOG::INFO );
             }
         }
     }
@@ -45,7 +45,7 @@ class WebServer {
             }
 
             if ( $this->shutdown ) {
-                LOG( "Shutting down web server", 0, LOG::INFO );
+                LOG( _i18n( 'core.server.stopping' ), 0, LOG::INFO );
                 socket_close( $this->socket );
                 break;
             }
@@ -59,7 +59,7 @@ class WebServer {
                 $protocol = strtolower( $matches[ 1 ] );
                 $url = $matches[ 2 ];
 
-                LOG( "Incoming HTTP request from URL [" . $url . "]", 2, LOG::DEBUG );
+                LOG( sprintf( _i18n( 'core.server.incoming' ), $url ), 2, LOG::DEBUG );
 
                 $parsedUrl = parse_url( $url );    
                 $filePath = $parsedUrl[ 'path' ];
