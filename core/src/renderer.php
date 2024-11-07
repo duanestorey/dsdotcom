@@ -26,7 +26,7 @@ class Renderer {
 
     public function renderSinglePage( $entry, $templateFiles ) {
         // set up page specific stuff like the page titel
-        $params = $this->_getDefaultRenderParams( $entry->contentType, $entry->relUrl, [ $entry->contentType . '-' . $entry->className ] );
+        $params = $this->_getDefaultRenderParams( $entry->relUrl, [ $entry->contentType, $entry->contentType . '-' . $entry->className ] );
         $params->content = $entry;
         $params = $this->pluginManager->templateParamFilter( $params );
 
@@ -79,9 +79,9 @@ class Renderer {
                 }
 
                 $is_home = ( $pagination->currentPage == 1 && $path == '' );
-                $body_class_array = ( $is_home ? [ 'home' ] : [] );
+                $body_class_array = ( $is_home ? [ 'home' ] : [ $contentType ] );
 
-                $params = $this->_getDefaultRenderParams( $contentType, $pagination->curPageLink, $body_class_array );
+                $params = $this->_getDefaultRenderParams( $pagination->curPageLink, $body_class_array );
                 
                 $params->page->title = $this->config->get( 'site.title' ); 
                 $params->page->description = $this->config->get( 'site.description' ); 
@@ -106,6 +106,23 @@ class Renderer {
         return $totalPages;
     }
 
+    public function render404Page() {
+        $templateName = $this->templateEngine->locateTemplate( [ '404' ] );
+        if ( $templateName ) {
+            $relUrl = CROSSROADS_PUBLIC_SLUG . '/404.html';
+
+            $params = $this->_getDefaultRenderParams( $relUrl, [ '404' ] );
+                
+            $params->page->title = $this->config->get( 'site.title' ); 
+            $params->page->description = $this->config->get( 'site.description' );   
+
+            $renderedHtml = $this->templateEngine->render( $templateName, $params );
+            file_put_contents( CROSSROADS_PUBLIC_DIR . '/404.html', $renderedHtml );  
+
+            LOG( "Outputting template file [" . $templateName . "]", 3, LOG::DEBUG );
+        }
+    }   
+
     private function _getPaginationLinks( $path, $totalPages ) {
         $links = array();
 
@@ -121,7 +138,7 @@ class Renderer {
         return $links;
     }    
 
-    private function _getDefaultRenderParams( $contentType, $currentPage, $extra_body_classes = [] ) {
+    private function _getDefaultRenderParams( $currentPage, $bodyClasses = [] ) {
         $params = new \stdClass;
         $params->site = new \stdClass;
         $params->site->title = $this->config->get( 'site.name' ); 
@@ -134,7 +151,7 @@ class Renderer {
         $params->page = new \stdClass;
         $params->page->assetUrl = '/assets';
         $params->page->assetHash = $this->theme->getAssetHash();
-        $params->page->bodyClassesRaw = array_merge( [ $contentType ], $extra_body_classes );
+        $params->page->bodyClassesRaw = $bodyClasses;
         $params->page->bodyClasses = implode( ' ', $params->page->bodyClassesRaw );    
 
         $params->isSingle = false;

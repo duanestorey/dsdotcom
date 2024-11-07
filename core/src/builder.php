@@ -120,6 +120,7 @@ class Builder {
 
         $this->_writeRobots();
         $this->_writeSitemapXml();
+        $this->_write404Page();
 
         LOG( sprintf( _i18n( 'core.build.total' ), $this->entries->getEntryCount(), $this->totalPages ), 0, LOG::INFO );
 
@@ -174,6 +175,12 @@ class Builder {
         LOG( sprintf( _i18n( 'core.build.writing' ), "robots.txt" ), 1, LOG::INFO );
     }
 
+    public function _write404Page() {
+        $this->renderer->render404Page();
+
+        LOG( sprintf( _i18n( 'core.build.writing' ), "404.html" ), 1, LOG::INFO );
+    }
+
     private function _setupMenus() {
         $this->menu = new Menu();
         $this->menu->loadMenus();
@@ -181,14 +188,15 @@ class Builder {
 
     private function _setupTheme() {
         $this->theme = new Theme( $this->config->get( 'site.theme' ), CROSSROADS_BASE_DIR . '/' . $this->config->get( 'dirs.themes', 'core/themes' ) );
-        LOG( "Loading theme [" . $this->theme->name() . "]", 1, LOG::INFO );
+
+        LOG( sprintf( _i18n( "core.theme.load" ), $this->theme->name() ), 1, LOG::INFO );
 
         if ( !$this->theme->isSane() ) {
             throw new ThemeException( 'Broken theme' );
         }
 
         $this->theme->loadConfig();
-        LOG( "Theme successfull loaded", 2, LOG::INFO );
+        LOG( _i18n( "core.theme.loaded" ), 2, LOG::INFO );
 
         $this->theme->processAssets( CROSSROADS_PUBLIC_DIR . '/assets' );
     }

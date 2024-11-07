@@ -34,6 +34,9 @@ core:
     done: "Congratulations, your website is ready to go. Run 'php crossroads build' next."
   import:
     unknown: "Unknown importer [%s]"
+  theme:
+    load: "Loading theme [%s]"
+    loaded: "Theme successfull loaded"
   usage:
     build: "Builds entire website"
     clean: "Cleans entire website"

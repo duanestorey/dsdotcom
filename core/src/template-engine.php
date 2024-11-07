@@ -12,7 +12,7 @@ class TemplateEngine {
 
         $this->latte = new \Latte\Engine;
         $this->latte->setLocale( $config->get( 'site.lang', 'en' ) );
-        
+
         $this->latte->setTempDirectory( sys_get_temp_dir() );
     }
 
@@ -25,6 +25,10 @@ class TemplateEngine {
     }
 
     public function locateTemplate( $templates ) {
+        if ( !is_array( $templates ) ) {
+            $templates = array( $templates );
+        }
+
         foreach( $templates as $template ) {
             if ( $this->templateExists( $template ) ) {
                   return $template;
