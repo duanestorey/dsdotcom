@@ -1442,3 +1442,41 @@
 3.7577s - [INFO ] Total entries processed [2118], HTML pages generated [5415]
 3.7577s - [INFO ] Your website is now ready to view. You can run 'php crossroads serve' to view it.
 3.7577s - [INFO ] Finished executing [BUILD] command, total time taken 3.757s
+
+0.0022s - [INFO ] Log file active at [_logs/2024-11-08-build.log]
+0.0079s - [INFO ] Executing command [BUILD] on [2024-11-08] at [05:08:00]
+0.0080s - [INFO ] Starting static website build
+0.0110s - [INFO ]   Loading theme [lumen]
+0.0115s - [INFO ]     Theme successfull loaded
+0.0191s - [INFO ]   Loading content type [pages]
+0.0308s - [INFO ]   Loading content type [posts]
+0.4433s - [INFO ]   Processing plugins for [pages]
+0.4440s - [INFO ]     Executing plugin [image]
+0.6037s - [INFO ]     Executing plugin [seo]
+0.6037s - [INFO ]     Executing plugin [wordpress]
+0.6051s - [INFO ]   Processing plugins for [posts]
+0.6051s - [INFO ]     Executing plugin [image]
+0.6589s - [WARN ]       Corrupted image file [/assets/posts/2006/goodbye-summer-hello-autumn-1.jpg]
+0.7394s - [WARN ]       Corrupted image file [/assets/posts/2007/transformers-the-movie-almost-here-1.jpg]
+0.8245s - [WARN ]       Corrupted image file [/assets/posts/2007/say-it-aint-so-devon-1.jpg]
+0.8299s - [WARN ]       Corrupted image file [/assets/posts/2007/heroes-season-two-finale-2.jpg]
+0.8875s - [WARN ]       Corrupted image file [/assets/posts/2008/microsoft-extends-44-billion-dollar-offer-for-yahoo-1.PNG]
+0.9720s - [WARN ]       Corrupted image file [/assets/posts/2008/entry-11-northern-lights-in-vancouver-2.jpg]
+0.9774s - [WARN ]       Corrupted image file [/assets/posts/2008/entry-16-baby-penguins-washing-up-on-distant-shores-1.jpg]
+0.9860s - [WARN ]       Corrupted image file [/assets/posts/2008/entry-29-missouri-community-embraces-the-wind-1.]
+1.0803s - [WARN ]       Corrupted image file [/assets/posts/2009/heroes-24-lost-1.jpg]
+1.1929s - [WARN ]       Corrupted image file [/assets/posts/2009/space-weather-and-the-northern-lights-1.jpg]
+1.2056s - [WARN ]       Corrupted image file [/assets/posts/2009/out-with-the-old-in-with-the-new-1.]
+2.5308s - [INFO ]     Executing plugin [seo]
+2.5309s - [INFO ]     Executing plugin [wordpress]
+2.5411s - [INFO ]   Generating single content pages for [pages]
+2.5499s - [INFO ]   Generating single content pages for [posts]
+2.8699s - [INFO ]   Generating index & paginated content for [posts]
+2.9380s - [INFO ]   Generating home content for [posts]
+3.0025s - [INFO ]   Generating taxonomy pages for [posts]
+3.6175s - [INFO ]   Writing [robots.txt]
+3.6519s - [INFO ]   Writing [sitemap.xml]
+3.6547s - [INFO ]   Writing [404.html]
+3.6547s - [INFO ] Total entries processed [2118], HTML pages generated [5415]
+3.6547s - [INFO ] Your website is now ready to view. You can run 'php crossroads serve' to view it.
+3.6548s - [INFO ] Finished executing [BUILD] command, total time taken 3.647s
