@@ -117,9 +117,9 @@ Is recent weeks, many of us (myself included) also surprisingly learned that Wor
 
 If any plugin or theme tried to collect even a fraction of that type of data from the admin panel in WordPress, I imagine they would soon be delisted from the repository for breaking the [plugin guidelines](https://developer.wordpress.org/plugins/wordpress-org/detailed-plugin-guidelines/) and theme guidelines. If we look at the plugin guidelines, point 7 explicitly states:
 
-```
-In the interest of protecting user privacy, plugins may not contact external servers without explicit and authorized consent. This is commonly done via an ‘opt in’ method, requiring registration with a service or a checkbox within the plugin settings. Documentation on how any user data is collected, and used, should be included in the plugin’s readme, preferably with a clearly stated privacy policy.
-```
+
+> In the interest of protecting user privacy, plugins may not contact external servers without explicit and authorized consent. This is commonly done via an ‘opt in’ method, requiring registration with a service or a checkbox within the plugin settings. Documentation on how any user data is collected, and used, should be included in the plugin’s readme, preferably with a clearly stated privacy policy.
+
 
 I checked the WordPress download ZIP to see if there was any additional content inside that might detail this data, but I didn't find anything in the normal download package. I also don't remember anywhere in the admin panel where a user is asked to agree to sending this information, and to opt-in to it.  Like always, I believe what's fair and right for one group of people should be fair and right for everyone.
 
