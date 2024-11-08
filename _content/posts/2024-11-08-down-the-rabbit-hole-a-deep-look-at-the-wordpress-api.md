@@ -1,5 +1,5 @@
 ---
-title: "Down The Rabbit Hole - A Deep Look At The WordPress API"
+title: "Down The Rabbit Hole - A Look At The WordPress Update API"
 publishDate: "2024-11-08"
 slug: "down-the-rabbit-hole-a-deep-look-at-the-wordpress-api"
 featuredImage: "_images/wordpress-api-banner.jpg"
