@@ -4,7 +4,10 @@ publishDate: "2024-11-08"
 slug: "down-the-rabbit-hole-a-deep-look-at-the-wordpress-api"
 featuredImage: "_images/wordpress-api-banner.jpg"
 category:
+  - WordPress
 tag:
+  - API
+  - Plugins
 ---
 
 A few weeks ago, I sat down with my WordPress installation to see how difficult it would be to actually use a different API endpoint entirely instead of the default WordPress.org site. As others have pointed out, there are roughly 1,500 hard-coded WordPress.org links throughout the code, pointing to various API endpoints and reference documentation. What I discovered is, despite what some people are parading online, that there is no real easy way via the code to swap out the API entirely. In fact, the HTTP API within WordPress is probably one of the least useful APIs in terms of being able to extend it using available hooks and filters.
