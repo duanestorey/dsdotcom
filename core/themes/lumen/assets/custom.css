@@ -5,6 +5,12 @@
     margin-bottom: 20px;
 }
 
+.container blockquote {
+    padding-left: 20px;
+    border-left: 2px solid;
+    color: #777;
+}
+
 article {
     clear: both;
 }
