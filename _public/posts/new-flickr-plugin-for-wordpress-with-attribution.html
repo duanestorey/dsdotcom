@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="/assets/lumen.css?v=9b2bf633921d9c5fed2fbae26ad3f9ad">
+        <title>New Flickr Plugin - The Duane Storey</title>
+        <link rel="icon" type="image/x-icon" href="/assets/favicon.ico?v=9b2bf633921d9c5fed2fbae26ad3f9ad">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" media="print" onload="this.media='all'">
+
+        <meta charset="utf-8">
+        <meta name="generator" content="Crossroads 1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="canonical" href="https://duanestorey.com/posts/new-flickr-plugin-for-wordpress-with-attribution.html">
+
+        <meta name="description" content="Yes sports fans, it’s that time again — we’ve been messing around with yet another plugin over at BraveNewCode. But">
+        <meta name="og:description" content="Yes sports fans, it’s that time again — we’ve been messing around with yet another plugin over at BraveNewCode. But">
+        <meta property="og:title" content="New Flickr Plugin - The Duane Storey">
+        <meta property="og:url" content="https://duanestorey.com/posts/new-flickr-plugin-for-wordpress-with-attribution.html">
+        <meta property="og:type" content="article">
+        <meta name="twitter:card" content="summary_large_image">   
+        <meta name="twitter:title" content="New Flickr Plugin - The Duane Storey">
+        <meta name="twitter:description" content="Yes sports fans, it’s that time again — we’ve been messing around with yet another plugin over at BraveNewCode. But">
+        <meta name="twitter:creator" content="@duanestorey">
+
+    </head>
+    <body class="posts posts-new-flickr-plugin-for-wordpress-with-attribution">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="/">The Duane Storey</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-item nav-link" href="/">Home</a>
+                        <a class="nav-item nav-link" href="/pages/hiking.html">Hiking</a>
+                        <a class="nav-item nav-link" href="/pages/building-a-custom-hi-fi-5-1-amplifier-with-dts-dolby-decoding.html">Hi-Fi Amp</a>
+                        <a class="nav-item nav-link" href="/pages/curriculum-vitae.html">CV</a>
+                        <a class="nav-item nav-link" href="/pages/about.html">About</a>
+                        <a class="nav-item nav-link" href="/pages/contact.html">Contact</a>
+                    </div>
+
+                    <ul class="navbar-nav d-flex flex-row">
+                        <li class="nav-item me-3 me-lg-0">
+                            <a class="nav-link" rel="nofollow" href="https://x.com/duanestorey" aria-label="Twitter">
+                                <i class="fa-brands fa-x-twitter text-white"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item me-3 me-lg-0">
+                            <a class="nav-link" rel="nofollow" href="https://instagram.com/duanestorey" aria-label="Instagram">
+                                <i class="fa-brands fa-instagram text-white"></i>
+                            </a>
+                        </li>
+                            <li class="nav-item me-3 me-lg-0">
+                            <a class="nav-link" rel="nofollow" href="https://bsky.app/profile/duanestorey.com" aria-label="Bluesky">
+                                <i class="fa-brands fa-bluesky text-white"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+    <div class="container mt-4">
+        <article>    
+            <h1 class="mt-4">New Flickr Plugin</h1>
+            <div class="meta mb-2 text-primary fs-6 fw-light">
+                 Published on <time>August 11th, 2008</time>
+            </div>
+
+            <div class="content mt-3">
+                <p>Yes sports fans, it’s that time again — we’ve been messing around with yet another plugin over at BraveNewCode. But first, everyone should know that we just put the finishing touches on WPtouch 2.0 today. There are still a few small bugs to squish, but hopefully it’ll hit the market sometime in the next week or two. It’s pretty sexy, if I do so say so myself.</p>
+<p>In terms of the new plugin, I’ll give everyone a little context. In the last two months I’ve had several people infringe upon my Flickr photo licenses by using my photos commercially. One of those incidences ended peacefully, but unfortunately the other one is still ongoing. While not for certain, I suspect the odd person grabs photos from my blog (after doing a Google image search), not really knowing that photos on my blog have CC licenses associated with them.</p>
+<p>So to battle that problem, I’ve always envisioned a Flickr plugin for WordPress that would be aware of the CC licenses for each of the photos. Today I sat down and hacked out a proof of concept in a few hours. You should be able to see the end result here:</p>
+<p><a href="http://flickr.com/photos/duanestorey/2749456364/"><img loading="lazy" srcset="/assets/posts/2008/new-flickr-plugin-1-320w.jpg 320w,/assets/posts/2008/new-flickr-plugin-1-480w.jpg 480w" src="_images/new-flickr-plugin-1.jpg" alt="Jessie Farrell"></a></p>
+<p>The code fragment in the HTML I used to generate the Flickr image above is the same fragment I always use, consisting of nothing more than an IMG tag. The benefit of this is that every single Flickr image I’ve ever used will automatically be adjusted when the plugin is on. The plugin now performs the following behind the scenes:</p>
+<ol>
+<li>The plugin locates Flickr images in the HTML source, and then deconstructs the Flickr URL to determine the Flickr image number</li>
+<li>Using the Flickr API, the plugin determines extra information about the image, including the CC license, and the author</li>
+<li>The plugin queries the Flickr licensing information to determine information about each license, along with a URL describing each one</li>
+<li>The plugin modifies the DOM model to add proper captioning and attribution, along with the proper license information for the photo</li>
+</ol>
+<p>The last point was one of the main complaints I heard on some blogs about a year ago. For whatever reason people felt it was too much work to find the profile information on Flickr and obtain the user’s real name. So, now those people don’t have to.</p>
+<p>Arieanna and I had a conversation in Victoria about b5media last week, and one of the things she told me was that a great deal of traffic on their site comes in via image searches. Part of the reason the searches rank so hightly is that bloggers there spend the extra time storing photos locally and renaming the photos using SEO friendly names. So, I’ve added functionality to cache all Flickr photos locally, renaming them using SEO hints from the Flickr descriptions.</p>
+<p>It’s still a ways away from being production ready, but I’m really excited about this plugin. It simplifies attribution, and always makes sure the appropriate license is displayed for each photo that is used. In addition, the caption is also pulled from Flickr, saving someone the time of adding one themselves. I also added a fade and a tooltip when a user hovers over a CC photo, hoping that the combination will alert the user to the fact that the photo carries a license with it.</p>
+<p>If anyone any suggestions, just let me know. For now, I’ll be testing the plugin on this site. Look for an official announcement over on BraveNewCode when this one is finally released to the public.</p>
+
+                    <div class="tax">
+                        <a href="/posts/taxonomy/api" class="btn btn-secondary btn-sm">api</a>
+                        <a href="/posts/taxonomy/attribution" class="btn btn-secondary btn-sm">attribution</a>
+                        <a href="/posts/taxonomy/bravenewcode" class="btn btn-secondary btn-sm">bravenewcode</a>
+                        <a href="/posts/taxonomy/creative-commons" class="btn btn-secondary btn-sm">creative commons</a>
+                        <a href="/posts/taxonomy/flickr" class="btn btn-secondary btn-sm">flickr</a>
+                        <a href="/posts/taxonomy/photos" class="btn btn-secondary btn-sm">photos</a>
+                        <a href="/posts/taxonomy/wordpress" class="btn btn-secondary btn-sm">wordpress</a>
+                        <a href="/posts/taxonomy/journal" class="btn btn-secondary btn-sm">journal</a>
+                    </div>
+            </div>
+
+            <div class="comments mt-4 pt-4">
+                <div id="disqus_thread"></div>
+            </div>
+        </article>  
+    </div>
+
+
+        <footer class="bg-dark pt-4 pb-4 mt-4 mb-4">
+            <div class="container text-center text-white">
+                All content copyright &copy; 2024<br>Content generated using Crossroads static generator
+            </div>
+
+            <script defer src="/assets/lumen.min.js?v=9b2bf633921d9c5fed2fbae26ad3f9ad"></script>
+        </footer>   
+    </body>
+</html>

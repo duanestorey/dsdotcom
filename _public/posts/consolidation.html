@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="/assets/lumen.css?v=9b2bf633921d9c5fed2fbae26ad3f9ad">
+        <title>Consolidation - The Duane Storey</title>
+        <link rel="icon" type="image/x-icon" href="/assets/favicon.ico?v=9b2bf633921d9c5fed2fbae26ad3f9ad">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" media="print" onload="this.media='all'">
+
+        <meta charset="utf-8">
+        <meta name="generator" content="Crossroads 1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="canonical" href="https://duanestorey.com/posts/consolidation.html">
+
+        <meta name="description" content="This weekend was pretty uneventful. I wasn’t feeling overly ambitious, so I hung out close to home mostly and rented a">
+        <meta name="og:description" content="This weekend was pretty uneventful. I wasn’t feeling overly ambitious, so I hung out close to home mostly and rented a">
+        <meta property="og:title" content="Consolidation - The Duane Storey">
+        <meta property="og:url" content="https://duanestorey.com/posts/consolidation.html">
+        <meta property="og:type" content="article">
+        <meta name="twitter:card" content="summary_large_image">   
+        <meta name="twitter:title" content="Consolidation - The Duane Storey">
+        <meta name="twitter:description" content="This weekend was pretty uneventful. I wasn’t feeling overly ambitious, so I hung out close to home mostly and rented a">
+        <meta name="twitter:creator" content="@duanestorey">
+
+    </head>
+    <body class="posts posts-consolidation">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="/">The Duane Storey</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-item nav-link" href="/">Home</a>
+                        <a class="nav-item nav-link" href="/pages/hiking.html">Hiking</a>
+                        <a class="nav-item nav-link" href="/pages/building-a-custom-hi-fi-5-1-amplifier-with-dts-dolby-decoding.html">Hi-Fi Amp</a>
+                        <a class="nav-item nav-link" href="/pages/curriculum-vitae.html">CV</a>
+                        <a class="nav-item nav-link" href="/pages/about.html">About</a>
+                        <a class="nav-item nav-link" href="/pages/contact.html">Contact</a>
+                    </div>
+
+                    <ul class="navbar-nav d-flex flex-row">
+                        <li class="nav-item me-3 me-lg-0">
+                            <a class="nav-link" rel="nofollow" href="https://x.com/duanestorey" aria-label="Twitter">
+                                <i class="fa-brands fa-x-twitter text-white"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item me-3 me-lg-0">
+                            <a class="nav-link" rel="nofollow" href="https://instagram.com/duanestorey" aria-label="Instagram">
+                                <i class="fa-brands fa-instagram text-white"></i>
+                            </a>
+                        </li>
+                            <li class="nav-item me-3 me-lg-0">
+                            <a class="nav-link" rel="nofollow" href="https://bsky.app/profile/duanestorey.com" aria-label="Bluesky">
+                                <i class="fa-brands fa-bluesky text-white"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+    <div class="container mt-4">
+        <article>    
+            <h1 class="mt-4">Consolidation</h1>
+            <div class="meta mb-2 text-primary fs-6 fw-light">
+                 Published on <time>October 26th, 2009</time>
+            </div>
+
+            <div class="content mt-3">
+                <p>This weekend was pretty uneventful. I wasn’t feeling overly ambitious, so I hung out close to home mostly and rented a few movies. I’m not sure if there really are no movies, or if Apple TV is exceptionally crappy right now, but I hardly found anything to watch at all.</p>
+<p>Back in <a href="http://www.migratorynerd.com/blog/2009/server-beach-dedicated-hosting/">September</a> I wrote a post about switching to <a href="http://serverbeach.com">Server Beach</a>. For the most part, it’s been pretty rock solid. We have a dual core server there with cPanel on it, and it’s been relatively pain-free. One of the reasons we opted for a dedicated server was to make our lives a lot easier. Prior to setting it up, Dale and I realized we had about four or five hosting accounts combined, many of which had old sites on them. Unfortunately, keeping everything running smoothly in that scenario is a challenge, especially when you’re also trying to develop (and backup) sites for clients. So, we decided to migrate everything onto one server.</p>
+<p>We’re about 80% of the way now, and have shut down a few hosting accounts already (including my old Rimu hosting VPS). I’m about to finally pull the plug on my Media Temple account as well, which I’ve been trying to do for about six months now.</p>
+<p>One of the two tools Dale and I use fairly religiously is <a href="https://www.getdropbox.com/referrals/NTI2NzQ3Mjk5">DropBox</a>. DropBox allows Dale and I to share a virtual hard drive up in the cloud. Whenever either of us updates a file, it automatically synchronizes the other person’s machine. Last night I also found a Linux based client for it, so I set that up on our server and tied it into Apache. That means Dale and I can basically modify live sites just by dragging files into folders on our local machines. Conversely, I configured some of our backup scripts to store various files (such as MySQL backups) in DropBox as well, which means Dale and I both automatically get server backups on our local machines every night. I think it works pretty slick actually, and I think we’ll be able to do a few more cool things with that setup.</p>
+<p>My personal goal is to make it so that developing a site on my local machine is nearly identical to developing a site on a remote machine. Having everything on one server facilitates that quite nicely. For example, the Server Beach MySQL server is configured as a master, and my personal laptop machine is configured as as MySQL slave. So whenever I do a posting to duanestorey.com (which resides on Server Beach), the database is automatically synchronized with my laptop. The next step will be to synchronize the files (through some combination of SVN and DropBox), at which point I’ll have pretty much an exact replica of the live sites on my laptop (and so will Dale hopefully), which means I can develop without an internet connection, and simply synchronize everything to the live server whenever I’m plugged in.</p>
+<p>So, hopefully by the end of this week we’ll have shut down all our other hosting accounts. If anyone is considering moving to Server Beach, feel free to use our referral code: SXHH4BQ82M. I believe you’ll save $100 on your first month’s bill, and we’ll also get a kickback to help us out as well.</p>
+
+                    <div class="tax">
+                        <a href="/posts/taxonomy/dropbox" class="btn btn-secondary btn-sm">dropbox</a>
+                        <a href="/posts/taxonomy/hosting" class="btn btn-secondary btn-sm">hosting</a>
+                        <a href="/posts/taxonomy/shared" class="btn btn-secondary btn-sm">shared</a>
+                        <a href="/posts/taxonomy/wordpress" class="btn btn-secondary btn-sm">wordpress</a>
+                        <a href="/posts/taxonomy/technology" class="btn btn-secondary btn-sm">technology</a>
+                    </div>
+            </div>
+
+            <div class="comments mt-4 pt-4">
+                <div id="disqus_thread"></div>
+            </div>
+        </article>  
+    </div>
+
+
+        <footer class="bg-dark pt-4 pb-4 mt-4 mb-4">
+            <div class="container text-center text-white">
+                All content copyright &copy; 2024<br>Content generated using Crossroads static generator
+            </div>
+
+            <script defer src="/assets/lumen.min.js?v=9b2bf633921d9c5fed2fbae26ad3f9ad"></script>
+        </footer>   
+    </body>
+</html>

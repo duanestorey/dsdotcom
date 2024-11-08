@@ -1,0 +1,38 @@
+site:
+  name: 'The Duane Storey'
+  url: 'https://duanestorey.com'
+  title: 'The home of engineer and world traveller, Duane Storey'
+  description: 'The Duane Storey - the personal website and blog of engineer and world traveler, Duane Storey'
+  theme: lumen
+  lang: en
+  charset: 'utf-8'
+  home: posts
+content:
+  pages:
+    index: false
+    include_date: false
+    base: /
+    singular: "page"
+  posts:
+    index: true
+    include_date: true
+    base: /posts
+    singular: "post"
+    taxonomy:
+      - "category"
+      - "tag"
+dirs:
+  themes: "core/themes"
+options:
+  debug: true
+  content_per_page: 20
+  markdown:
+    auto: true
+    open_command: "open %s"
+  browser:
+    auto: false
+    open_command: "open %s"
+images:
+  convert_to_webp: false
+  generate_responsive: true
+

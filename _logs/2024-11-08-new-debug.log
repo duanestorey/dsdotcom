@@ -1,0 +1,6 @@
+
+0.0005s - [INFO ] Log file active at [_logs/2024-11-08-new.log]
+0.0005s - [INFO ] Executing command [NEW] on [2024-11-08] at [01:52:49]
+0.0005s - [INFO ]   Creating new [post]
+17.9665s - [INFO ]   Created new [post], markdown file is: _content/posts/2024-11-08-down-the-rabbit-hole---an-deep-look-at-the-wordpress-api.md
+18.1010s - [INFO ] Finished executing [NEW] command, total time taken 18.100s

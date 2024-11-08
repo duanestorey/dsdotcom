@@ -1,0 +1,32 @@
+0.0002s - [INFO ] Log file active at [_logs/2024-11-05-init.log]
+0.0002s - [INFO ] Initializing your new Crossroads website
+0.0002s - [INFO ]   Writing .gitignore file
+0.0003s - [INFO ]   Writing version information
+0.0014s - [INFO ] Congratulations, your website is ready to go. Run 'php crossroads build' next.
+0.0014s - [INFO ] Finished executing [INIT] command, total time taken 0.001s
+0.0001s - [INFO ] Log file active at [_logs/2024-11-05-init.log]
+0.0001s - [INFO ] Log file active at [_logs/2024-11-05-init.log]
+0.0001s - [INFO ] Your website has previously been initialized: you're good to go!
+0.0001s - [INFO ] Finished executing [INIT] command, total time taken 0.000s
+0.0001s - [INFO ] Log file active at [_logs/2024-11-05-init.log]
+0.0001s - [INFO ]   Your website has previously been initialized: you're good to go!
+0.0001s - [INFO ] Finished executing [INIT] command, total time taken 0.000s
+0.0001s - [INFO ] Log file active at [_logs/2024-11-05-init.log]
+0.0001s - [INFO ] Executing command [INIT] on [2024-11-05] at [07:09]
+0.0001s - [INFO ]   Your website has previously been initialized: you're good to go!
+0.0001s - [INFO ] Finished executing [INIT] command, total time taken 0.000s
+
+0.0001s - [INFO ] Log file active at [_logs/2024-11-05-init.log]
+0.0001s - [INFO ] Executing command [INIT] on [2024-11-05] at [07:10]
+0.0001s - [INFO ]   Your website has previously been initialized: you're good to go!
+0.0001s - [INFO ] Finished executing [INIT] command, total time taken 0.000s
+
+0.0001s - [INFO ] Log file active at [_logs/2024-11-05-init.log]
+0.0001s - [INFO ] Executing command [INIT] on [2024-11-05] at [07:10:30]
+0.0001s - [INFO ]   Your website has previously been initialized: you're good to go!
+0.0001s - [INFO ] Finished executing [INIT] command, total time taken 0.000s
+
+0.0001s - [INFO ] Log file active at [_logs/2024-11-05-init.log]
+0.0001s - [INFO ] Executing command [INIT] on [2024-11-05] at [07:10:37]
+0.0001s - [INFO ]   Your website has previously been initialized: you're good to go!
+0.0001s - [INFO ] Finished executing [INIT] command, total time taken 0.000s

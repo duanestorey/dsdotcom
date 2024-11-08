@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="/assets/lumen.css?v=9b2bf633921d9c5fed2fbae26ad3f9ad">
+        <title>The Non-Permanency Of WordPress Permalinks - The Duane Storey</title>
+        <link rel="icon" type="image/x-icon" href="/assets/favicon.ico?v=9b2bf633921d9c5fed2fbae26ad3f9ad">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" media="print" onload="this.media='all'">
+
+        <meta charset="utf-8">
+        <meta name="generator" content="Crossroads 1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="canonical" href="https://duanestorey.com/posts/the-non-permanency-of-wordpress-permalinks.html">
+
+        <meta name="description" content="So, I was lying in bed last night, letting my mind fill up with useless dribble, when I started thinking about WordPress">
+        <meta name="og:description" content="So, I was lying in bed last night, letting my mind fill up with useless dribble, when I started thinking about WordPress">
+        <meta property="og:title" content="The Non-Permanency Of WordPress Permalinks - The Duane Storey">
+        <meta property="og:url" content="https://duanestorey.com/posts/the-non-permanency-of-wordpress-permalinks.html">
+        <meta property="og:type" content="article">
+        <meta name="twitter:card" content="summary_large_image">   
+        <meta name="twitter:title" content="The Non-Permanency Of WordPress Permalinks - The Duane Storey">
+        <meta name="twitter:description" content="So, I was lying in bed last night, letting my mind fill up with useless dribble, when I started thinking about WordPress">
+        <meta name="twitter:creator" content="@duanestorey">
+
+    </head>
+    <body class="posts posts-the-non-permanency-of-wordpress-permalinks">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="/">The Duane Storey</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-item nav-link" href="/">Home</a>
+                        <a class="nav-item nav-link" href="/pages/hiking.html">Hiking</a>
+                        <a class="nav-item nav-link" href="/pages/building-a-custom-hi-fi-5-1-amplifier-with-dts-dolby-decoding.html">Hi-Fi Amp</a>
+                        <a class="nav-item nav-link" href="/pages/curriculum-vitae.html">CV</a>
+                        <a class="nav-item nav-link" href="/pages/about.html">About</a>
+                        <a class="nav-item nav-link" href="/pages/contact.html">Contact</a>
+                    </div>
+
+                    <ul class="navbar-nav d-flex flex-row">
+                        <li class="nav-item me-3 me-lg-0">
+                            <a class="nav-link" rel="nofollow" href="https://x.com/duanestorey" aria-label="Twitter">
+                                <i class="fa-brands fa-x-twitter text-white"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item me-3 me-lg-0">
+                            <a class="nav-link" rel="nofollow" href="https://instagram.com/duanestorey" aria-label="Instagram">
+                                <i class="fa-brands fa-instagram text-white"></i>
+                            </a>
+                        </li>
+                            <li class="nav-item me-3 me-lg-0">
+                            <a class="nav-link" rel="nofollow" href="https://bsky.app/profile/duanestorey.com" aria-label="Bluesky">
+                                <i class="fa-brands fa-bluesky text-white"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+    <div class="container mt-4">
+        <article>    
+            <h1 class="mt-4">The Non-Permanency Of WordPress Permalinks</h1>
+            <div class="meta mb-2 text-primary fs-6 fw-light">
+                 Published on <time>August 5th, 2009</time>
+            </div>
+
+            <div class="content mt-3">
+                <p>So, I was lying in bed last night, letting my mind fill up with useless dribble, when I started thinking about WordPress permalinks. I came to the conclusion that the WordPress friendly permalinks aren’t really permalinks in the traditional sense, in that they can be changed after the fact by an end-user.</p>
+<p>First, here’s a definition of a permalink:</p>
+<blockquote>
+<p>A permalink, or permanent link, is a URL that points to a specific blog or forum entry after it has passed from the front page to the archives. Because a permalink remains unchanged indefinitely, it is less susceptible to link rot.</p>
+</blockquote>
+<p>An example of a WordPress permalink is this link, <a href="http://www.migratorynerd.com/blog/2009/wheres-duanedo/">http://www.migratorynerd.com/blog/2009/wheres-duanedo/</a>, which points to my <a href="http://www.migratorynerd.com/blog/2009/wheres-duanedo/">Where’s Duanedo</a> post.</p>
+<p>Why it’s not really permanent is that I can go into the WordPress back-end administration panel and change the structure of that link after the fact, adding the month and/or the day of the week. For example, in about 15 seconds I can change it to <a href="http://www.migratorynerd.com/blog/2009/08/01/wheres-duanedo/">http://www.migratorynerd.com/blog/2009/08/01/wheres-duanedo/</a>, which depending on how you feel, might be a bit cooler. Those changes are retroactive, and will change all the links on the site.</p>
+<p>Unfortunately, since I’ve given out the old permalink to people, it’s possible that those links may not work anymore (I believe WordPress will do a search under the hood to see if it can find the post, but I’m not entirely certain how well that works).</p>
+<p>Anyone who has moved a site knows that you can still make the old permalinks work by doing some .htaccess 301 trickery, but depending on how you involved the changes are you did, that can sometimes be a bit gimmicky.</p>
+<p>Really, the only true WordPress links that are permanent are the default links involving the ?p= URL parameters. For example, the true permalink for my Where’s Duanedo post is <a href="http://www.migratorynerd.com/?p=4943">http://www.migratorynerd.com/?p=4943</a>, which involves the post ID.</p>
+<p>I was thinking last night of the consequences of always using the true permalink under the hood, even if friendly permalinks were enabled in WordPress. Truthfully, I think it would work just fine, since WordPress automatically does a 301 redirect from the true permalink to the friendly permalink, the former of which is not susceptible at all to link-rot (as long as the blog address doesn’t change). It adds some header traffic for the 301 redirects, but should always work, even if the URL structure is changed at a later time.</p>
+<p>Anyways, some food for thought.</p>
+
+                    <div class="tax">
+                        <a href="/posts/taxonomy/permalinks" class="btn btn-secondary btn-sm">permalinks</a>
+                        <a href="/posts/taxonomy/seo" class="btn btn-secondary btn-sm">seo</a>
+                        <a href="/posts/taxonomy/url" class="btn btn-secondary btn-sm">url</a>
+                        <a href="/posts/taxonomy/wordpress" class="btn btn-secondary btn-sm">wordpress</a>
+                        <a href="/posts/taxonomy/journal" class="btn btn-secondary btn-sm">journal</a>
+                    </div>
+            </div>
+
+            <div class="comments mt-4 pt-4">
+                <div id="disqus_thread"></div>
+            </div>
+        </article>  
+    </div>
+
+
+        <footer class="bg-dark pt-4 pb-4 mt-4 mb-4">
+            <div class="container text-center text-white">
+                All content copyright &copy; 2024<br>Content generated using Crossroads static generator
+            </div>
+
+            <script defer src="/assets/lumen.min.js?v=9b2bf633921d9c5fed2fbae26ad3f9ad"></script>
+        </footer>   
+    </body>
+</html>

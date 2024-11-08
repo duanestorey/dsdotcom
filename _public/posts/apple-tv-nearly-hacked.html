@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="/assets/lumen.css?v=9b2bf633921d9c5fed2fbae26ad3f9ad">
+        <title>Apple TV – Nearly Hacked - The Duane Storey</title>
+        <link rel="icon" type="image/x-icon" href="/assets/favicon.ico?v=9b2bf633921d9c5fed2fbae26ad3f9ad">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" media="print" onload="this.media='all'">
+
+        <meta charset="utf-8">
+        <meta name="generator" content="Crossroads 1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="canonical" href="https://duanestorey.com/posts/apple-tv-nearly-hacked.html">
+
+        <meta name="description" content="The other day John contacted me and told me about a new hack for the Apple TV. It’s basically an amalgamation of all the">
+        <meta name="og:description" content="The other day John contacted me and told me about a new hack for the Apple TV. It’s basically an amalgamation of all the">
+        <meta property="og:title" content="Apple TV – Nearly Hacked - The Duane Storey">
+        <meta property="og:url" content="https://duanestorey.com/posts/apple-tv-nearly-hacked.html">
+        <meta property="og:type" content="article">
+        <meta name="twitter:card" content="summary_large_image">   
+        <meta name="twitter:title" content="Apple TV – Nearly Hacked - The Duane Storey">
+        <meta name="twitter:description" content="The other day John contacted me and told me about a new hack for the Apple TV. It’s basically an amalgamation of all the">
+        <meta name="twitter:creator" content="@duanestorey">
+
+    </head>
+    <body class="posts posts-apple-tv-nearly-hacked">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="/">The Duane Storey</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-item nav-link" href="/">Home</a>
+                        <a class="nav-item nav-link" href="/pages/hiking.html">Hiking</a>
+                        <a class="nav-item nav-link" href="/pages/building-a-custom-hi-fi-5-1-amplifier-with-dts-dolby-decoding.html">Hi-Fi Amp</a>
+                        <a class="nav-item nav-link" href="/pages/curriculum-vitae.html">CV</a>
+                        <a class="nav-item nav-link" href="/pages/about.html">About</a>
+                        <a class="nav-item nav-link" href="/pages/contact.html">Contact</a>
+                    </div>
+
+                    <ul class="navbar-nav d-flex flex-row">
+                        <li class="nav-item me-3 me-lg-0">
+                            <a class="nav-link" rel="nofollow" href="https://x.com/duanestorey" aria-label="Twitter">
+                                <i class="fa-brands fa-x-twitter text-white"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item me-3 me-lg-0">
+                            <a class="nav-link" rel="nofollow" href="https://instagram.com/duanestorey" aria-label="Instagram">
+                                <i class="fa-brands fa-instagram text-white"></i>
+                            </a>
+                        </li>
+                            <li class="nav-item me-3 me-lg-0">
+                            <a class="nav-link" rel="nofollow" href="https://bsky.app/profile/duanestorey.com" aria-label="Bluesky">
+                                <i class="fa-brands fa-bluesky text-white"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+    <div class="container mt-4">
+        <article>    
+            <h1 class="mt-4">Apple TV – Nearly Hacked</h1>
+            <div class="meta mb-2 text-primary fs-6 fw-light">
+                 Published on <time>June 1st, 2008</time>
+            </div>
+
+            <div class="content mt-3">
+                <p>The other day John contacted me and told me about a new hack for the Apple TV. It’s basically an amalgamation of all the available hacks and updates for it, but it’s packaged in a nice, easy to use USB installer.</p>
+<p>Before I get into my hacking attempt, I want to give a quick review of what I think of Apple TV so far. To be honest, I really like the idea of what Apple TV is supposed to be. Unfortunately, it’s not really that yet. The main problem is there really isn’t enough content on it. I check back every week, hoping for a massive change in titles, but for the most part there’s just not much to watch. There are so few in fact that Apple has resorted to duplicating the same title multiple times on the page so as to make it seem like they have more.</p>
+<p>The main part of the Apple TV hack that appeals to me is the ability to access an external storage drive. With that functionality I can basically rip all my DVDs to my hard drive and watch them whenever I want on my Apple TV.</p>
+<p>The actually hacking procedure was really straight forward, so I won’t go into any detail. The hard part for me was making Apple TV talk to my 1TB drive over on my Linux box. I messed around for 90 minutes trying to mount the Linux drive as NFS, but just had so many problems with it I eventually gave up. I then managed to installed an Apple File Protocol (AFP) daemon on the Linux box, which ended up solving the problem. So now I have my Apple TV connected to my Linux box over AFP.</p>
+<p>I haven’t played around with this too much yet, so I really have no idea what to do next. I tried streaming a MPEG2 file from my Linux box using the MediaCloud functionality in the hacked Apple TV navigator, but it barfed on the file content for some reason.</p>
+<p>Over the next few days I’ll try and figure out some way for my setup to be useful. Check back then.</p>
+<p>** Update — actually, the Apple TV NiTo program works well for all content. All the folders it shows are in /Users/frontrow/Movies. So to use it, I just created a symbolic link to my mounted Linux drive, which caused Apple TV to automatically show all that content in NiTo. That’s not as nice as a streaming solution, but it seems to work well enough. I just downloaded one of the m4v files I took at the Junos onto my Linux drive and watched it in Apple TV without problems, so I’m good to go I think. The next step will be to try and get a DVD ripped. Maybe I’ll try that right now.</p>
+<p>*** Update 2 – I ripped a few chapters of Star Wars Episode III to a mp4 file using HandBrake and tossed that on my Linux drive. The quality was actually surprisingly awesome. Unfortunately, the video is a bit choppy in Sapphire for some reason, but seems to work fairly well in nitoTV.</p>
+
+                    <div class="tax">
+                        <a href="/posts/taxonomy/journal" class="btn btn-secondary btn-sm">journal</a>
+                    </div>
+            </div>
+
+            <div class="comments mt-4 pt-4">
+                <div id="disqus_thread"></div>
+            </div>
+        </article>  
+    </div>
+
+
+        <footer class="bg-dark pt-4 pb-4 mt-4 mb-4">
+            <div class="container text-center text-white">
+                All content copyright &copy; 2024<br>Content generated using Crossroads static generator
+            </div>
+
+            <script defer src="/assets/lumen.min.js?v=9b2bf633921d9c5fed2fbae26ad3f9ad"></script>
+        </footer>   
+    </body>
+</html>

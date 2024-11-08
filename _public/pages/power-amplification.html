@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="/assets/lumen.css?v=9b2bf633921d9c5fed2fbae26ad3f9ad">
+        <title>Power Amplification - The Duane Storey</title>
+        <link rel="icon" type="image/x-icon" href="/assets/favicon.ico?v=9b2bf633921d9c5fed2fbae26ad3f9ad">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" media="print" onload="this.media='all'">
+
+        <meta charset="utf-8">
+        <meta name="generator" content="Crossroads 1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="canonical" href="https://duanestorey.com/pages/power-amplification.html">
+
+        <meta name="description" content="The first order of business for the amplifier was figuring out how I was going to amplify the audio signals that go to the">
+        <meta name="og:description" content="The first order of business for the amplifier was figuring out how I was going to amplify the audio signals that go to the">
+        <meta property="og:title" content="Power Amplification - The Duane Storey">
+        <meta property="og:url" content="https://duanestorey.com/pages/power-amplification.html">
+        <meta property="og:type" content="article">
+        <meta name="twitter:card" content="summary_large_image">   
+        <meta name="twitter:title" content="Power Amplification - The Duane Storey">
+        <meta name="twitter:description" content="The first order of business for the amplifier was figuring out how I was going to amplify the audio signals that go to the">
+        <meta name="twitter:creator" content="@duanestorey">
+
+    </head>
+    <body class="pages pages-power-amplification">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="/">The Duane Storey</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-item nav-link" href="/">Home</a>
+                        <a class="nav-item nav-link" href="/pages/hiking.html">Hiking</a>
+                        <a class="nav-item nav-link" href="/pages/building-a-custom-hi-fi-5-1-amplifier-with-dts-dolby-decoding.html">Hi-Fi Amp</a>
+                        <a class="nav-item nav-link" href="/pages/curriculum-vitae.html">CV</a>
+                        <a class="nav-item nav-link" href="/pages/about.html">About</a>
+                        <a class="nav-item nav-link" href="/pages/contact.html">Contact</a>
+                    </div>
+
+                    <ul class="navbar-nav d-flex flex-row">
+                        <li class="nav-item me-3 me-lg-0">
+                            <a class="nav-link" rel="nofollow" href="https://x.com/duanestorey" aria-label="Twitter">
+                                <i class="fa-brands fa-x-twitter text-white"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item me-3 me-lg-0">
+                            <a class="nav-link" rel="nofollow" href="https://instagram.com/duanestorey" aria-label="Instagram">
+                                <i class="fa-brands fa-instagram text-white"></i>
+                            </a>
+                        </li>
+                            <li class="nav-item me-3 me-lg-0">
+                            <a class="nav-link" rel="nofollow" href="https://bsky.app/profile/duanestorey.com" aria-label="Bluesky">
+                                <i class="fa-brands fa-bluesky text-white"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+    <div class="container mt-4">
+        <article>    
+            <h1 class="mt-4">Power Amplification</h1>
+
+            <div class="content mt-3">
+                <p>The first order of business for the amplifier was figuring out how I was going to amplify the audio signals that go to the speakers. These power amplifiers dominate the power requirements for the entire project, so knowing the technology I was going to use and the requirements were necessary before being able to move forward with a transformer, for example.</p>
+<p>I was originally thinking of pulling out my old university textbook on “Transistor Amplifier Design” and taking a stab at designing something using individual components (known as a discrete design in the field). The problem with this approach is that was one of the hardest classes of my university education, and I remember struggling with some of the concepts. I had a lot going on that year, and I think re-reviewing the material would have shed a lot of light on the area. But I was stepping pretty far out my comfort zone with that approach.</p>
+<p>Around that time I stumbled upon something called a Gainclone.</p>
+<h4>The Gainclone</h4>
+<p>In 1999, a company released a hi-fi audio amplifier called the Gaincard for roughly $3300 USD. It was small and simple, but it received rave reviews. The case was sealed up shut, but eventually someone decided to crack one open and look inside (photo from <a href="https://6moons.com">6moons.com</a>).</p>
+<p><img loading="lazy" srcset="/assets/pages/2023/power-amplification-1-320w.jpg 320w,/assets/pages/2023/power-amplification-1-480w.jpg 480w,/assets/pages/2023/power-amplification-1-640w.jpg 640w" src="_images/power-amplification-1.jpg" alt="The Gaincard"></p>
+<p>Inside were hardly any components, and at its heart, a relatively cheap power opamp from National Semiconductor called the LM3875. It was estimated that the Gaincard had less than $100 worth of parts in it, but it retailed for $3300.</p>
+<p>What was more surprising was just how incredible it sounded. The conventional wisdom at the time was you needed more and more components to get the audio quality to something acceptable. The Gaincard showed people that a simple, well thought-out design could outperform other high-end audio at the time.</p>
+<p>Not long after, a few people reversed engineered the design and created the first replicas, affectionately called Gainclones. Similar to the $3300 designs, these sounded incredible, and easily passed into high-fidelity territory.</p>
+<h4>The LM3886</h4>
+<p>The successor to the chip used in the The Gaincard, the LM3875, is the National Semiconductor LM3876. That chip allows for up to 68 Watts of power in a single channel at 4 Ohms impedance, and also provides a mute function that didn’t exist on the original.</p>
+<p>Since the LM3886 chip has been widely used and researched for the past 20 years, and it required both a minimum amount of knowledge and components to create a single channel, I quickly warmed to the idea of using it in my amplifier. I would need five of them of course, two each for the front and rear left and right channels, and one for the centre. But it seemed doable.</p>
+<h4>Class AB</h4>
+<p>The LM3886 amplifier runs in a Class AB configuration. What that means is that the transistor amplifier part of the design is running at some idle current roughly 50% of the time (which means it burns power even when it’s not actively amplifying a signal). The LM3886 datasheet says at idle, with no audio, it will draw roughly 50 milliamps. So if it’s powered by a dual power supply +/- 28V, then the idle power is (28 – -28)*0.50 Amps = 2.8 Watts. And if there are five of them, that brings idle current power up to 14 Watts.</p>
+<p>In addition, a Class AB topology isn’t horribly efficient, usually around 60% or so. So that means to product 10 Watts of output power, it might take 16.5 Watts of power. Those extra Watts, the 6.5 Watts in my example, have to be dissipated as heat. Which is why most power amplifier stages for Class AB amplifiers have hefty heat sinking requirements.</p>
+<p>This power dissipation changes with the output power that is generated, which is a function of the speaker impedance as well as the power supply voltage. If you increase the power supply voltage, for example from +/-28V to +/-35V, the power dissipation and heat-sinking requirements go up dramatically. Similarly, if you drop the speaker impedance from 8 Ohms down to 6 Ohms, the maximum power capability of the LM3886 increases, but so does the heat generation. Taken all together, the ideal supply voltage (and the one I need to determine before I can source a transformer) is basically a function of the desired output power and the speaker impedance.</p>
+<p>My Dali Oberon 3 speakers, my main listening speakers, are 6 Ohm, but I also have a set of Cambridge Acoustics speakers that are 8 Ohms. I’ve never owned a pair of 4 Ohm speakers before, nor do I think I ever will (they are more prevalent in car audio”). So it seemed reasonable to me to split the difference and design something that will work with both 6 Ohm and 8 Ohm speakers, even if it meant sacrificing my ability to use 4 Ohm speakers.</p>
+<p>Thankfully there exists an easy-to-use Excel spreadsheet, the <a href="https://www.circuitbasics.com/wp-content/uploads/2016/10/Overture-Design-Guide.xls">Overture Design Guide</a> where a person can play with all the variables and see how it ends up when using any of the National Semiconductor chips.</p>
+<p><a href="https://www.duanestorey.com/wp-content/uploads/2023/01/Screenshot-2023-01-28-at-9.57.41-PM.png"><img loading="lazy" srcset="/assets/pages/2023/power-amplification-2-320w.png 320w,/assets/pages/2023/power-amplification-2-480w.png 480w,/assets/pages/2023/power-amplification-2-640w.png 640w,/assets/pages/2023/power-amplification-2-960w.png 960w,/assets/pages/2023/power-amplification-2-1360w.png 1360w,/assets/pages/2023/power-amplification-2-1600w.png 1600w" src="_images/power-amplification-2.png" alt=""></a>Design Calculations For the LM3886 Power Amplifier</p>
+<p>The screenshot above of the Overture Design Guide are the parameters I eventually settled on. Using a DC supply voltage of +/- 28V, running into my Dali Oberon 3 speakers at 6 Ohms, I can expect 52 Watts of output with a THD distortion of 0.1%. That power level easily satisfies my requirement of getting at least 20 – 40 Watts out of my amplifier per channel.</p>
+<p>It’s important to also note the heat-sinking requirements listed in the Excel sheet. For that design, I would need a heat-sink of at least 3.7 Celsius / Watt. At 52 Watts of output, the LM3886 needs to dissipate a rather large 26.5 Watts as heat. Using a heat-sink of 3.7 Celsius / Watt and dissipation 26.5 Watts of power means the heatsink will rise 98 Celcius above ambient temperature. In the case of a normal room temperature of about 20 C, the heatsink will be at 118 Celsius – that’s hot, and it would easily burn you if you touched it.</p>
+<p>Since the numbers in the spreadsheet don’t represent the ideal heatsink sizes, but rather represent the temperature at which horrible things start happening in the LM3886 (for example, the Spike protection circuity may kick in which severely distorts the audio), it’s apparent we can do a bit better.</p>
+<p>If we set an upper limit on the temperature we are willing to accept, then we can determine a more appropriate heatsink – i.e. if we say the heatsink shouldn’t ever get above 65 Celsius (a temperature at which a person could briefly touch without burning themselves), then that means the heatsink needs to only rise 45 Celsius while dissipating 26.5 Watts. A heatsink with that requirement needs to be rated at at least 45 Celsius / 26.5 Watts = 1.7 Celsius / watt.</p>
+<p><a href="_images/power-amplification-3.jpg"><img src="/assets/pages/2023/power-amplification-3.jpg" alt=""></a>1.5 C/Watt Heatsink</p>
+<p>A heatsink that is close to those ratings is shown above. As you can see, at 75x100x40mm in size, that’s a pretty massive heatsink. And that’s just for one channel.</p>
+<p>But I think we can relax the requirements a bit more, mainly because I don’t intend to ever listen to music at 52 Watts. While the datasheet doesn’t include any data for 6 Ohm speakers, we can infer a rough data point between the 8 Ohm and 4 Ohm graphs.</p>
+<p><a href="https://www.duanestorey.com/wp-content/uploads/2023/01/Screenshot-2023-01-28-at-10.28.33-PM.png"><img loading="lazy" srcset="/assets/pages/2023/power-amplification-4-320w.png 320w,/assets/pages/2023/power-amplification-4-480w.png 480w,/assets/pages/2023/power-amplification-4-640w.png 640w,/assets/pages/2023/power-amplification-4-960w.png 960w,/assets/pages/2023/power-amplification-4-1360w.png 1360w" src="_images/power-amplification-4.png" alt=""></a>LM3886 Power Dissipation At 4 And 8 Ohms</p>
+<p>So at roughly 5 Watts of power output, which is probably a very loud listening level, the LM3886 would dissipate about 20 Watts. Using the same equations above shows that we can use any heatsink less than 2.25 Celcius / Watt and still maintain heatsink temperatures that would be safe to at least momentarily touch.</p>
+            </div>
+        </article>
+    </div>
+
+
+        <footer class="bg-dark pt-4 pb-4 mt-4 mb-4">
+            <div class="container text-center text-white">
+                All content copyright &copy; 2024<br>Content generated using Crossroads static generator
+            </div>
+
+            <script defer src="/assets/lumen.min.js?v=9b2bf633921d9c5fed2fbae26ad3f9ad"></script>
+        </footer>   
+    </body>
+</html>

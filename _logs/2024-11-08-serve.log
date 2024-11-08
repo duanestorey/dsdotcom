@@ -1,0 +1,14 @@
+
+0.0002s - [INFO ] Log file active at [_logs/2024-11-08-serve.log]
+0.0003s - [INFO ] Executing command [SERVE] on [2024-11-08] at [01:56:08]
+0.0006s - [INFO ]   Web server started, please open your browser to http://127.0.0.1:57720
+0.0006s - [INFO ]   To shutdown the web server, press Ctrl-C
+157.9834s - [INFO ] Shutting down web server
+157.9849s - [INFO ] Finished executing [SERVE] command, total time taken 157.985s
+
+0.0001s - [INFO ] Log file active at [_logs/2024-11-08-serve.log]
+0.0001s - [INFO ] Executing command [SERVE] on [2024-11-08] at [01:58:53]
+0.0002s - [INFO ]   Web server started, please open your browser to http://127.0.0.1:58122
+0.0002s - [INFO ]   To shutdown the web server, press Ctrl-C
+825.5072s - [INFO ] Shutting down web server
+825.5078s - [INFO ] Finished executing [SERVE] command, total time taken 825.508s

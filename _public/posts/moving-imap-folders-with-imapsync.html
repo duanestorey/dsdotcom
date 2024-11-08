@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="/assets/lumen.css?v=9b2bf633921d9c5fed2fbae26ad3f9ad">
+        <title>Moving IMAP Folders With ImapSync - The Duane Storey</title>
+        <link rel="icon" type="image/x-icon" href="/assets/favicon.ico?v=9b2bf633921d9c5fed2fbae26ad3f9ad">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" media="print" onload="this.media='all'">
+
+        <meta charset="utf-8">
+        <meta name="generator" content="Crossroads 1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="canonical" href="https://duanestorey.com/posts/moving-imap-folders-with-imapsync.html">
+
+        <meta name="description" content="We’re in the process of moving some servers around right now, and one of the things we need to do is move mail accounts">
+        <meta name="og:description" content="We’re in the process of moving some servers around right now, and one of the things we need to do is move mail accounts">
+        <meta property="og:title" content="Moving IMAP Folders With ImapSync - The Duane Storey">
+        <meta property="og:url" content="https://duanestorey.com/posts/moving-imap-folders-with-imapsync.html">
+        <meta property="og:type" content="article">
+        <meta name="twitter:card" content="summary_large_image">   
+        <meta name="twitter:title" content="Moving IMAP Folders With ImapSync - The Duane Storey">
+        <meta name="twitter:description" content="We’re in the process of moving some servers around right now, and one of the things we need to do is move mail accounts">
+        <meta name="twitter:creator" content="@duanestorey">
+
+    </head>
+    <body class="posts posts-moving-imap-folders-with-imapsync">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="/">The Duane Storey</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-item nav-link" href="/">Home</a>
+                        <a class="nav-item nav-link" href="/pages/hiking.html">Hiking</a>
+                        <a class="nav-item nav-link" href="/pages/building-a-custom-hi-fi-5-1-amplifier-with-dts-dolby-decoding.html">Hi-Fi Amp</a>
+                        <a class="nav-item nav-link" href="/pages/curriculum-vitae.html">CV</a>
+                        <a class="nav-item nav-link" href="/pages/about.html">About</a>
+                        <a class="nav-item nav-link" href="/pages/contact.html">Contact</a>
+                    </div>
+
+                    <ul class="navbar-nav d-flex flex-row">
+                        <li class="nav-item me-3 me-lg-0">
+                            <a class="nav-link" rel="nofollow" href="https://x.com/duanestorey" aria-label="Twitter">
+                                <i class="fa-brands fa-x-twitter text-white"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item me-3 me-lg-0">
+                            <a class="nav-link" rel="nofollow" href="https://instagram.com/duanestorey" aria-label="Instagram">
+                                <i class="fa-brands fa-instagram text-white"></i>
+                            </a>
+                        </li>
+                            <li class="nav-item me-3 me-lg-0">
+                            <a class="nav-link" rel="nofollow" href="https://bsky.app/profile/duanestorey.com" aria-label="Bluesky">
+                                <i class="fa-brands fa-bluesky text-white"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+    <div class="container mt-4">
+        <article>    
+            <h1 class="mt-4">Moving IMAP Folders With ImapSync</h1>
+            <div class="meta mb-2 text-primary fs-6 fw-light">
+                 Published on <time>November 3rd, 2009</time>
+            </div>
+
+            <div class="content mt-3">
+                <p>We’re in the process of moving some servers around right now, and one of the things we need to do is move mail accounts around. I’ve been a big fan of IMAP over POP for a few years now, mainly because the messages are kept up on the server, which ultimately keeps every machine looking roughly the same. The unfortunate aspect of that is that when you move servers you have to find a way to get the messages over to their new home.</p>
+<p>One of the more obvious ways to move messages is to proxy them through your own personal machine. To do that, you simply need to set up both accounts in a mail program like Apple Mail and start moving things around. You can create a local folder on your machine, and simply drag all the folders from the source mail account into your new folder. Depending on how much mail you have, that may take a while. Once that is done you can simply do the same for the destination account, and hopefully everything will look roughly the same when you’re all done.</p>
+<p>This time I wanted to try another method, that is using the popular <a href="http://freshmeat.net/projects/imapsync/">imapsync</a> project. Basically you can give it a source account and a destination account, and it’ll do the rest. The main benefit of it is that you can run it on a server, removing the need to proxy anything through your local machine. In addition, it works similarly to rsync — if a message has already been moved, it’ll be skipped the next time. So if the process quits half way through, you don’t have to redo all the previously moved messages — it’s smart enough to know what’s been moved and what hasn’t been.</p>
+<p>There’s one obvious downside, and that is all the new messages end up with a “Received Date” of today using the second method. That’s because the received date isn’t a real IMAP field — it’s kept by local mail programs. So while Apple Mail preserves it when it’s involved in a copy, doing a server to server synchronization ends up clearing that field. That being said, IMAP has a “Sent Date” field which should in almost all cases match the received date, so you can still tell when the message was sent that way.</p>
+
+                    <div class="tax">
+                        <a href="/posts/taxonomy/imap" class="btn btn-secondary btn-sm">imap</a>
+                        <a href="/posts/taxonomy/mail" class="btn btn-secondary btn-sm">mail</a>
+                        <a href="/posts/taxonomy/servers" class="btn btn-secondary btn-sm">servers</a>
+                        <a href="/posts/taxonomy/sync" class="btn btn-secondary btn-sm">sync</a>
+                        <a href="/posts/taxonomy/technology" class="btn btn-secondary btn-sm">technology</a>
+                    </div>
+            </div>
+
+            <div class="comments mt-4 pt-4">
+                <div id="disqus_thread"></div>
+            </div>
+        </article>  
+    </div>
+
+
+        <footer class="bg-dark pt-4 pb-4 mt-4 mb-4">
+            <div class="container text-center text-white">
+                All content copyright &copy; 2024<br>Content generated using Crossroads static generator
+            </div>
+
+            <script defer src="/assets/lumen.min.js?v=9b2bf633921d9c5fed2fbae26ad3f9ad"></script>
+        </footer>   
+    </body>
+</html>

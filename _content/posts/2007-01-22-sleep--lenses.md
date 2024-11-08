@@ -1,0 +1,27 @@
+---
+title: "Sleep & Lenses"
+publishDate: "2007-01-22"
+modifiedDate: "2007-01-22"
+slug: "sleep"
+author: "Duane Storey"
+category:
+  - "Photography"
+---
+
+I’m not really sure why, but for some reason, I just can’t sleep much lately. Last week I tossed and turned in my bed until nearly 6am, even though I went to bed sometime around midnight. It’s like even though I’m really tired, the moment by head hits the mattress, all these involuntary thoughts start coursing through my brain. When it gets really bad, I usually take a melatonin, but those are pretty hit or miss with me. When they hit, they usually hit pretty hard, and I find myself pretty groggy in the morning.
+
+So, it’s 2:11am, and I’m back on the couch messing on the computer because I can’t sleep. If this were a weekend I’d be ok with it, but as I have to work in the morning, not being able to sleep pretty much sucks. So, I’m gonna beat my insomnia with a blog entry.
+
+I didn’t really get up to too much today. I got some good feedback on the website from [Boris](http://www.bmannconsulting.com) and Sean, and implemented a few of their suggestions. I think it’s looking better everyday. I decided to close my laptop for a few hours today =went and shot a few photos, and ended down at Chapters on Broadway. I was originally gonna come back with a book on how to take better portraits, but I couldn’t really find anything I liked. So, instead I grabbed a few photography magazines and am just gonna skim through them. I did however get a cool book on Photoshop CS2. It basically has step-by-step guides on how to do really amazing things with it. It cost $75, but after reading a few sections in the store, I really thought it would be a great buy. Of course, like usual, I didn’t have my chapters card on me so I paid that extra 10% (and for some reason they can never find me in the computer — isn’t technology great?).
+
+I’m also in the market for another lens for my camera. The problem I have right now is that I don’t really have a good walking around lens. I have the 50 mil prime, which takes \*amazingly\* sharp photos, but because it’s a fixed focal length, it’s tricky getting some of the shots you want. It’s a decent portrait lens (on a 1.6x crop factor camera), but you’re close enough to your subject that they may get a bit edgy. A better portrait prime is the 85mm on a 1.6x crop factor. Canon makes several variants, and both are pretty sharp — plus you’re further away from your subject, so they can relax a bit easier. I thought about picking up the f/1.8 version of this lens for around $500 once, but decided by 50mm one was good enough for now. Canon also has the 1.2/fL version which is a very very nice lens. The only bad thing about it is cost — it runs for around $2500 ([Cullen](http://www.dial911anddie.com) has this puppy). Here are some [flickr shots using the f/1.2L](http://www.flickr.com/groups/canon85mmf12l/). It’s definitely not in my price range, so let’s move on.
+
+I currently own three lenses. I have a 17-40mm wide angle zoom lens, the 50mm prime, and a 28-135mm lens. My coverage isn’t horrible, but unfortunately the 28-135mm isn’t the sharpest lens around. Even though it has imag stabilization, it’s still a bit slow, and I don’t end up using it much. The 17-40mm is a nice lens, but 40mm is a bit on the short end for street photography (since you have to be pretty close to something to take a decent shot of a subject).
+
+So, I’m really only considering two lenses, both of which are around the same price. There’s the Canon EF 24-70mm f/2.8L lens and the Canon EF 70-200mm f/2.8L, both of which are around $1400 in Vancouver. Both of these are part of Canon’s prestigious L (for luxury) series, and have waterproof shells complete with gaskets. I borrowed Van’s 24-70 this week and have been taking random shots with it. Besides for my 50mm prime, it’s the only other lens I’ve used where most of the images come off tack sharp and don’t require any post-processing in photoshop. And that says a lot for it. The only problem I see is that I’d be selling the 28-135mm lens and using it to fund part of this purchase. Which would mean after the purchase I only have coverage up to 70mm in my kit, which is pretty short. Not that I really use up to 135mm that often, but it would be weird not even having the option anymore.
+
+So, the next choice is the 70-200mm. It’s a pretty heavy lens, and it’s painted white, so it really stands out when on your camera. It’s so heavy in fact that it has a separate tripod mount on the body to better balance it when it’s on a tripod. [Here’s some info on it](http://www.fredmiranda.com/reviews/showproduct.php?product=13&sort=7&cat=27&page=2). As you can see, it has a rating of 9.8/10.0 out of 113 reviews — it’s awesome. If I got this lens, I’d have pretty awesome coverage ranging from 17-40, 50, 70-200. [Here are some flickr shots using the IS version of this lens](http://www.flickr.com/groups/ef70-200mm). So, I’m not sure what to do. I may need to borrow a 70-200mm or rent one for a few days before deciding.
+
+Anyways, I’m gonna try and hit the sack again. Maybe I’ll dream the answer to my problem. Oh, the photos for this entry are from the flickr 70-200mm pool, just to give you an example of what that lens is capable of.
+
+Oh, I also found a little tool on another website which keeps track of where people are coming to this website from. [Check out the results here](http://mapstats.blogflux.com/46660.html).
