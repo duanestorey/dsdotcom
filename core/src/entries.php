@@ -94,6 +94,15 @@ class Entries {
                         $content->unique = md5( $contentLink ); 
                         $content->className = $content->slug;
 
+                        $content->words = str_word_count( strip_tags( $content->markdownHtml ) );
+                        $minutes = intdiv( $content->words, 225 );
+                        if ( $minutes <= 1 ) {
+                            $content->readingTime = "Less than one minute to read";
+                        } else {
+                            $content->readingTime = sprintf( "%s minutes to read", $minutes );
+                        }
+                        
+
                         $content->taxonomy = array_map( function( $e ) { return Utils::cleanTerm( $e ); }, $content->taxonomy );
                         if ( count( $content->taxonomy ) ) {
                             foreach( $content->taxonomy as $tax ) {

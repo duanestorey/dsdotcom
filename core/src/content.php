@@ -25,6 +25,8 @@ class Content {
     var $taxonomyLinks = [];
     var $contentType = '';
     var $className = '';
+    var $readingTime = '';
+    var $words = '';
 
     public function __construct() {
         $this->publishDate = time();
