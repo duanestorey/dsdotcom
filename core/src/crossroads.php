@@ -146,7 +146,7 @@ class Engine {
         $contentType = $this->_newGetContentType( $contentSingular );
         
         if ( $contentType ) {
-            LOG( sprintf( _i18n( 'core.new.content' ), $contentSingular ), 1, LOG::INFO );
+            LOG( sprintf( _i18n( 'core.build.processing.content' ), $contentSingular ), 1, LOG::INFO );
             echo "  " . _i18n( 'core.new.title' );
             $s = readline();
 

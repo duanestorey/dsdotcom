@@ -20,6 +20,8 @@ core:
     total: "Total entries processed [%d], HTML pages generated [%d]"
     done: "Your website is now ready to view. You can run 'php crossroads serve' to view it."
     writing: "Writing [%s]"
+    processing:
+      content: "Processing content file [%s]"
   new:
     content: "Creating new [%s]"
     title: "Enter new title: "
