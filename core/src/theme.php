@@ -54,12 +54,18 @@ class Theme {
             $content = '';
             
             foreach( $sources as $key => $source ) {
-                if ( file_exists( $this->themeDir . '/assets/' . $source ) ) {
-                    
-                    LOG( sprintf( _i18n( 'core.class.theme.adding' ), $source ), 4, LOG::DEBUG );
-                    $content = $content . "\n\n" . file_get_contents( $this->themeDir . '/assets/' . $source );
+                $actualFile = $this->themeDir . '/assets/' . $source;
+                if ( file_exists( $actualFile ) ) {
+
+                    if ( SASS::isSassFile( $actualFile  ) ) {
+                        $content = $content . "\n\n" . SASS::parseFile( $actualFile );
+                        LOG( sprintf( _i18n( 'core.class.theme.adding' ), $source ), 4, LOG::DEBUG );
+                    } else {
+                        $content = $content . "\n\n" . file_get_contents( $actualFile );
+                        LOG( sprintf( _i18n( 'core.class.theme.sass' ), $source ), 4, LOG::DEBUG );
+                    }
                 } else {
-                    LOG( sprintf( _i18n( 'core.class.theme.no_source' ), $this->themeDir . '/assets/' . $source ), 4, LOG::WARNING );
+                    LOG( sprintf( _i18n( 'core.class.theme.no_source' ), $actualFile ), 4, LOG::WARNING );
                 }
             }
 

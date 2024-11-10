@@ -23,6 +23,7 @@ require_once( 'international.php' );
 require_once( 'upgrade.php' );
 require_once( 'log.php' );
 require_once( 'config.php' );
+require_once( 'sass.php' );
 require_once( 'web-server.php' );
 require_once( 'log-listener.php' );
 require_once( 'log-listener-shell.php' );

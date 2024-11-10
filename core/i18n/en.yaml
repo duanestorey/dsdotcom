@@ -32,9 +32,10 @@ core:
       output: "Outputting template file [%s]"
     theme:
       processing: "Processing asset [%s]"
-      adding: "Adding file [%s]"
+      adding: "Adding asset file [%s]"
       no_source: "Unable to find source [%s]"
       copying: "Copying static file from [%s] to [%s]"
+      sass: "Adding SASS file [%s]"
     server:
       started: "Web server started, please open your browser to %s:%s"
       to_close: "To shutdown the web server, press Ctrl-C"
