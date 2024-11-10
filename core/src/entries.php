@@ -84,8 +84,12 @@ class Entries {
                             $content->taxonomy = array_merge( $this->_findDataInFrontMatter( [ 'tag', 'tags' ], $front, [] ), $content->taxonomy );
                         }
 
-                        $contentLink = '/' . $contentType . '/' . $content->slug . '.html';
-
+                        if ( isset( $contentConfig[ 'base' ] ) ) {
+                           $contentLink =  Utils::fixPath( $contentConfig[ 'base' ] ) . '/' . $content->slug . '.html';
+                        } else {
+                            $contentLink = '/' . $contentType . '/' . $content->slug . '.html';
+                        }
+                        
                         $content->contentType = $contentType;
                         $content->markdownHtml = $markdown->html();
                         $content->markdownFile = $markdownFile;

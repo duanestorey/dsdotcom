@@ -1,7 +1,7 @@
 main:
   Home: /
-  Hiking: /pages/hiking.html
-  Hi-Fi Amp: /pages/building-a-custom-hi-fi-5-1-amplifier-with-dts-dolby-decoding.html
-  CV: /pages/curriculum-vitae.html
-  About: /pages/about.html
-  Contact: /pages/contact.html
+  Hiking: /hiking.html
+  Hi-Fi Amp: /building-a-custom-hi-fi-5-1-amplifier-with-dts-dolby-decoding.html
+  CV: /curriculum-vitae.html
+  About: /about.html
+  Contact: /contact.html

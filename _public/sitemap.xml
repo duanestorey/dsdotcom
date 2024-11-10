@@ -1,91 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
-		<loc>https://duanestorey.com/pages/5-1-digital-decoding.html</loc>
+		<loc>https://duanestorey.com/404.html</loc>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
-		<loc>https://duanestorey.com/pages/chassis.html</loc>
+		<loc>https://duanestorey.com/5-1-digital-decoding.html</loc>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
-		<loc>https://duanestorey.com/pages/connectors-and-interconnects.html</loc>
+		<loc>https://duanestorey.com/chassis.html</loc>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
-		<loc>https://duanestorey.com/pages/iec-input-connector-fuse.html</loc>
+		<loc>https://duanestorey.com/connectors-and-interconnects.html</loc>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
-		<loc>https://duanestorey.com/pages/power-amplification.html</loc>
+		<loc>https://duanestorey.com/iec-input-connector-fuse.html</loc>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
-		<loc>https://duanestorey.com/pages/primary-safety-connection.html</loc>
+		<loc>https://duanestorey.com/power-amplification.html</loc>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
-		<loc>https://duanestorey.com/pages/project-goals.html</loc>
+		<loc>https://duanestorey.com/primary-safety-connection.html</loc>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
-		<loc>https://duanestorey.com/pages/the-microprocessor.html</loc>
+		<loc>https://duanestorey.com/project-goals.html</loc>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
-		<loc>https://duanestorey.com/pages/building-a-custom-hi-fi-5-1-amplifier-with-dts-dolby-decoding.html</loc>
+		<loc>https://duanestorey.com/the-microprocessor.html</loc>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
-		<loc>https://duanestorey.com/pages/hiking.html</loc>
+		<loc>https://duanestorey.com/building-a-custom-hi-fi-5-1-amplifier-with-dts-dolby-decoding.html</loc>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
-		<loc>https://duanestorey.com/pages/hiking.html</loc>
+		<loc>https://duanestorey.com/hiking.html</loc>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
-		<loc>https://duanestorey.com/pages/en.html</loc>
+		<loc>https://duanestorey.com/hiking.html</loc>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
-		<loc>https://duanestorey.com/pages/es.html</loc>
+		<loc>https://duanestorey.com/en.html</loc>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
-		<loc>https://duanestorey.com/pages/fotografia-de-musica-y-conciertos.html</loc>
+		<loc>https://duanestorey.com/es.html</loc>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
-		<loc>https://duanestorey.com/pages/music-and-concert-photography.html</loc>
+		<loc>https://duanestorey.com/fotografia-de-musica-y-conciertos.html</loc>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
-		<loc>https://duanestorey.com/pages/hire-me.html</loc>
+		<loc>https://duanestorey.com/music-and-concert-photography.html</loc>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
-		<loc>https://duanestorey.com/pages/curriculum-vitae.html</loc>
+		<loc>https://duanestorey.com/hire-me.html</loc>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
-		<loc>https://duanestorey.com/pages/newsletter.html</loc>
+		<loc>https://duanestorey.com/curriculum-vitae.html</loc>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
-		<loc>https://duanestorey.com/pages/privacy-policy.html</loc>
+		<loc>https://duanestorey.com/newsletter.html</loc>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
-		<loc>https://duanestorey.com/pages/media-kit.html</loc>
+		<loc>https://duanestorey.com/privacy-policy.html</loc>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
-		<loc>https://duanestorey.com/pages/contact.html</loc>
+		<loc>https://duanestorey.com/media-kit.html</loc>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
-		<loc>https://duanestorey.com/pages/about.html</loc>
+		<loc>https://duanestorey.com/contact.html</loc>
+		<changefreq>weekly</changefreq>
+	</url>
+	<url>
+		<loc>https://duanestorey.com/about.html</loc>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>

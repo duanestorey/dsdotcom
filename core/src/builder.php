@@ -76,7 +76,8 @@ class Builder {
                     LOG( "Writing content for [" . $entry->relUrl . "]", 2, LOG::DEBUG );
 
                     $this->renderer->renderSinglePage( $entry, [ $entry->contentType . '-single', $entry->contentType, 'index' ] );
-                    $this->totalPages++;                }
+                    $this->totalPages++;                
+                }
             }
 
             // process all content
@@ -120,7 +121,7 @@ class Builder {
 
         $this->_writeRobots();
         $this->_writeSitemapXml();
-        $this->_write404Page();
+       // $this->_write404Page();
 
         LOG( sprintf( _i18n( 'core.build.total' ), $this->entries->getEntryCount(), $this->totalPages ), 0, LOG::INFO );
 
