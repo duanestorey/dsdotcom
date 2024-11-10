@@ -35,6 +35,14 @@ class Renderer {
         $templateName = $this->templateEngine->locateTemplate( $templateFiles );
         if ( $templateName ) {
             $renderedHtml = $this->templateEngine->render( $templateName, $params );
+            // check directory
+            $info = pathinfo( CROSSROADS_PUBLIC_DIR . $params->content->relUrl );
+            if ( $info ) {
+                if ( !file_exists( $info[ 'dirname' ] ) ) {
+                    @mkdir( $info[ 'dirname' ], 0755, true );
+                }
+            }
+
             file_put_contents( CROSSROADS_PUBLIC_DIR . $params->content->relUrl, $renderedHtml );
 
             LOG( sprintf( _i18n( 'core.class.renderer.output' ), CROSSROADS_PUBLIC_DIR . $params->content->relUrl ), 4, LOG::DEBUG );

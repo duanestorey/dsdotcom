@@ -85,7 +85,7 @@ class Entries {
                         }
 
                         if ( isset( $contentConfig[ 'base' ] ) ) {
-                           $contentLink =  Utils::fixPath( $contentConfig[ 'base' ] ) . '/' . $content->slug . '.html';
+                            $contentLink =  Utils::fixPath( $contentConfig[ 'base' ] ) . '/' . $content->slug . '.html';
                         } else {
                             $contentLink = '/' . $contentType . '/' . $content->slug . '.html';
                         }
