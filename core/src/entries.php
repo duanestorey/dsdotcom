@@ -59,14 +59,14 @@ class Entries {
                 $this->tax[ $contentType ] = [];
             }
 
-            LOG( "Loading content type [" . $contentType . "]", 1, LOG::INFO );
+            LOG( sprintf( _i18n( 'core.build.processing.loading' ), $contentType ), 1, LOG::INFO );
 
             $content_directory = \CROSSROADS_CONTENT_DIR . '/' . $contentType;
 
             $allMarkdownFiles = $this->_findMarkdownFiles( $content_directory );
             if ( is_array( $allMarkdownFiles ) && count( $allMarkdownFiles ) ) {
                 foreach( $allMarkdownFiles as $markdownFile ) {
-                    LOG( "Processing content file " . pathinfo( $markdownFile, PATHINFO_FILENAME ), 2, LOG::DEBUG );
+                    LOG( sprintf( _i18n( 'core.buid.processing.content' ), pathinfo( $markdownFile, PATHINFO_FILENAME ) ), 2, LOG::DEBUG );
 
                     $markdown = new Markdown();
                     if ( $markdown->loadFile( $markdownFile ) ) {    
@@ -97,12 +97,11 @@ class Entries {
                         $content->words = str_word_count( strip_tags( $content->markdownHtml ) );
                         $minutes = intdiv( $content->words, 225 );
                         if ( $minutes <= 1 ) {
-                            $content->readingTime = "Less than one minute to read";
+                            $content->readingTime = _i18n( 'core.class.entries.reading_time.s' );
                         } else {
-                            $content->readingTime = sprintf( "%s minutes to read", $minutes );
+                            $content->readingTime = sprintf( _i18n( 'core.class.entries.reading_time.p' ), $minutes );
                         }
                         
-
                         $content->taxonomy = array_map( function( $e ) { return Utils::cleanTerm( $e ); }, $content->taxonomy );
                         if ( count( $content->taxonomy ) ) {
                             foreach( $content->taxonomy as $tax ) {

@@ -37,7 +37,7 @@ class Renderer {
             $renderedHtml = $this->templateEngine->render( $templateName, $params );
             file_put_contents( CROSSROADS_PUBLIC_DIR . $params->content->relUrl, $renderedHtml );
 
-            LOG( ".Outputting template file [" . CROSSROADS_PUBLIC_DIR . $params->content->relUrl . "]", 4, LOG::DEBUG );
+            LOG( sprintf( _i18n( 'core.class.renderer.output' ), CROSSROADS_PUBLIC_DIR . $params->content->relUrl ), 4, LOG::DEBUG );
         }    
     }
 
@@ -93,7 +93,7 @@ class Renderer {
                 $renderedHtml = $this->templateEngine->render( $templateName, $params );
                 file_put_contents( $filename, $renderedHtml );  
 
-                LOG( "Outputting template file [" . CROSSROADS_PUBLIC_SLUG . $pagination->curPageLink . "]", 3, LOG::DEBUG );
+                LOG( sprintf( _i18n( 'core.class.renderer.output' ), CROSSROADS_PUBLIC_SLUG . $pagination->curPageLink ), 3, LOG::DEBUG );
 
                 $totalPages++;
 
@@ -119,7 +119,7 @@ class Renderer {
             $renderedHtml = $this->templateEngine->render( $templateName, $params );
             file_put_contents( CROSSROADS_PUBLIC_DIR . '/404.html', $renderedHtml );  
 
-            LOG( "Outputting template file [" . $templateName . "]", 3, LOG::DEBUG );
+            LOG( sprintf( _i18n( 'core.class.renderer.output' ), $templateName ), 3, LOG::DEBUG );
         }
     }   
 

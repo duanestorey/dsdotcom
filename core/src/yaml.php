@@ -2,9 +2,6 @@
 
 namespace CR;
 
-//use Symfony\Component\Yaml\Yaml;
-//use Symfony\Component\Yaml\Exception\ParseException;
-
 class YAML {
     static function parse_file( $path_to_file, $flatten = false ) {
         $value = false;

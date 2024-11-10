@@ -22,6 +22,19 @@ core:
     writing: "Writing [%s]"
     processing:
       content: "Processing content file [%s]"
+      loading: "Loading content type [%s]"
+  class:
+    entries:
+      reading_time:
+        s: "Less than one minute to read"
+        p: "%s minutes to read"
+    renderer:
+      output: "Outputting template file [%s]"
+    theme:
+      processing: "Processing asset [%s]"
+      adding: "Adding file [%s]"
+      no_source: "Unable to find source [%s]"
+      copying: "Copying static file from [%s] to [%s]"
   new:
     content: "Creating new [%s]"
     title: "Enter new title: "
