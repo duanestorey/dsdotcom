@@ -59,14 +59,14 @@ class Entries {
                 $this->tax[ $contentType ] = [];
             }
 
-            LOG( sprintf( _i18n( 'core.build.processing.loading' ), $contentType ), 1, LOG::INFO );
+            LOG( sprintf( _i18n( 'core.class.entries.processing.loading' ), $contentType ), 1, LOG::INFO );
 
             $content_directory = \CROSSROADS_CONTENT_DIR . '/' . $contentType;
 
             $allMarkdownFiles = $this->_findMarkdownFiles( $content_directory );
             if ( is_array( $allMarkdownFiles ) && count( $allMarkdownFiles ) ) {
                 foreach( $allMarkdownFiles as $markdownFile ) {
-                    LOG( sprintf( _i18n( 'core.buid.processing.content' ), pathinfo( $markdownFile, PATHINFO_FILENAME ) ), 2, LOG::DEBUG );
+                    LOG( sprintf( _i18n( 'core.class.entries.processing.content' ), pathinfo( $markdownFile, PATHINFO_FILENAME ) ), 2, LOG::DEBUG );
 
                     $markdown = new Markdown();
                     if ( $markdown->loadFile( $markdownFile ) ) {    

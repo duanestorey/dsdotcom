@@ -49,7 +49,7 @@ class Theme {
 
     public function processAssets( $destination_dir ) {
         foreach( $this->config->get( 'theme.assets', [] ) as $destName => $sources ) {
-            LOG( sprintf( _i18n( 'core.build.theme.processing ' ), $destName ), 3, LOG::DEBUG );
+            LOG( sprintf( _i18n( 'core.class.theme.processing' ), $destName ), 3, LOG::DEBUG );
 
             $content = '';
             

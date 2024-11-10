@@ -20,14 +20,14 @@ core:
     total: "Total entries processed [%d], HTML pages generated [%d]"
     done: "Your website is now ready to view. You can run 'php crossroads serve' to view it."
     writing: "Writing [%s]"
-    processing:
-      content: "Processing content file [%s]"
-      loading: "Loading content type [%s]"
   class:
     entries:
       reading_time:
         s: "Less than one minute to read"
         p: "%s minutes to read"
+      processing:
+        content: "Processing content file [%s]"
+        loading: "Loading content type [%s]"        
     renderer:
       output: "Outputting template file [%s]"
     theme:
@@ -35,6 +35,20 @@ core:
       adding: "Adding file [%s]"
       no_source: "Unable to find source [%s]"
       copying: "Copying static file from [%s] to [%s]"
+    server:
+      started: "Web server started, please open your browser to %s:%s"
+      to_close: "To shutdown the web server, press Ctrl-C"
+      stopping: "Shutting down web server"
+      incoming: "Incoming HTTP request from [%s]"    
+      sending: Sending [%s] bytes out of [%s] 
+      response: Sending response [%s] 
+    upgrade:
+      composer: "Upgrading commposer packages"
+      cur_ver: "Your current version is [%s]"
+      next_ver: "The latest stable version is [%s]"
+      up_to_date: "You are running the latest version, no upgrade required"
+      downloading: "Downloading the latest version of Crossroads from Github"
+      unzip: "Expanding the archive"      
   new:
     content: "Creating new [%s]"
     title: "Enter new title: "
@@ -70,18 +84,6 @@ core:
       theme: "Creates a new theme"
       child: "Creates a new child theme"
     upgrade: "Upgrades the core system"
-  server:
-    started: "Web server started, please open your browser to %s:%s"
-    to_close: "To shutdown the web server, press Ctrl-C"
-    stopping: "Shutting down web server"
-    incoming: "Incoming HTTP request from [%s]"
-  upgrade:
-    composer: "Upgrading commposer packages"
-    cur_ver: "Your current version is [%s]"
-    next_ver: "The latest stable version is [%s]"
-    up_to_date: "You are running the latest version, no upgrade required"
-    downloading: "Downloading the latest version of Crossroads from Github"
-    unzip: "Expanding the archive"
 plugins:
   image:
     corrupt: "Corrupted image file [%s]"

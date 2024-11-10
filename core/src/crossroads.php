@@ -304,7 +304,7 @@ class Engine {
             exec( sprintf( $openCommand, 'http://' . $server->addressAndPort() ) );
         } 
 
-        LOG( _i18n( 'core.server.to_close' ), 1, LOG::INFO );
+        LOG( _i18n( 'core.class.server.to_close' ), 1, LOG::INFO );
 
         $server->serve();
     }

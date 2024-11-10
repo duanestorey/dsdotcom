@@ -18,17 +18,17 @@ class Upgrade {
         if ( $result ) {
             $currentVersion = $matches[ 1 ][ 0 ];
 
-            LOG( sprintf( _i18n( 'core.upgrade.cur_ver' ), CROSSROADS_VERSION ), 1, LOG::INFO );
-            LOG( sprintf( _i18n( 'core.upgrade.next_ver' ), $currentVersion ), 1, LOG::INFO );
+            LOG( sprintf( _i18n( 'core.class.upgrade.cur_ver' ), CROSSROADS_VERSION ), 1, LOG::INFO );
+            LOG( sprintf( _i18n( 'core.class.upgrade.next_ver' ), $currentVersion ), 1, LOG::INFO );
 
             $compare = version_compare( $currentVersion, CROSSROADS_VERSION );
             if ( $compare != 0 ) {
-                LOG( sprintf( _i18n( 'core.upgrade.up_to_date' ), $currentVersion ), 1, LOG::INFO );
+                LOG( sprintf( _i18n( 'core.class.upgrade.up_to_date' ), $currentVersion ), 1, LOG::INFO );
             } else if ( $compare == 0 ) {
                 $zipFile = $this->downloadZipAndExpand();
 
                 if ( $zipFile ) {
-                  LOG( _i18n( 'core.upgrade.unzip' ), 2, LOG::INFO );
+                  LOG( _i18n( 'core.class.upgrade.unzip' ), 2, LOG::INFO );
 
                     $tempDir = sys_get_temp_dir();
                     $destinationDir = $tempDir;
@@ -45,7 +45,7 @@ class Upgrade {
                     if ( file_exists( $unzipDirectory ) && is_dir( $unzipDirectory ) ) {
                         // we can copy the files now
 
-                        LOG( _i18n( 'core.upgrade.composer' ), 2, LOG::INFO );
+                        LOG( _i18n( 'core.class.upgrade.composer' ), 2, LOG::INFO );
                         exec( 'composer update' ); 
                     }             
                 }
@@ -54,7 +54,7 @@ class Upgrade {
     }
 
     public function downloadZipAndExpand() {
-        LOG( _i18n( 'core.upgrade.downloading' ), 2, LOG::INFO );
+        LOG( _i18n( 'core.class.upgrade.downloading' ), 2, LOG::INFO );
         
         $zipFile = Utils::curlDownloadFile( $this->mainZip );
         if ( $zipFile ) {

@@ -43,12 +43,12 @@ class Utils {
 
         $ch = curl_init( $url );
         if ( $ch ) {
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1 );
-            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0 );
-            curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC );
-            curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10 ) ;
-            curl_setopt($ch, CURLOPT_TIMEOUT, 20 );
-            curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+            curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1 );
+            curl_setopt( $ch, CURLOPT_SSL_VERIFYPEER, 0 );
+            curl_setopt( $ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC );
+            curl_setopt( $ch, CURLOPT_CONNECTTIMEOUT, 10 ) ;
+            curl_setopt( $ch, CURLOPT_TIMEOUT, 20 );
+            curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, true );
 
             $result = curl_exec($ch);
 

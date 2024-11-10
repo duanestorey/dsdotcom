@@ -19,7 +19,7 @@ class WebServer {
             socket_getsockname( $this->socket, $address, $this->boundPort );
 
             if ( $this->boundPort ) {
-                LOG( sprintf( _i18n( 'core.server.started' ), 'http://127.0.0.1', $this->boundPort ), 1, LOG::INFO );
+                LOG( sprintf( _i18n( 'core.class.server.started' ), 'http://127.0.0.1', $this->boundPort ), 1, LOG::INFO );
             }
         }
     }
@@ -57,7 +57,7 @@ class WebServer {
             }
 
             if ( $this->shutdown ) {
-                LOG( _i18n( 'core.server.stopping' ), 0, LOG::INFO );
+                LOG( _i18n( 'core.class.server.stopping' ), 0, LOG::INFO );
                 socket_close( $this->socket );
                 break;
             }
@@ -71,7 +71,7 @@ class WebServer {
                 $protocol = strtolower( $matches[ 1 ] );
                 $url = $matches[ 2 ];
 
-                LOG( sprintf( _i18n( 'core.server.incoming' ), $url ), 2, LOG::DEBUG );
+                LOG( sprintf( _i18n( 'core.class.server.incoming' ), $url ), 2, LOG::DEBUG );
 
                 $parsedUrl = parse_url( $url );    
                 $filePath = $parsedUrl[ 'path' ];
@@ -146,12 +146,12 @@ class WebServer {
             $response = $response . $content;
         }
 
-        LOG( "Sending response [" . $responseCode . "]", 3, LOG::DEBUG );
+        LOG( sprintf( _i18n( 'core.class.server.response' ), $responseCode ), 3, LOG::DEBUG );
 
         $totalSent = 0;
         $toSend = strlen( $response );
         while ( true ) {
-            LOG( "Sending " . $totalSent . ' bytes of ' . $toSend, 3, LOG::DEBUG );
+            LOG( sprintf( _i18n( 'core.class.server.incoming' ), $totalSent, $toSend ), 3, LOG::DEBUG );
             $sent = socket_send( $socket, $response, min( 16*1024, $toSend), 0 );
             if ( $sent ) {
                 $totalSent += $sent;
