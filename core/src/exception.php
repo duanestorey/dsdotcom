@@ -37,3 +37,9 @@ class BuildException extends Exception {
         parent::__construct( 'BUILD', $msg );
     }
 }
+
+class CommandException extends Exception {
+    public function __construct( $msg ) {
+        parent::__construct( 'COMMAND', $msg );
+    }
+}

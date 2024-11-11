@@ -38,15 +38,15 @@
                 <div class="meta mb-2 text-primary fs-6 fw-light">Published on <time>{$item->publishDate|date:'F jS, Y'}</time></div>
 
                 <div class="content mt-3">
-                    {if $item->featuredImage}
+                    {if $item->featuredImageData}
                         <picture>
-                            {if $item->featuredImage->hasResponsive}
-                                {foreach $item->featuredImage->responsiveImages as $size => $image}
+                            {if $item->featuredImageData->hasResponsive}
+                                {foreach $item->featuredImageData->responsiveImages as $size => $image}
                                 <source media="(max-width: {$size}px)" srcset="{$image->url}">
                                 {/foreach}
-                                <source media="(min-width: {$item->featuredImage->responsive_largest_size+1}px)" srcset="{$item->featuredImage->url}">
+                                <source media="(min-width: {$item->featuredImageData->responsive_largest_size+1}px)" srcset="{$item->featuredImageData->url}">
                             {/if}
-                            <img src="{$item->featuredImage->url}" width="{$item->featuredImage->width}" height="{$item->featuredImage->height}" alt="Featured Image" class="img-thumbnail">
+                            <img src="{$item->featuredImageData->url}" width="{$item->featuredImageData->width}" height="{$item->featuredImageData->height}" alt="Featured Image" class="img-thumbnail">
                         </picture>
                     {/if}
                     {$item->excerpt()|noescape}

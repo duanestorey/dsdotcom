@@ -22,11 +22,11 @@
         <meta name="twitter:title" content="{$page->title}">
         <meta name="twitter:description" content="{$content->description}">
         <meta name="twitter:creator" content="@duanestorey">
-        {if $content->featuredImage}
-        <meta name="twitter:image" content="{$content->featuredImage->public_url}">
-        <meta property="og:image" content="{$content->featuredImage->public_url}">
-        <meta property="og:image:width" content="{$content->featuredImage->width}">
-        <meta property="og:image:height" content="{$content->featuredImage->height}">
+        {if $content->featuredImageData}
+        <meta name="twitter:image" content="{$content->featuredImageData->public_url}">
+        <meta property="og:image" content="{$content->featuredImageData->public_url}">
+        <meta property="og:image:width" content="{$content->featuredImageData->width}">
+        <meta property="og:image:height" content="{$content->featuredImageData->height}">
         {/if}
 
         {else}

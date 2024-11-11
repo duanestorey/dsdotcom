@@ -11,18 +11,13 @@ class SeoPlugin extends Plugin {
         $this->config = $config;
     }
 
-    public function contentFilter( $content ) {
-        return $content;
-    }    
+    public function processOne( $content ) {
+        $content->title = sprintf( "%s - %s", $content->title, $this->config->get( 'site.name' ) );
 
-    public function templateParamFilter( $params ) {
-        $params->page->title = sprintf( "%s - %s", $params->content->title, $this->config->get( 'site.name' ) );
-
-        if ( !$params->content->description ) {
-            $params->content->description = $params->content->excerpt( 120, false );
+        if ( !$content->description ) {
+            $content->description = $content->excerpt( 120, false );
         }
 
-        return $params;
-    }
-
+        return $content;
+    }    
 }

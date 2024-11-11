@@ -19,13 +19,18 @@ content:
     base: /posts
     singular: "post"
     taxonomy:
-      - "category"
-      - "tag"
+      category:
+        - categories
+        - category
+      tag:
+        - tags
+        - tag
 dirs:
   themes: "core/themes"
 options:
   debug: true
   content_per_page: 20
+  reading_wpm: 238
   markdown:
     auto: true
     open_command: "open %s"

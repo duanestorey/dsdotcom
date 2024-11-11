@@ -22,7 +22,7 @@ class Theme {
 
     public function isSane() {
         // check theme sanity
-        if ( file_exists( $this->themeDir . '/theme.yaml' ) && file_exists( $this->themeDir . '/home.latte' ) ) {
+        if ( file_exists( $this->themeDir . '/theme.yaml' ) && file_exists( $this->themeDir . '/index.latte' ) ) {
             return true;
         }
 
@@ -49,22 +49,28 @@ class Theme {
 
     public function processAssets( $destination_dir ) {
         foreach( $this->config->get( 'theme.assets', [] ) as $destName => $sources ) {
-            LOG( "Processing asset [" . $destName . "]", 3, LOG::DEBUG );
+            LOG( sprintf( _i18n( 'core.class.theme.processing' ), $destName ), 3, LOG::DEBUG );
 
             $content = '';
             
             foreach( $sources as $key => $source ) {
-                if ( file_exists( $this->themeDir . '/assets/' . $source ) ) {
-                    
-                    LOG( "Adding file [" . $source . "]", 4, LOG::DEBUG );
-                    $content = $content . "\n\n" . file_get_contents( $this->themeDir . '/assets/' . $source );
+                $actualFile = $this->themeDir . '/assets/' . $source;
+                if ( file_exists( $actualFile ) ) {
+
+                    if ( SASS::isSassFile( $actualFile  ) ) {
+                        $content = $content . "\n\n" . SASS::parseFile( $actualFile );
+                        LOG( sprintf( _i18n( 'core.class.theme.adding' ), $source ), 4, LOG::DEBUG );
+                    } else {
+                        $content = $content . "\n\n" . file_get_contents( $actualFile );
+                        LOG( sprintf( _i18n( 'core.class.theme.sass' ), $source ), 4, LOG::DEBUG );
+                    }
                 } else {
-                    echo "........unable to find source [" . $this->themeDir . '/assets/' . $source . "]\n";
-                    LOG( "Unable to find source [" . $this->themeDir . '/assets/' . $source . "]", 4, LOG::WARNING );
+                    LOG( sprintf( _i18n( 'core.class.theme.no_source' ), $actualFile ), 4, LOG::WARNING );
                 }
             }
 
             LOG( "Writing static file [" . $destName . "]", 4, LOG::DEBUG );
+
             file_put_contents( CROSSROADS_PUBLIC_DIR . '/assets/' . $destName, $content );
         }
 
@@ -72,7 +78,7 @@ class Theme {
             if ( file_exists( $this->themeDir . '/assets/' . $imageFile ) ) {
                 Utils::copyFile( $this->themeDir . '/assets/' . $imageFile, CROSSROADS_PUBLIC_DIR . '/assets/' . pathinfo( $imageFile, PATHINFO_BASENAME ) );
 
-                LOG( "Copying static image file [" . $imageFile . "] to [" . CROSSROADS_PUBLIC_DIR . '/assets/' . pathinfo( $imageFile, PATHINFO_BASENAME ), 3, LOG::DEBUG );
+                LOG( sprintf( _i18n( 'core.class.theme.copying' ), $imageFile, CROSSROADS_PUBLIC_DIR . '/assets/' . pathinfo( $imageFile, PATHINFO_BASENAME ) ), 3, LOG::DEBUG );
             }
         }
     }

@@ -24,13 +24,33 @@ class International {
 
             ksort( $this->strings );
         }
+    }
 
-       //print_r( $this->strings );
+    protected function getCallingFunction() {
+        $trace = debug_backtrace( DEBUG_BACKTRACE_PROVIDE_OBJECT );
+        if ( $trace ) {
+            $func = '';
+            if ( isset( $trace[ 3 ][ 'class' ] ) ) {
+                $func .= $trace[ 3 ]['class'];
+            }
+
+            if ( isset( $trace[ 3 ][ 'function' ] ) ) {
+                $func .= '::' . $trace[ 3 ][ 'function' ];
+            }
+
+            if ( isset( $trace[ 3 ][ 'line' ] ) ) {
+                $func .= ' (' . $trace[ 3 ][ 'line' ] . ')';
+            }
+
+            return $func;
+        }
     }
 
     public function get( $name ) {
         if ( isset( $this->strings[ $name ] ) ) {
             return $this->strings[ $name ];
+        } else {
+            LOG( sprintf( "Unable to find i18n string [%s] in [%s]", $name, $this->getCallingFunction() ), 1, LOG::WARNING );
         }
 
         return '';

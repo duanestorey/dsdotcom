@@ -23,6 +23,9 @@ require_once( 'international.php' );
 require_once( 'upgrade.php' );
 require_once( 'log.php' );
 require_once( 'config.php' );
+require_once( 'sass.php' );
+require_once( 'db.php' );
+require_once( 'mysql.php' );
 require_once( 'web-server.php' );
 require_once( 'log-listener.php' );
 require_once( 'log-listener-shell.php' );
@@ -37,6 +40,8 @@ class Engine {
     var $config = null;
     var $startTime = null;
     var $fileLog = null;
+    var $db = null;
+    protected $pluginManager = null;
 
     public function __construct() {
     }
@@ -44,6 +49,13 @@ class Engine {
     public function run( $argc, $argv ) {
         $this->_loadConfig();
         $this->_setupLocales();
+
+        $this->pluginManager = new PluginManager( $this->config );
+        $this->pluginManager->installPlugin( new ImagePlugin( $this->config ) );
+        $this->pluginManager->installPlugin( new SeoPlugin( $this->config ) );
+        $this->pluginManager->installPlugin( new WordPressPlugin( $this->config ) );
+
+        $this->db = new DB( $this->config );
 
         if ( $argc <= 1 ) {
             $this->_branding();
@@ -75,7 +87,11 @@ class Engine {
 
                             $function = '_' . $command;
 
-                            $this->{$function}( $argc, $argv );
+                            if ( !method_exists( $this, $function ) ) {
+                                LOG( sprintf( _i18n( 'errors.no_command' ), $oneCommand ), 1, LOG::ERROR );
+                            } else {
+                                $this->{$function}( $argc, $argv );
+                            }
 
                             LOG( sprintf( _i18n( 'core.app.finished' ), strtoupper( $argv[ 1 ] ), microtime( true ) - $this->startTime ), 0, LOG::INFO );
                         } else {
@@ -120,6 +136,46 @@ class Engine {
         }
     }
 
+    private function _db( $argc, $argv ) {
+    
+        switch( $argv[ 2 ] ) {
+            case 'import':
+                
+                $this->db->rebuild();
+                $entries = new Entries( $this->config );
+                $content = $this->config->get( 'content' );
+                if ( $content ) {
+                    $entries->loadAll();
+
+                    foreach( $content as $contentType => $contentConfig ) {
+                        LOG( sprintf( "Processing plugins for [%s]", $contentType ), 1, LOG::INFO );
+
+                        $thisContent = $entries->get( $contentType );
+                        $thisContent = $this->pluginManager->processAll( $thisContent );
+
+                         LOG( sprintf( "Importing content [%s]", $contentType ), 1, LOG::INFO );
+
+                        if ( count( $thisContent ) ) {
+                            foreach( $thisContent as $oneEntry ) {
+                                $this->db->addContent( $oneEntry );
+                            }
+                        }
+                    }
+                }
+                
+                $all = $this->db->getAllContent();
+                while ( $row = $all->fetchArray( SQLITE3_ASSOC ) ) {
+                    LOG( sprintf( "Reading back [%s/%s]", $row[ 'type' ], $row[ 'slug' ] ), 1, LOG::INFO );
+                }
+                break;
+            case 'export':
+                break;
+            default:
+                LOG( sprintf( _i18n( 'errors.arg_not_understood' ), $argv[ 2 ] ), 1, LOG::ERROR );
+                break;
+        }
+    }
+
     private function _init( $argc, $argv ) {    
         if ( $this->_checkInit() ) {
             LOG( _i18n( 'core.init.not_needed' ), 1, LOG::INFO );
@@ -141,12 +197,68 @@ class Engine {
         LOG( _i18n( 'core.init.done' ), 0, LOG::INFO );
     }
 
+    private function _stats( $argc, $argv ) {
+        $content = $this->config->get( 'content' );
+        if ( $content and count( $content ) ) {
+            $stats = [];
+            foreach( $content as $contentType => $contentConfig ) {
+                LOG( sprintf( "Computing stats for [%s]", $contentType ), 1, LOG::INFO );
+
+                $oneStat = new \stdClass;
+
+                $markdownFiles = Utils::findAllFilesWithExtension( CROSSROADS_CONTENT_DIR . '/' . $contentType, 'md' );
+                $oneStat->markdownFiles = count( $markdownFiles );
+                $oneStat->words = 0;
+                $oneStat->readingTime = 0;
+
+                foreach( $markdownFiles as $oneMarkdown ) {
+                    $markdown = new Markdown();
+                    $markdown->loadFile( $oneMarkdown );
+
+                    if ( $markdown ) {
+                        $words = str_word_count( $markdown->strippedMarkdown() ); 
+                        $oneStat->words += $words;
+                        $oneStat->readingTime += ( intdiv( $words, $this->config->get( 'options.reading_wpm', 238 ) ) );
+                    }
+                }
+
+                $images = Utils::findAllFilesWithExtension( CROSSROADS_PUBLIC_DIR . '/assets/' . $contentType, [ 'jpg', 'png', 'gif', 'avif', 'webp' ] );
+                $oneStat->images = count( $images );
+
+                $oneStat->imageSizes = 0;
+                foreach( $images as $image ) {
+                    $oneStat->imageSizes += filesize( $image ); 
+                }
+
+                $movies = Utils::findAllFilesWithExtension( CROSSROADS_PUBLIC_DIR . '/assets/' . $contentType, [ 'avi', 'mov', 'mp4', 'mkv' ] );
+                $oneStat->movies = count( $movies );
+
+                LOG( sprintf( 'Markdown files: [%s]', $oneStat->markdownFiles ), 2, LOG::INFO );
+                LOG( sprintf( "Number of words [%s]", $oneStat->words ), 2, LOG::INFO );
+                LOG( sprintf( "Reading time in hours [%0.2f]", $oneStat->readingTime / 60 ), 2, LOG::INFO );
+                LOG( sprintf( 'Image files: [%s]', $oneStat->images ), 2, LOG::INFO );
+                LOG( sprintf( 'Image files size: [%0.1f] MB', $oneStat->imageSizes / 1000000 ), 2, LOG::INFO );
+                LOG( sprintf( 'Movie files: [%s]', $oneStat->movies ), 2, LOG::INFO );
+
+                $stats[ $contentType ] = $oneStat;
+            }
+
+            // totals
+            $cssFiles = Utils::findAllFilesWithExtension( CROSSROADS_PUBLIC_DIR, [ 'css', 'min.css' ] );
+            LOG( sprintf( 'Total CSS files: [%s]', count( $cssFiles ) ), 1, LOG::INFO );
+            $jsFiles = Utils::findAllFilesWithExtension( CROSSROADS_PUBLIC_DIR, [ 'js', 'min.js' ] );
+            LOG( sprintf( 'Total JS files: [%s]', count( $jsFiles ) ), 1, LOG::INFO );
+            $htmlFiles = Utils::findAllFilesWithExtension( CROSSROADS_PUBLIC_DIR, [ 'html' ] );
+            LOG( sprintf( 'Total HTML pages: [%s]', count( $htmlFiles ) ), 1, LOG::INFO );
+        }
+    }
+
     private function _new( $argc, $argv ) {
         $contentSingular = $argv[ 2 ];
         $contentType = $this->_newGetContentType( $contentSingular );
         
         if ( $contentType ) {
-            LOG( sprintf( _i18n( 'core.new.content' ), $contentSingular ), 1, LOG::INFO );
+            LOG( sprintf( _i18n( 'core.build.processing.content' ), $contentSingular ), 1, LOG::INFO );
             echo "  " . _i18n( 'core.new.title' );
             $s = readline();
 
@@ -195,7 +307,9 @@ class Engine {
             'clean' => 0,
             'new' => 1,
             'init' => 0,
-            'upgrade' => 0
+            'upgrade' => 0,
+            'stats' => 0,
+            'db' => 1
         );
     }
 
@@ -236,15 +350,18 @@ class Engine {
     }
 
     private function _usage() {
-        $spacing = "%-50s";
+        $spacing = "%-60s";
 
         echo _i18n( 'core.usage.proper' ) . "\n\n";
         echo sprintf( $spacing, "php crossroads build" ) . _i18n( 'core.usage.build') . "\n";
         echo sprintf( $spacing, "php crossroads clean" ) . _i18n( 'core.usage.clean') . "\n";
-        echo sprintf( $spacing, "php crossroads create plugin" ) . _i18n( 'core.usage.create.plugin') . "\n";
-        echo sprintf( $spacing, "php crossroads create theme" ) . _i18n( 'core.usage.create.theme') . "\n";
-        echo sprintf( $spacing, "php crossroads create child-theme" ) . _i18n( 'core.usage.create.child') . "\n";
-        echo sprintf( $spacing, "php crossroads import wordpress <url>" ) . _i18n( 'core.usage.import.wordpress') . "\n";
+        echo sprintf( $spacing, "php crossroads create plugin" ) . _i18n( 'core.usage.create.plugin' ) . "\n";
+        echo sprintf( $spacing, "php crossroads create theme" ) . _i18n( 'core.usage.create.theme' ) . "\n";
+        echo sprintf( $spacing, "php crossroads create <child-theme> <parent-theme>" ) . _i18n( 'core.usage.create.child' ) . "\n";
+        echo sprintf( $spacing, "php crossroads db import" ) . _i18n( 'core.usage.db.import' ) . "\n";
+        echo sprintf( $spacing, "php crossroads db export" ) . _i18n( 'core.usage.db.export' ) . "\n";
+        echo sprintf( $spacing, "php crossroads db sync" ) . _i18n( 'core.usage.db.sync' ) . "\n";
+        echo sprintf( $spacing, "php crossroads import wordpress <url>" ) . _i18n( 'core.usage.import.wordpress' ) . "\n";
         echo sprintf( $spacing, "php crossroads init" ) . _i18n( 'core.usage.init') . "\n";
 
         foreach ( $this->config->get( 'content', [] ) as $contentType => $configData ) {
@@ -253,6 +370,7 @@ class Engine {
         }
 
         echo sprintf( $spacing, "php crossroads serve" ) . _i18n( 'core.usage.serve' ) . "\n";
+        echo sprintf( $spacing, "php crossroads stats" ) . _i18n( 'core.usage.stats' ) . "\n";
         echo sprintf( $spacing, "php crossroads upgrade" ) . _i18n( 'core.usage.upgrade' ) . "\n";
     }
 
@@ -277,7 +395,7 @@ class Engine {
     private function _build( $argc, $argv ) {
         LOG( _i18n( 'core.build.starting' ) );
 
-        $this->builder = new Builder( $this->config );
+        $this->builder = new Builder( $this->config, $this->pluginManager );
 
         try {
             $this->builder->run();
@@ -304,7 +422,7 @@ class Engine {
             exec( sprintf( $openCommand, 'http://' . $server->addressAndPort() ) );
         } 
 
-        LOG( _i18n( 'core.server.to_close' ), 1, LOG::INFO );
+        LOG( _i18n( 'core.class.server.to_close' ), 1, LOG::INFO );
 
         $server->serve();
     }

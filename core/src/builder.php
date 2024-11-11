@@ -17,16 +17,12 @@ class Builder {
     var $pluginManager = null;
     var $renderer = null;
 
-    public function __construct( $config ) {
+    public function __construct( $config, $pluginManager ) {
         $this->config = $config;
+        $this->pluginManager = $pluginManager;
 
         $this->templateEngine = new TemplateEngine( $config );
         $this->templateEngine->setTemplateDir( CROSSROADS_BASE_DIR . '/' . $this->config->get( 'dirs.themes', 'core/themes' ) . '/' . $config->get( 'site.theme' ) );
-
-        $this->pluginManager = new PluginManager( $this->config );
-        $this->pluginManager->installPlugin( new ImagePlugin( $this->config ) );
-        $this->pluginManager->installPlugin( new SeoPlugin( $this->config ) );
-        $this->pluginManager->installPlugin( new WordPressPlugin( $this->config ) );
     }
 
     public function run() {
@@ -76,7 +72,8 @@ class Builder {
                     LOG( "Writing content for [" . $entry->relUrl . "]", 2, LOG::DEBUG );
 
                     $this->renderer->renderSinglePage( $entry, [ $entry->contentType . '-single', $entry->contentType, 'index' ] );
-                    $this->totalPages++;                }
+                    $this->totalPages++;                
+                }
             }
 
             // process all content
@@ -94,33 +91,37 @@ class Builder {
                 $this->totalPages += $this->renderer->renderIndexPage( $entries, $contentType, '', [ 'index' ] );
             }
 
-                // tax
-            $taxTerms = $this->entries->getTaxTerms( $contentType );
-            sort( $taxTerms );
-            if ( count( $taxTerms ) ) {
-                LOG( sprintf( _i18n( 'core.build.generating.tax' ), $contentType ), 1, LOG::INFO );
+             // tax
+            $taxTypes = $this->entries->getTaxTypes( $contentType );
+            sort( $taxTypes );
+            if ( count( $taxTypes ) ) {
+                foreach( $taxTypes as $taxType ) {
+                    $taxTerms = $this->entries->getTaxTerms( $contentType, $taxType );
 
-                Utils::mkdir( CROSSROADS_PUBLIC_DIR . '/' . $contentType . '/taxonomy' );
+                    LOG( sprintf( _i18n( 'core.build.generating.tax' ), $contentType ), 1, LOG::INFO );
 
-                foreach( $taxTerms as $term ) {
-                    Utils::mkdir( CROSSROADS_PUBLIC_DIR . '/' . $contentType . '/taxonomy/' . $term );
+                    Utils::mkdir( CROSSROADS_PUBLIC_DIR . '/' . $contentType . '/' . $taxType );
 
-                    LOG( sprintf( _i18n( 'core.build.generating.tax' ), $contentType . "/" . $term ), 2, LOG::DEBUG );
+                    foreach( $taxTerms as $term ) {
+                        Utils::mkdir( CROSSROADS_PUBLIC_DIR . '/' . $contentType . '/' . $taxType . '/' . $term );
 
-                    $entries = $this->entries->getTax( $contentType, $term );
+                        LOG( sprintf( _i18n( 'core.build.generating.tax' ), $contentType . "/" . $term ), 2, LOG::DEBUG );
 
-                    usort( $entries, 'CR\cr_sort' );
+                        $entries = $this->entries->getTax( $contentType, $taxType, $term );
 
-                    if ( count( $entries ) ) {
-                        $this->totalPages += $this->renderer->renderIndexPage( $entries, $contentType, '/' . $contentType . '/taxonomy/' . $term, [ 'index' ] );
-                    }
+                        usort( $entries, 'CR\cr_sort' );
+
+                        if ( count( $entries ) ) {
+                            $this->totalPages += $this->renderer->renderIndexPage( $entries, $contentType, '/' . $contentType . '/' . $taxType . '/' . $term, [ 'index' ] );
+                        }
+                    }              
                 }
             }
         }
 
         $this->_writeRobots();
         $this->_writeSitemapXml();
-        $this->_write404Page();
+       // $this->_write404Page();
 
         LOG( sprintf( _i18n( 'core.build.total' ), $this->entries->getEntryCount(), $this->totalPages ), 0, LOG::INFO );
 
@@ -140,11 +141,16 @@ class Builder {
                 $sitemapXml = $this->_addSitemapEntry( $sitemapXml, $entry->url );
             }
 
-            $taxTerms = $this->entries->getTaxTerms( $contentType );
-            if ( count( $taxTerms ) ) {
-                $taxUrl = $this->config->get( 'site.url' ) . '/' . $contentType . '/taxonomy';
-                foreach( $taxTerms as $term ) {
-                    $sitemapXml = $this->_addSitemapEntry( $sitemapXml, $taxUrl . '/' . $term, 'monthly' );
+            $taxTypes = $this->entries->getTaxTypes( $contentType );
+            if ( count( $taxTypes ) ) {
+                foreach( $taxTypes as $taxType ) {
+                    $taxTerms = $this->entries->getTaxTerms( $contentType, $taxType );
+                    if ( count( $taxTerms ) ) {
+                        $taxUrl = $this->config->get( 'site.url' ) . '/' . $contentType . '/' . $taxType;
+                        foreach( $taxTerms as $term ) {
+                            $sitemapXml = $this->_addSitemapEntry( $sitemapXml, $taxUrl . '/' . $term, 'monthly' );
+                        }
+                    }               
                 }
             }
         }
