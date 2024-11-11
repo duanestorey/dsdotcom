@@ -1,0 +1,3 @@
+theme:
+  name: "Simple Child"
+  parent: "simple"

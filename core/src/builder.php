@@ -16,15 +16,13 @@ class Builder {
     var $menu = null;
     var $pluginManager = null;
     var $renderer = null;
+
     protected $db;
 
     public function __construct( $config, $pluginManager, $db ) {
         $this->config = $config;
         $this->pluginManager = $pluginManager;
         $this->db = $db;
-
-        $this->templateEngine = new TemplateEngine( $config );
-        $this->templateEngine->setTemplateDir( CROSSROADS_BASE_DIR . '/' . $this->config->get( 'dirs.themes', 'core/themes' ) . '/' . $config->get( 'site.theme' ) );
     }
 
     public function run() {
@@ -34,6 +32,24 @@ class Builder {
         $this->_setupTheme();
         $this->_setupMenus();
 
+        $this->templateEngine = new TemplateEngine( $this->config );
+
+        if ( $this->theme->isChildTheme() ) {
+             $this->templateEngine->setTemplateDirs( 
+                [
+                    CROSSROADS_LOCAL_THEME_DIR . '/' . $this->theme->getChildThemeName(),
+                    CROSSROADS_BASE_DIR . '/' . $this->config->get( 'dirs.core_themes', 'core/themes' ) . '/' . $this->theme->getParentThemeName()
+                ]
+            );       
+        } else {
+            $this->templateEngine->setTemplateDirs( 
+                [
+                    CROSSROADS_BASE_DIR . '/' . $this->config->get( 'dirs.core_themes', 'core/themes' ) . '/' . $this->config->get( 'site.theme' ) 
+                ]
+            );
+        }
+ 
+
         $this->renderer = new Renderer( $this->config, $this->templateEngine, $this->pluginManager, $this->menu, $this->theme );
 
         // load all content here
@@ -42,20 +58,6 @@ class Builder {
 
         // do all content filtering
         $all_entries = [];
-
-        /*
-        foreach( $this->config->get( 'content', [] ) as $contentType => $contentConfig ) {
-            $entries = $this->entries->get( $contentType );
-
-            if ( count( $entries ) ) {
-                LOG( sprintf( _i18n( 'core.build.plugins.processing' ), $contentType ), 1, LOG::INFO );
-
-                $entries = $this->pluginManager->processAll( $entries );
-
-                $all_entries = array_merge( $all_entries, $entries );
-            }
-        }
-        */
 
         foreach( $this->config->get( 'content', [] ) as $contentType => $contentConfig ) {
             $entries = $this->entries->get( $contentType );
@@ -216,17 +218,20 @@ class Builder {
     }
 
     private function _setupTheme() {
-        $this->theme = new Theme( $this->config->get( 'site.theme' ), CROSSROADS_BASE_DIR . '/' . $this->config->get( 'dirs.themes', 'core/themes' ) );
+        $this->theme = new Theme( 
+            $this->config->get( 'site.theme' ), 
+            CROSSROADS_BASE_DIR . '/' . $this->config->get( 'dirs.core_themes', 'core/themes' ),
+            CROSSROADS_LOCAL_THEME_DIR
+        );
 
         LOG( sprintf( _i18n( "core.theme.load" ), $this->theme->name() ), 1, LOG::INFO );
 
-        if ( !$this->theme->isSane() ) {
+        if ( !$this->theme->load() ) {
             throw new ThemeException( 'Broken theme' );
         }
 
-        $this->theme->loadConfig();
         LOG( _i18n( "core.theme.loaded" ), 2, LOG::INFO );
 
-        $this->theme->processAssets( CROSSROADS_PUBLIC_DIR . '/assets' );
+        $this->theme->processAssets();
     }
 }

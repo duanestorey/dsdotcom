@@ -26,6 +26,7 @@ require_once( 'config.php' );
 require_once( 'sass.php' );
 require_once( 'image-processor.php' );
 require_once( 'db.php' );
+require_once( 'latte-file-loader.php' );
 require_once( 'mysql.php' );
 require_once( 'web-server.php' );
 require_once( 'log-listener.php' );
@@ -136,7 +137,6 @@ class Engine {
     }
 
     private function _db( $argc, $argv ) {
-    
         switch( $argv[ 2 ] ) {
             case 'import':
                 

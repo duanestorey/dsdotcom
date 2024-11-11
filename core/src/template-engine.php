@@ -4,8 +4,10 @@ namespace CR;
 
 class TemplateEngine {
     var $latte = null;
-    var $template_dir = '.';
+    var $templateDirs = '.';
     var $config = null;
+    
+    protected $fileLoader = null;
 
     public function __construct( $config ) {
         $this->config = $config;
@@ -14,14 +16,26 @@ class TemplateEngine {
         $this->latte->setLocale( $config->get( 'site.lang', 'en' ) );
 
         $this->latte->setTempDirectory( sys_get_temp_dir() );
+        $this->fileLoader = new LatteFileLoader();
+        $this->latte->setLoader( $this->fileLoader );
     }
 
-    public function setTemplateDir( $template_dir ) {
-        $this->template_dir = rtrim( $template_dir, '/' );
+    public function setTemplateDirs( $templateDirs ) {
+        $this->templateDirs = $templateDirs;
+
+        $this->fileLoader->setDirectories( $templateDirs );
     }
 
-    public function templateExists( $template_name ) {
-        return file_exists( $this->template_dir . '/' . $template_name . '.latte' );
+    public function templateExists( $templateName ) {
+        foreach( $this->templateDirs as $dir ) {
+            if ( file_exists( $dir . '/' . $templateName . '.latte' ) ) {
+                return true;
+            }
+        }
+
+        LOG( sprintf( "Template file doesn't exist [%s]", $templateName ), 2, LOG::WARNING );
+
+        return false;
     }
 
     public function locateTemplate( $templates ) {
@@ -38,9 +52,9 @@ class TemplateEngine {
         return false;
     }
 
-    public function render( $template_file, $params ) {
+    public function render( $templateFile, $params ) {
         if ( $this->latte ) {
-            return $this->latte->renderToString( $this->template_dir . '/' . $template_file . '.latte', $params );
+            return $this->latte->renderToString( $templateFile . '.latte', $params );
         }
     }
 }

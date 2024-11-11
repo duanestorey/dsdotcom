@@ -32,7 +32,7 @@ class Renderer {
 
         $this->startTime = time();
 
-        if ( $this->config->get( 'options.beautify_html' ) ) {
+        if ( $this->config->get( 'options.beautify_html', false ) ) {
             $this->formatter = new Formatter();
         }
     }
@@ -51,7 +51,6 @@ class Renderer {
             $renderedHtml = $this->templateEngine->render( $templateName, $params );
 
             if ( $this->config->get( 'options.beautify_html' ) ) {
-                $this->formatter = new Formatter();
                 $renderedHtml = $this->formatter->beautify( $renderedHtml );
             }
 
@@ -63,7 +62,6 @@ class Renderer {
                 }
             }
 
-           // $renderedHtml = $beautifier->beautify( $renderedHtml );
             file_put_contents( CROSSROADS_PUBLIC_DIR . $params->content->relUrl, $renderedHtml );
 
             LOG( sprintf( _i18n( 'core.class.renderer.output' ), CROSSROADS_PUBLIC_DIR . $params->content->relUrl ), 4, LOG::DEBUG );
@@ -153,7 +151,6 @@ class Renderer {
                 $renderedHtml = $this->templateEngine->render( $templateName, $params );
                 
                 if ( $this->config->get( 'options.beautify_html' ) ) {
-                    $this->formatter = new Formatter();
                     $renderedHtml = $this->formatter->beautify( $renderedHtml );
                 }
                 
