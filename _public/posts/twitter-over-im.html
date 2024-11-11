@@ -5,107 +5,75 @@
         <title>Twitter Over IM - The Duane Storey</title>
         <link rel="icon" type="image/x-icon" href="/assets/favicon.ico?v=8324f89069b1a1a2b1ab64c5713b995a">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" media="print" onload="this.media='all'">
-
         <meta charset="utf-8">
         <meta name="generator" content="Crossroads 1.0">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
         <link rel="canonical" href="https://duanestorey.com/posts/twitter-over-im.html">
-
         <meta name="description" content="One of the things I’ve noticed lately is that I’m spending way more time on Twitter than I’d like. Truthfully, it’s">
         <meta name="og:description" content="One of the things I’ve noticed lately is that I’m spending way more time on Twitter than I’d like. Truthfully, it’s">
         <meta property="og:title" content="Twitter Over IM - The Duane Storey">
         <meta property="og:url" content="https://duanestorey.com/posts/twitter-over-im.html">
         <meta property="og:type" content="article">
-        <meta name="twitter:card" content="summary_large_image">   
+        <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:title" content="Twitter Over IM - The Duane Storey">
         <meta name="twitter:description" content="One of the things I’ve noticed lately is that I’m spending way more time on Twitter than I’d like. Truthfully, it’s">
         <meta name="twitter:creator" content="@duanestorey">
-
     </head>
     <body class="posts posts-twitter-over-im">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" href="/">The Duane Storey</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <div class="navbar-nav">
-                        <a class="nav-item nav-link" href="/">Home</a>
-                        <a class="nav-item nav-link" href="/hiking.html">Hiking</a>
-                        <a class="nav-item nav-link" href="/building-a-custom-hi-fi-5-1-amplifier-with-dts-dolby-decoding.html">Hi-Fi Amp</a>
-                        <a class="nav-item nav-link" href="/curriculum-vitae.html">CV</a>
-                        <a class="nav-item nav-link" href="/about.html">About</a>
-                        <a class="nav-item nav-link" href="/contact.html">Contact</a>
-                    </div>
-
+                    <div class="navbar-nav"><a class="nav-item nav-link" href="/">Home</a> <a class="nav-item nav-link" href="/hiking.html">Hiking</a> <a class="nav-item nav-link" href="/building-a-custom-hi-fi-5-1-amplifier-with-dts-dolby-decoding.html">Hi-Fi Amp</a> <a class="nav-item nav-link" href="/curriculum-vitae.html">CV</a> <a class="nav-item nav-link" href="/about.html">About</a> <a class="nav-item nav-link" href="/contact.html">Contact</a></div>
                     <ul class="navbar-nav d-flex flex-row">
-                        <li class="nav-item me-3 me-lg-0">
-                            <a class="nav-link" rel="nofollow" href="https://x.com/duanestorey" aria-label="Twitter">
-                                <i class="fa-brands fa-x-twitter text-white"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item me-3 me-lg-0">
-                            <a class="nav-link" rel="nofollow" href="https://instagram.com/duanestorey" aria-label="Instagram">
-                                <i class="fa-brands fa-instagram text-white"></i>
-                            </a>
-                        </li>
-                            <li class="nav-item me-3 me-lg-0">
-                            <a class="nav-link" rel="nofollow" href="https://bsky.app/profile/duanestorey.com" aria-label="Bluesky">
-                                <i class="fa-brands fa-bluesky text-white"></i>
-                            </a>
-                        </li>
+                        <li class="nav-item me-3 me-lg-0"><a class="nav-link" rel="nofollow" href="https://x.com/duanestorey" aria-label="Twitter"><i class="fa-brands fa-x-twitter text-white"></i></a></li>
+                        <li class="nav-item me-3 me-lg-0"><a class="nav-link" rel="nofollow" href="https://instagram.com/duanestorey" aria-label="Instagram"><i class="fa-brands fa-instagram text-white"></i></a></li>
+                        <li class="nav-item me-3 me-lg-0"><a class="nav-link" rel="nofollow" href="https://bsky.app/profile/duanestorey.com" aria-label="Bluesky"><i class="fa-brands fa-bluesky text-white"></i></a></li>
                     </ul>
                 </div>
             </div>
         </nav>
-
-
-    <div class="container mt-4">
-        <article>    
-            <h1 class="mt-4">Twitter Over IM</h1>
-            <div class="meta mb-2 text-primary fs-6 fw-light">
-                Published on <time>July 23rd, 2009</time> &middot; <span>Less than one minute to read</span>
-            </div>
-
-            <div class="content mt-3">
-                
-                <p>One of the things I’ve noticed lately is that I’m spending way more time on Twitter than I’d like. Truthfully, it’s fairly addictive, and I really don’t know why. This afternoon I noticed I noticed myself sitting on the updates page, refreshing occasionally, waiting for a few replies to some messages I had sent out. While doing that, I had the sudden idea that Twitter (at least for me) would be a bit more useful if it were a push system instead of a polling system. That way at least, I wouldn’t have to sit at the site and continue to poll it — I could simply be notified when a new @ message was ready for me.</p>
-<p>Granted, there are numerous applications that can be used, but all of them (that I’ve used at least) are limited in that they primarily only handle one account at a time. So I decided to try hacking out a quick little PHP script that would simply IM me whenever I had a new message waiting.</p>
-<p>It actually only took me about 20 minutes to finish, partially because I leveraged <a href="http://code.google.com/p/xmpphp/">the XMPP PHP</a> library, and partially because I’m familiar with the Twitter API (thanks to my work on WordTwit). I wrote it such that it would do the following:</p>
-<ul>
-<li>Check Twitter updates from multiple accounts</li>
-<li>Keep track of the last received IM message such that it only asks Twitter for new messages</li>
-<li>Send out IMs periodically of new messages</li>
-</ul>
-<p>I set it up on a five minute CRON job on my server (which is also whitelisted for the Twitter API). The end result is visible here:</p>
-<p><a href="http://www.flickr.com/photos/duanestorey/3747825984/"><img loading="lazy" srcset="/assets/posts/2009/twitter-over-im-1-320w.jpg 320w,/assets/posts/2009/twitter-over-im-1-480w.jpg 480w" src="/assets/posts/2009/twitter-over-im-1.jpg" alt="Twitter over IM"></a></p>
-<p>As you can see, I get updates periodically with information, along with a prefix letting me know which account it came from. So far, it’s been working out well, but I’m having a bit of a hard time retraining myself not to check Twitter’s web interface from time to time. I’ve been told Adium has some Twitter features in a beta version, so I might check that out as well.</p>
-<p>I’ve disabled growl notifications in Adium for new updates on this account (mainly because I don’t want to be distracted), but it’s nice to simply look down at the Dock from time to time to see how many replies I have waiting for me. So at least for now, this is a nice change, and hopefully will increase my productivity a bit.</p>
-
-                    <div class="tax">
-                        <a href="/posts/category/journal" class="btn btn-secondary btn-sm">journal</a>
-                        <a href="/posts/tag/adium" class="btn btn-secondary btn-sm">adium</a>
-                        <a href="/posts/tag/cron" class="btn btn-secondary btn-sm">cron</a>
-                        <a href="/posts/tag/im" class="btn btn-secondary btn-sm">im</a>
-                        <a href="/posts/tag/twitter" class="btn btn-secondary btn-sm">twitter</a>
-                    </div>
-            </div>
-
-            <div class="comments mt-4 pt-4">
-                <div id="disqus_thread"></div>
-            </div>
-        </article>  
-    </div>
-
-
+        <div class="container mt-4">
+            <article>
+                <h1 class="mt-4">Twitter Over IM</h1>
+                <div class="meta mb-2 text-primary fs-6 fw-light">
+                    Published on
+                    <time>July 23rd, 2009</time>
+                    &middot;
+                    <span>Less than one minute to read</span>
+                </div>
+                <div class="content mt-3">
+                    <p>One of the things I’ve noticed lately is that I’m spending way more time on Twitter than I’d like. Truthfully, it’s fairly addictive, and I really don’t know why. This afternoon I noticed I noticed myself sitting on the updates page, refreshing occasionally, waiting for a few replies to some messages I had sent out. While doing that, I had the sudden idea that Twitter (at least for me) would be a bit more useful if it were a push system instead of a polling system. That way at least, I wouldn’t have to sit at the site and continue to poll it — I could simply be notified when a new @ message was ready for me.</p>
+                    <p>Granted, there are numerous applications that can be used, but all of them (that I’ve used at least) are limited in that they primarily only handle one account at a time. So I decided to try hacking out a quick little PHP script that would simply IM me whenever I had a new message waiting.</p>
+                    <p>It actually only took me about 20 minutes to finish, partially because I leveraged <a href="http://code.google.com/p/xmpphp/">the XMPP PHP</a> library, and partially because I’m familiar with the Twitter API (thanks to my work on WordTwit). I wrote it such that it would do the following:</p>
+                    <ul>
+                        <li>Check Twitter updates from multiple accounts</li>
+                        <li>Keep track of the last received IM message such that it only asks Twitter for new messages</li>
+                        <li>Send out IMs periodically of new messages</li>
+                    </ul>
+                    <p>I set it up on a five minute CRON job on my server (which is also whitelisted for the Twitter API). The end result is visible here:</p>
+                    <p>
+                        <a href="http://www.flickr.com/photos/duanestorey/3747825984/">
+                            <img loading="lazy" srcset="/assets/posts/2009/twitter-over-im-1-320w.jpg 320w,/assets/posts/2009/twitter-over-im-1-480w.jpg 480w" src="/assets/posts/2009/twitter-over-im-1.jpg" alt="Twitter over IM">
+                        </a>
+                    </p>
+                    <p>As you can see, I get updates periodically with information, along with a prefix letting me know which account it came from. So far, it’s been working out well, but I’m having a bit of a hard time retraining myself not to check Twitter’s web interface from time to time. I’ve been told Adium has some Twitter features in a beta version, so I might check that out as well.</p>
+                    <p>I’ve disabled growl notifications in Adium for new updates on this account (mainly because I don’t want to be distracted), but it’s nice to simply look down at the Dock from time to time to see how many replies I have waiting for me. So at least for now, this is a nice change, and hopefully will increase my productivity a bit.</p>
+                    <div class="tax"><a href="/posts/category/journal" class="btn btn-secondary btn-sm">journal</a> <a href="/posts/tag/adium" class="btn btn-secondary btn-sm">adium</a> <a href="/posts/tag/cron" class="btn btn-secondary btn-sm">cron</a> <a href="/posts/tag/im" class="btn btn-secondary btn-sm">im</a> <a href="/posts/tag/twitter" class="btn btn-secondary btn-sm">twitter</a></div>
+                </div>
+                <div class="comments mt-4 pt-4">
+                    <div id="disqus_thread"></div>
+                </div>
+            </article>
+        </div>
         <footer class="bg-dark pt-4 pb-4 mt-4 mb-4">
             <div class="container text-center text-white">
-                All content copyright &copy; 2024<br>Generated using Crossroads SSG
+                All content copyright &copy; 2024
+                <br>
+                Generated using Crossroads SSG
             </div>
-
             <script defer src="/assets/lumen.min.js?v=8324f89069b1a1a2b1ab64c5713b995a"></script>
-        </footer>   
+        </footer>
     </body>
 </html>

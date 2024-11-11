@@ -5,145 +5,132 @@
         <title>One WordPress Install, Multiple Sites - The Duane Storey</title>
         <link rel="icon" type="image/x-icon" href="/assets/favicon.ico?v=8324f89069b1a1a2b1ab64c5713b995a">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" media="print" onload="this.media='all'">
-
         <meta charset="utf-8">
         <meta name="generator" content="Crossroads 1.0">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
         <link rel="canonical" href="https://duanestorey.com/posts/one-wordpress-install-multiple-sites.html">
-
         <meta name="description" content="A while ago I started messing around with trying to get a single WordPress installation to host multiple blogs. If you read">
         <meta name="og:description" content="A while ago I started messing around with trying to get a single WordPress installation to host multiple blogs. If you read">
         <meta property="og:title" content="One WordPress Install, Multiple Sites - The Duane Storey">
         <meta property="og:url" content="https://duanestorey.com/posts/one-wordpress-install-multiple-sites.html">
         <meta property="og:type" content="article">
-        <meta name="twitter:card" content="summary_large_image">   
+        <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:title" content="One WordPress Install, Multiple Sites - The Duane Storey">
         <meta name="twitter:description" content="A while ago I started messing around with trying to get a single WordPress installation to host multiple blogs. If you read">
         <meta name="twitter:creator" content="@duanestorey">
-
     </head>
     <body class="posts posts-one-wordpress-install-multiple-sites">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" href="/">The Duane Storey</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <div class="navbar-nav">
-                        <a class="nav-item nav-link" href="/">Home</a>
-                        <a class="nav-item nav-link" href="/hiking.html">Hiking</a>
-                        <a class="nav-item nav-link" href="/building-a-custom-hi-fi-5-1-amplifier-with-dts-dolby-decoding.html">Hi-Fi Amp</a>
-                        <a class="nav-item nav-link" href="/curriculum-vitae.html">CV</a>
-                        <a class="nav-item nav-link" href="/about.html">About</a>
-                        <a class="nav-item nav-link" href="/contact.html">Contact</a>
-                    </div>
-
+                    <div class="navbar-nav"><a class="nav-item nav-link" href="/">Home</a> <a class="nav-item nav-link" href="/hiking.html">Hiking</a> <a class="nav-item nav-link" href="/building-a-custom-hi-fi-5-1-amplifier-with-dts-dolby-decoding.html">Hi-Fi Amp</a> <a class="nav-item nav-link" href="/curriculum-vitae.html">CV</a> <a class="nav-item nav-link" href="/about.html">About</a> <a class="nav-item nav-link" href="/contact.html">Contact</a></div>
                     <ul class="navbar-nav d-flex flex-row">
-                        <li class="nav-item me-3 me-lg-0">
-                            <a class="nav-link" rel="nofollow" href="https://x.com/duanestorey" aria-label="Twitter">
-                                <i class="fa-brands fa-x-twitter text-white"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item me-3 me-lg-0">
-                            <a class="nav-link" rel="nofollow" href="https://instagram.com/duanestorey" aria-label="Instagram">
-                                <i class="fa-brands fa-instagram text-white"></i>
-                            </a>
-                        </li>
-                            <li class="nav-item me-3 me-lg-0">
-                            <a class="nav-link" rel="nofollow" href="https://bsky.app/profile/duanestorey.com" aria-label="Bluesky">
-                                <i class="fa-brands fa-bluesky text-white"></i>
-                            </a>
-                        </li>
+                        <li class="nav-item me-3 me-lg-0"><a class="nav-link" rel="nofollow" href="https://x.com/duanestorey" aria-label="Twitter"><i class="fa-brands fa-x-twitter text-white"></i></a></li>
+                        <li class="nav-item me-3 me-lg-0"><a class="nav-link" rel="nofollow" href="https://instagram.com/duanestorey" aria-label="Instagram"><i class="fa-brands fa-instagram text-white"></i></a></li>
+                        <li class="nav-item me-3 me-lg-0"><a class="nav-link" rel="nofollow" href="https://bsky.app/profile/duanestorey.com" aria-label="Bluesky"><i class="fa-brands fa-bluesky text-white"></i></a></li>
                     </ul>
                 </div>
             </div>
         </nav>
-
-
-    <div class="container mt-4">
-        <article>    
-            <h1 class="mt-4">One WordPress Install, Multiple Sites</h1>
-            <div class="meta mb-2 text-primary fs-6 fw-light">
-                Published on <time>May 7th, 2009</time> &middot; <span>6 minutes to read</span>
-            </div>
-
-            <div class="content mt-3">
-                
-                <p>A while ago I started messing around with trying to get a single WordPress installation to host multiple blogs. If you read that and think WordPress MU, you’re not far off. What I don’t like about WordPress MU though is that the system administrator chooses the themes and the plugins that are available to the end user — ideally, I would want each user to control that themselves, such that it basically has the same functionality as a normal WordPress installation.</p>
-<p>There are a lot of other reasons why you might want a single WordPress install for multiple blogs. First, if you make backups of each blog’s data from time to time, you might end up with a complete WordPress package for each website you host, even though ultimately 90% of those files are identical (basically only themes, plugins and custom content vary). Second, if you run a hosting server with a PHP caching engine (which most do), it’s likely that the cache keeps track of data using the complete path to the file, which ultimately means the cache effectiveness will decrease proportional to the number of sites (aka WordPress installations). If all the installations on a server shared one common WordPress install, you’d only have to cache that one set of PHP files — effectively you could keep WordPress in a compiled state in memory for all of your sites.</p>
-<p>The first thing I did was install a fresh WordPress into a directory on my server called wp_install. Normally an end user would go through the installation process and configure that one installation, and then they’d have one blog. We’re trying to make one installation work for many blogs.</p>
-<p>Next, I created a wp_domains directory at the same level as wp_install. Inside wp_install, I then created a symbolic link called “domains” which points to the wp_domains directory (you could also just put everything in the wp_install/domains directory, but I want to keep them separated slightly). So we have wp_install/domains symbolically linking to wp_domains.</p>
-<p>In order to make one installation work for many sites, you basically need to have a dynamic wp-config.php file that can change depending on which site is being accessed. So I started messing with wp-config.php to try and come up with something that would work. The end goal was to change the parameters in the wp-config.php ssuch that we can use site-specific content in the wp_domains directory.</p>
-<p>I ended up with something like this:</p>
-<p><code>$website = strtolower( str_replace( "www.", "", $_SERVER["SERVER_NAME"] ) );&lt;br&gt;&lt;/br&gt;$website = preg_replace('[^a-z0-9\.-]', '', $website );</code></p>
-<p>define( 'WP_CONTENT_DIR', dirname(__FILE__) . '/domains/' . $website . '/wp-content' );<br />
-define( 'WP_CONTENT_URL', 'http://' . $_SERVER[&quot;SERVER_NAME&quot;] . '/domains/' . $website . '/wp-content' );</p>
-<p>if ( file_exists( dirname(__FILE__) . &quot;/../wp_domains/$website/db.config&quot; ) ) {<br />
-require_once( dirname(__FILE__) . &quot;/../wp_domains/$website/db.config&quot; );<br />
-} else {<br />
-echo &quot;Sorry, no configuration defined.&quot;<br />
-die;<br />
-}</p>
-<p>Several things happen in the code, so let me try to explain. First, the destination website is determined using the HTTP server name which is passed in the address. For this website, that becomes www.duanestorey.com. I strip off the www just so that there’s a bit of consistency between sites. Next, I tell WordPress to change its default wp-content directory to the domains/WEBSITE_NAME/wp-content directory, which in my case is domains/duanestorey.com/wp-content.</p>
-<p>In the next section of code, I check for domains/WEBSITE_NAME/db.config, which is a site-specific file that will set the database information on a per-site basis. If it exists, we load it up such that the username, password, hostname, and database name for that particular site.</p>
-<p>An example of db.config for my site is:</p>
-<p><code>&lt;?php &lt;br /?&gt;define( 'DB_NAME', 'duanestorey-com' );&lt;br&gt;&lt;/br&gt;define( 'DB_HOST', 'localhost' );&lt;br&gt;&lt;/br&gt;define( 'DB_PASSWORD', 'user' );&lt;br&gt;&lt;/br&gt;define( 'DB_USER', 'password' );&lt;br&gt;&lt;/br&gt;?&gt;</code></p>
-<p>At this point, everything worked fine, and I had a base WordPress installation where the wp-content directory and database information could be split out dynamically. From a hosting perspective, you could conceivably only grant access to that one directory (i.e. wp_domains/duanestorey.com), which would allow the user to modify their plugins and themes for their site only (even though the core WordPress files are being shared).</p>
-<p>It’s at this point I actually decided to do a Google search to see if anyone else had tried this approach before. I found <a href="http://striderweb.com/nerdaphernalia/features/virtual-multiblog/">this article on Virtual Multiblogs</a> which is based on a similar approach. It looks like he used a bunch of different directories all mapped to one WordPress directory. In the approach I’ve taken, I point everything to the same directory (in the HTTP virtualhost section), and simply rely on the HTTP_HOST/SERVER_NAME that’s sent with each request. In addition, I’m doing the wp-content remapping, which I don’t think was done with the Virtual Multiblogs approach. I also did a bit more, as you’ll see next.</p>
-<p>You might be asking why I didn’t just do away with the wp-content directory although, and simply remap it to wp_domains/duanestorey.com — it’s a good question.</p>
-<p>There are a few problems with the current approach. First, remapping the wp-content directory often breaks plugins because many plugin developers hardcode the URLs as /wp-content in the code (it’s sloppy, but I’ve done it previously as well). So as soon as you move your wp-content directory, all those plugins start showing errors. Second, some javascript libraries and statistics programs (the popular Mint program, for example) must be installed in the root of the website. With this model, you really wouldn’t want users to mess with any core WordPress files or directories, so they really shouldn’t have access to the root installation. So what do we do?</p>
-<p>Well, I came up with a little .htaccess hack such that anything that isn’t found in the core WordPress path is automatically redirected to the domains/WEBSITE_NAME directory. That means if <a href="http://www.migratorynerd.com/test.html">http://www.migratorynerd.com/test.html</a> isn’t found on disk in wp_install/test.html (which is the base WordPress installation, so it definitely won’t be there), the .htaccess redirect will send it to wp_domains/WEBSITE_NAME/test.html (or in my case, wp_domains/duanestorey.com/test.html). The redirect is internal, which means that from the user’s perspective they are really looking at <a href="http://www.migratorynerd.com/test.html">http://www.migratorynerd.com/test.html</a> (but on disk they are actually viewing the file in wp_domains/duanestorey.com/test.html).</p>
-<p>This approach should fix most of the plugin problems since it uses URL remapping to trick the website into thinking everything actually is in the <a href="http://somedomain.com/wp-content">http://somedomain.com/wp-content</a> directory, even though there’s nothing really there. It also should allow users to install whatever they want in their directory (mint, javascript, whatever), since anything not actually found in wp_install will redirect to their site-specific domain files in wp_domains.</p>
-<p>In fact, once you do the .htaccess change, there’s no need to define WP_CONTENT_URL in wp-config.php anymore, since the htaccess will take care of all of that automagically. So, feel free to remove:</p>
-<p><code>define( 'WP_CONTENT_URL', 'http://' . $_SERVER["SERVER_NAME"] . '/domains/' . $website . '/wp-content' );</code></p>
-<p>Internally, <a href="http://www.migratorynerd.com/wp-content/themes/duane-apr09/style.css">http://www.migratorynerd.com/wp-content/themes/duane-apr09/style.css</a> is actually mapping to <a href="http://www.migratorynerd.com/domains/duanestorey.com/wp-content/themes/duane-apr09/style.css">http://www.migratorynerd.com/domains/duanestorey.com/wp-content/themes/duane-apr09/style.css</a>, but since .htaccess is hiding all of that, plugins with hardcoded elements should work normally.</p>
-<p>I’ve currently moved this website over to this new approach, and will probably move a few more tomorrow and test it out further. Ultimately I can stop backing up whole directories with WordPress installations, and simply backup my wp_domains directory nightly. So far, things appear to be working quite smoothly (even old images that were inserted into posts using relative /wp-content/ URLs work properly thanks to the .htaccess trick).</p>
-<p>The current structure of my wp_domains directory is:</p>
-<ul>
-<li>/duanestorey.com</li>
-<li>/duanestorey.com/mint/*</li>
-<li>/duanestorey.com/wp-content/*</li>
-<li>/duanestorey.com/db.config</li>
-</ul>
-<p>The .htaccess hack I came up with is below:</p>
-<p><code># BEGIN WordPress&lt;br&gt;&lt;/br&gt;&lt;ifmodule mod_rewrite.c=""&gt;&lt;br&gt;&lt;/br&gt;RewriteEngine On&lt;br&gt;&lt;/br&gt;RewriteBase /&lt;/ifmodule&gt;</code></p>
-<p>RewriteCond %{REQUEST_FILENAME} !-f<br />
-RewriteCond %{REQUEST_URI} !(.*)/$<br />
-RewriteRule ^(.*)$ <a href="http://%{HTTP\_HOST}/$1/">http://%{HTTP\_HOST}/$1/</a> [L,R=301]</p>
-<p>RewriteCond %{REQUEST_FILENAME} !-f<br />
-RewriteCond %{REQUEST_FILENAME} !-d<br />
-RewriteRule ^(.*)$ domains/%{HTTP_HOST}/$1 [L]</p>
-<p>RewriteCond %{REQUEST_FILENAME} !-f<br />
-RewriteCond %{REQUEST_FILENAME} !-d<br />
-RewriteRule . /index.php [L]</p>
-<p># END WordPress</p>
-<p>I’m by no means a .htaccess expert, so if you see anything wrong with it, please let me know. It seems to be working though (I have Mint working).</p>
-
-                    <div class="tax">
-                        <a href="/posts/category/journal" class="btn btn-secondary btn-sm">journal</a>
-                        <a href="/posts/tag/blogs" class="btn btn-secondary btn-sm">blogs</a>
-                        <a href="/posts/tag/redirect" class="btn btn-secondary btn-sm">redirect</a>
-                        <a href="/posts/tag/single-install" class="btn btn-secondary btn-sm">single install</a>
-                        <a href="/posts/tag/sites" class="btn btn-secondary btn-sm">sites</a>
-                        <a href="/posts/tag/wordpress" class="btn btn-secondary btn-sm">wordpress</a>
-                    </div>
-            </div>
-
-            <div class="comments mt-4 pt-4">
-                <div id="disqus_thread"></div>
-            </div>
-        </article>  
-    </div>
-
-
+        <div class="container mt-4">
+            <article>
+                <h1 class="mt-4">One WordPress Install, Multiple Sites</h1>
+                <div class="meta mb-2 text-primary fs-6 fw-light">
+                    Published on
+                    <time>May 7th, 2009</time>
+                    &middot;
+                    <span>6 minutes to read</span>
+                </div>
+                <div class="content mt-3">
+                    <p>A while ago I started messing around with trying to get a single WordPress installation to host multiple blogs. If you read that and think WordPress MU, you’re not far off. What I don’t like about WordPress MU though is that the system administrator chooses the themes and the plugins that are available to the end user — ideally, I would want each user to control that themselves, such that it basically has the same functionality as a normal WordPress installation.</p>
+                    <p>There are a lot of other reasons why you might want a single WordPress install for multiple blogs. First, if you make backups of each blog’s data from time to time, you might end up with a complete WordPress package for each website you host, even though ultimately 90% of those files are identical (basically only themes, plugins and custom content vary). Second, if you run a hosting server with a PHP caching engine (which most do), it’s likely that the cache keeps track of data using the complete path to the file, which ultimately means the cache effectiveness will decrease proportional to the number of sites (aka WordPress installations). If all the installations on a server shared one common WordPress install, you’d only have to cache that one set of PHP files — effectively you could keep WordPress in a compiled state in memory for all of your sites.</p>
+                    <p>The first thing I did was install a fresh WordPress into a directory on my server called wp_install. Normally an end user would go through the installation process and configure that one installation, and then they’d have one blog. We’re trying to make one installation work for many blogs.</p>
+                    <p>Next, I created a wp_domains directory at the same level as wp_install. Inside wp_install, I then created a symbolic link called “domains” which points to the wp_domains directory (you could also just put everything in the wp_install/domains directory, but I want to keep them separated slightly). So we have wp_install/domains symbolically linking to wp_domains.</p>
+                    <p>In order to make one installation work for many sites, you basically need to have a dynamic wp-config.php file that can change depending on which site is being accessed. So I started messing with wp-config.php to try and come up with something that would work. The end goal was to change the parameters in the wp-config.php ssuch that we can use site-specific content in the wp_domains directory.</p>
+                    <p>I ended up with something like this:</p>
+                    <p><code>$website = strtolower( str_replace( "www.", "", $_SERVER["SERVER_NAME"] ) );&lt;br&gt;&lt;/br&gt;$website = preg_replace('[^a-z0-9\.-]', '', $website );</code></p>
+                    <p>
+                        define( 'WP_CONTENT_DIR', dirname(__FILE__) . '/domains/' . $website . '/wp-content' );
+                        <br/>
+                        define( 'WP_CONTENT_URL', 'http://' . $_SERVER[&quot;SERVER_NAME&quot;] . '/domains/' . $website . '/wp-content' );
+                    </p>
+                    <p>
+                        if ( file_exists( dirname(__FILE__) . &quot;/../wp_domains/$website/db.config&quot; ) ) {
+                        <br/>
+                        require_once( dirname(__FILE__) . &quot;/../wp_domains/$website/db.config&quot; );
+                        <br/>
+                        } else {
+                        <br/>
+                        echo &quot;Sorry, no configuration defined.&quot;
+                        <br/>
+                        die;
+                        <br/>
+                        }
+                    </p>
+                    <p>Several things happen in the code, so let me try to explain. First, the destination website is determined using the HTTP server name which is passed in the address. For this website, that becomes www.duanestorey.com. I strip off the www just so that there’s a bit of consistency between sites. Next, I tell WordPress to change its default wp-content directory to the domains/WEBSITE_NAME/wp-content directory, which in my case is domains/duanestorey.com/wp-content.</p>
+                    <p>In the next section of code, I check for domains/WEBSITE_NAME/db.config, which is a site-specific file that will set the database information on a per-site basis. If it exists, we load it up such that the username, password, hostname, and database name for that particular site.</p>
+                    <p>An example of db.config for my site is:</p>
+                    <p><code>&lt;?php &lt;br /?&gt;define( 'DB_NAME', 'duanestorey-com' );&lt;br&gt;&lt;/br&gt;define( 'DB_HOST', 'localhost' );&lt;br&gt;&lt;/br&gt;define( 'DB_PASSWORD', 'user' );&lt;br&gt;&lt;/br&gt;define( 'DB_USER', 'password' );&lt;br&gt;&lt;/br&gt;?&gt;</code></p>
+                    <p>At this point, everything worked fine, and I had a base WordPress installation where the wp-content directory and database information could be split out dynamically. From a hosting perspective, you could conceivably only grant access to that one directory (i.e. wp_domains/duanestorey.com), which would allow the user to modify their plugins and themes for their site only (even though the core WordPress files are being shared).</p>
+                    <p>It’s at this point I actually decided to do a Google search to see if anyone else had tried this approach before. I found <a href="http://striderweb.com/nerdaphernalia/features/virtual-multiblog/">this article on Virtual Multiblogs</a> which is based on a similar approach. It looks like he used a bunch of different directories all mapped to one WordPress directory. In the approach I’ve taken, I point everything to the same directory (in the HTTP virtualhost section), and simply rely on the HTTP_HOST/SERVER_NAME that’s sent with each request. In addition, I’m doing the wp-content remapping, which I don’t think was done with the Virtual Multiblogs approach. I also did a bit more, as you’ll see next.</p>
+                    <p>You might be asking why I didn’t just do away with the wp-content directory although, and simply remap it to wp_domains/duanestorey.com — it’s a good question.</p>
+                    <p>There are a few problems with the current approach. First, remapping the wp-content directory often breaks plugins because many plugin developers hardcode the URLs as /wp-content in the code (it’s sloppy, but I’ve done it previously as well). So as soon as you move your wp-content directory, all those plugins start showing errors. Second, some javascript libraries and statistics programs (the popular Mint program, for example) must be installed in the root of the website. With this model, you really wouldn’t want users to mess with any core WordPress files or directories, so they really shouldn’t have access to the root installation. So what do we do?</p>
+                    <p>Well, I came up with a little .htaccess hack such that anything that isn’t found in the core WordPress path is automatically redirected to the domains/WEBSITE_NAME directory. That means if <a href="http://www.migratorynerd.com/test.html">http://www.migratorynerd.com/test.html</a> isn’t found on disk in wp_install/test.html (which is the base WordPress installation, so it definitely won’t be there), the .htaccess redirect will send it to wp_domains/WEBSITE_NAME/test.html (or in my case, wp_domains/duanestorey.com/test.html). The redirect is internal, which means that from the user’s perspective they are really looking at <a href="http://www.migratorynerd.com/test.html">http://www.migratorynerd.com/test.html</a> (but on disk they are actually viewing the file in wp_domains/duanestorey.com/test.html).</p>
+                    <p>This approach should fix most of the plugin problems since it uses URL remapping to trick the website into thinking everything actually is in the <a href="http://somedomain.com/wp-content">http://somedomain.com/wp-content</a> directory, even though there’s nothing really there. It also should allow users to install whatever they want in their directory (mint, javascript, whatever), since anything not actually found in wp_install will redirect to their site-specific domain files in wp_domains.</p>
+                    <p>In fact, once you do the .htaccess change, there’s no need to define WP_CONTENT_URL in wp-config.php anymore, since the htaccess will take care of all of that automagically. So, feel free to remove:</p>
+                    <p><code>define( 'WP_CONTENT_URL', 'http://' . $_SERVER["SERVER_NAME"] . '/domains/' . $website . '/wp-content' );</code></p>
+                    <p>Internally, <a href="http://www.migratorynerd.com/wp-content/themes/duane-apr09/style.css">http://www.migratorynerd.com/wp-content/themes/duane-apr09/style.css</a> is actually mapping to <a href="http://www.migratorynerd.com/domains/duanestorey.com/wp-content/themes/duane-apr09/style.css">http://www.migratorynerd.com/domains/duanestorey.com/wp-content/themes/duane-apr09/style.css</a>, but since .htaccess is hiding all of that, plugins with hardcoded elements should work normally.</p>
+                    <p>I’ve currently moved this website over to this new approach, and will probably move a few more tomorrow and test it out further. Ultimately I can stop backing up whole directories with WordPress installations, and simply backup my wp_domains directory nightly. So far, things appear to be working quite smoothly (even old images that were inserted into posts using relative /wp-content/ URLs work properly thanks to the .htaccess trick).</p>
+                    <p>The current structure of my wp_domains directory is:</p>
+                    <ul>
+                        <li>/duanestorey.com</li>
+                        <li>/duanestorey.com/mint/*</li>
+                        <li>/duanestorey.com/wp-content/*</li>
+                        <li>/duanestorey.com/db.config</li>
+                    </ul>
+                    <p>The .htaccess hack I came up with is below:</p>
+                    <p><code># BEGIN WordPress&lt;br&gt;&lt;/br&gt;&lt;ifmodule mod_rewrite.c=""&gt;&lt;br&gt;&lt;/br&gt;RewriteEngine On&lt;br&gt;&lt;/br&gt;RewriteBase /&lt;/ifmodule&gt;</code></p>
+                    <p>
+                        RewriteCond %{REQUEST_FILENAME} !-f
+                        <br/>
+                        RewriteCond %{REQUEST_URI} !(.*)/$
+                        <br/>
+                        RewriteRule ^(.*)$
+                        <a href="http://%{HTTP\_HOST}/$1/">http://%{HTTP\_HOST}/$1/</a>
+                        [L,R=301]
+                    </p>
+                    <p>
+                        RewriteCond %{REQUEST_FILENAME} !-f
+                        <br/>
+                        RewriteCond %{REQUEST_FILENAME} !-d
+                        <br/>
+                        RewriteRule ^(.*)$ domains/%{HTTP_HOST}/$1 [L]
+                    </p>
+                    <p>
+                        RewriteCond %{REQUEST_FILENAME} !-f
+                        <br/>
+                        RewriteCond %{REQUEST_FILENAME} !-d
+                        <br/>
+                        RewriteRule . /index.php [L]
+                    </p>
+                    <p># END WordPress</p>
+                    <p>I’m by no means a .htaccess expert, so if you see anything wrong with it, please let me know. It seems to be working though (I have Mint working).</p>
+                    <div class="tax"><a href="/posts/category/journal" class="btn btn-secondary btn-sm">journal</a> <a href="/posts/tag/blogs" class="btn btn-secondary btn-sm">blogs</a> <a href="/posts/tag/redirect" class="btn btn-secondary btn-sm">redirect</a> <a href="/posts/tag/single-install" class="btn btn-secondary btn-sm">single install</a> <a href="/posts/tag/sites" class="btn btn-secondary btn-sm">sites</a> <a href="/posts/tag/wordpress" class="btn btn-secondary btn-sm">wordpress</a></div>
+                </div>
+                <div class="comments mt-4 pt-4">
+                    <div id="disqus_thread"></div>
+                </div>
+            </article>
+        </div>
         <footer class="bg-dark pt-4 pb-4 mt-4 mb-4">
             <div class="container text-center text-white">
-                All content copyright &copy; 2024<br>Generated using Crossroads SSG
+                All content copyright &copy; 2024
+                <br>
+                Generated using Crossroads SSG
             </div>
-
             <script defer src="/assets/lumen.min.js?v=8324f89069b1a1a2b1ab64c5713b995a"></script>
-        </footer>   
+        </footer>
     </body>
 </html>

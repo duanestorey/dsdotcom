@@ -6,6 +6,8 @@
 
 namespace CR;
 
+use MallardDuck\HtmlFormatter\Formatter;
+
 class Renderer {
     const HOME = 0;
     const TAXONOMY = 1;
@@ -18,6 +20,8 @@ class Renderer {
     var $menu = false;
     var $theme = false;
     var $startTime = false;
+
+    protected $formatter = null;
     
     public function __construct( $config, $templateEngine, $pluginManager, $menu, $theme ) {
         $this->config = $config;
@@ -27,6 +31,8 @@ class Renderer {
         $this->theme = $theme;
 
         $this->startTime = time();
+
+        $this->formatter = new Formatter();
     }
 
     public function renderSinglePage( $entry, $templateFiles ) {
@@ -41,6 +47,8 @@ class Renderer {
         $templateName = $this->templateEngine->locateTemplate( $templateFiles );
         if ( $templateName ) {
             $renderedHtml = $this->templateEngine->render( $templateName, $params );
+
+            $renderedHtml = $this->formatter->beautify($renderedHtml);
             // check directory
             $info = pathinfo( CROSSROADS_PUBLIC_DIR . $params->content->relUrl );
             if ( $info ) {
@@ -49,6 +57,7 @@ class Renderer {
                 }
             }
 
+           // $renderedHtml = $beautifier->beautify( $renderedHtml );
             file_put_contents( CROSSROADS_PUBLIC_DIR . $params->content->relUrl, $renderedHtml );
 
             LOG( sprintf( _i18n( 'core.class.renderer.output' ), CROSSROADS_PUBLIC_DIR . $params->content->relUrl ), 4, LOG::DEBUG );
@@ -130,13 +139,14 @@ class Renderer {
                         break;
                 }
                
-            
                 $params->content = array_slice( $entries, ( $pagination->currentPage - 1 ) * $contentPerPage, $contentPerPage );
 
                 $params->isHome = $is_home;
                 $params->pagination = $pagination;
+                
 
                 $renderedHtml = $this->templateEngine->render( $templateName, $params );
+                $renderedHtml = $this->formatter->beautify($renderedHtml);
                 file_put_contents( $filename, $renderedHtml );  
 
                 LOG( sprintf( _i18n( 'core.class.renderer.output' ), CROSSROADS_PUBLIC_SLUG . $pagination->curPageLink ), 3, LOG::DEBUG );

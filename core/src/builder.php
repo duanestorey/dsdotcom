@@ -115,7 +115,7 @@ class Builder {
                 foreach( $taxTypes as $taxType ) {
                     $taxTerms = $this->entries->getTaxTerms( $contentType, $taxType );
 
-                    LOG( sprintf( _i18n( 'core.build.generating.tax' ), $contentType ), 1, LOG::INFO );
+                    LOG( sprintf( _i18n( 'core.build.generating.tax' ), $contentType . '/' . $taxType ), 1, LOG::INFO );
 
                     Utils::mkdir( CROSSROADS_PUBLIC_DIR . '/' . $contentType . '/' . $taxType );
 

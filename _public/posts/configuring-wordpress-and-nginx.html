@@ -5,19 +5,16 @@
         <title>Configuring WordPress And Nginx - The Duane Storey</title>
         <link rel="icon" type="image/x-icon" href="/assets/favicon.ico?v=8324f89069b1a1a2b1ab64c5713b995a">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" media="print" onload="this.media='all'">
-
         <meta charset="utf-8">
         <meta name="generator" content="Crossroads 1.0">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
         <link rel="canonical" href="https://duanestorey.com/posts/configuring-wordpress-and-nginx.html">
-
         <meta name="description" content="After my recent mention on Reddit last week, I decided to try and improve the responsiveness of my little DigitalOcean VPS">
         <meta name="og:description" content="After my recent mention on Reddit last week, I decided to try and improve the responsiveness of my little DigitalOcean VPS">
         <meta property="og:title" content="Configuring WordPress And Nginx - The Duane Storey">
         <meta property="og:url" content="https://duanestorey.com/posts/configuring-wordpress-and-nginx.html">
         <meta property="og:type" content="article">
-        <meta name="twitter:card" content="summary_large_image">   
+        <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:title" content="Configuring WordPress And Nginx - The Duane Storey">
         <meta name="twitter:description" content="After my recent mention on Reddit last week, I decided to try and improve the responsiveness of my little DigitalOcean VPS">
         <meta name="twitter:creator" content="@duanestorey">
@@ -25,72 +22,49 @@
         <meta property="og:image" content="https://duanestorey.com/assets/posts/2013/configuring-wordpress-and-nginx-featured.jpg">
         <meta property="og:image:width" content="2560">
         <meta property="og:image:height" content="1920">
-
     </head>
     <body class="posts posts-configuring-wordpress-and-nginx">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" href="/">The Duane Storey</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <div class="navbar-nav">
-                        <a class="nav-item nav-link" href="/">Home</a>
-                        <a class="nav-item nav-link" href="/hiking.html">Hiking</a>
-                        <a class="nav-item nav-link" href="/building-a-custom-hi-fi-5-1-amplifier-with-dts-dolby-decoding.html">Hi-Fi Amp</a>
-                        <a class="nav-item nav-link" href="/curriculum-vitae.html">CV</a>
-                        <a class="nav-item nav-link" href="/about.html">About</a>
-                        <a class="nav-item nav-link" href="/contact.html">Contact</a>
-                    </div>
-
+                    <div class="navbar-nav"><a class="nav-item nav-link" href="/">Home</a> <a class="nav-item nav-link" href="/hiking.html">Hiking</a> <a class="nav-item nav-link" href="/building-a-custom-hi-fi-5-1-amplifier-with-dts-dolby-decoding.html">Hi-Fi Amp</a> <a class="nav-item nav-link" href="/curriculum-vitae.html">CV</a> <a class="nav-item nav-link" href="/about.html">About</a> <a class="nav-item nav-link" href="/contact.html">Contact</a></div>
                     <ul class="navbar-nav d-flex flex-row">
-                        <li class="nav-item me-3 me-lg-0">
-                            <a class="nav-link" rel="nofollow" href="https://x.com/duanestorey" aria-label="Twitter">
-                                <i class="fa-brands fa-x-twitter text-white"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item me-3 me-lg-0">
-                            <a class="nav-link" rel="nofollow" href="https://instagram.com/duanestorey" aria-label="Instagram">
-                                <i class="fa-brands fa-instagram text-white"></i>
-                            </a>
-                        </li>
-                            <li class="nav-item me-3 me-lg-0">
-                            <a class="nav-link" rel="nofollow" href="https://bsky.app/profile/duanestorey.com" aria-label="Bluesky">
-                                <i class="fa-brands fa-bluesky text-white"></i>
-                            </a>
-                        </li>
+                        <li class="nav-item me-3 me-lg-0"><a class="nav-link" rel="nofollow" href="https://x.com/duanestorey" aria-label="Twitter"><i class="fa-brands fa-x-twitter text-white"></i></a></li>
+                        <li class="nav-item me-3 me-lg-0"><a class="nav-link" rel="nofollow" href="https://instagram.com/duanestorey" aria-label="Instagram"><i class="fa-brands fa-instagram text-white"></i></a></li>
+                        <li class="nav-item me-3 me-lg-0"><a class="nav-link" rel="nofollow" href="https://bsky.app/profile/duanestorey.com" aria-label="Bluesky"><i class="fa-brands fa-bluesky text-white"></i></a></li>
                     </ul>
                 </div>
             </div>
         </nav>
-
-
-    <div class="container mt-4">
-        <article>    
-            <h1 class="mt-4">Configuring WordPress And Nginx</h1>
-            <div class="meta mb-2 text-primary fs-6 fw-light">
-                Published on <time>October 16th, 2013</time> &middot; <span>4 minutes to read</span>
-            </div>
-
-            <div class="content mt-3">
+        <div class="container mt-4">
+            <article>
+                <h1 class="mt-4">Configuring WordPress And Nginx</h1>
+                <div class="meta mb-2 text-primary fs-6 fw-light">
+                    Published on
+                    <time>October 16th, 2013</time>
+                    &middot;
+                    <span>4 minutes to read</span>
+                </div>
+                <div class="content mt-3">
                     <div class="featured mt-4 mb-4">
                         <picture>
-                                <source media="(max-width: 320px)" srcset="/assets/posts/2013/configuring-wordpress-and-nginx-featured-320w.jpg">
-                                <source media="(max-width: 480px)" srcset="/assets/posts/2013/configuring-wordpress-and-nginx-featured-480w.jpg">
-                                <source media="(max-width: 640px)" srcset="/assets/posts/2013/configuring-wordpress-and-nginx-featured-640w.jpg">
-                                <source media="(max-width: 960px)" srcset="/assets/posts/2013/configuring-wordpress-and-nginx-featured-960w.jpg">
-                                <source media="(max-width: 1360px)" srcset="/assets/posts/2013/configuring-wordpress-and-nginx-featured-1360w.jpg">
-                                <source media="(max-width: 1600px)" srcset="/assets/posts/2013/configuring-wordpress-and-nginx-featured-1600w.jpg">
-                                <source media="(min-width: 1601px)" srcset="/assets/posts/2013/configuring-wordpress-and-nginx-featured.jpg">
+                            <source media="(max-width: 320px)" srcset="/assets/posts/2013/configuring-wordpress-and-nginx-featured-320w.jpg">
+                            <source media="(max-width: 480px)" srcset="/assets/posts/2013/configuring-wordpress-and-nginx-featured-480w.jpg">
+                            <source media="(max-width: 640px)" srcset="/assets/posts/2013/configuring-wordpress-and-nginx-featured-640w.jpg">
+                            <source media="(max-width: 960px)" srcset="/assets/posts/2013/configuring-wordpress-and-nginx-featured-960w.jpg">
+                            <source media="(max-width: 1360px)" srcset="/assets/posts/2013/configuring-wordpress-and-nginx-featured-1360w.jpg">
+                            <source media="(max-width: 1600px)" srcset="/assets/posts/2013/configuring-wordpress-and-nginx-featured-1600w.jpg">
+                            <source media="(min-width: 1601px)" srcset="/assets/posts/2013/configuring-wordpress-and-nginx-featured.jpg">
                             <img src="/assets/posts/2013/configuring-wordpress-and-nginx-featured.jpg" width="2560" height="1920" alt="Featured Image" class="img-fluid">
                         </picture>
                     </div>
-                                
-                <p>After my <a href="/tips/blogging/how-to-survive-the-reddit-effect/">recent mention on Reddit last week</a>, I decided to try and improve the responsiveness of my little <a href="https://www.digitalocean.com/?refcode=c62a4d3586fc">DigitalOcean VPS</a> even more than it already was. I was definitely happy that I was able to withstand almost 20,000 visitors in just a few hours, but thought I might be able to improve things further by switching from Apache to Nginx.</p>
-<p>I debated it a long time ago, but never made the plunge for a few different reasons. First, I typically used hosting services based on cPanel. From what I gather, cPanel doesn’t really work well with Nginx (or at all), so that was never really an option. And second, I could never quite figure out how to set up WordPress and Nginx properly so that they worked nicely together. It’s slightly more complicated because I often use W3 total cache, and it normally places its configuration into .htaccess for Apache.</p>
-<p>But I finally decided it was time to give it a try – I fired up a new VPS at <a href="https://www.digitalocean.com/?refcode=c62a4d3586fc">DigitalOcean</a> to see if I could get my personal website working with Nginx instead of Apache. After scanning around the internet for a while, I managed to piece together a Nginx configuration that works with WordPress 3.6 as well as W3 Total Cache and my mobile website.</p>
-<pre><code>server {
+                    <p>After my <a href="/tips/blogging/how-to-survive-the-reddit-effect/">recent mention on Reddit last week</a>, I decided to try and improve the responsiveness of my little <a href="https://www.digitalocean.com/?refcode=c62a4d3586fc">DigitalOcean VPS</a> even more than it already was. I was definitely happy that I was able to withstand almost 20,000 visitors in just a few hours, but thought I might be able to improve things further by switching from Apache to Nginx.</p>
+                    <p>I debated it a long time ago, but never made the plunge for a few different reasons. First, I typically used hosting services based on cPanel. From what I gather, cPanel doesn’t really work well with Nginx (or at all), so that was never really an option. And second, I could never quite figure out how to set up WordPress and Nginx properly so that they worked nicely together. It’s slightly more complicated because I often use W3 total cache, and it normally places its configuration into .htaccess for Apache.</p>
+                    <p>But I finally decided it was time to give it a try – I fired up a new VPS at <a href="https://www.digitalocean.com/?refcode=c62a4d3586fc">DigitalOcean</a> to see if I could get my personal website working with Nginx instead of Apache. After scanning around the internet for a while, I managed to piece together a Nginx configuration that works with WordPress 3.6 as well as W3 Total Cache and my mobile website.</p>
+<pre>
+<code>server {
         server_name  www.migratorynerd.com migratorynerd.com;
         listen 80;
         index index.php index.html index.htm;
@@ -146,46 +120,39 @@
         location ~* .(ogg|ogv|svg|svgz|eot|otf|woff|mp4|ttf|css|rss|atom|js|jpg|jpeg|gif|png|ico|zip|tgz|gz|rar|bz2|doc|xls|exe|ppt|tar|mid|midi|wav|bmp|rtf)$ {
                expires max; log_not_found off; access_log off;
         }
-}</code></pre>
-<p>Feel free to cut and paste this file and use it on your own WordPress website (with your own modifications obviously) if you’re setting up Nginx at any point in time. There are a couple lines in this file that I want to discuss a bit further.</p>
-<ol>
-<li><em>access_log off;</em> – I can’t remember the last time I looked in any detail at my access log. Between Google Analytics and Google Webmaster Tools I get a good sense of all the traffic on my website. So I figured I might as well disable access logging to save CPU cycles as well as disk space on my VPS. I left the error log in place, since I definitely take a look at that periodically.</li>
-<li><em>gzip on;</em> – This section enables GZIP compression for common text formats such as CSS and Javascript</li>
-<li><em>fastcgi_buffer_size 128k;</em> – I set up Nginx to work with php-fpm, which is how must tutorials recommend having Nginx and PHP work together. As soon as I got my site working though, I noticed most of my HTML pages were truncated at the bottom. I eventually tracked it down to these two parameters, since apparently there wasn’t enough memory being passed back and forth between Nginx and PHP, which caused some of it to get lost. Adding these parameters fixed it.</li>
-</ol>
-<p>There’s also a small bit of logic in the nginx server configuration file above with regards to user-agents – this is code that makes W3 play nicely with mobile plugins such as the <a href="http://www.bravenewcode.com/wptouch/">WPtouch Mobile WordPress plugin</a>. You can read more about setting up <a href="http://www.bravenewcode.com/wptouch/optimizing-nginx-cache-wptouch-pro-3/">WPtouch with Nginx</a>.</p>
-<h3>Testing With W3 Total Cache</h3>
-<p>Once you have it all set up and working, it’s a good idea to check to make sure that W3 is serving cached files. The best way to check this is to open up your website in a browser and make sure you are logged out (W3 usually doesn’t cache pages for logged-in users). After viewing the website, open up the page source and scroll to the bottom. You should see something like this.</p>
-<pre><code>
- Served from: www.migratorynerd.com @ 2013-10-16 16:49:32 by W3 Total Cache --&gt;</code></pre>
-<p>The date and time is what you are ultimately looking for. Now refresh the entire page again in the browser, and view the page source again. If the date and time stayed the same, Nginx just served the cached W3 page directly from disk and everything is set up correctly. If the date and time changes, it’s likely you have a configuration problem in the Nginx config file, probably with the path to the W3 files.</p>
-<h3>Final Thoughts</h3>
-<p>All in all it wasn’t very hard to set up Nginx, and I’m glad I finally made the switch. In all honesty now that I’m used to it, I find configuring Nginx to be simpler in general than Apache. I always thought configuring Virtual Hosts in Apache was a bit clunky. The process in Nginx is simply to create a new config file in a particular directory, and it just works.</p>
-<p>I’m glad I finally took the plunge and switch to Nginx. If you’ve been considering it as well, I recommend going for it as it turned out to be simpler than I originally imagined.</p>
-
-                    <div class="tax">
-                        <a href="/posts/category/wordpress" class="btn btn-secondary btn-sm">wordpress</a>
-                        <a href="/posts/tag/hosting" class="btn btn-secondary btn-sm">hosting</a>
-                        <a href="/posts/tag/nginx" class="btn btn-secondary btn-sm">nginx</a>
-                        <a href="/posts/tag/php" class="btn btn-secondary btn-sm">php</a>
-                        <a href="/posts/tag/servers" class="btn btn-secondary btn-sm">servers</a>
-                        <a href="/posts/tag/wordpress" class="btn btn-secondary btn-sm">wordpress</a>
-                    </div>
-            </div>
-
-            <div class="comments mt-4 pt-4">
-                <div id="disqus_thread"></div>
-            </div>
-        </article>  
-    </div>
-
-
+}</code>
+</pre>
+                    <p>Feel free to cut and paste this file and use it on your own WordPress website (with your own modifications obviously) if you’re setting up Nginx at any point in time. There are a couple lines in this file that I want to discuss a bit further.</p>
+                    <ol>
+                        <li><em>access_log off;</em> – I can’t remember the last time I looked in any detail at my access log. Between Google Analytics and Google Webmaster Tools I get a good sense of all the traffic on my website. So I figured I might as well disable access logging to save CPU cycles as well as disk space on my VPS. I left the error log in place, since I definitely take a look at that periodically.</li>
+                        <li><em>gzip on;</em> – This section enables GZIP compression for common text formats such as CSS and Javascript</li>
+                        <li><em>fastcgi_buffer_size 128k;</em> – I set up Nginx to work with php-fpm, which is how must tutorials recommend having Nginx and PHP work together. As soon as I got my site working though, I noticed most of my HTML pages were truncated at the bottom. I eventually tracked it down to these two parameters, since apparently there wasn’t enough memory being passed back and forth between Nginx and PHP, which caused some of it to get lost. Adding these parameters fixed it.</li>
+                    </ol>
+                    <p>There’s also a small bit of logic in the nginx server configuration file above with regards to user-agents – this is code that makes W3 play nicely with mobile plugins such as the <a href="http://www.bravenewcode.com/wptouch/">WPtouch Mobile WordPress plugin</a>. You can read more about setting up <a href="http://www.bravenewcode.com/wptouch/optimizing-nginx-cache-wptouch-pro-3/">WPtouch with Nginx</a>.</p>
+                    <h3>Testing With W3 Total Cache</h3>
+                    <p>Once you have it all set up and working, it’s a good idea to check to make sure that W3 is serving cached files. The best way to check this is to open up your website in a browser and make sure you are logged out (W3 usually doesn’t cache pages for logged-in users). After viewing the website, open up the page source and scroll to the bottom. You should see something like this.</p>
+<pre>
+<code>
+ Served from: www.migratorynerd.com @ 2013-10-16 16:49:32 by W3 Total Cache --&gt;</code>
+</pre>
+                    <p>The date and time is what you are ultimately looking for. Now refresh the entire page again in the browser, and view the page source again. If the date and time stayed the same, Nginx just served the cached W3 page directly from disk and everything is set up correctly. If the date and time changes, it’s likely you have a configuration problem in the Nginx config file, probably with the path to the W3 files.</p>
+                    <h3>Final Thoughts</h3>
+                    <p>All in all it wasn’t very hard to set up Nginx, and I’m glad I finally made the switch. In all honesty now that I’m used to it, I find configuring Nginx to be simpler in general than Apache. I always thought configuring Virtual Hosts in Apache was a bit clunky. The process in Nginx is simply to create a new config file in a particular directory, and it just works.</p>
+                    <p>I’m glad I finally took the plunge and switch to Nginx. If you’ve been considering it as well, I recommend going for it as it turned out to be simpler than I originally imagined.</p>
+                    <div class="tax"><a href="/posts/category/wordpress" class="btn btn-secondary btn-sm">wordpress</a> <a href="/posts/tag/hosting" class="btn btn-secondary btn-sm">hosting</a> <a href="/posts/tag/nginx" class="btn btn-secondary btn-sm">nginx</a> <a href="/posts/tag/php" class="btn btn-secondary btn-sm">php</a> <a href="/posts/tag/servers" class="btn btn-secondary btn-sm">servers</a> <a href="/posts/tag/wordpress" class="btn btn-secondary btn-sm">wordpress</a></div>
+                </div>
+                <div class="comments mt-4 pt-4">
+                    <div id="disqus_thread"></div>
+                </div>
+            </article>
+        </div>
         <footer class="bg-dark pt-4 pb-4 mt-4 mb-4">
             <div class="container text-center text-white">
-                All content copyright &copy; 2024<br>Generated using Crossroads SSG
+                All content copyright &copy; 2024
+                <br>
+                Generated using Crossroads SSG
             </div>
-
             <script defer src="/assets/lumen.min.js?v=8324f89069b1a1a2b1ab64c5713b995a"></script>
-        </footer>   
+        </footer>
     </body>
 </html>

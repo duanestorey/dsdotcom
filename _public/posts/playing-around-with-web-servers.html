@@ -5,106 +5,68 @@
         <title>Playing Around With Web Servers - The Duane Storey</title>
         <link rel="icon" type="image/x-icon" href="/assets/favicon.ico?v=8324f89069b1a1a2b1ab64c5713b995a">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" media="print" onload="this.media='all'">
-
         <meta charset="utf-8">
         <meta name="generator" content="Crossroads 1.0">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
         <link rel="canonical" href="https://duanestorey.com/posts/playing-around-with-web-servers.html">
-
         <meta name="description" content="Obviously I’ve been spending a bit of time tweaking Apache such that it is well optimized for working in a VPS environment.">
         <meta name="og:description" content="Obviously I’ve been spending a bit of time tweaking Apache such that it is well optimized for working in a VPS environment.">
         <meta property="og:title" content="Playing Around With Web Servers - The Duane Storey">
         <meta property="og:url" content="https://duanestorey.com/posts/playing-around-with-web-servers.html">
         <meta property="og:type" content="article">
-        <meta name="twitter:card" content="summary_large_image">   
+        <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:title" content="Playing Around With Web Servers - The Duane Storey">
         <meta name="twitter:description" content="Obviously I’ve been spending a bit of time tweaking Apache such that it is well optimized for working in a VPS environment.">
         <meta name="twitter:creator" content="@duanestorey">
-
     </head>
     <body class="posts posts-playing-around-with-web-servers">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" href="/">The Duane Storey</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <div class="navbar-nav">
-                        <a class="nav-item nav-link" href="/">Home</a>
-                        <a class="nav-item nav-link" href="/hiking.html">Hiking</a>
-                        <a class="nav-item nav-link" href="/building-a-custom-hi-fi-5-1-amplifier-with-dts-dolby-decoding.html">Hi-Fi Amp</a>
-                        <a class="nav-item nav-link" href="/curriculum-vitae.html">CV</a>
-                        <a class="nav-item nav-link" href="/about.html">About</a>
-                        <a class="nav-item nav-link" href="/contact.html">Contact</a>
-                    </div>
-
+                    <div class="navbar-nav"><a class="nav-item nav-link" href="/">Home</a> <a class="nav-item nav-link" href="/hiking.html">Hiking</a> <a class="nav-item nav-link" href="/building-a-custom-hi-fi-5-1-amplifier-with-dts-dolby-decoding.html">Hi-Fi Amp</a> <a class="nav-item nav-link" href="/curriculum-vitae.html">CV</a> <a class="nav-item nav-link" href="/about.html">About</a> <a class="nav-item nav-link" href="/contact.html">Contact</a></div>
                     <ul class="navbar-nav d-flex flex-row">
-                        <li class="nav-item me-3 me-lg-0">
-                            <a class="nav-link" rel="nofollow" href="https://x.com/duanestorey" aria-label="Twitter">
-                                <i class="fa-brands fa-x-twitter text-white"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item me-3 me-lg-0">
-                            <a class="nav-link" rel="nofollow" href="https://instagram.com/duanestorey" aria-label="Instagram">
-                                <i class="fa-brands fa-instagram text-white"></i>
-                            </a>
-                        </li>
-                            <li class="nav-item me-3 me-lg-0">
-                            <a class="nav-link" rel="nofollow" href="https://bsky.app/profile/duanestorey.com" aria-label="Bluesky">
-                                <i class="fa-brands fa-bluesky text-white"></i>
-                            </a>
-                        </li>
+                        <li class="nav-item me-3 me-lg-0"><a class="nav-link" rel="nofollow" href="https://x.com/duanestorey" aria-label="Twitter"><i class="fa-brands fa-x-twitter text-white"></i></a></li>
+                        <li class="nav-item me-3 me-lg-0"><a class="nav-link" rel="nofollow" href="https://instagram.com/duanestorey" aria-label="Instagram"><i class="fa-brands fa-instagram text-white"></i></a></li>
+                        <li class="nav-item me-3 me-lg-0"><a class="nav-link" rel="nofollow" href="https://bsky.app/profile/duanestorey.com" aria-label="Bluesky"><i class="fa-brands fa-bluesky text-white"></i></a></li>
                     </ul>
                 </div>
             </div>
         </nav>
-
-
-    <div class="container mt-4">
-        <article>    
-            <h1 class="mt-4">Playing Around With Web Servers</h1>
-            <div class="meta mb-2 text-primary fs-6 fw-light">
-                Published on <time>March 9th, 2009</time> &middot; <span>3 minutes to read</span>
-            </div>
-
-            <div class="content mt-3">
-                
-                <p>Obviously I’ve been spending a bit of time tweaking Apache such that it is well optimized for working in a VPS environment. Truthfully though, Apache is a major resource hog. To be honest, I really can’t comprehend what it’s doing with all that memory it seems to hoard. One of the other major downsides to Apache is that it forks additional processes to handle server load, and processes are rather heavy (at least when compared to user threads).</p>
-<p>Since I haven’t touched any C++ in about two months, I thought I’d try my hand at writing a quick web server to see if I can better understand some of problems. For now, I’m leveraging boost for all the threading, and just using simple select now for all the socket communication (I understand the limitations of select, and will probably move things to boost::asio when it’s all done).</p>
-<p>I originally wrote it using a half-async pattern, but found that I was having problems getting the threading the way I wanted without having lock contention going on between threads. So I’ve pretty much abandoned that in favor of a fully asynchronous architecture, which is trickier to handle but ultimately gets rid of nearly all of the locks. I still haven’t really figured out the best way to handle memory, but obviously some type of pool is going to be required for high efficiency. One of the areas I spent a lot of time with at my last job was optimizing code for speed, so I’m hoping I can bring some of that to the web space problem as well.</p>
-<p>In terms of the actual server, right now there’s a main thread handling all the dispatching and communications, and a pool of worker threads handling the actual web traffic. It’s a typical web traffic architecture, and I plan to pick it apart when I’m done to see if it actually makes sense.</p>
-<p>In about four hours in front of the TV yesterday I managed to get the web server (affectionately called Webby right now) to serve static content. I’m using four threads right now for the worker pool, but it’s completely configurable (I’m guessing around four threads per core is probably ideal). Once I had that working, I decided to take a stab at getting PHP code to work. I did some basic stress testing at this point (no point in continuing if I can’t blow Apache away). I did 10,000 requests for static content using Apache, and 10,000 requests for the same content using Webby. Apache took 42.5 seconds to serve a static HTML file over the LAN, which amounts to around 235 individual requests per second. Webby did it in about 3.28 seconds.</p>
-<p>Apache has an distinct advantage because PHP can be built as a module for it, basically loading PHP into Apache. Given that this is just something I’m doing for fun, I don’t really want to spend the time doing that at this point. So my only options at this point are to drop to the OS and execute PHP, or execute it as a CGI. I tried the former, and it was painfully slow. So that basically meant going the CGI route.</p>
-<p>The best way to do CGI is using Fast CGI, which is something I’ve never done before. Basically you open a local socket to a server running PHP, and send it requests to process scripts. I ended up writing a mini Fast CGI library, since I couldn’t find one that was usable. It took me a few hours, but it seems to be working now with PHP.</p>
-<p>I still have a few major optimizations to do before I can test out the PHP part properly (you have to initialize PHP with various variables before WordPress will work properly), but maybe next weekend I can set aside an afternoon and finish it off.</p>
-<p>Apache’s major detriment is that it’s such a memory hog. Without a doubt, one of the major advantages to Webby in a low memory environment is that it won’t start trashing into swap space as soon as Apache will. I also will be able to adjust the stack size per thread (something that I haven’t done yet), so conceivably I could get the memory foot print even lower (although right now Webby is using around 1.5 MB of memory, whereas Apache is using around 120 MB I believe).</p>
-
-                    <div class="tax">
-                        <a href="/posts/category/journal" class="btn btn-secondary btn-sm">journal</a>
-                        <a href="/posts/tag/apache" class="btn btn-secondary btn-sm">apache</a>
-                        <a href="/posts/tag/fun" class="btn btn-secondary btn-sm">fun</a>
-                        <a href="/posts/tag/threads" class="btn btn-secondary btn-sm">threads</a>
-                        <a href="/posts/tag/web-server" class="btn btn-secondary btn-sm">web server</a>
-                        <a href="/posts/tag/webby" class="btn btn-secondary btn-sm">webby</a>
-                        <a href="/posts/tag/wordpress" class="btn btn-secondary btn-sm">wordpress</a>
-                    </div>
-            </div>
-
-            <div class="comments mt-4 pt-4">
-                <div id="disqus_thread"></div>
-            </div>
-        </article>  
-    </div>
-
-
+        <div class="container mt-4">
+            <article>
+                <h1 class="mt-4">Playing Around With Web Servers</h1>
+                <div class="meta mb-2 text-primary fs-6 fw-light">
+                    Published on
+                    <time>March 9th, 2009</time>
+                    &middot;
+                    <span>3 minutes to read</span>
+                </div>
+                <div class="content mt-3">
+                    <p>Obviously I’ve been spending a bit of time tweaking Apache such that it is well optimized for working in a VPS environment. Truthfully though, Apache is a major resource hog. To be honest, I really can’t comprehend what it’s doing with all that memory it seems to hoard. One of the other major downsides to Apache is that it forks additional processes to handle server load, and processes are rather heavy (at least when compared to user threads).</p>
+                    <p>Since I haven’t touched any C++ in about two months, I thought I’d try my hand at writing a quick web server to see if I can better understand some of problems. For now, I’m leveraging boost for all the threading, and just using simple select now for all the socket communication (I understand the limitations of select, and will probably move things to boost::asio when it’s all done).</p>
+                    <p>I originally wrote it using a half-async pattern, but found that I was having problems getting the threading the way I wanted without having lock contention going on between threads. So I’ve pretty much abandoned that in favor of a fully asynchronous architecture, which is trickier to handle but ultimately gets rid of nearly all of the locks. I still haven’t really figured out the best way to handle memory, but obviously some type of pool is going to be required for high efficiency. One of the areas I spent a lot of time with at my last job was optimizing code for speed, so I’m hoping I can bring some of that to the web space problem as well.</p>
+                    <p>In terms of the actual server, right now there’s a main thread handling all the dispatching and communications, and a pool of worker threads handling the actual web traffic. It’s a typical web traffic architecture, and I plan to pick it apart when I’m done to see if it actually makes sense.</p>
+                    <p>In about four hours in front of the TV yesterday I managed to get the web server (affectionately called Webby right now) to serve static content. I’m using four threads right now for the worker pool, but it’s completely configurable (I’m guessing around four threads per core is probably ideal). Once I had that working, I decided to take a stab at getting PHP code to work. I did some basic stress testing at this point (no point in continuing if I can’t blow Apache away). I did 10,000 requests for static content using Apache, and 10,000 requests for the same content using Webby. Apache took 42.5 seconds to serve a static HTML file over the LAN, which amounts to around 235 individual requests per second. Webby did it in about 3.28 seconds.</p>
+                    <p>Apache has an distinct advantage because PHP can be built as a module for it, basically loading PHP into Apache. Given that this is just something I’m doing for fun, I don’t really want to spend the time doing that at this point. So my only options at this point are to drop to the OS and execute PHP, or execute it as a CGI. I tried the former, and it was painfully slow. So that basically meant going the CGI route.</p>
+                    <p>The best way to do CGI is using Fast CGI, which is something I’ve never done before. Basically you open a local socket to a server running PHP, and send it requests to process scripts. I ended up writing a mini Fast CGI library, since I couldn’t find one that was usable. It took me a few hours, but it seems to be working now with PHP.</p>
+                    <p>I still have a few major optimizations to do before I can test out the PHP part properly (you have to initialize PHP with various variables before WordPress will work properly), but maybe next weekend I can set aside an afternoon and finish it off.</p>
+                    <p>Apache’s major detriment is that it’s such a memory hog. Without a doubt, one of the major advantages to Webby in a low memory environment is that it won’t start trashing into swap space as soon as Apache will. I also will be able to adjust the stack size per thread (something that I haven’t done yet), so conceivably I could get the memory foot print even lower (although right now Webby is using around 1.5 MB of memory, whereas Apache is using around 120 MB I believe).</p>
+                    <div class="tax"><a href="/posts/category/journal" class="btn btn-secondary btn-sm">journal</a> <a href="/posts/tag/apache" class="btn btn-secondary btn-sm">apache</a> <a href="/posts/tag/fun" class="btn btn-secondary btn-sm">fun</a> <a href="/posts/tag/threads" class="btn btn-secondary btn-sm">threads</a> <a href="/posts/tag/web-server" class="btn btn-secondary btn-sm">web server</a> <a href="/posts/tag/webby" class="btn btn-secondary btn-sm">webby</a> <a href="/posts/tag/wordpress" class="btn btn-secondary btn-sm">wordpress</a></div>
+                </div>
+                <div class="comments mt-4 pt-4">
+                    <div id="disqus_thread"></div>
+                </div>
+            </article>
+        </div>
         <footer class="bg-dark pt-4 pb-4 mt-4 mb-4">
             <div class="container text-center text-white">
-                All content copyright &copy; 2024<br>Generated using Crossroads SSG
+                All content copyright &copy; 2024
+                <br>
+                Generated using Crossroads SSG
             </div>
-
             <script defer src="/assets/lumen.min.js?v=8324f89069b1a1a2b1ab64c5713b995a"></script>
-        </footer>   
+        </footer>
     </body>
 </html>
