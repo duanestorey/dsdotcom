@@ -10,8 +10,8 @@ class ImageProcessor {
     public function __construct( $config ) {   
         $this->config = $config;
 
-        $this->convertToWebp = $config->get( 'images.convert_to_webp' );
-        $this->generateResponsive = $config->get( 'images.generate_responsive' ); 
+        $this->convertToWebp = $config->get( 'options.images.convert_to_webp' );
+        $this->generateResponsive = $config->get( 'options.images.generate_responsive' ); 
     }
 
     public function processImage( $content, $imageFile ) {

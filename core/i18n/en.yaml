@@ -96,3 +96,11 @@ plugins:
 errors:
   no_command: "No method exists for command [%s]"
   arg_not_understood: "Argument not understoof [%s]"
+seo:
+  home: "%s - %s"
+  home_paged: "Page %d of %d - %s"
+  content_home: "Reading '%s' - %s"
+  content_paged: "Reading '%s', Page %d of %d - %s"
+  taxonomy_home: "%s Archives for '%s' - %s"
+  taxonomy_paged: "%s Archives for '%s', Page %d of %d - %s"
+  

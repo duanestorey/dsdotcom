@@ -115,9 +115,9 @@ class Renderer {
                 switch( $pageType ) {
                     case Renderer::HOME:
                         if ( $pagination->currentPage == 1 ) {
-                            $params->page->title = sprintf( '%s - %s', $this->config->get( 'site.name' ), $this->config->get( 'site.description' ) ); 
+                            $params->page->title = sprintf( _i18n( 'seo.home' ), $this->config->get( 'site.name' ), $this->config->get( 'site.description' ) ); 
                         } else {
-                            $params->page->title = sprintf( 'Page %d of %d - %s', $pagination->currentPage, $pagination->totalPages, $this->config->get( 'site.name' ) ); 
+                            $params->page->title = sprintf( _i18n( 'seo.home_paged' ), $pagination->currentPage, $pagination->totalPages, $this->config->get( 'site.name' ) ); 
                         }
                         
                         $params->page->description = $this->config->get( 'site.home_description' ); 
@@ -125,22 +125,22 @@ class Renderer {
                         break;
                     case Renderer::CONTENT:
                         if ( $pagination->currentPage == 1 ) {
-                            $params->page->title = sprintf( "Reading '%s' - %s", ucwords( $contentType ), $this->config->get( 'site.name' ) ); 
+                            $params->page->title = sprintf( _i18n( 'seo.content_home' ), ucwords( $contentType ), $this->config->get( 'site.name' ) ); 
                         } else {
-                            $params->page->title = sprintf( "Reading '%s', Page %d of %d - %s", ucwords( $contentType ), $pagination->currentPage, $pagination->totalPages, $this->config->get( 'site.name' ) ); 
+                            $params->page->title = sprintf( _i18n( 'seo.content_paged' ), ucwords( $contentType ), $pagination->currentPage, $pagination->totalPages, $this->config->get( 'site.name' ) ); 
                         }
 
-                        $params->page->description = sprintf( "Reading '%s' - %s", ucwords( $contentType ), $this->config->get( 'site.description' ) ); 
+                        $params->page->description = sprintf( _i18n( 'seo.content_home' ), ucwords( $contentType ), $this->config->get( 'site.description' ) ); 
 
                         break;
                     case Renderer::TAXONOMY:
                         if ( $pagination->currentPage == 1 ) {
-                            $params->page->title = sprintf( "%s Archives for '%s' - %s", ucwords( $pageTax ), ucwords( $pageTerm ), $this->config->get( 'site.name' ) ); 
+                            $params->page->title = sprintf( _i18n( 'seo.taxonomy_home' ), ucwords( $pageTax ), ucwords( $pageTerm ), $this->config->get( 'site.name' ) ); 
                         } else {
-                            $params->page->title = sprintf( "%s Archives for '%s', Page %d of %d - %s", ucwords( $pageTax ), ucwords( $pageTerm ), $pagination->currentPage, $pagination->totalPages, $this->config->get( 'site.name' ) ); 
+                            $params->page->title = sprintf( _i18n( 'seo.taxonomy_paged' ), ucwords( $pageTax ), ucwords( $pageTerm ), $pagination->currentPage, $pagination->totalPages, $this->config->get( 'site.name' ) ); 
                         }
 
-                        $params->page->description = sprintf( "%s Archives for '%s' - %s", ucwords( $pageTax ), ucwords( $pageTerm ), $this->config->get( 'site.description' ) ); 
+                        $params->page->description = sprintf( _i18n( 'seo.taxonomy_home' ), ucwords( $pageTax ), ucwords( $pageTerm ), $this->config->get( 'site.description' ) ); 
                        
                         break;
                 }

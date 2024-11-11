@@ -38,7 +38,7 @@ options:
     auto: false
     open_command: "open %s"
   beautify_html: true;
-images:
-  convert_to_webp: false
-  generate_responsive: true
+  images:
+    convert_to_webp: false
+    generate_responsive: true
 
