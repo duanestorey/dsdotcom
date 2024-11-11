@@ -41,4 +41,9 @@ options:
   images:
     convert_to_webp: false
     generate_responsive: true
+  build:
+    default:
+      beautify_html: false
+    production:
+      beautify_html: true
 

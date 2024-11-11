@@ -261,7 +261,7 @@ class Engine {
         $contentType = $this->_newGetContentType( $contentSingular );
         
         if ( $contentType ) {
-            LOG( sprintf( _i18n( 'core.build.processing.content' ), $contentSingular ), 1, LOG::INFO );
+            LOG( sprintf( _i18n( 'core.new.content' ), $contentSingular ), 1, LOG::INFO );
             echo "  " . _i18n( 'core.new.title' );
             $s = readline();
 
@@ -275,7 +275,7 @@ class Engine {
                 $content .= "slug: \"" . $slug . "\"\n";
 
                 $taxonomies = $this->config->get( 'content.' . $contentType . '.taxonomy', [] );
-                foreach( $taxonomies as $tax ) {
+                foreach( $taxonomies as $tax => $taxInfo ) {
                     $content .= $tax . ":\n";
                 }
 

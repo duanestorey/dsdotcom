@@ -112,8 +112,10 @@ class ImageProcessor {
             imagedestroy( $imageData );
             return true;
         } else {
-            LOG( "Unable to load image [" . $sourceImage . "]", 2, LOG::WARNING );
-            return false;
+            LOG( "Unable to process image, performing copy [" . $sourceImage . "]", 2, LOG::WARNING );
+            Utils::copyFile( $sourceImage, $destinationImage );
+
+            return true;
         }
 
         return false;
