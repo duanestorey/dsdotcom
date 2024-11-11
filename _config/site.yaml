@@ -3,7 +3,7 @@ site:
   url: 'https://duanestorey.com'
   description: 'The home of engineer and world traveller, Duane Storey'
   home_description: 'Duane Storey is a an entrepreneur who has develped software used by over 40 million people'
-  theme: "simple-child"
+  theme: "lumen-child"
   lang: "en"
   charset: "utf-8"
   home: "posts"
