@@ -187,6 +187,10 @@ class Engine {
         if ( !file_exists( CROSSROADS_BASE_DIR . '/.gitignore' ) ) {
             // write git file
             $gitContents = "vendor\n";
+            $gitContents = "_logs\n";
+            $gitContents = ".DS_Store\n";
+            $gitContents = "**/.DS_Store\n";
+            
             file_put_contents( CROSSROADS_BASE_DIR . '/.gitignore', $gitContents );
         }
 
