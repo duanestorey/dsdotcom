@@ -50,10 +50,11 @@ class Upgrade {
                         $allFiles = Utils::findAllFilesWithExtension( $unzipDirectory . '/core', [ 'php', 'yaml', 'latte', 'css', 'js', 'scss', 'sql', 'avif', 'webp', 'ico' ] );
                         foreach( $allFiles as $oneFile ) {
                             $relFile = str_replace( $unzipDirectory . '/', '', $oneFile );
-                            //echo $relFile . "\n";
                             $destFile = CROSSROADS_BASE_DIR . '/' . $relFile;
 
                             LOG( sprintf( "Copying file [%s] to [%s]", $relFile, $destFile ), 1, LOG::INFO );
+
+                            Utils::copyFile( $oneFile, $destFile );
                         }
 
                         LOG( _i18n( 'core.class.upgrade.composer' ), 2, LOG::INFO );
