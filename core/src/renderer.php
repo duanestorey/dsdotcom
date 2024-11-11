@@ -32,7 +32,9 @@ class Renderer {
 
         $this->startTime = time();
 
-        $this->formatter = new Formatter();
+        if ( $this->config->get( 'options.beautify_html' ) ) {
+            $this->formatter = new Formatter();
+        }
     }
 
     public function renderSinglePage( $entry, $templateFiles ) {
@@ -48,7 +50,11 @@ class Renderer {
         if ( $templateName ) {
             $renderedHtml = $this->templateEngine->render( $templateName, $params );
 
-            //$renderedHtml = $this->formatter->beautify($renderedHtml);
+            if ( $this->config->get( 'options.beautify_html' ) ) {
+                $this->formatter = new Formatter();
+                $renderedHtml = $this->formatter->beautify( $renderedHtml );
+            }
+
             // check directory
             $info = pathinfo( CROSSROADS_PUBLIC_DIR . $params->content->relUrl );
             if ( $info ) {
@@ -145,7 +151,12 @@ class Renderer {
                 $params->pagination = $pagination;
                 
                 $renderedHtml = $this->templateEngine->render( $templateName, $params );
-                //$renderedHtml = $this->formatter->beautify($renderedHtml);
+                
+                if ( $this->config->get( 'options.beautify_html' ) ) {
+                    $this->formatter = new Formatter();
+                    $renderedHtml = $this->formatter->beautify( $renderedHtml );
+                }
+                
                 file_put_contents( $filename, $renderedHtml );  
 
                 LOG( sprintf( _i18n( 'core.class.renderer.output' ), CROSSROADS_PUBLIC_SLUG . $pagination->curPageLink ), 3, LOG::DEBUG );

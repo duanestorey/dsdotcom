@@ -5,100 +5,65 @@
         <title>WordPress Trackbacks Explained - The Duane Storey</title>
         <link rel="icon" type="image/x-icon" href="/assets/favicon.ico?v=8324f89069b1a1a2b1ab64c5713b995a">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" media="print" onload="this.media='all'">
-
         <meta charset="utf-8">
         <meta name="generator" content="Crossroads 1.0">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
         <link rel="canonical" href="https://duanestorey.com/posts/trackbacks-explained.html">
-
         <meta name="description" content="Since some of the current readers are new to blogging, I thought I’d spend a bit of time explaining the whole concept">
         <meta name="og:description" content="Since some of the current readers are new to blogging, I thought I’d spend a bit of time explaining the whole concept">
         <meta property="og:title" content="WordPress Trackbacks Explained - The Duane Storey">
         <meta property="og:url" content="https://duanestorey.com/posts/trackbacks-explained.html">
         <meta property="og:type" content="article">
-        <meta name="twitter:card" content="summary_large_image">   
+        <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:title" content="WordPress Trackbacks Explained - The Duane Storey">
         <meta name="twitter:description" content="Since some of the current readers are new to blogging, I thought I’d spend a bit of time explaining the whole concept">
         <meta name="twitter:creator" content="@duanestorey">
-
     </head>
     <body class="posts posts-trackbacks-explained">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" href="/">The Duane Storey</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <div class="navbar-nav">
-                        <a class="nav-item nav-link" href="/">Home</a>
-                        <a class="nav-item nav-link" href="/hiking.html">Hiking</a>
-                        <a class="nav-item nav-link" href="/building-a-custom-hi-fi-5-1-amplifier-with-dts-dolby-decoding.html">Hi-Fi Amp</a>
-                        <a class="nav-item nav-link" href="/curriculum-vitae.html">CV</a>
-                        <a class="nav-item nav-link" href="/about.html">About</a>
-                        <a class="nav-item nav-link" href="/contact.html">Contact</a>
-                    </div>
-
+                    <div class="navbar-nav"><a class="nav-item nav-link" href="/">Home</a> <a class="nav-item nav-link" href="/hiking.html">Hiking</a> <a class="nav-item nav-link" href="/building-a-custom-hi-fi-5-1-amplifier-with-dts-dolby-decoding.html">Hi-Fi Amp</a> <a class="nav-item nav-link" href="/curriculum-vitae.html">CV</a> <a class="nav-item nav-link" href="/about.html">About</a> <a class="nav-item nav-link" href="/contact.html">Contact</a></div>
                     <ul class="navbar-nav d-flex flex-row">
-                        <li class="nav-item me-3 me-lg-0">
-                            <a class="nav-link" rel="nofollow" href="https://x.com/duanestorey" aria-label="Twitter">
-                                <i class="fa-brands fa-x-twitter text-white"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item me-3 me-lg-0">
-                            <a class="nav-link" rel="nofollow" href="https://instagram.com/duanestorey" aria-label="Instagram">
-                                <i class="fa-brands fa-instagram text-white"></i>
-                            </a>
-                        </li>
-                            <li class="nav-item me-3 me-lg-0">
-                            <a class="nav-link" rel="nofollow" href="https://bsky.app/profile/duanestorey.com" aria-label="Bluesky">
-                                <i class="fa-brands fa-bluesky text-white"></i>
-                            </a>
-                        </li>
+                        <li class="nav-item me-3 me-lg-0"><a class="nav-link" rel="nofollow" href="https://x.com/duanestorey" aria-label="Twitter"><i class="fa-brands fa-x-twitter text-white"></i></a></li>
+                        <li class="nav-item me-3 me-lg-0"><a class="nav-link" rel="nofollow" href="https://instagram.com/duanestorey" aria-label="Instagram"><i class="fa-brands fa-instagram text-white"></i></a></li>
+                        <li class="nav-item me-3 me-lg-0"><a class="nav-link" rel="nofollow" href="https://bsky.app/profile/duanestorey.com" aria-label="Bluesky"><i class="fa-brands fa-bluesky text-white"></i></a></li>
                     </ul>
                 </div>
             </div>
         </nav>
-
-
-    <div class="container mt-4">
-        <article>    
-            <h1 class="mt-4">WordPress Trackbacks Explained</h1>
-            <div class="meta mb-2 text-primary fs-6 fw-light">
-                Published on <time>January 23rd, 2007</time> &middot; <span>Less than one minute to read</span>
-            </div>
-
-            <div class="content mt-3">
-                
-                <p>Since some of the current readers are new to blogging, I thought I’d spend a bit of time explaining the whole concept of trackbacks. Trackbacks are sort of an automated form of commenting so that when a blog entry is referenced by another one, this is reflected in the comments of the original blog entry. For example, let’s say I write a blog entry here, and <a href="http://twitchy67.wordpress.com">Clay</a> comes along like the bigshot he is and wants to link to it from his blog. There are two ways he can do it. First, he can link to the actual blog entry itself, which at first seems like a good thing to do if you’re Clay. Unfortunately, if he does that, the only person who will know about that link is Clay and the other three people who read his blog.</p>
-<h3>Trackbacks Explained</h3>
-<p>The right way to do it (at least in the blogging world) is for Clay to reference my trackback URL. If you look in the comment section of most blogs, you’ll usually find some kind of reference to a trackback URL. On my blog, it is right by the comments section, and it looks like this:</p>
-<p>Trackback URL for this post is: <a href="http://www.migratorynerd.com/archives/240/trackback/">http://www.migratorynerd.com/archives/240/trackback/</a></p>
-<p>If Clay wants to reference something in my blog, what he should do is either copy that link of text, or right click on it (depending on your OS) and click “Copy Link Location”. Then on his blog, when he references something I wrote, he can use that as the URL. Under the hood, this will cause my blog software to automatically add a comment indicating that Clay has referenced my blog entry, and has added some witty words of his own. It allows not only communcation amongst blog software, but also amongst the people that read individual blogs.</p>
-<p>So, if you didn’t know what a trackback URL was, now you do. If you’re new to WordPress and looking for some additional help, check out <a href="http://amzn.to/17W9I8H">WordPress for Dummies</a> on Amazon.</p>
-
-                    <div class="tax">
-                        <a href="/posts/category/wordpress" class="btn btn-secondary btn-sm">wordpress</a>
-                        <a href="/posts/tag/links" class="btn btn-secondary btn-sm">links</a>
-                        <a href="/posts/tag/trackbacks" class="btn btn-secondary btn-sm">trackbacks</a>
-                        <a href="/posts/tag/wordpress" class="btn btn-secondary btn-sm">wordpress</a>
-                    </div>
-            </div>
-
-            <div class="comments mt-4 pt-4">
-                <div id="disqus_thread"></div>
-            </div>
-        </article>  
-    </div>
-
-
+        <div class="container mt-4">
+            <article>
+                <h1 class="mt-4">WordPress Trackbacks Explained</h1>
+                <div class="meta mb-2 text-primary fs-6 fw-light">
+                    Published on
+                    <time>January 23rd, 2007</time>
+                    &middot;
+                    <span>Less than one minute to read</span>
+                </div>
+                <div class="content mt-3">
+                    <p>Since some of the current readers are new to blogging, I thought I’d spend a bit of time explaining the whole concept of trackbacks. Trackbacks are sort of an automated form of commenting so that when a blog entry is referenced by another one, this is reflected in the comments of the original blog entry. For example, let’s say I write a blog entry here, and <a href="http://twitchy67.wordpress.com">Clay</a> comes along like the bigshot he is and wants to link to it from his blog. There are two ways he can do it. First, he can link to the actual blog entry itself, which at first seems like a good thing to do if you’re Clay. Unfortunately, if he does that, the only person who will know about that link is Clay and the other three people who read his blog.</p>
+                    <h3>Trackbacks Explained</h3>
+                    <p>The right way to do it (at least in the blogging world) is for Clay to reference my trackback URL. If you look in the comment section of most blogs, you’ll usually find some kind of reference to a trackback URL. On my blog, it is right by the comments section, and it looks like this:</p>
+                    <p>Trackback URL for this post is: <a href="http://www.migratorynerd.com/archives/240/trackback/">http://www.migratorynerd.com/archives/240/trackback/</a></p>
+                    <p>If Clay wants to reference something in my blog, what he should do is either copy that link of text, or right click on it (depending on your OS) and click “Copy Link Location”. Then on his blog, when he references something I wrote, he can use that as the URL. Under the hood, this will cause my blog software to automatically add a comment indicating that Clay has referenced my blog entry, and has added some witty words of his own. It allows not only communcation amongst blog software, but also amongst the people that read individual blogs.</p>
+                    <p>So, if you didn’t know what a trackback URL was, now you do. If you’re new to WordPress and looking for some additional help, check out <a href="http://amzn.to/17W9I8H">WordPress for Dummies</a> on Amazon.</p>
+                    <div class="tax"><a href="/posts/category/wordpress" class="btn btn-secondary btn-sm">wordpress</a> <a href="/posts/tag/links" class="btn btn-secondary btn-sm">links</a> <a href="/posts/tag/trackbacks" class="btn btn-secondary btn-sm">trackbacks</a> <a href="/posts/tag/wordpress" class="btn btn-secondary btn-sm">wordpress</a></div>
+                </div>
+                <div class="comments mt-4 pt-4">
+                    <div id="disqus_thread"></div>
+                </div>
+            </article>
+        </div>
         <footer class="bg-dark pt-4 pb-4 mt-4 mb-4">
             <div class="container text-center text-white">
-                All content copyright &copy; 2024<br>Generated using Crossroads SSG
+                All content copyright &copy; 2024
+                <br>
+                Generated using Crossroads SSG
             </div>
-
             <script defer src="/assets/lumen.min.js?v=8324f89069b1a1a2b1ab64c5713b995a"></script>
-        </footer>   
+        </footer>
     </body>
 </html>
