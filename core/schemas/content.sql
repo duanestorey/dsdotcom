@@ -3,6 +3,7 @@ CREATE TABLE "content"
 (
     "id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
     "title" VARCHAR(256),
+    "original_title" VARCHAR(256),
     "description" VARCHAR(1024),
     "modified_at" DATETIME,
     "created_at" DATETIME,
@@ -12,6 +13,7 @@ CREATE TABLE "content"
     "rel_url" VARCHAR(256),
     "slug" VARCHAR(256),
     "featured" VARCHAR(256),
+    "original_html" VARCHAR,
     "html" VARCHAR
 );
 CREATE INDEX created_at_index ON content( created_at );

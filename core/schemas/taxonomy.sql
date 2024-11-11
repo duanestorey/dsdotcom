@@ -2,6 +2,7 @@ DROP TABLE IF EXISTS "taxonomy";
 CREATE TABLE "taxonomy"
 (
     "id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    "type" VARCHAR,
     "tax" VARCHAR,
     "term" VARCHAR,
     "content_id" INTEGER FOREIGH

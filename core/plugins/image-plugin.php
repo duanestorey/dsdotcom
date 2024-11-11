@@ -31,7 +31,6 @@ class ImagePlugin extends Plugin {
         $imageDestinationPath = CROSSROADS_PUBLIC_DIR . '/assets/' . $content->contentType;
 
         if( preg_match_all( "/$regexp/", $content->html, $matches, PREG_SET_ORDER ) ) {
-            //print_r( $matches ); die;
             foreach( $matches as $images ) {
                 $imageFile = $images[ 0 ];
 
@@ -66,7 +65,7 @@ class ImagePlugin extends Plugin {
         }
 
         if ( $content->featuredImage ) {
-            $content->featuredImage = $this->_findAndFixImage( 
+            $content->featuredImageData = $this->_findAndFixImage( 
                 $content->featuredImage,
                 pathinfo( $content->markdownFile, PATHINFO_DIRNAME ),
                 '/assets/' . $content->contentType . '/' . date( 'Y', $content->publishDate ),
@@ -199,9 +198,9 @@ class ImagePlugin extends Plugin {
             // we have to process the image
             if ( $forceWidth ) {
                 if ( $formatConversion ) {
-                    LOG( "Potentially converting image to AVIF and width [" . $forceWidth . "]", 2, LOG::DEBUG );
+                    LOG( "Potentially converting image to AVIF and width [" . $forceWidth . "]", 4, LOG::DEBUG );
                 } else {
-                    LOG( "Potentially converting image to width [" . $forceWidth . "]", 2, LOG::DEBUG );
+                    LOG( "Potentially converting image to width [" . $forceWidth . "]", 4, LOG::DEBUG );
                 }
             } else if ( $formatConversion ) {
                 echo "............converting image to AVIF\n";
@@ -216,7 +215,7 @@ class ImagePlugin extends Plugin {
             }
         } else {
             // direct copy
-            LOG( "Directly copying image to [" . $destinationImage . "]", 2, LOG::DEBUG );
+            LOG( "Directly copying image to [" . $destinationImage . "]", 4, LOG::DEBUG );
             Utils::copyFile( $sourceImage, $destinationImage );
 
             return $this->_getImageInformation( $destinationImage, $isPrimary );
@@ -306,7 +305,7 @@ class ImagePlugin extends Plugin {
             $imageFilename_only = pathinfo( $originalImageFile, PATHINFO_BASENAME );
             $imageDestinationPathWithDate = $destinationPath;
 
-            LOG( "Checking image " . $currentPath . '/' . $originalImageFile, 4, LOG::DEBUG );
+            LOG( "Checking image " . $currentPath . '/' . $originalImageFile, 3, LOG::DEBUG );
 
             // we have a valid source file
             if ( file_exists( $currentPath . '/' . $originalImageFile ) ) {  

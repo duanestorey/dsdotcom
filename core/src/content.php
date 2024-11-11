@@ -17,12 +17,15 @@ class Content {
     public $contentType = null;
 
     public $title = '';
+    public $originalTitle = '';
     public $publishDate = 0;
     public $modifiedDate = 0;
     public $url = '';
     public $markdownFile = '';
     public $html = '';
+    public $originalHtml = '';
     public $featuredImage = false;
+    public $featuredImageData = null;
     public $description = '';
     public $slug = '';
     public $taxonomy = [];
@@ -46,6 +49,9 @@ class Content {
     }
 
     public function calculate() {
+        $this->originalHtml = $this->html;
+        $this->originalTitle = $this->title;
+
         $this->words = str_word_count( strip_tags( $this->html ) );
         $minutes = intdiv( $this->words, 225 );
         if ( $minutes <= 1 ) {

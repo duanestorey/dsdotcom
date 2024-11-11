@@ -17,16 +17,12 @@ class Builder {
     var $pluginManager = null;
     var $renderer = null;
 
-    public function __construct( $config ) {
+    public function __construct( $config, $pluginManager ) {
         $this->config = $config;
+        $this->pluginManager = $pluginManager;
 
         $this->templateEngine = new TemplateEngine( $config );
         $this->templateEngine->setTemplateDir( CROSSROADS_BASE_DIR . '/' . $this->config->get( 'dirs.themes', 'core/themes' ) . '/' . $config->get( 'site.theme' ) );
-
-        $this->pluginManager = new PluginManager( $this->config );
-        $this->pluginManager->installPlugin( new ImagePlugin( $this->config ) );
-        $this->pluginManager->installPlugin( new SeoPlugin( $this->config ) );
-        $this->pluginManager->installPlugin( new WordPressPlugin( $this->config ) );
     }
 
     public function run() {

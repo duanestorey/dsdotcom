@@ -8,16 +8,16 @@
             </div>
 
             <div class="content mt-3">
-                {if $content->featuredImage}
+                {if $content->featuredImageData}
                     <div class="mt-4 mb-4">
                         <picture>
-                            {if $content->featuredImage->hasResponsive}
-                                {foreach $content->featuredImage->responsiveImages as $size => $image}
+                            {if $content->featuredImageData->hasResponsive}
+                                {foreach $content->featuredImageData->responsiveImages as $size => $image}
                                 <source media="(max-width: {$size}px)" srcset="{$image->url}">
                                 {/foreach}
-                                <source media="(min-width: {$content->featuredImage->responsive_largest_size+1}px)" srcset="{$content->featuredImage->url}">
+                                <source media="(min-width: {$content->featuredImageData->responsive_largest_size+1}px)" srcset="{$content->featuredImageData->url}">
                             {/if}
-                            <img src="{$content->featuredImage->url}" width="{$content->featuredImage->width}" height="{$content->featuredImage->height}" alt="Featured Image" class="img-fluid">
+                            <img src="{$content->featuredImageData->url}" width="{$content->featuredImageData->width}" height="{$content->featuredImageData->height}" alt="Featured Image" class="img-fluid">
                         </picture>
                     </div>
                 {/if}

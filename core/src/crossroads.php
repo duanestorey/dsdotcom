@@ -41,6 +41,7 @@ class Engine {
     var $startTime = null;
     var $fileLog = null;
     var $db = null;
+    protected $pluginManager = null;
 
     public function __construct() {
     }
@@ -48,6 +49,11 @@ class Engine {
     public function run( $argc, $argv ) {
         $this->_loadConfig();
         $this->_setupLocales();
+
+        $this->pluginManager = new PluginManager( $this->config );
+        $this->pluginManager->installPlugin( new ImagePlugin( $this->config ) );
+        $this->pluginManager->installPlugin( new SeoPlugin( $this->config ) );
+        $this->pluginManager->installPlugin( new WordPressPlugin( $this->config ) );
 
         $this->db = new DB( $this->config );
 
@@ -140,8 +146,14 @@ class Engine {
                 $content = $this->config->get( 'content' );
                 if ( $content ) {
                     $entries->loadAll();
+
                     foreach( $content as $contentType => $contentConfig ) {
+                        LOG( sprintf( "Processing plugins for [%s]", $contentType ), 1, LOG::INFO );
+
                         $thisContent = $entries->get( $contentType );
+                        $thisContent = $this->pluginManager->processAll( $thisContent );
+
+                         LOG( sprintf( "Importing content [%s]", $contentType ), 1, LOG::INFO );
 
                         if ( count( $thisContent ) ) {
                             foreach( $thisContent as $oneEntry ) {
@@ -151,10 +163,9 @@ class Engine {
                     }
                 }
                 
-
                 $all = $this->db->getAllContent();
                 while ( $row = $all->fetchArray( SQLITE3_ASSOC ) ) {
-                    LOG( sprintf( "Reading back [%s]", $row[ 'slug' ] ), 1, LOG::INFO );
+                    LOG( sprintf( "Reading back [%s/%s]", $row[ 'type' ], $row[ 'slug' ] ), 1, LOG::INFO );
                 }
                 break;
             case 'export':
@@ -384,7 +395,7 @@ class Engine {
     private function _build( $argc, $argv ) {
         LOG( _i18n( 'core.build.starting' ) );
 
-        $this->builder = new Builder( $this->config );
+        $this->builder = new Builder( $this->config, $this->pluginManager );
 
         try {
             $this->builder->run();
