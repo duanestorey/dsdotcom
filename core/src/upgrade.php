@@ -6,7 +6,7 @@ class Upgrade {
     var $config = null;
 
     var $mainUrl = 'https://raw.githubusercontent.com/duanestorey/crossroads/refs/heads/main/crossroads';
-    var $mainZip = 'https://codeload.github.com/duanestorey/crossroads/zip/refs/heads/stable';
+    var $mainZip = 'https://codeload.github.com/duanestorey/crossroads/zip/refs/heads/main';
 
     public function __construct( $config ) {
         $this->config = $config;
@@ -35,21 +35,26 @@ class Upgrade {
 
                     @mkdir( $destinationDir );
 
-                    $unzipDirectory =  $destinationDir . '/crossroads-stable';
-                    $unzipDirectory = CROSSROADS_BASE_DIR;
+                    $unzipDirectory =  $destinationDir . '/crossroads-main';
 
-                    /*
                     if ( file_exists( $unzipDirectory ) ) {
                         Utils::recursiveRmdir( $unzipDirectory );
                     }
-                    */
 
-                    $command = sprintf( 'unzip -d %s %s', CROSSROADS_BASE_DIR, $zipFile );
+                    $command = sprintf( 'unzip -d %s %s', $destinationDir, $zipFile );
                     $output = shell_exec( $command );
                     echo $output;
                     
                     if ( file_exists( $unzipDirectory ) && is_dir( $unzipDirectory ) ) {
                         // we can copy the files now
+                        $allFiles = Utils::findAllFilesWithExtension( $unzipDirectory . '/core', [ 'php', 'yaml', 'latte', 'css', 'js', 'scss', 'sql', 'avif', 'webp', 'ico' ] );
+                        foreach( $allFiles as $oneFile ) {
+                            $relFile = str_replace( $unzipDirectory . '/', '', $oneFile );
+                            //echo $relFile . "\n";
+                            $destFile = CROSSROADS_BASE_DIR . '/' . $relFile;
+
+                            LOG( sprintf( "Copying file [%s] to [%s]", $relFile, $destFile ), 1, LOG::INFO );
+                        }
 
                         LOG( _i18n( 'core.class.upgrade.composer' ), 2, LOG::INFO );
 
