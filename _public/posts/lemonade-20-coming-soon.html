@@ -70,6 +70,7 @@
             </div>
 
             <div class="content mt-3">
+                
                 <p>Last night while watching TV with my dad, I decided to slowly hack together the start of a new game for Facebook. Inspired recently by The Oregon Trail on there, I thought I’d put another good game from my youth up, namely Lemonade. There’s already one on Facebook that mimics the old version (although, it’s basically a wrapper for a website that already has it), but I have some ideas that will sort of bring the game into the modern age, including a mobile component.</p>
 <p><img loading="lazy" srcset="/assets/posts/2007/lemonade-20-coming-soon-1-320w.jpg 320w,/assets/posts/2007/lemonade-20-coming-soon-1-480w.jpg 480w" src="/assets/posts/2007/lemonade-20-coming-soon-1.jpg" alt=""><br />
 To be honest, the mathematics behind it all has proven rather interesting. I want the game to be challenging, without easy loopholes to win, and to that end I’ve spent a lot of time mulling over the math in my head. For example, having a weather forecast is fairly useless unless it mimics the approximate success rates of forecasts that we normally have. To that end, the forecasts can’t be entirely random, so I’ve started by modeling them on five state, first-order <a href="http://en.wikipedia.org/wiki/Markov_chain">Markov chains</a>. I might have to take this to the next level (i.e. do a second-order chain or something), but for now I think the results are fairly realistic.</p>

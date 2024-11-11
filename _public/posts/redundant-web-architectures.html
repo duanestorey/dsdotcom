@@ -77,13 +77,14 @@ So I realize this could potentially be a pretty deep rabbit hole, but I thought 
             </div>
 
             <div class="content mt-3">
-                    <div class="mt-4 mb-4">
+                    <div class="featured mt-4 mb-4">
                         <picture>
                                 <source media="(max-width: 320px)" srcset="/assets/posts/2010/redundant-web-architectures-featured-320w.jpg">
                                 <source media="(min-width: 321px)" srcset="/assets/posts/2010/redundant-web-architectures-featured.jpg">
                             <img src="/assets/posts/2010/redundant-web-architectures-featured.jpg" width="417" height="500" alt="Featured Image" class="img-fluid">
                         </picture>
                     </div>
+                                
                 <p><a href="http://www.migratorynerd.com/wordpress/wp-content/uploads/2010/06/2379600590_bf110b0d85.jpg"><img loading="lazy" srcset="/assets/posts/2010/redundant-web-architectures-1-320w.jpg 320w" src="/assets/posts/2010/redundant-web-architectures-1.jpg" alt="" title="2379600590_bf110b0d85"></a><br />
 So I realize this could potentially be a pretty deep rabbit hole, but I thought I’d ask the question here. I’m in the process of trying to put together a simple web server configuration that is more robust than a single server configuration. Truthfully, I’ve never set something like this up, but for what I’m after I’m not looking for something amazingly complex or expensive.</p>
 <p>The server needs to basically handle HTTP requests, and interface with a database. In my mind, this would require two servers in separate co-location centres (which would help if one centre went down and not the other). One machine would be the primary web/database server, and the second machine would be the slave. A cron job would synchronize the files on the slave every 5 minutes or so to make sure it stays up to date, and the database would be set up in a master/slave scenario.</p>

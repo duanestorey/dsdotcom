@@ -74,7 +74,7 @@
             </div>
 
             <div class="content mt-3">
-                    <div class="mt-4 mb-4">
+                    <div class="featured mt-4 mb-4">
                         <picture>
                                 <source media="(max-width: 320px)" srcset="/assets/posts/2024/wordpress-api-banner-320w.jpg">
                                 <source media="(max-width: 480px)" srcset="/assets/posts/2024/wordpress-api-banner-480w.jpg">
@@ -84,6 +84,7 @@
                             <img src="/assets/posts/2024/wordpress-api-banner.jpg" width="1200" height="580" alt="Featured Image" class="img-fluid">
                         </picture>
                     </div>
+                                
                 <p>A few weeks ago, I sat down with my WordPress installation to see how difficult it would be to actually use a different API endpoint entirely instead of the default WordPress.org site. As others have pointed out, there are roughly 1,500 hard-coded WordPress.org links throughout the code, pointing to various API endpoints and reference documentation. What I discovered is, despite what some people are parading online, that there is no real easy way via the code to swap out the API entirely. In fact, the HTTP API within WordPress is probably one of the least useful APIs in terms of being able to extend it using available hooks and filters.</p>
 <h3>Leaky User-Agent Header</h3>
 <p>While investigating this though, I did notice one peculiar item involving a usually silent header that is passed between clients and servers, called the User-Agent. The User-Agent header is used by clients to let servers know what type of client they actually are. This is the field that can be used to discover if a viewer of a website is a regular user using Mozilla, or if they are a robot acting on behalf of Google or Twitter. </p>
