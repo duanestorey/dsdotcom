@@ -142,6 +142,7 @@ class Entries {
                         $content = new Content( $this->config, $contentType, $contentConfig );
                         $content->slug = $this->getSlugFromName( pathinfo( $markdownFile, PATHINFO_FILENAME ) );
                         $content->markdownFile = $markdownFile;
+                        $content->markdownData = $markdown->rawMarkdown();
                         $content->html = $markdown->html();
                         $content->modifiedDate = filemtime( $markdownFile );
                         $content->contentPath = $content->contentType . '/' . basename( $content->markdownFile );

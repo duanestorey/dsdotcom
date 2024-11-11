@@ -22,6 +22,7 @@ class Content {
     public $modifiedDate = 0;
     public $url = '';
     public $markdownFile = '';
+    public $markdownData = '';
     public $html = '';
     public $originalHtml = '';
     public $featuredImage = false;

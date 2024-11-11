@@ -14,7 +14,7 @@ CREATE TABLE "content"
     "slug" VARCHAR(256),
     "content_slug" VARCHAR(256),
     "featured" VARCHAR(256),
-    "tax" VARCHAR,
+    "markdown" VARCHAR,
     "original_html" VARCHAR,
     "html" VARCHAR
 );

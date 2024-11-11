@@ -19,7 +19,7 @@ class DB {
         $this->sql->query( "BEGIN" );  
 
         $queryString = sprintf( 
-            'INSERT INTO "content" (type, hash, rel_url, slug, html, title, original_title, description, featured, created_at, modified_at, modified_hash, original_html, content_slug, tax) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)',
+            'INSERT INTO "content" (type, hash, rel_url, slug, html, title, original_title, description, featured, created_at, modified_at, modified_hash, content_slug, markdown, original_html) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)',
     $this->sql->escapeWithTicks( $content->contentType ),
             $this->sql->escapeWithTicks( $content->unique ),
             $this->sql->escapeWithTicks( $content->relUrl ),
@@ -32,9 +32,9 @@ class DB {
             $this->sql->escapeWithTicks( date( 'Y-m-d H:i:s', $content->publishDate ) ),
             $this->sql->escapeWithTicks( date( 'Y-m-d H:i:s', $content->modifiedDate ) ),
             $this->sql->escapeWithTicks( $content->modifiedHash ),
-            $this->sql->escapeWithTicks( $content->originalHtml ),
             $this->sql->escapeWithTicks( $content->contentPath ),
-            $this->sql->escapeWithTicks( serialize( $content->taxonomy ) )
+            $this->sql->escapeWithTicks( $content->markdownData ),
+            $this->sql->escapeWithTicks( $content->originalHtml )
         );
 
         LOG( sprintf( "Importing [%s]", $content->slug ), 2, LOG::DEBUG );
