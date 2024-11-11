@@ -57,6 +57,8 @@ class Upgrade {
                             Utils::copyFile( $oneFile, $destFile );
                         }
 
+                        Utils::copyFile( $unzipDirectory . '/crossroads', CROSSROADS_BASE_DIR . '/crossroads' );
+
                         LOG( _i18n( 'core.class.upgrade.composer' ), 2, LOG::INFO );
 
                         exec( 'composer update' ); 
