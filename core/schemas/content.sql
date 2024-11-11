@@ -12,7 +12,9 @@ CREATE TABLE "content"
     "modified_hash" VARCHAR(64),
     "rel_url" VARCHAR(256),
     "slug" VARCHAR(256),
+    "content_slug" VARCHAR(256),
     "featured" VARCHAR(256),
+    "tax" VARCHAR,
     "original_html" VARCHAR,
     "html" VARCHAR
 );

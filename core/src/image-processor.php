@@ -18,12 +18,17 @@ class ImageProcessor {
         $foundFile = false;
 
         $destUrl = $this->_findAndFixImage( 
+            $content,
             $imageFile,
             pathinfo( $content->markdownFile, PATHINFO_DIRNAME ),
             '/assets/' . $content->contentType . '/' . date( 'Y', $content->publishDate ),
             $content->publishDate,
             $foundFile
         );
+
+        if ( !$destUrl ) {
+            LOG( sprintf( "Image file not found [%s] in [%s]", $imageFile, $content->contentPath ), 2, LOG::WARNING );
+        }
 
         return $destUrl;
     }
@@ -240,7 +245,8 @@ class ImageProcessor {
 
         return $imageInfo;
     }
-    private function _findAndFixImage( $imageFile, $currentPath, $destinationPath, $publishDate, &$foundFile, $search_dirs = [ '', 'images/' ] ) {
+
+    private function _findAndFixImage( $content, $imageFile, $currentPath, $destinationPath, $publishDate, &$foundFile, $search_dirs = [ '', 'images/' ] ) {
         if ( $this->_isRemoteImage( $imageFile ) ) {
             LOG( "........skipping remote image [" . $imageFile . "]", 3, LOG::DEBUG );
             return $this->_getImageInformation( $imageFile );
@@ -281,7 +287,7 @@ class ImageProcessor {
                             $mainImage->responsive_largest_size = max( array_keys( $mainImage->responsiveImages ) );
                         }
                     } else {
-                        LOG( sprintf( _i18n( 'plugins.image.corrupt' ), $mainImage->url ), 3, LOG::WARNING );
+                        LOG( sprintf( _i18n( 'plugins.image.corrupt' ), basename( $mainImage->url ), $content->contentPath ), 2, LOG::WARNING );
                     }
                 } 
 

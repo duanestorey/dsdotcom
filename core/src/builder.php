@@ -16,10 +16,12 @@ class Builder {
     var $menu = null;
     var $pluginManager = null;
     var $renderer = null;
+    protected $db;
 
-    public function __construct( $config, $pluginManager ) {
+    public function __construct( $config, $pluginManager, $db ) {
         $this->config = $config;
         $this->pluginManager = $pluginManager;
+        $this->db = $db;
 
         $this->templateEngine = new TemplateEngine( $config );
         $this->templateEngine->setTemplateDir( CROSSROADS_BASE_DIR . '/' . $this->config->get( 'dirs.themes', 'core/themes' ) . '/' . $config->get( 'site.theme' ) );
@@ -35,12 +37,13 @@ class Builder {
         $this->renderer = new Renderer( $this->config, $this->templateEngine, $this->pluginManager, $this->menu, $this->theme );
 
         // load all content here
-        $this->entries = new Entries( $this->config );
-        $this->entries->loadAll();
+        $this->entries = new Entries( $this->config, $this->db, $this->pluginManager );
+        $this->entries->loadAllDb();
 
         // do all content filtering
         $all_entries = [];
 
+        /*
         foreach( $this->config->get( 'content', [] ) as $contentType => $contentConfig ) {
             $entries = $this->entries->get( $contentType );
 
@@ -52,6 +55,7 @@ class Builder {
                 $all_entries = array_merge( $all_entries, $entries );
             }
         }
+        */
 
         foreach( $this->config->get( 'content', [] ) as $contentType => $contentConfig ) {
             $entries = $this->entries->get( $contentType );

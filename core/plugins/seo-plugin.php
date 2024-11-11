@@ -12,12 +12,6 @@ class SeoPlugin extends Plugin {
     }
 
     public function processOne( $content ) {
-        $content->title = sprintf( "%s - %s", $content->title, $this->config->get( 'site.name' ) );
-
-        if ( !$content->description ) {
-            $content->description = $content->excerpt( 120, false );
-        }
-
         return $content;
     }    
 }

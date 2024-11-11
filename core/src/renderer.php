@@ -34,7 +34,8 @@ class Renderer {
         $params = $this->_getDefaultRenderParams( $entry->relUrl, [ $entry->contentType, $entry->contentType . '-' . $entry->className ] );
         $params->content = $entry;
         $params = $this->pluginManager->templateParamFilter( $params );
-        $params->page->title = $entry->title;
+
+        $params->page->title = sprintf( '%s - %s', $entry->title, $this->config->get( 'site.name' ) ); 
         $params->isSingle = true;
 
         $templateName = $this->templateEngine->locateTemplate( $templateFiles );

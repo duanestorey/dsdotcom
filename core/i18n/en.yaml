@@ -92,7 +92,7 @@ core:
     upgrade: "Upgrades the core system"
 plugins:
   image:
-    corrupt: "Corrupted image file [%s]"
+    corrupt: "Corrupted image file [%s] in [%s]"
 errors:
   no_command: "No method exists for command [%s]"
   arg_not_understood: "Argument not understoof [%s]"
