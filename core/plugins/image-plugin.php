@@ -30,7 +30,7 @@ class ImagePlugin extends Plugin {
         $regexp = '(<img[^>]+src=(?:\"|\')\K(.[^">]+?)(?=\"|\'))';
         $imageDestinationPath = CROSSROADS_PUBLIC_DIR . '/assets/' . $content->contentType;
 
-        if( preg_match_all( "/$regexp/", $content->markdownHtml, $matches, PREG_SET_ORDER ) ) {
+        if( preg_match_all( "/$regexp/", $content->html, $matches, PREG_SET_ORDER ) ) {
             //print_r( $matches ); die;
             foreach( $matches as $images ) {
                 $imageFile = $images[ 0 ];
@@ -60,7 +60,7 @@ class ImagePlugin extends Plugin {
                         $newImageTag = str_replace( '<img ', '<img loading="lazy" srcset="' . $srcset_text . '" ', $image_tag );
                     }
 
-                     $content->markdownHtml = str_replace( $image_tag, $newImageTag, $content->markdownHtml );
+                    $content->html = str_replace( $image_tag, $newImageTag, $content->html );
                 }
             }
         }

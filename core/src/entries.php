@@ -24,17 +24,29 @@ class Entries {
         return false;
     }
 
-    function getTaxTerms( $contentType ) {
+    function getTaxTypes( $contentType ) {
         if ( isset( $this->tax[ $contentType ] ) ) {
-            return array_keys( $this->tax[ $contentType ] );
+            $values = array_keys( $this->tax[ $contentType ] );
+            sort( $values );
+            return $values;
         }
 
         return false;
     }
 
-    function getTax( $contentType, $term ) {
-        if ( isset( $this->tax[ $contentType ] ) && isset( $this->tax[ $contentType ][ $term ] ) )  {
-            return $this->tax[ $contentType ][ $term ];
+    function getTaxTerms( $contentType, $taxType ) {
+        if ( isset( $this->tax[ $contentType ][ $taxType ] ) ) {
+            $values = array_keys( $this->tax[ $contentType ][ $taxType ]);
+            sort( $values );
+            return $values;
+        }
+
+        return false;
+    }
+
+    function getTax( $contentType, $taxType, $term ) {
+        if ( isset( $this->tax[ $contentType ] ) && isset( $this->tax[ $contentType ][ $taxType ] ) && isset( $this->tax[ $contentType ][ $taxType ][ $term ] ) )  {
+            return $this->tax[ $contentType ][ $taxType ][ $term ];
         }
 
         return false;
@@ -70,9 +82,11 @@ class Entries {
 
                     $markdown = new Markdown();
                     if ( $markdown->loadFile( $markdownFile ) ) {    
-                        $content = new Content;
+                        $content = new Content( $this->config, $contentType, $contentConfig );
                         $content->slug = $this->getSlugFromName( pathinfo( $markdownFile, PATHINFO_FILENAME ) );
-                        $content->taxonomy = array();
+                        $content->markdownFile = $markdownFile;
+                        $content->html = $markdown->html();
+                        $content->modifiedDate = filemtime( $markdownFile );
 
                         if ( $front = $markdown->frontMatter() ) {
                             $content->title = $this->_findDataInFrontMatter( [ 'title' ], $front,$content->title );
@@ -80,41 +94,23 @@ class Entries {
                             $content->publishDate = strtotime( $this->_findDataInFrontMatter( [ 'date', 'publishDate' ], $front, date( 'Y-m-d' ) ) );
                             $content->featuredImage = $this->_findDataInFrontMatter( [ 'featuredImage', 'coverImage', 'heroImage' ], $front, $content->featuredImage );
                             $content->description = $this->_findDataInFrontMatter( [ 'description' ], $front, $content->description );
-                            $content->taxonomy = array_merge( $this->_findDataInFrontMatter( [ 'category', 'categories' ], $front, [] ), $content->taxonomy ); 
-                            $content->taxonomy = array_merge( $this->_findDataInFrontMatter( [ 'tag', 'tags' ], $front, [] ), $content->taxonomy );
-                        }
 
-                        if ( isset( $contentConfig[ 'base' ] ) ) {
-                            $contentLink =  Utils::fixPath( $contentConfig[ 'base' ] ) . '/' . $content->slug . '.html';
-                        } else {
-                            $contentLink = '/' . $contentType . '/' . $content->slug . '.html';
-                        }
-                        
-                        $content->contentType = $contentType;
-                        $content->markdownHtml = $markdown->html();
-                        $content->markdownFile = $markdownFile;
-                        $content->url = Utils::fixPath( $this->config->get( 'site.url' ) ) . $contentLink;
-                        $content->relUrl = $contentLink;
-                        $content->unique = md5( $contentLink ); 
-                        $content->className = $content->slug;
-
-                        $content->words = str_word_count( strip_tags( $content->markdownHtml ) );
-                        $minutes = intdiv( $content->words, 225 );
-                        if ( $minutes <= 1 ) {
-                            $content->readingTime = _i18n( 'core.class.entries.reading_time.s' );
-                        } else {
-                            $content->readingTime = sprintf( _i18n( 'core.class.entries.reading_time.p' ), $minutes );
-                        }
-                        
-                        $content->taxonomy = array_map( function( $e ) { return Utils::cleanTerm( $e ); }, $content->taxonomy );
-                        if ( count( $content->taxonomy ) ) {
-                            foreach( $content->taxonomy as $tax ) {
-                                if ( !isset( $this->tax[ $contentType ][ $tax ] ) ) {
-                                    $this->tax[ $contentType ][ $tax ] = [];
+                            if ( isset( $contentConfig[ 'taxonomy' ] ) ) {
+                                foreach( $contentConfig[ 'taxonomy' ] as $tax => $variations ) {
+                                    $content->taxonomy[ $tax ] = $this->_findDataInFrontMatter( $variations, $front, [] ); 
+                                    $content->taxonomy[ $tax ] = array_map( function( $e ) { return Utils::cleanTerm( $e ); }, $content->taxonomy[ $tax ] );
                                 }
+                            }
+                        }
 
-                                $this->tax[ $contentType ][ $tax ][] = $content;
-                                $content->taxonomyLinks[ $tax ] = '/' . $contentType . '/taxonomy/' . $tax;
+                        $content->calculate();
+                                 
+                        if ( count( $content->taxonomy ) ) {
+                            foreach( $content->taxonomy as $tax => $terms ) {
+                                foreach( $terms as $term ) {
+                                    $this->tax[ $contentType ][ $tax ][ $term ][] = $content;
+                                    $content->taxonomyLinks[ $tax ][ $term ] = '/' . $contentType . '/' . $tax . '/' . $term;
+                                }
                             }
                         }
 

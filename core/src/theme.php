@@ -22,7 +22,7 @@ class Theme {
 
     public function isSane() {
         // check theme sanity
-        if ( file_exists( $this->themeDir . '/theme.yaml' ) && file_exists( $this->themeDir . '/home.latte' ) ) {
+        if ( file_exists( $this->themeDir . '/theme.yaml' ) && file_exists( $this->themeDir . '/index.latte' ) ) {
             return true;
         }
 

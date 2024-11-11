@@ -83,8 +83,16 @@ core:
     create:
       plugin: "Creates a new plugin"
       theme: "Creates a new theme"
-      child: "Creates a new child theme"
+      child: "Creates a new child theme based on specified parent theme"
+    db:
+      import: "Regenerates the internal DB from markdown files"
+      export: "Regenerates the markdown files from internal DB"
+      sync: "Intelligently updates content and internal DB"
+    stats: "Displays website statistics"
     upgrade: "Upgrades the core system"
 plugins:
   image:
     corrupt: "Corrupted image file [%s]"
+errors:
+  no_command: "No method exists for command [%s]"
+  arg_not_understood: "Argument not understoof [%s]"

@@ -95,26 +95,30 @@ class Builder {
                 $this->totalPages += $this->renderer->renderIndexPage( $entries, $contentType, '', [ 'index' ] );
             }
 
-                // tax
-            $taxTerms = $this->entries->getTaxTerms( $contentType );
-            sort( $taxTerms );
-            if ( count( $taxTerms ) ) {
-                LOG( sprintf( _i18n( 'core.build.generating.tax' ), $contentType ), 1, LOG::INFO );
+             // tax
+            $taxTypes = $this->entries->getTaxTypes( $contentType );
+            sort( $taxTypes );
+            if ( count( $taxTypes ) ) {
+                foreach( $taxTypes as $taxType ) {
+                    $taxTerms = $this->entries->getTaxTerms( $contentType, $taxType );
 
-                Utils::mkdir( CROSSROADS_PUBLIC_DIR . '/' . $contentType . '/taxonomy' );
+                    LOG( sprintf( _i18n( 'core.build.generating.tax' ), $contentType ), 1, LOG::INFO );
 
-                foreach( $taxTerms as $term ) {
-                    Utils::mkdir( CROSSROADS_PUBLIC_DIR . '/' . $contentType . '/taxonomy/' . $term );
+                    Utils::mkdir( CROSSROADS_PUBLIC_DIR . '/' . $contentType . '/' . $taxType );
 
-                    LOG( sprintf( _i18n( 'core.build.generating.tax' ), $contentType . "/" . $term ), 2, LOG::DEBUG );
+                    foreach( $taxTerms as $term ) {
+                        Utils::mkdir( CROSSROADS_PUBLIC_DIR . '/' . $contentType . '/' . $taxType . '/' . $term );
 
-                    $entries = $this->entries->getTax( $contentType, $term );
+                        LOG( sprintf( _i18n( 'core.build.generating.tax' ), $contentType . "/" . $term ), 2, LOG::DEBUG );
 
-                    usort( $entries, 'CR\cr_sort' );
+                        $entries = $this->entries->getTax( $contentType, $taxType, $term );
 
-                    if ( count( $entries ) ) {
-                        $this->totalPages += $this->renderer->renderIndexPage( $entries, $contentType, '/' . $contentType . '/taxonomy/' . $term, [ 'index' ] );
-                    }
+                        usort( $entries, 'CR\cr_sort' );
+
+                        if ( count( $entries ) ) {
+                            $this->totalPages += $this->renderer->renderIndexPage( $entries, $contentType, '/' . $contentType . '/' . $taxType . '/' . $term, [ 'index' ] );
+                        }
+                    }              
                 }
             }
         }
@@ -141,11 +145,16 @@ class Builder {
                 $sitemapXml = $this->_addSitemapEntry( $sitemapXml, $entry->url );
             }
 
-            $taxTerms = $this->entries->getTaxTerms( $contentType );
-            if ( count( $taxTerms ) ) {
-                $taxUrl = $this->config->get( 'site.url' ) . '/' . $contentType . '/taxonomy';
-                foreach( $taxTerms as $term ) {
-                    $sitemapXml = $this->_addSitemapEntry( $sitemapXml, $taxUrl . '/' . $term, 'monthly' );
+            $taxTypes = $this->entries->getTaxTypes( $contentType );
+            if ( count( $taxTypes ) ) {
+                foreach( $taxTypes as $taxType ) {
+                    $taxTerms = $this->entries->getTaxTerms( $contentType, $taxType );
+                    if ( count( $taxTerms ) ) {
+                        $taxUrl = $this->config->get( 'site.url' ) . '/' . $contentType . '/' . $taxType;
+                        foreach( $taxTerms as $term ) {
+                            $sitemapXml = $this->_addSitemapEntry( $sitemapXml, $taxUrl . '/' . $term, 'monthly' );
+                        }
+                    }               
                 }
             }
         }

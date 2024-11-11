@@ -72,6 +72,9 @@ class Utils {
 
     static function findAllFilesWithExtension( $directory, $ext ) {
         $allFiles = array();
+        if ( !is_array( $ext ) ) {
+            $ext = [ $ext ];
+        }
 
         if ( !file_exists( $directory ) ) {
             return $allFiles;
@@ -82,7 +85,7 @@ class Utils {
             $full_path = $directory . '/' . $one_file;
             if ( is_dir( $full_path ) ) {
                 $allFiles = array_merge( $allFiles, Utils::findAllFilesWithExtension( $full_path, $ext ) );
-            } else if ( pathinfo( $full_path, PATHINFO_EXTENSION ) == $ext ) {
+            } else if ( in_array( pathinfo( $full_path, PATHINFO_EXTENSION ), $ext ) ) {
                 $allFiles[] = $full_path;
             }
         }

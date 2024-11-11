@@ -7,6 +7,7 @@ class Markdown {
     var $markdown = false;
 
     public function __construct() {}
+
     public function loadFile( $filename ) {
         $contents = file_get_contents( $filename );
 
@@ -29,8 +30,12 @@ class Markdown {
         return $this->frontMatter;
     }
 
-    public function raw_markdown() {
+    public function rawMarkdown() {
         return $this->markdown;
+    }
+
+    public function strippedMarkdown() {
+        return strip_tags( $this->markdown );
     }
 
     public function html() {

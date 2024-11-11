@@ -23,21 +23,21 @@ class WordPressPlugin extends Plugin {
 
     public function contentFilter( $content ) {
         // Remove stupid captions
-        if ( preg_match_all( '#(\[caption\b[^\]]*\](.*)\[\/caption])#iU', $content->markdownHtml, $matches, PREG_SET_ORDER ) ) {
+        if ( preg_match_all( '#(\[caption\b[^\]]*\](.*)\[\/caption])#iU', $content->html, $matches, PREG_SET_ORDER ) ) {
             foreach( $matches as $key => $match ) {
                 // rewrite this, likely errors
                 $replace = str_replace( '</a>', '</a><span class="caption text-center fst-italic">', $match[ 2 ] . '</span>' );
                 $replace = str_replace( '/>', '/><span class="caption text-center fst-italic">', $match[ 2 ] . '</span>' );
-                $content->markdownHtml = str_replace( $match[ 0 ], $replace, $content->markdownHtml );
+                $content->html = str_replace( $match[ 0 ], $replace, $content->html );
             }
         }       
 
         // fix stray image closings
-        if ( preg_match_all( '#<img(.*)/>#iU', $content->markdownHtml, $matches, PREG_SET_ORDER ) ) {
+        if ( preg_match_all( '#<img(.*)/>#iU', $content->html, $matches, PREG_SET_ORDER ) ) {
             foreach( $matches as $key => $match ) {
                 // rewrite this, likely errors
                 $fixed_image = str_replace( array( ' />', '/>' ), array( '>', '>' ), $match[ 0 ] );
-                $content->markdownHtml = str_replace( $match[ 0 ], $fixed_image, $content->markdownHtml );
+                $content->html = str_replace( $match[ 0 ], $fixed_image, $content->html );
             }
         } 
         return $content;

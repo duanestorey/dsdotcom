@@ -21,12 +21,14 @@
                         </picture>
                     </div>
                 {/if}
-                {$content->markdownHtml|noescape}
+                {$content->html|noescape}
 
                 {if $content->taxonomy}
                     <div class="tax">
-                    {foreach $content->taxonomy as $tax}
-                        <a href="{$content->taxonomyLinks[ $tax ]}" class="btn btn-secondary btn-sm">{$tax|replace: ['-' => ' ']}</a>
+                    {foreach $content->taxonomy as $tax => $terms}
+                        {foreach $terms as $term}
+                        <a href="{$content->taxonomyLinks[ $tax ][ $term ]}" class="btn btn-secondary btn-sm">{$term|replace: ['-' => ' ']}</a>
+                        {/foreach}
                     {/foreach}
                     </div>
                 {/if}
