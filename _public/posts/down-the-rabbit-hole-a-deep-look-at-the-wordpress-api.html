@@ -68,7 +68,7 @@
 
     <div class="container mt-4">
         <article>    
-            <h1 class="mt-4">Down The Rabbit Hole - A Look At The WordPress Update API</h1>
+            <h1 class="mt-4">Down The Rabbit Hole - A Look At The WordPress Update API - The Duane Storey</h1>
             <div class="meta mb-2 text-primary fs-6 fw-light">
                 Published on <time>November 8th, 2024</time> &middot; <span>11 minutes to read</span>
             </div>
@@ -115,7 +115,7 @@ Requires at least: 4.7</code></pre>
 <p>To determine whether or not an updated version of WordPress itself is available, WordPress makes another API call via the core API. The API endpoint associated with this looks like:</p>
 <pre><code>https://api.wordpress.org/core/version-check/...</code></pre>
 <p>If you look at the actual URL sent to WordPress.org, it's revealing, and not in a good way:</p>
-<p><img loading="lazy" srcset="/assets/posts/2024/wordpress-api-core-320w.png 320w,/assets/posts/2024/wordpress-api-core-480w.png 480w,/assets/posts/2024/wordpress-api-core-640w.png 640w,/assets/posts/2024/wordpress-api-core-960w.png 960w,/assets/posts/2024/wordpress-api-core-1360w.png 1360w,/assets/posts/2024/wordpress-api-core-1600w.png 1600w" src="_images/wordpress-api-core.png" alt="WordPress API Core Request"></p>
+<p><img loading="lazy" srcset="/assets/posts/2024/wordpress-api-core-320w.png 320w,/assets/posts/2024/wordpress-api-core-480w.png 480w,/assets/posts/2024/wordpress-api-core-640w.png 640w,/assets/posts/2024/wordpress-api-core-960w.png 960w,/assets/posts/2024/wordpress-api-core-1360w.png 1360w,/assets/posts/2024/wordpress-api-core-1600w.png 1600w" src="/assets/posts/2024/wordpress-api-core.png" alt="WordPress API Core Request"></p>
 <p>If you actually break this apart and look at the data, here is what is being sent to WordPress.org with each core update request:</p>
 <ul>
 <li>The version of WordPress you are running</li>
@@ -132,7 +132,7 @@ Requires at least: 4.7</code></pre>
 <p>Don't forget that they are also supplying the User-Agent field above, which gives them the actual URL associated with all this data, along with the IP which they get from the inbound request. Even if they didn't have that though, it wouldn't matter since for these core updates, they are also adding two non-standard HTTP headers in the request, <em>wp_install</em> and <em>wp_blog</em>.  </p>
 <p>At this point I was so surprised by this, that I wondered if what I was seeing in the code wasn't really what was happening.  So I installed the <a href="https://www.wireshark.org/">WireShark</a> Network packet sniffer to actually see what was going out on my network interface.  As the request to the WordPress API is usually encrypted over https (and thus, wouldn't be visible when sniffing packets), I had to hack WordPress to send them over http instead so I could see them in Wireshark.  </p>
 <p>And sure enough, these headers actually are sent as well:</p>
-<p><img loading="lazy" srcset="/assets/posts/2024/wordpress-api-headers-320w.png 320w,/assets/posts/2024/wordpress-api-headers-480w.png 480w,/assets/posts/2024/wordpress-api-headers-640w.png 640w,/assets/posts/2024/wordpress-api-headers-960w.png 960w,/assets/posts/2024/wordpress-api-headers-1360w.png 1360w,/assets/posts/2024/wordpress-api-headers-1600w.png 1600w" src="_images/wordpress-api-headers.png" alt="WordPress Core Update Request Headers"></p>
+<p><img loading="lazy" srcset="/assets/posts/2024/wordpress-api-headers-320w.png 320w,/assets/posts/2024/wordpress-api-headers-480w.png 480w,/assets/posts/2024/wordpress-api-headers-640w.png 640w,/assets/posts/2024/wordpress-api-headers-960w.png 960w,/assets/posts/2024/wordpress-api-headers-1360w.png 1360w,/assets/posts/2024/wordpress-api-headers-1600w.png 1600w" src="/assets/posts/2024/wordpress-api-headers.png" alt="WordPress Core Update Request Headers"></p>
 <p>First off, any non-standard headers are supposed to prefixed with a <em>X-</em>, so these two fields technically should have been X-wp_install and X-wp_blog. I'll ignore that since they were likely implemented a long time ago. But more to the point, these two fields just represent another case of potentially sensitive information being broadcast with all requests to the WordPress.com core update API.</p>
 <h2>Privacy Policy</h2>
 <p>I haven't installed a version of WordPress in a while, so I don't remember if there is any type of wizard that includes an End User License Agreement (EULA).  It's sort of a moot point if it does, since most hosting providers provide one-click WordPress installations these days, the same as many development tools I use like <em>Local</em>.</p>
@@ -157,7 +157,7 @@ Requires at least: 4.7</code></pre>
 </blockquote>
 <p>I checked the WordPress download ZIP to see if there was any additional content inside that might detail this data, but I didn't find anything in the normal download package. I also don't remember anywhere in the admin panel where a user is asked to agree to sending this information, and to opt-in to it.  Like always, I believe what's fair and right for one group of people should be fair and right for everyone.</p>
 <p>Of course, it's easy to say that WordPress itself is a different beast, but I do think it has an obligation to inform users properly about what data is being sent, collected, how it's used, and how to get rid of it. And so far I haven't found any real information on any of that, which was one of the reasons I went down this rabbit hole. </p>
-<p><img loading="lazy" srcset="/assets/posts/2024/wordpress-api-privacy-plugin-320w.png 320w,/assets/posts/2024/wordpress-api-privacy-plugin-480w.png 480w,/assets/posts/2024/wordpress-api-privacy-plugin-640w.png 640w,/assets/posts/2024/wordpress-api-privacy-plugin-960w.png 960w,/assets/posts/2024/wordpress-api-privacy-plugin-1360w.png 1360w,/assets/posts/2024/wordpress-api-privacy-plugin-1600w.png 1600w" src="_images/wordpress-api-privacy-plugin.png" alt="WordPress Privacy Plugin"></p>
+<p><img loading="lazy" srcset="/assets/posts/2024/wordpress-api-privacy-plugin-320w.png 320w,/assets/posts/2024/wordpress-api-privacy-plugin-480w.png 480w,/assets/posts/2024/wordpress-api-privacy-plugin-640w.png 640w,/assets/posts/2024/wordpress-api-privacy-plugin-960w.png 960w,/assets/posts/2024/wordpress-api-privacy-plugin-1360w.png 1360w,/assets/posts/2024/wordpress-api-privacy-plugin-1600w.png 1600w" src="/assets/posts/2024/wordpress-api-privacy-plugin.png" alt="WordPress Privacy Plugin"></p>
 <p>Since there appears to be currently no easy way to opt-out of sending this data, I decided to create a new WordPress plugin to help. You can find it on the <a href="https://github.com/wp-privacy/wp-api-privacy">WP API Privacy Plugin on Github</a>. This is a very early beta version, so I don't recommend installing it on any production sites yet. But by all means, please test it out on any non-essential or local development sites.</p>
 <p>This plugin performs the following:</p>
 <ul>

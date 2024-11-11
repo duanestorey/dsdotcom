@@ -39,6 +39,7 @@ class Content {
     public $relUrl = '';
     public $unique = '';
     public $modifiedHash = '';
+    public $imageInfo = [];
 
     public function __construct( $config, $contentType, $contentConfig ) {
         $this->config = $config;
@@ -73,6 +74,68 @@ class Content {
         
         $this->url = Utils::fixPath( $this->config->get( 'site.url' ) ) . $contentLink;
         $this->relUrl = $contentLink;        
+    }
+
+    public function processImages() {
+        $imageProcessor = new ImageProcessor( $this->config );
+
+        $allImages = [];
+        $allProcessedImages = [];
+
+        if ( $this->featuredImage ) {
+            //$allImages[ 'featured' ] = $this->featuredImage;
+            $imageInfo = $imageProcessor->processImage( $this, $this->featuredImage );
+            if ( $imageInfo ) {
+                $this->featuredImageData = $imageInfo;
+            }
+        }
+
+        $regexp = '(<img[^>]+src=(?:\"|\')\K(.[^">]+?)(?=\"|\'))';
+        $imageDestinationPath = CROSSROADS_PUBLIC_DIR . '/assets/' . $this->contentType;
+
+        if( preg_match_all( "/$regexp/", $this->originalHtml, $matches, PREG_SET_ORDER ) ) {
+            foreach( $matches as $images ) {
+                 $imageFile = $images[ 0 ];
+
+                 $allImages[ $images[ 1 ] ] = $imageFile;
+            }
+        }
+
+        // we have a list of all images here 
+        $toFind = [];
+        $toReplace = [];
+
+        foreach( $allImages as $originalTag => $image ) {
+            $imageInfo = $imageProcessor->processImage( $this, $image );
+            if ( $imageInfo ) {
+                 $allProcessedImages[] = $imageInfo;
+
+                if ( $imageInfo->is_local ) {
+                    $newImageHtml = str_replace( $image, $imageInfo->url, $originalTag );
+
+                    if ( $imageInfo->hasResponsive ) {
+                        $srcset = array();
+
+                        foreach( $imageInfo->responsiveImages as $image ) {
+                            $srcset[] = $image->url . ' ' . $image->width . 'w';
+                        }
+
+                        $srcset_text = implode( ',', $srcset );
+
+                        $newImageHtml = str_replace( '<img ', '<img loading="lazy" srcset="' . $srcset_text . '" ', $newImageHtml );
+                    }
+
+                    $toFind[] = $originalTag;
+                    $toReplace[] = $newImageHtml;
+                }
+            } else {
+                LOG( sprintf( "Image issue [%s]", $image ), 1, LOG::WARNING );
+            }
+        }
+
+        $this->html = str_replace( $toFind, $toReplace, $this->html );
+
+        $this->imageInfo = $allProcessedImages;
     }
 
     public function setTitle( $title ) {

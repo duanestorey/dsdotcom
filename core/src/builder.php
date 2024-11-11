@@ -48,6 +48,7 @@ class Builder {
                 LOG( sprintf( _i18n( 'core.build.plugins.processing' ), $contentType ), 1, LOG::INFO );
 
                 $entries = $this->pluginManager->processAll( $entries );
+
                 $all_entries = array_merge( $all_entries, $entries );
             }
         }
@@ -82,13 +83,25 @@ class Builder {
             if ( isset( $contentConfig[ 'index' ] ) && $contentConfig[ 'index' ] ) {
                 LOG( sprintf( _i18n( 'core.build.generating.index' ), $contentType ), 1, LOG::INFO );
 
-                $this->totalPages += $this->renderer->renderIndexPage( $entries, $contentType, '/' . $contentType, [ 'index' ] );
+                $this->totalPages += $this->renderer->renderIndexPage( 
+                    $entries, 
+                    $contentType, 
+                    '/' . $contentType, 
+                    [ 'index' ], 
+                    Renderer::CONTENT 
+                );
             }
 
             if ( $contentType == $this->config->get( 'site.home' ) ) {
                 LOG( sprintf( _i18n( 'core.build.generating.home' ), $contentType ), 1, LOG::INFO );
 
-                $this->totalPages += $this->renderer->renderIndexPage( $entries, $contentType, '', [ 'index' ] );
+                $this->totalPages += $this->renderer->renderIndexPage( 
+                    $entries, 
+                    $contentType, 
+                    '', 
+                    [ 'index' ], 
+                    Renderer::HOME 
+                );
             }
 
              // tax
@@ -112,7 +125,14 @@ class Builder {
                         usort( $entries, 'CR\cr_sort' );
 
                         if ( count( $entries ) ) {
-                            $this->totalPages += $this->renderer->renderIndexPage( $entries, $contentType, '/' . $contentType . '/' . $taxType . '/' . $term, [ 'index' ] );
+                            $this->totalPages += $this->renderer->renderIndexPage( 
+                                $entries, 
+                                $contentType, '/' . $contentType . '/' . $taxType . '/' . 
+                                $term, [ 'index' ],
+                                Renderer::TAXONOMY,
+                                $taxType,
+                                $term
+                            );
                         }
                     }              
                 }
@@ -121,7 +141,6 @@ class Builder {
 
         $this->_writeRobots();
         $this->_writeSitemapXml();
-       // $this->_write404Page();
 
         LOG( sprintf( _i18n( 'core.build.total' ), $this->entries->getEntryCount(), $this->totalPages ), 0, LOG::INFO );
 
@@ -155,7 +174,7 @@ class Builder {
             }
         }
 
-        $sitemapXml = $this->_addSitemapEntry( $sitemapXml, $this->config->get( 'site.url '), 'daily' );
+        $sitemapXml = $this->_addSitemapEntry( $sitemapXml, $this->config->get( 'site.url'), 'daily' );
 
         $sitemapXml .= "</urlset>\n";
 
@@ -175,7 +194,7 @@ class Builder {
 
     private function _writeRobots() {
         // write robots
-        $robots = "user-agent: *\ndisallow: /assets/css/\ndisallow: /assets/js/\nallow: /\n\nUser-agent: Twitterbot\nallow: /\nSitemap: " . $this->config->get( 'site.url ') . "/sitemap.xml";
+        $robots = "user-agent: *\ndisallow: /assets/css/\ndisallow: /assets/js/\nallow: /\n\nUser-agent: Twitterbot\nallow: /\nSitemap: " . $this->config->get( 'site.url') . "/sitemap.xml";
         file_put_contents( CROSSROADS_PUBLIC_DIR . '/robots.txt', $robots );
 
         LOG( sprintf( _i18n( 'core.build.writing' ), "robots.txt" ), 1, LOG::INFO );

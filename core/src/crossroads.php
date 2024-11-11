@@ -24,6 +24,7 @@ require_once( 'upgrade.php' );
 require_once( 'log.php' );
 require_once( 'config.php' );
 require_once( 'sass.php' );
+require_once( 'image-processor.php' );
 require_once( 'db.php' );
 require_once( 'mysql.php' );
 require_once( 'web-server.php' );
@@ -31,7 +32,6 @@ require_once( 'log-listener.php' );
 require_once( 'log-listener-shell.php' );
 require_once( 'log-listener-file.php' );
 
-require_once( CROSSROADS_CORE_DIR . '/plugins/image-plugin.php' );
 require_once( CROSSROADS_CORE_DIR . '/plugins/seo-plugin.php' );
 require_once( CROSSROADS_CORE_DIR . '/plugins/wordpress-plugin.php' );
 
@@ -51,7 +51,6 @@ class Engine {
         $this->_setupLocales();
 
         $this->pluginManager = new PluginManager( $this->config );
-        $this->pluginManager->installPlugin( new ImagePlugin( $this->config ) );
         $this->pluginManager->installPlugin( new SeoPlugin( $this->config ) );
         $this->pluginManager->installPlugin( new WordPressPlugin( $this->config ) );
 
@@ -153,10 +152,12 @@ class Engine {
                         $thisContent = $entries->get( $contentType );
                         $thisContent = $this->pluginManager->processAll( $thisContent );
 
-                         LOG( sprintf( "Importing content [%s]", $contentType ), 1, LOG::INFO );
+                        LOG( sprintf( "Importing content [%s]", $contentType ), 1, LOG::INFO );
 
                         if ( count( $thisContent ) ) {
                             foreach( $thisContent as $oneEntry ) {
+                                $oneEntry->processImages();
+
                                 $this->db->addContent( $oneEntry );
                             }
                         }
@@ -165,7 +166,7 @@ class Engine {
                 
                 $all = $this->db->getAllContent();
                 while ( $row = $all->fetchArray( SQLITE3_ASSOC ) ) {
-                    LOG( sprintf( "Reading back [%s/%s]", $row[ 'type' ], $row[ 'slug' ] ), 1, LOG::INFO );
+                    LOG( sprintf( "Reading back [%s/%s]", $row[ 'type' ], $row[ 'slug' ] ), 1, LOG::DEBUG );
                 }
                 break;
             case 'export':

@@ -3,6 +3,7 @@ CREATE TABLE "images"
 (
     "id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
     "filename" VARCHAR(256),
+    "resp_filename" VARCHAR(256),
     "width" INTEGER,
     "height" INTEGER,
     "mod_time" TIMESTAMP,

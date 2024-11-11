@@ -31,6 +31,7 @@ class ImagePlugin extends Plugin {
         $imageDestinationPath = CROSSROADS_PUBLIC_DIR . '/assets/' . $content->contentType;
 
         if( preg_match_all( "/$regexp/", $content->html, $matches, PREG_SET_ORDER ) ) {
+
             foreach( $matches as $images ) {
                 $imageFile = $images[ 0 ];
 
