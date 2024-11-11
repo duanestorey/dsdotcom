@@ -5,6 +5,8 @@ CREATE TABLE "images"
     "filename" VARCHAR(256),
     "width" INTEGER,
     "height" INTEGER,
-    "mod_time" TIMESTAMP
+    "mod_time" TIMESTAMP,
+    "content_id" INTEGER
 );
 CREATE INDEX filename_index ON images( filename );
+CREATE INDEX content_index ON images( content_id );
