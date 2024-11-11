@@ -103,6 +103,10 @@ class Entries {
 
                 $content->calculate();
 
+                if ( $content->featuredImage ) {
+                    $content->featuredImageData = $imageProcessor->processImage( $content, $content->featuredImage );
+                }
+
                 if ( count( $content->taxonomy ) ) {
                     foreach( $content->taxonomy as $tax => $terms ) {
                         foreach( $terms as $term ) {
@@ -110,10 +114,6 @@ class Entries {
                         }
                     }
                 }    
-
-                if ( $content->featuredImage ) {
-                    $content->featuredImageData = $imageProcessor->processImage( $content, $content->featuredImage );
-                }
                
                 $this->entries[ $contentType ][] = $content;
                 $this->totalEntries++;
@@ -147,7 +147,7 @@ class Entries {
                         $content->modifiedDate = filemtime( $markdownFile );
                         $content->contentPath = $content->contentType . '/' . basename( $content->markdownFile );
                         $content->modifiedDate = filemtime( $content->markdownFile );
-                        $content->modifiedHash = md5( $content->modifiedDate . $content->html );
+                        $content->unique = md5( basename( $content->markdownFile ) ); 
 
                         if ( $front = $markdown->frontMatter() ) {
                             $content->title = $this->_findDataInFrontMatter( [ 'title' ], $front,$content->title );
@@ -167,7 +167,6 @@ class Entries {
                         }
 
                         $content->originalHtml = $content->html;
-                        $content->originalTitle = $content->title;
 
                         $content->calculate();
                         $content->processImages();

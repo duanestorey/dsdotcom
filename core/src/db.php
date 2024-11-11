@@ -19,19 +19,17 @@ class DB {
         $this->sql->query( "BEGIN" );  
 
         $queryString = sprintf( 
-            'INSERT INTO "content" (type, hash, rel_url, slug, html, title, original_title, description, featured, created_at, modified_at, modified_hash, content_slug, markdown, original_html) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)',
+            'INSERT INTO "content" (type, hash, rel_url, slug, html, title, description, featured, created_at, modified_at, content_slug, markdown, original_html) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)',
     $this->sql->escapeWithTicks( $content->contentType ),
             $this->sql->escapeWithTicks( $content->unique ),
             $this->sql->escapeWithTicks( $content->relUrl ),
             $this->sql->escapeWithTicks( $content->slug ),
             $this->sql->escapeWithTicks( $content->html ),
             $this->sql->escapeWithTicks( $content->title ),
-            $this->sql->escapeWithTicks( $content->originalTitle ),
             $this->sql->escapeWithTicks( $content->description ),
             $this->sql->escapeWithTicks( $content->featuredImage ),
             $this->sql->escapeWithTicks( date( 'Y-m-d H:i:s', $content->publishDate ) ),
             $this->sql->escapeWithTicks( date( 'Y-m-d H:i:s', $content->modifiedDate ) ),
-            $this->sql->escapeWithTicks( $content->modifiedHash ),
             $this->sql->escapeWithTicks( $content->contentPath ),
             $this->sql->escapeWithTicks( $content->markdownData ),
             $this->sql->escapeWithTicks( $content->originalHtml )
