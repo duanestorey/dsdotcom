@@ -16,7 +16,7 @@ class Markdown {
             $front = $this->_getfrontMatter( $contents );
             if ( $front ) {
                 // Strip front matter from markdown
-                $this->markdown = str_replace( $front[ 0 ], '', $contents );
+                $this->markdown = trim( str_replace( $front[ 0 ], '', $contents ) );
                 $this->frontMatter = YAML::parse( trim( $front[ 1 ] ) );
             } else {
                 $this->markdown = $contents;

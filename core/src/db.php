@@ -19,20 +19,20 @@ class DB {
         $this->sql->query( "BEGIN" );  
 
         $queryString = sprintf( 
-            'INSERT INTO "content" (type, hash, rel_url, slug, html, title, original_title, description, featured, created_at, modified_at, modified_hash, original_html) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)',
+            'INSERT INTO "content" (type, hash, rel_url, slug, html, title, description, featured, created_at, modified_at, content_slug, markdown, original_html) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)',
     $this->sql->escapeWithTicks( $content->contentType ),
             $this->sql->escapeWithTicks( $content->unique ),
             $this->sql->escapeWithTicks( $content->relUrl ),
             $this->sql->escapeWithTicks( $content->slug ),
             $this->sql->escapeWithTicks( $content->html ),
             $this->sql->escapeWithTicks( $content->title ),
-            $this->sql->escapeWithTicks( $content->originalTitle ),
             $this->sql->escapeWithTicks( $content->description ),
             $this->sql->escapeWithTicks( $content->featuredImage ),
             $this->sql->escapeWithTicks( date( 'Y-m-d H:i:s', $content->publishDate ) ),
             $this->sql->escapeWithTicks( date( 'Y-m-d H:i:s', $content->modifiedDate ) ),
-            $this->sql->escapeWithTicks( $content->modifiedHash ),
-            $this->sql->escapeWithTicks( $content->originalHtml ),
+            $this->sql->escapeWithTicks( $content->contentPath ),
+            $this->sql->escapeWithTicks( $content->markdownData ),
+            $this->sql->escapeWithTicks( $content->originalHtml )
         );
 
         LOG( sprintf( "Importing [%s]", $content->slug ), 2, LOG::DEBUG );
@@ -94,6 +94,14 @@ class DB {
 
     public function getAllContent() {
         return $this->sql->query( "SELECT * FROM content" );
+    }
+
+    public function getContentType( $contentType ) {
+        return $this->sql->query( sprintf( "SELECT * FROM content WHERE type = %s", $this->sql->escapeWithTicks( $contentType ) ) );
+    }
+
+    public function getAllTaxForContent( $contentId ) {
+        return $this->sql->query( sprintf( "SELECT tax,term FROM taxonomy WHERE content_id = %d", $this->sql->escape( $contentId ) ) );
     }
 
     public function getAllTerms() {

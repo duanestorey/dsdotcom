@@ -22,6 +22,7 @@ class Content {
     public $modifiedDate = 0;
     public $url = '';
     public $markdownFile = '';
+    public $markdownData = '';
     public $html = '';
     public $originalHtml = '';
     public $featuredImage = false;
@@ -29,7 +30,6 @@ class Content {
     public $description = '';
     public $slug = '';
     public $taxonomy = [];
-
 
     // Calculated fields
     public $taxonomyLinks = [];
@@ -40,6 +40,7 @@ class Content {
     public $unique = '';
     public $modifiedHash = '';
     public $imageInfo = [];
+    public $contentPath = '';
 
     public function __construct( $config, $contentType, $contentConfig ) {
         $this->config = $config;
@@ -50,9 +51,6 @@ class Content {
     }
 
     public function calculate() {
-        $this->originalHtml = $this->html;
-        $this->originalTitle = $this->title;
-
         $this->words = str_word_count( strip_tags( $this->html ) );
         $minutes = intdiv( $this->words, 225 );
         if ( $minutes <= 1 ) {
@@ -61,11 +59,6 @@ class Content {
             $this->readingTime = sprintf( _i18n( 'core.class.entries.reading_time.p' ), $minutes );
         }   
 
-        $this->unique = md5( $this->contentType . '/' . $this->slug ); 
-        $this->className = $this->slug;
-        $this->modifiedDate = filemtime( $this->markdownFile );
-        $this->modifiedHash = md5( filemtime( $this->markdownFile ) . $this->html );
-
         if ( isset( $this->contentConfig[ 'base' ] ) ) {
             $contentLink =  Utils::fixPath( $this->contentConfig[ 'base' ] ) . '/' . $this->slug . '.html';
         } else {
@@ -73,7 +66,15 @@ class Content {
         }
         
         $this->url = Utils::fixPath( $this->config->get( 'site.url' ) ) . $contentLink;
-        $this->relUrl = $contentLink;        
+        $this->relUrl = $contentLink;  
+                        
+        if ( count( $this->taxonomy ) ) {
+            foreach( $this->taxonomy as $tax => $terms ) {
+                foreach( $terms as $term ) {
+                    $this->taxonomyLinks[ $tax ][ $term ] = '/' . $this->contentType . '/' . $tax . '/' . $term;
+                }
+            }
+        }        
     }
 
     public function processImages() {
@@ -129,7 +130,7 @@ class Content {
                     $toReplace[] = $newImageHtml;
                 }
             } else {
-                LOG( sprintf( "Image issue [%s]", $image ), 1, LOG::WARNING );
+                
             }
         }
 

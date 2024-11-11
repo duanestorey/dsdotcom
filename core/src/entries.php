@@ -7,9 +7,13 @@ class Entries {
     var $entries = array();
     var $tax = array();
     var $totalEntries = 0;
+    protected $db = null;
+    protected $pluginManager = null;
 
-    public function __construct( $config ) {
+    public function __construct( $config, $db, $pluginManager ) {
         $this->config = $config;
+        $this->db = $db;
+        $this->pluginManager = $pluginManager;
     }
 
     public function getEntryCount() {
@@ -64,6 +68,59 @@ class Entries {
         return $allEntries;
     }
 
+    public function loadAllDb() {
+        $imageProcessor = new ImageProcessor( $this->config );
+        foreach( $this->config->get( 'content', [] ) as $contentType => $contentConfig ) {
+            if ( !isset( $this->entries[ $contentType ] ) ) {
+                $this->entries[ $contentType ] = [];
+                $this->tax[ $contentType ] = [];
+            }   
+
+            LOG( sprintf( _i18n( 'core.class.entries.processing.loading' ), $contentType ), 1, LOG::INFO );
+
+            $result = $this->db->getContentType( $contentType );
+            while ( $row = $result->fetchArray( SQLITE3_ASSOC ) ) {
+                $content = new Content( $this->config, $contentType, $contentConfig );
+                $content->slug = $row[ 'slug' ];
+                $content->title = $row[ 'title' ];
+                $content->description = $row[ 'description' ];
+                $content->unique = $row[ 'hash' ];
+                $content->html = $row[ 'html' ];
+                $content->featuredImage = $row[ 'featured' ];
+                $content->publishDate = strtotime( $row[ 'created_at' ] );
+                $content->modifiedDate = strtotime( $row[ 'modified_at' ] );
+
+                $content->markdownFile = CROSSROADS_CONTENT_DIR . '/' . $row[ 'content_slug' ];
+
+                $content->contentPath = $content->contentType . '/' . $content->slug;
+                $content->unique = md5( $content->contentType . '/' . $content->slug ); 
+                $content->className = $content->slug;
+                
+                $tax = $this->db->getAllTaxForContent( $row[ 'id' ] );
+                while ( $taxRow = $tax->fetchArray( SQLITE3_ASSOC ) ) {
+                    $content->taxonomy[ $taxRow[ 'tax' ] ][] = $taxRow[ 'term' ];
+                }
+
+                $content->calculate();
+
+                if ( $content->featuredImage ) {
+                    $content->featuredImageData = $imageProcessor->processImage( $content, $content->featuredImage );
+                }
+
+                if ( count( $content->taxonomy ) ) {
+                    foreach( $content->taxonomy as $tax => $terms ) {
+                        foreach( $terms as $term ) {
+                            $this->tax[ $contentType ][ $tax ][ $term ][] = $content;
+                        }
+                    }
+                }    
+               
+                $this->entries[ $contentType ][] = $content;
+                $this->totalEntries++;
+            }
+        }
+    }
+
     public function loadAll() {
         foreach( $this->config->get( 'content', [] ) as $contentType => $contentConfig ) {
             if ( !isset( $this->entries[ $contentType ] ) ) {
@@ -85,8 +142,12 @@ class Entries {
                         $content = new Content( $this->config, $contentType, $contentConfig );
                         $content->slug = $this->getSlugFromName( pathinfo( $markdownFile, PATHINFO_FILENAME ) );
                         $content->markdownFile = $markdownFile;
+                        $content->markdownData = $markdown->rawMarkdown();
                         $content->html = $markdown->html();
                         $content->modifiedDate = filemtime( $markdownFile );
+                        $content->contentPath = $content->contentType . '/' . basename( $content->markdownFile );
+                        $content->modifiedDate = filemtime( $content->markdownFile );
+                        $content->unique = md5( basename( $content->markdownFile ) ); 
 
                         if ( $front = $markdown->frontMatter() ) {
                             $content->title = $this->_findDataInFrontMatter( [ 'title' ], $front,$content->title );
@@ -101,16 +162,23 @@ class Entries {
                                     $content->taxonomy[ $tax ] = array_map( function( $e ) { return Utils::cleanTerm( $e ); }, $content->taxonomy[ $tax ] );
                                 }
                             }
+
+                            // print_r( $content->taxonomy );
                         }
+
+                        $content->originalHtml = $content->html;
 
                         $content->calculate();
                         $content->processImages();
-                                 
+
+                        if ( !$content->description ) {
+                            $content->description = $content->excerpt( 120, false );  
+                        }    
+
                         if ( count( $content->taxonomy ) ) {
                             foreach( $content->taxonomy as $tax => $terms ) {
                                 foreach( $terms as $term ) {
                                     $this->tax[ $contentType ][ $tax ][ $term ][] = $content;
-                                    $content->taxonomyLinks[ $tax ][ $term ] = '/' . $contentType . '/' . $tax . '/' . $term;
                                 }
                             }
                         }
@@ -120,6 +188,8 @@ class Entries {
                     }
                 }
             }
+            
+            $this->entries[ $contentType ] = $this->pluginManager->processAll( $this->entries[ $contentType ] );
         }
     }
 

@@ -26,6 +26,7 @@ require_once( 'config.php' );
 require_once( 'sass.php' );
 require_once( 'image-processor.php' );
 require_once( 'db.php' );
+require_once( 'latte-file-loader.php' );
 require_once( 'mysql.php' );
 require_once( 'web-server.php' );
 require_once( 'log-listener.php' );
@@ -136,13 +137,12 @@ class Engine {
     }
 
     private function _db( $argc, $argv ) {
-    
         switch( $argv[ 2 ] ) {
             case 'import':
                 
                 $this->db->rebuild();
-                $entries = new Entries( $this->config );
-                $content = $this->config->get( 'content' );
+                $entries = new Entries( $this->config, $this->db, $this->pluginManager );
+                $content = $this->config->get( 'content',  );
                 if ( $content ) {
                     $entries->loadAll();
 
@@ -150,14 +150,12 @@ class Engine {
                         LOG( sprintf( "Processing plugins for [%s]", $contentType ), 1, LOG::INFO );
 
                         $thisContent = $entries->get( $contentType );
-                        $thisContent = $this->pluginManager->processAll( $thisContent );
+                      //  $thisContent = $this->pluginManager->processAll( $thisContent );
 
                         LOG( sprintf( "Importing content [%s]", $contentType ), 1, LOG::INFO );
 
                         if ( count( $thisContent ) ) {
                             foreach( $thisContent as $oneEntry ) {
-                                $oneEntry->processImages();
-
                                 $this->db->addContent( $oneEntry );
                             }
                         }
@@ -396,7 +394,7 @@ class Engine {
     private function _build( $argc, $argv ) {
         LOG( _i18n( 'core.build.starting' ) );
 
-        $this->builder = new Builder( $this->config, $this->pluginManager );
+        $this->builder = new Builder( $this->config, $this->pluginManager, $this->db );
 
         try {
             $this->builder->run();

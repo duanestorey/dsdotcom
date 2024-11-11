@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e20e42e77cbd3bb0d419d32732d3b3b4",
+    "content-hash": "3f7edf2c130a2f5ff1d601b1ea36f5f9",
     "packages": [
         {
             "name": "erusev/parsedown",
@@ -230,6 +230,78 @@
                 }
             ],
             "time": "2023-07-12T21:21:09+00:00"
+        },
+        {
+            "name": "mallardduck/html-formatter",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mallardduck/html-formatter.git",
+                "reference": "c6e0db652571d96ba63980658c70cd3bb0001ea1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mallardduck/html-formatter/zipball/c6e0db652571d96ba63980658c70cd3bb0001ea1",
+                "reference": "c6e0db652571d96ba63980658c70cd3bb0001ea1",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "php": "^7.4 || ^8.0"
+            },
+            "replace": {
+                "navindex/html-formatter": "*"
+            },
+            "require-dev": {
+                "php-coveralls/php-coveralls": "^2.5",
+                "phpstan/phpstan": "^1.2.0",
+                "phpunit/phpunit": "^9.5.16",
+                "spatie/phpunit-snapshot-assertions": "^4.2.10",
+                "symfony/var-dumper": "^5.0 || ^6.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "MallardDuck\\HtmlFormatter\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dan Pock",
+                    "email": "self@danpock.me",
+                    "homepage": "https://danpock.me",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Miklos Karpati",
+                    "email": "mk@navindex.com.au",
+                    "homepage": "https://www.navindex.com.au",
+                    "role": "OG Developer"
+                }
+            ],
+            "description": "HTML beautifier and minifier library for development and testing.",
+            "homepage": "https://github.com/mallardduck/html-formatter",
+            "keywords": [
+                "beautify",
+                "format",
+                "html",
+                "indent",
+                "minify"
+            ],
+            "support": {
+                "source": "https://github.com/mallardduck/html-formatter/tree/1.0.1"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/navindex",
+                    "type": "github"
+                }
+            ],
+            "time": "2022-02-27T23:38:37+00:00"
         },
         {
             "name": "scssphp/scssphp",

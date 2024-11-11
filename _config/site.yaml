@@ -3,10 +3,10 @@ site:
   url: 'https://duanestorey.com'
   description: 'The home of engineer and world traveller, Duane Storey'
   home_description: 'Duane Storey is a an entrepreneur who has develped software used by over 40 million people'
-  theme: lumen
-  lang: en
-  charset: 'utf-8'
-  home: posts
+  theme: "simple-child"
+  lang: "en"
+  charset: "utf-8"
+  home: "posts"
 content:
   pages:
     index: false
@@ -20,13 +20,13 @@ content:
     singular: "post"
     taxonomy:
       category:
-        - categories
-        - category
+        - "categories"
+        - "category"
       tag:
-        - tags
-        - tag
+        - "tags"
+        - "tag"
 dirs:
-  themes: "core/themes"
+  core_themes: "core/themes"
 options:
   debug: true
   content_per_page: 20
@@ -37,7 +37,8 @@ options:
   browser:
     auto: false
     open_command: "open %s"
-images:
-  convert_to_webp: false
-  generate_responsive: true
+  beautify_html: false
+  images:
+    convert_to_webp: false
+    generate_responsive: true
 
