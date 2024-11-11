@@ -104,6 +104,7 @@ class Entries {
                         }
 
                         $content->calculate();
+                        $content->processImages();
                                  
                         if ( count( $content->taxonomy ) ) {
                             foreach( $content->taxonomy as $tax => $terms ) {

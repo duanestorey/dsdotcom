@@ -64,7 +64,7 @@
 
     <div class="container mt-4">
         <article>    
-            <h1 class="mt-4">Apple iTunes DRM-Free Test</h1>
+            <h1 class="mt-4">Apple iTunes DRM-Free Test - The Duane Storey</h1>
             <div class="meta mb-2 text-primary fs-6 fw-light">
                 Published on <time>May 31st, 2007</time> &middot; <span>3 minutes to read</span>
             </div>
@@ -76,12 +76,12 @@
 <p>The first thing I should point out is that iTunes fires up after the upgrade in normal, full-on DRM mode. There’s a button near the top that will enable the DRM-free mode, which will convert all the prices on in the iTunes stores to the DRM-free versions, if they exist from the band.</p>
 <p>So, after clicking that button, iTunes informs me that out of the 215 songs in my library that were purchased, and thus protected by DRM, only 13 of them (which represents the entire <a href="http://en.wikipedia.org/wiki/Pocket_Symphony">Air – Pocket Symphony</a> album) can be converted to DRM-free versions. So, I figured, what the hell — might as well let the healing begin.</p>
 <p>After typing in my iTunes password, I sat back, waiting patiently for the downloads to start, and my musical experience to be taken to the next level. Unfortunately, this is what I got:</p>
-<p><img loading="lazy" srcset="/assets/posts/2007/apple-itunes-drmfree-test-1-320w.jpg 320w" src="_images/apple-itunes-drmfree-test-1.jpg" alt=""><br />
+<p><img loading="lazy" srcset="/assets/posts/2007/apple-itunes-drmfree-test-1-320w.jpg 320w" src="/assets/posts/2007/apple-itunes-drmfree-test-1.jpg" alt=""><br />
 Hmm.. That’s not so good. I messed around for nearly 30 minutes before it actually managed to download a full DRM-free version, and as of this blog post, 11 songs are still in an error state, waiting for some magical, celestial event to occur before they start. Thankfully, you get the option of backing up the DRM versions on your hard drive during this process.</p>
 <p>Since I now had both versions, I figured I might as well see if the DRM-free versions *were* actually better. I did a quick listen, and I couldn’t really hear a difference. So, I burned both versions to a CD, then ripped them back into my hard-drive as PCM Wave files, fired up Matlab and then switched my brain into DSP mode, a place I don’t visit very often anymore.</p>
 <p>I did a quick and dirty <a href="http://en.wikipedia.org/wiki/Fourier_transform">Fourier transform</a> to figure out what the spectral properties of both files looked like. Here’s the result:</p>
 <p><a href="http://www.flickr.com/photos/duanestorey/522923637/"><br />
-<img loading="lazy" srcset="/assets/posts/2007/apple-itunes-drmfree-test-2-320w.jpg 320w,/assets/posts/2007/apple-itunes-drmfree-test-2-480w.jpg 480w" src="_images/apple-itunes-drmfree-test-2.jpg" alt="">  </a><br />
+<img loading="lazy" srcset="/assets/posts/2007/apple-itunes-drmfree-test-2-320w.jpg 320w,/assets/posts/2007/apple-itunes-drmfree-test-2-480w.jpg 480w" src="/assets/posts/2007/apple-itunes-drmfree-test-2.jpg" alt="">  </a><br />
 They look pretty similar up until around 16kHz (which is where most voice frequencies start to diminish sharply), at which point the high frequencies start to roll off fairly quickly in the 128kbps version. In the 256kbps version though, the highs are maintained up until 20kHz, at which point there’s obviously a deliberate cut-off filter in-place (probably to avoid any aliasing during the conversion to 44.1kHz/CD).</p>
 <p>So, without a doubt there are extra high-frequencies in the 256kbps, which means you are actually getting more for your money (at least, you are getting more highs, so if you like more highs, then you’ll be happy).</p>
 <p>I tried moving the DRM-free file to another computer and using it there and had no problem whatsoever. So Apple lives up to their promise in this area.</p>

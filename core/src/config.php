@@ -13,6 +13,7 @@ class Config {
         if ( $this->config && isset( $this->config[ $key ] ) ) {
             return $this->config[ $key ];
         } else {
+            LOG( sprintf( "Setting not found [%s] in [%s:%d]", $key, debug_backtrace()[0][ 'file' ], debug_backtrace()[0][ 'line' ] ), 1, LOG::WARNING );
             return $default;
         }
     }

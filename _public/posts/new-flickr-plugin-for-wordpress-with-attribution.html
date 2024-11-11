@@ -64,7 +64,7 @@
 
     <div class="container mt-4">
         <article>    
-            <h1 class="mt-4">New Flickr Plugin</h1>
+            <h1 class="mt-4">New Flickr Plugin - The Duane Storey</h1>
             <div class="meta mb-2 text-primary fs-6 fw-light">
                 Published on <time>August 11th, 2008</time> &middot; <span>2 minutes to read</span>
             </div>
@@ -73,7 +73,7 @@
                 <p>Yes sports fans, it’s that time again — we’ve been messing around with yet another plugin over at BraveNewCode. But first, everyone should know that we just put the finishing touches on WPtouch 2.0 today. There are still a few small bugs to squish, but hopefully it’ll hit the market sometime in the next week or two. It’s pretty sexy, if I do so say so myself.</p>
 <p>In terms of the new plugin, I’ll give everyone a little context. In the last two months I’ve had several people infringe upon my Flickr photo licenses by using my photos commercially. One of those incidences ended peacefully, but unfortunately the other one is still ongoing. While not for certain, I suspect the odd person grabs photos from my blog (after doing a Google image search), not really knowing that photos on my blog have CC licenses associated with them.</p>
 <p>So to battle that problem, I’ve always envisioned a Flickr plugin for WordPress that would be aware of the CC licenses for each of the photos. Today I sat down and hacked out a proof of concept in a few hours. You should be able to see the end result here:</p>
-<p><a href="http://flickr.com/photos/duanestorey/2749456364/"><img loading="lazy" srcset="/assets/posts/2008/new-flickr-plugin-1-320w.jpg 320w,/assets/posts/2008/new-flickr-plugin-1-480w.jpg 480w" src="_images/new-flickr-plugin-1.jpg" alt="Jessie Farrell"></a></p>
+<p><a href="http://flickr.com/photos/duanestorey/2749456364/"><img loading="lazy" srcset="/assets/posts/2008/new-flickr-plugin-1-320w.jpg 320w,/assets/posts/2008/new-flickr-plugin-1-480w.jpg 480w" src="/assets/posts/2008/new-flickr-plugin-1.jpg" alt="Jessie Farrell"></a></p>
 <p>The code fragment in the HTML I used to generate the Flickr image above is the same fragment I always use, consisting of nothing more than an IMG tag. The benefit of this is that every single Flickr image I’ve ever used will automatically be adjusted when the plugin is on. The plugin now performs the following behind the scenes:</p>
 <ol>
 <li>The plugin locates Flickr images in the HTML source, and then deconstructs the Flickr URL to determine the Flickr image number</li>

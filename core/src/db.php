@@ -16,6 +16,8 @@ class DB {
     }
 
     public function addContent( $content ) {
+        $this->sql->query( "BEGIN" );  
+
         $queryString = sprintf( 
             'INSERT INTO "content" (type, hash, rel_url, slug, html, title, original_title, description, featured, created_at, modified_at, modified_hash, original_html) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)',
     $this->sql->escapeWithTicks( $content->contentType ),
@@ -33,25 +35,60 @@ class DB {
             $this->sql->escapeWithTicks( $content->originalHtml ),
         );
 
-        LOG( sprintf( "Importing [%s]", $content->slug ), 2, LOG::INFO );
+        LOG( sprintf( "Importing [%s]", $content->slug ), 2, LOG::DEBUG );
 
         $this->sql->query( $queryString );
         $lastRow = $this->sql->getLastRowID();
 
-        foreach( $content->taxonomy as $taxType => $terms ) {
-            foreach( $terms as $term ) {
-                $queryString = sprintf( 
-                    'INSERT INTO "taxonomy" (type, tax, term, content_id) VALUES (%s, %s, %s, %d)',
-                    $this->sql->escapeWithTicks( $content->contentType ),
-                    $this->sql->escapeWithTicks( $taxType ),
-                    $this->sql->escapeWithTicks( $term ),
-                    $this->sql->escape( $lastRow )
-                );
+        if ( count( $content->taxonomy ) ) {
+            foreach( $content->taxonomy as $taxType => $terms ) {
+                foreach( $terms as $term ) {
+                    $queryString = sprintf( 
+                        'INSERT INTO "taxonomy" (type, tax, term, content_id) VALUES (%s, %s, %s, %d)',
+                        $this->sql->escapeWithTicks( $content->contentType ),
+                        $this->sql->escapeWithTicks( $taxType ),
+                        $this->sql->escapeWithTicks( $term ),
+                        $this->sql->escape( $lastRow )
+                    );
 
-                LOG( sprintf( "Importing tax/term [%s]", $taxType . '/' . $term ), 2, LOG::DEBUG );
+                    LOG( sprintf( "Importing tax/term [%s]", $taxType . '/' . $term ), 2, LOG::DEBUG );
 
-                $this->sql->query( $queryString );  
+                    $this->sql->query( $queryString );  
+                }
+            }     
+        }
+
+
+        if ( count( $content->imageInfo ) ) { 
+            foreach( $content->imageInfo as $image ) {
+                //print_r( $image );
+                $this->addImageToDb( $image, $lastRow );;
+  
+                if ( count( $image->responsiveImages ) ) {
+                    foreach( $image->responsiveImages as $size => $respImage ) {
+                        $this->addImageToDb( $respImage, $lastRow, $image->url );
+                    }
+                }
             }
+        }
+
+        $this->sql->query( sql: "COMMIT" ); 
+    }
+
+    protected function addImageToDb( $image, $id, $respFile = '' ) {
+        if ( $image->is_local && $image->isValid ) {
+            $queryString = sprintf( 
+                'INSERT INTO "images" (filename, width, height, resp_filename, content_id, mod_time) VALUES (%s, %d, %d, %s, %d, %u)',
+                $this->sql->escapeWithTicks( $image->url ),
+                $this->sql->escape( $image->width ),
+                $this->sql->escape( $image->height ),
+                $this->sql->escapeWithTicks( $respFile ),
+                $this->sql->escape( $id ),
+                $this->sql->escape( $image->modificationTime )
+            );
+
+            // LOG( "Importing images", 2, LOG::DEBUG );
+            $this->sql->query( $queryString ); 
         }
     }
 

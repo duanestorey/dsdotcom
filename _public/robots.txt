@@ -5,4 +5,4 @@ allow: /
 
 User-agent: Twitterbot
 allow: /
-Sitemap: /sitemap.xml
+Sitemap: https://duanestorey.com/sitemap.xml

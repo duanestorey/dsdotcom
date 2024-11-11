@@ -68,7 +68,7 @@
 
     <div class="container mt-4">
         <article>    
-            <h1 class="mt-4">Migrating Away From WordPress, Part One: Exporting Data</h1>
+            <h1 class="mt-4">Migrating Away From WordPress, Part One: Exporting Data - The Duane Storey</h1>
             <div class="meta mb-2 text-primary fs-6 fw-light">
                 Published on <time>November 2nd, 2024</time> &middot; <span>5 minutes to read</span>
             </div>
@@ -101,7 +101,7 @@
 <p>While this conversion tool is useful, it’s not an exhaustive capture of everything on your WordPress website.  Only a few of the post and page fields are transferred over, so if you have any custom meta data, it won’t be preserved. I imagine the tool could be expanded easily enough to get at some of the other data, but for my purposes it was good enough.</p>
 <h2>An Example Post</h2>
 <p>Once it’s complete, you’ll have a series of folders representing all your posts and pages. In each directory should be a series of Markdown files ending in the .md prefix, along with an image directory containing all the downloaded images.  You can see an example of a blog post in Markdown format in the image below.   </p>
-<p><img loading="lazy" srcset="/assets/posts/2024/markdown-example-320w.png 320w,/assets/posts/2024/markdown-example-480w.png 480w,/assets/posts/2024/markdown-example-640w.png 640w,/assets/posts/2024/markdown-example-960w.png 960w,/assets/posts/2024/markdown-example-1360w.png 1360w" src="_images/markdown-example.png" alt="Markdown Example"></p>
+<p><img loading="lazy" srcset="/assets/posts/2024/markdown-example-320w.png 320w,/assets/posts/2024/markdown-example-480w.png 480w,/assets/posts/2024/markdown-example-640w.png 640w,/assets/posts/2024/markdown-example-960w.png 960w,/assets/posts/2024/markdown-example-1360w.png 1360w" src="/assets/posts/2024/markdown-example.png" alt="Markdown Example"></p>
 <p>The top section contains the post meta data and is called <em>front matter</em> within the Markdown. It contains the taxonomies in the form of categories and tags, the post publication date, the title, and the featured image from WordPress. The only piece that’s missing that I really need is the ability to add rich SEO description field on a per-post basis, so I’ll use a new front matter term called <em>description</em> going forward.</p>
 <h2>Static Site Generators</h2>
 <p>If you’re wondering what a static site generator is, it’s basically a way to take data and render it as a collection of HTML files. If you use WordPress without a caching plugin, every page is dynamically generated in real-time using PHP. That’s powerful, but also can be pretty slow depending on how much code is running each time. If you install a caching plugin, often they will take the output from the dynamic page and save a temporary HTML file, serving that file directly when people visit your website. That’s a pretty good compromise. But if you want to take it all the way to its conclusion, you can remove the dynamic aspect entirely, and just generate an entire website when you update your content.</p>
