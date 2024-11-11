@@ -5,7 +5,7 @@ namespace CR;
 class Upgrade {
     var $config = null;
 
-    var $mainUrl = 'https://raw.githubusercontent.com/duanestorey/dsdotcom/refs/heads/main/crossroads';
+    var $mainUrl = 'https://raw.githubusercontent.com/duanestorey/crossroads/refs/heads/main/crossroads';
     var $mainZip = 'https://codeload.github.com/duanestorey/crossroads/zip/refs/heads/stable';
 
     public function __construct( $config ) {
@@ -22,9 +22,9 @@ class Upgrade {
             LOG( sprintf( _i18n( 'core.class.upgrade.next_ver' ), $currentVersion ), 1, LOG::INFO );
 
             $compare = version_compare( $currentVersion, CROSSROADS_VERSION );
-            if ( $compare != 0 ) {
+            if ( $compare != 1 ) {
                 LOG( sprintf( _i18n( 'core.class.upgrade.up_to_date' ), $currentVersion ), 1, LOG::INFO );
-            } else if ( $compare == 0 ) {
+            } else if ( $compare == 1 ) {
                 $zipFile = $this->downloadZipAndExpand();
 
                 if ( $zipFile ) {
@@ -36,16 +36,23 @@ class Upgrade {
                     @mkdir( $destinationDir );
 
                     $unzipDirectory =  $destinationDir . '/crossroads-stable';
+                    $unzipDirectory = CROSSROADS_BASE_DIR;
 
-                    Utils::recursiveRmdir( $unzipDirectory );
+                    /*
+                    if ( file_exists( $unzipDirectory ) ) {
+                        Utils::recursiveRmdir( $unzipDirectory );
+                    }
+                    */
 
-                    $command = sprintf( 'unzip -d %s %s', $destinationDir, $zipFile );
+                    $command = sprintf( 'unzip -d %s %s', CROSSROADS_BASE_DIR, $zipFile );
                     $output = shell_exec( $command );
+                    echo $output;
                     
                     if ( file_exists( $unzipDirectory ) && is_dir( $unzipDirectory ) ) {
                         // we can copy the files now
 
                         LOG( _i18n( 'core.class.upgrade.composer' ), 2, LOG::INFO );
+
                         exec( 'composer update' ); 
                     }             
                 }
