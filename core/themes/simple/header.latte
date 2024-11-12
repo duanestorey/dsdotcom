@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{$site->lang}">
     <head>
-        <link rel="stylesheet" href="{$page->assetUrl}/lumen.css?v={$page->assetHash}">
+        <link rel="stylesheet" href="{$page->assetUrl}/simple.css?v={$page->assetHash}">
         <title>{$page->title}</title>
         <link rel="icon" type="image/x-icon" href="/assets/favicon.ico?v={$page->assetHash}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" media="print" onload="this.media='all'">
@@ -18,16 +18,19 @@
         <meta property="og:title" content="{$page->title}">
         <meta property="og:url" content="{$content->url}">
         <meta property="og:type" content="article">
+        {if $content->featuredImageData}
+        <meta property="og:image" content="{$content->featuredImageData->public_url}">
+        <meta property="og:image:width" content="{$content->featuredImageData->width}">
+        <meta property="og:image:height" content="{$content->featuredImageData->height}">
+        {/if}
         <meta name="twitter:card" content="summary_large_image">   
         <meta name="twitter:title" content="{$page->title}">
         <meta name="twitter:description" content="{$content->description}">
         <meta name="twitter:creator" content="@duanestorey">
         {if $content->featuredImageData}
         <meta name="twitter:image" content="{$content->featuredImageData->public_url}">
-        <meta property="og:image" content="{$content->featuredImageData->public_url}">
-        <meta property="og:image:width" content="{$content->featuredImageData->width}">
-        <meta property="og:image:height" content="{$content->featuredImageData->height}">
         {/if}
+  
 
         {else}
         <meta name="description" content="{$page->description}">

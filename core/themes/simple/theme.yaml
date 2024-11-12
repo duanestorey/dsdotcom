@@ -1,13 +1,13 @@
 theme:
   name: 'Simple'
+  version: "1.0"
+  author: "Duane Storey"
   assets:
-    lumen.css:
+    simple.css:
       - bootstrap.min.css
       - custom.scss
-    lumen.min.js:
+    simple.min.js:
       - bootstrap.bundle.min.js
       - custom.js
   images:
     - favicon.ico
-    - final-road-opt.jpg
-    - final-road-opt.avif

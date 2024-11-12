@@ -18,6 +18,12 @@
         }
     }
 
+    code {
+        background: #eee;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
     .caption {
         display: block;
     }
@@ -41,15 +47,5 @@ footer {
 @media (min-width: 1200px) {
     .container {
         max-width: 940px;
-    }
-}
-
-@media (min-width: 1200px) {
-
-}
-
-@media (max-width: 576px) { 
-    .things-about-me .col-sm em {
-        min-height: inherit;
     }
 }

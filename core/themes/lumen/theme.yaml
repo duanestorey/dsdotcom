@@ -1,5 +1,7 @@
 theme:
-  name: 'Lumen'
+  name: "Lumen"
+  version: "1.0"
+  author: "Duane Storey"
   assets:
     lumen.css:
       - bootstrap.min.css
@@ -10,4 +12,3 @@ theme:
   images:
     - favicon.ico
     - final-road-opt.jpg
-    - final-road-opt.avif
