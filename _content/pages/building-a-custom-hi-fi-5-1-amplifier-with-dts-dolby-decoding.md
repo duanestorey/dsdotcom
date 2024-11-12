@@ -1,5 +1,5 @@
 ---
-title: "Building A Hi-Fi 5.1 Amplifier With Dolby Decoding"
+title: "Building A Hi-Fi 5.1 Amplifier"
 publishDate: "2023-01-27"
 modifiedDate: "2023-08-12"
 slug: "building-a-custom-hi-fi-5-1-amplifier-with-dts-dolby-decoding"

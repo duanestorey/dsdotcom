@@ -1,5 +1,5 @@
 ---
-title: "Hiking"
+title: "Some Of My Favourite Hikes"
 publishDate: "2021-02-01"
 modifiedDate: "2021-06-17"
 slug: "hiking"

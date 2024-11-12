@@ -18,8 +18,8 @@
 }
 .container .content blockquote {
   padding-left: 20px;
-  border-left: 2px solid;
-  color: #777;
+  border-left: 5px solid #777;
+  color: #555;
 }
 .container .caption {
   display: block;
@@ -27,6 +27,7 @@
 .container .meta {
   margin-top: -5px;
   font-size: 0.8em;
+  font-weight: 500 !important;
 }
 .container article {
   border-bottom: 1px solid #d8d8d8;
@@ -47,8 +48,33 @@
   margin-right: 10px;
   display: inline-block;
 }
+.container pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 10pt;
+  font-family: monospace;
+}
+.container h1 {
+  font-size: 24pt;
+}
+.container h2 {
+  font-size: 20pt;
+}
+.container h3 {
+  font-size: 18pt;
+}
+.container h4 {
+  font-size: 16pt;
+}
+.container h5 {
+  font-size: 14pt;
+}
+.container h5 {
+  font-size: 12pt;
+}
 footer {
   font-weight: 100;
+  font-size: 0.8em;
 }
 .jumbotron {
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/assets/final-road-opt.jpg");

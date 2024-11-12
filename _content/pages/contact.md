@@ -1,5 +1,5 @@
 ---
-title: "Contact"
+title: "Contact Me"
 date: "2010-09-24T05:19:42.000Z"
 featuredImage: '_images/mail-photo.jpg'
 ---

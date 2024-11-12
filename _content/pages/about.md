@@ -1,5 +1,6 @@
 ---
-title: "About"
+title: "About Duane"
+Description: "Learn more about engineer and world traveller, Duane Storey"
 date: "2010-06-21T00:49:52.000Z"
 featuredImage: "_images/duane-new2.jpg"
 ---

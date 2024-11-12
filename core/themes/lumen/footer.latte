@@ -1,10 +1,22 @@
 
         <footer class="bg-dark pt-4 pb-4 mt-4 mb-4">
-            <div class="container text-center text-white">
-                All content copyright &copy; 2024<br>Generated using Crossroads SSG
-                {if $isHome}
-                <br>Last Updated {$renderTime|date:'F jS, Y - g:i:s'} UTC
-                {/if}
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="text-start text-white">
+                            Rendered using Crossroads SSG
+                            {if $isHome}
+                            <br>Last Updated {$renderTime|date:'F jS, Y - g:i:s'} UTC
+                            {/if}
+                            <br><a href="https://github.com/duanestorey/crossroads">View on Github</a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="text-end text-white">
+                            All content copyright &copy; 2007-2024<br>By Duane Storey
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <script defer src="{$page->assetUrl}/lumen.min.js?v={$page->assetHash}"></script>
