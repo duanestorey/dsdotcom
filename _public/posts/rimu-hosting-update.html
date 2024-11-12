@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link rel="stylesheet" href="/assets/lumen.css?v=ed89d86b8d2c92c714ca474444a512ed">
+        <link rel="stylesheet" href="/assets/lumen.css?v=16a40dda04768768d6709106308ee62a">
         <title>Rimu Hosting Update - The Duane Storey</title>
-        <link rel="icon" type="image/x-icon" href="/assets/favicon.ico?v=ed89d86b8d2c92c714ca474444a512ed">
+        <link rel="icon" type="image/x-icon" href="/assets/favicon.ico?v=16a40dda04768768d6709106308ee62a">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" media="print" onload="this.media='all'">
 
         <meta charset="utf-8">
@@ -75,13 +75,19 @@
 <p>The one thing I’ve found out is that their base plan (which only included 160 MB of memory) just isn’t powerful enough to run more than a small WordPress site. I spent a bunch of time reducing the memory requirements of Apache and MySQL, but my efforts just weren’t successful. Every once and a while an application would crash with a kernel out of memory warning which would basically render the site inoperable. The guys at Rimu actually tried to help me make it all work, but they basically recommended upgrading the virtual server, as Apache is pretty much a memory hog.</p>
 <p>Thankfully Rimu allows you to customize your plan from their control panel, so I upgraded my memory to 400 MB and also increased my transfer allowance. In total I’m paying about $25/month right now, which is still totally reasonable. I’m also going to try to install lighttpd today on the server and use it to serve the static content (images, javascript, css), since apparently it’s lightning fast at anything that doesn’t involve PHP. Once I find a configuration that seems to work flawlessly, I’ll start posting some of my configuration files. I’ve found <a href="http://emergent.urbanpug.com/?p=61">this guy’s site</a> is a pretty great resource for configuring MySQL and Apache for low memory configurations.</p>
 
-                    <div class="tax">
-                        <a href="/posts/category/journal" class="btn btn-secondary btn-sm">journal</a>
-                        <a href="/posts/tag/apache" class="btn btn-secondary btn-sm">apache</a>
-                        <a href="/posts/tag/lighttp" class="btn btn-secondary btn-sm">lighttp</a>
-                        <a href="/posts/tag/php" class="btn btn-secondary btn-sm">php</a>
-                        <a href="/posts/tag/rimu-hosting" class="btn btn-secondary btn-sm">rimu hosting</a>
-                        <a href="/posts/tag/web" class="btn btn-secondary btn-sm">web</a>
+                    <div class="tax"> 
+                        <span class="tax_name">CATEGORY:</span>
+                        <div class="tax_terms">
+                            <a href="/posts/category/journal" class="btn btn-primary btn-sm">journal</a>
+                        </div>
+                        <span class="tax_name">TAG:</span>
+                        <div class="tax_terms">
+                            <a href="/posts/tag/apache" class="btn btn-primary btn-sm">apache</a>
+                            <a href="/posts/tag/lighttp" class="btn btn-primary btn-sm">lighttp</a>
+                            <a href="/posts/tag/php" class="btn btn-primary btn-sm">php</a>
+                            <a href="/posts/tag/rimu-hosting" class="btn btn-primary btn-sm">rimu hosting</a>
+                            <a href="/posts/tag/web" class="btn btn-primary btn-sm">web</a>
+                        </div>
                     </div>
             </div>
 
@@ -97,7 +103,7 @@
                 All content copyright &copy; 2024<br>Generated using Crossroads SSG
             </div>
 
-            <script defer src="/assets/lumen.min.js?v=ed89d86b8d2c92c714ca474444a512ed"></script>
+            <script defer src="/assets/lumen.min.js?v=16a40dda04768768d6709106308ee62a"></script>
         </footer>   
     </body>
 </html>

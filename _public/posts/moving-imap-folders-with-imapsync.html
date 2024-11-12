@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link rel="stylesheet" href="/assets/lumen.css?v=ed89d86b8d2c92c714ca474444a512ed">
+        <link rel="stylesheet" href="/assets/lumen.css?v=16a40dda04768768d6709106308ee62a">
         <title>Moving IMAP Folders With ImapSync - The Duane Storey</title>
-        <link rel="icon" type="image/x-icon" href="/assets/favicon.ico?v=ed89d86b8d2c92c714ca474444a512ed">
+        <link rel="icon" type="image/x-icon" href="/assets/favicon.ico?v=16a40dda04768768d6709106308ee62a">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" media="print" onload="this.media='all'">
 
         <meta charset="utf-8">
@@ -76,12 +76,18 @@
 <p>This time I wanted to try another method, that is using the popular <a href="http://freshmeat.net/projects/imapsync/">imapsync</a> project. Basically you can give it a source account and a destination account, and it’ll do the rest. The main benefit of it is that you can run it on a server, removing the need to proxy anything through your local machine. In addition, it works similarly to rsync — if a message has already been moved, it’ll be skipped the next time. So if the process quits half way through, you don’t have to redo all the previously moved messages — it’s smart enough to know what’s been moved and what hasn’t been.</p>
 <p>There’s one obvious downside, and that is all the new messages end up with a “Received Date” of today using the second method. That’s because the received date isn’t a real IMAP field — it’s kept by local mail programs. So while Apple Mail preserves it when it’s involved in a copy, doing a server to server synchronization ends up clearing that field. That being said, IMAP has a “Sent Date” field which should in almost all cases match the received date, so you can still tell when the message was sent that way.</p>
 
-                    <div class="tax">
-                        <a href="/posts/category/technology" class="btn btn-secondary btn-sm">technology</a>
-                        <a href="/posts/tag/imap" class="btn btn-secondary btn-sm">imap</a>
-                        <a href="/posts/tag/mail" class="btn btn-secondary btn-sm">mail</a>
-                        <a href="/posts/tag/servers" class="btn btn-secondary btn-sm">servers</a>
-                        <a href="/posts/tag/sync" class="btn btn-secondary btn-sm">sync</a>
+                    <div class="tax"> 
+                        <span class="tax_name">CATEGORY:</span>
+                        <div class="tax_terms">
+                            <a href="/posts/category/technology" class="btn btn-primary btn-sm">technology</a>
+                        </div>
+                        <span class="tax_name">TAG:</span>
+                        <div class="tax_terms">
+                            <a href="/posts/tag/imap" class="btn btn-primary btn-sm">imap</a>
+                            <a href="/posts/tag/mail" class="btn btn-primary btn-sm">mail</a>
+                            <a href="/posts/tag/servers" class="btn btn-primary btn-sm">servers</a>
+                            <a href="/posts/tag/sync" class="btn btn-primary btn-sm">sync</a>
+                        </div>
                     </div>
             </div>
 
@@ -97,7 +103,7 @@
                 All content copyright &copy; 2024<br>Generated using Crossroads SSG
             </div>
 
-            <script defer src="/assets/lumen.min.js?v=ed89d86b8d2c92c714ca474444a512ed"></script>
+            <script defer src="/assets/lumen.min.js?v=16a40dda04768768d6709106308ee62a"></script>
         </footer>   
     </body>
 </html>

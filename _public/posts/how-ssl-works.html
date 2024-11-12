@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link rel="stylesheet" href="/assets/lumen.css?v=ed89d86b8d2c92c714ca474444a512ed">
+        <link rel="stylesheet" href="/assets/lumen.css?v=16a40dda04768768d6709106308ee62a">
         <title>How SSL Works - The Duane Storey</title>
-        <link rel="icon" type="image/x-icon" href="/assets/favicon.ico?v=ed89d86b8d2c92c714ca474444a512ed">
+        <link rel="icon" type="image/x-icon" href="/assets/favicon.ico?v=16a40dda04768768d6709106308ee62a">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" media="print" onload="this.media='all'">
 
         <meta charset="utf-8">
@@ -114,13 +114,19 @@ It’s been a long time since I did a technology post, but I’ve recently had s
 <p>Since asymmetric encryption is slow, the package exchange with the locks only happens once during the handshake. Once the package (i.e. the handshake) is received (i.e. completed) and the locks (i.e. the public/private key encryption) are removed, both parties are left with a symmetric encryption key that can be used for all subsequent communications. So basically you’re using asymmetric encryption keys to securely pass a symmetric encryption key down an insecure channel, after which point you can communicate using symmetrically encrypted data, and the channel is secure.</p>
 <p>Pretty cool, huh?</p>
 
-                    <div class="tax">
-                        <a href="/posts/category/technology" class="btn btn-secondary btn-sm">technology</a>
-                        <a href="/posts/tag/browsing" class="btn btn-secondary btn-sm">browsing</a>
-                        <a href="/posts/tag/internet" class="btn btn-secondary btn-sm">internet</a>
-                        <a href="/posts/tag/security" class="btn btn-secondary btn-sm">security</a>
-                        <a href="/posts/tag/ssl" class="btn btn-secondary btn-sm">ssl</a>
-                        <a href="/posts/tag/web" class="btn btn-secondary btn-sm">web</a>
+                    <div class="tax"> 
+                        <span class="tax_name">CATEGORY:</span>
+                        <div class="tax_terms">
+                            <a href="/posts/category/technology" class="btn btn-primary btn-sm">technology</a>
+                        </div>
+                        <span class="tax_name">TAG:</span>
+                        <div class="tax_terms">
+                            <a href="/posts/tag/browsing" class="btn btn-primary btn-sm">browsing</a>
+                            <a href="/posts/tag/internet" class="btn btn-primary btn-sm">internet</a>
+                            <a href="/posts/tag/security" class="btn btn-primary btn-sm">security</a>
+                            <a href="/posts/tag/ssl" class="btn btn-primary btn-sm">ssl</a>
+                            <a href="/posts/tag/web" class="btn btn-primary btn-sm">web</a>
+                        </div>
                     </div>
             </div>
 
@@ -136,7 +142,7 @@ It’s been a long time since I did a technology post, but I’ve recently had s
                 All content copyright &copy; 2024<br>Generated using Crossroads SSG
             </div>
 
-            <script defer src="/assets/lumen.min.js?v=ed89d86b8d2c92c714ca474444a512ed"></script>
+            <script defer src="/assets/lumen.min.js?v=16a40dda04768768d6709106308ee62a"></script>
         </footer>   
     </body>
 </html>

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link rel="stylesheet" href="/assets/lumen.css?v=ed89d86b8d2c92c714ca474444a512ed">
+        <link rel="stylesheet" href="/assets/lumen.css?v=16a40dda04768768d6709106308ee62a">
         <title>WordPress 2.5 Beta - The Duane Storey</title>
-        <link rel="icon" type="image/x-icon" href="/assets/favicon.ico?v=ed89d86b8d2c92c714ca474444a512ed">
+        <link rel="icon" type="image/x-icon" href="/assets/favicon.ico?v=16a40dda04768768d6709106308ee62a">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" media="print" onload="this.media='all'">
 
         <meta charset="utf-8">
@@ -80,15 +80,21 @@
 <p>Another addition under the hood is WordPress now supports gravatars within the code. Prior to version 2.5, you needed to install a gravatar plugin. Now you can simply make a PHP function call to get the associated gravatar for a user. You can <a href="http://weblogtoolscollection.com/archives/2008/03/03/gravatars-and-wordpress-25/">read more about the gravatar changes in 2.5 here</a>. While I’m on the topic, one thing that’s always bothered me about using gravatars is what happens when a user does not have one. Typically the gravatar service returns a static image of a generic person. While you can override this and supply your own image, you basically are forced to show that image in your theme. I’d really like to see something along the lines of a has_gravatar() function where you could fork your code to show something specific for people with images. I recognize that would result in a server call per user (you could obviously optimize this by asking for a completely list of users in one call), but that would be something I’d be happy to live with to get the desired theme I’d want.</p>
 <p>I’ll save the rest for when the official WordPress 2.5 product is released (rumours are sometime around March 10th). There are some more screen shots over on my Flickr page if anyone is interested.</p>
 
-                    <div class="tax">
-                        <a href="/posts/category/journal" class="btn btn-secondary btn-sm">journal</a>
-                        <a href="/posts/tag/2.5" class="btn btn-secondary btn-sm">2.5</a>
-                        <a href="/posts/tag/avatars" class="btn btn-secondary btn-sm">avatars</a>
-                        <a href="/posts/tag/beta" class="btn btn-secondary btn-sm">beta</a>
-                        <a href="/posts/tag/blog" class="btn btn-secondary btn-sm">blog</a>
-                        <a href="/posts/tag/gravatars" class="btn btn-secondary btn-sm">gravatars</a>
-                        <a href="/posts/tag/php" class="btn btn-secondary btn-sm">php</a>
-                        <a href="/posts/tag/wordpress" class="btn btn-secondary btn-sm">wordpress</a>
+                    <div class="tax"> 
+                        <span class="tax_name">CATEGORY:</span>
+                        <div class="tax_terms">
+                            <a href="/posts/category/journal" class="btn btn-primary btn-sm">journal</a>
+                        </div>
+                        <span class="tax_name">TAG:</span>
+                        <div class="tax_terms">
+                            <a href="/posts/tag/2.5" class="btn btn-primary btn-sm">2.5</a>
+                            <a href="/posts/tag/avatars" class="btn btn-primary btn-sm">avatars</a>
+                            <a href="/posts/tag/beta" class="btn btn-primary btn-sm">beta</a>
+                            <a href="/posts/tag/blog" class="btn btn-primary btn-sm">blog</a>
+                            <a href="/posts/tag/gravatars" class="btn btn-primary btn-sm">gravatars</a>
+                            <a href="/posts/tag/php" class="btn btn-primary btn-sm">php</a>
+                            <a href="/posts/tag/wordpress" class="btn btn-primary btn-sm">wordpress</a>
+                        </div>
                     </div>
             </div>
 
@@ -104,7 +110,7 @@
                 All content copyright &copy; 2024<br>Generated using Crossroads SSG
             </div>
 
-            <script defer src="/assets/lumen.min.js?v=ed89d86b8d2c92c714ca474444a512ed"></script>
+            <script defer src="/assets/lumen.min.js?v=16a40dda04768768d6709106308ee62a"></script>
         </footer>   
     </body>
 </html>

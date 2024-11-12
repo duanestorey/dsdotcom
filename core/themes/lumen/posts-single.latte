@@ -13,11 +13,14 @@
                 {$content->html|noescape}
 
                 {if $content->taxonomy}
-                    <div class="tax">
+                    <div class="tax"> 
                     {foreach $content->taxonomy as $tax => $terms}
+                        <span class="tax_name">{$tax|upper}:</span>
+                        <div class="tax_terms">
                         {foreach $terms as $term}
-                        <a href="{$content->taxonomyLinks[ $tax ][ $term ]}" class="btn btn-secondary btn-sm">{$term|replace: ['-' => ' ']}</a>
+                            <a href="{$content->taxonomyLinks[ $tax ][ $term ]}" class="btn btn-primary btn-sm">{$term|replace: ['-' => ' ']}</a>
                         {/foreach}
+                        </div>
                     {/foreach}
                     </div>
                 {/if}
