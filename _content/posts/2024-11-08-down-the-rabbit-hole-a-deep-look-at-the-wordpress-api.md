@@ -143,3 +143,7 @@ Based on what I'm seeing on Twitter and other social networks, It wouldn't surpr
 
 If anyone has any feedback about the plugin, by all means drop me a line or drop an issue on Github. But I wanted to share some of what I learned while investigating how all these WordPress APIs actually work, and what data they appear to be sending back home.
 
+### Updates
+
+Since posting this originally, Robert DeVore has released a new [Markdown Exporter for WordPress](https://robertdevore.com/introducing-markdown-exporter-for-wordpress/), so that's another option for people looking to export their WordPress content.
+
