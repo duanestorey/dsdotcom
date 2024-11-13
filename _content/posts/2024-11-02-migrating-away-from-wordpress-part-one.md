@@ -54,6 +54,9 @@ If that sounds funky and crazy, it wasn’t always that way. The popular Blogger
 If you’ve made it this far and followed along, you now have a pile of Markdown content to use. You can now use all your shiny Markdown data to generate a website using one of the many popular static site generators like [Astro](https://astro.build/), [Hugo](https://gohugo.io/), or [Jekyll](https://jekyllrb.com/). 
 
 For my purposes though, I decided to try and code my own as a learning exercise. If you’re reading this on my website, then you’re already seeing the end result of that effort, as this is a purely static site generated from my own code. So stay tuned for more posts in this series detailing this effort shortly, and what I learned.
-  
+
+### Updates
+
+Since posting this originally, Robert DeVore has released a new [Markdown Exporter for WordPress](https://robertdevore.com/introducing-markdown-exporter-for-wordpress/), so that's another option for people looking to export their WordPress content.
 
 
