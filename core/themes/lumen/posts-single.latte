@@ -15,11 +15,13 @@
                 {if $content->taxonomy}
                     <div class="tax"> 
                     {foreach $content->taxonomy as $tax => $terms}
-                        <span class="tax_name">{$tax|upper}:</span>
-                        <div class="tax_terms">
-                        {foreach $terms as $term}
-                            <a href="{$content->taxonomyLinks[ $tax ][ $term ]}" class="btn btn-primary btn-sm">{$term|replace: ['-' => ' ']}</a>
-                        {/foreach}
+                        <div>
+                            <span class="tax_name">{$tax|upper}:</span>
+                            <div class="tax_terms">
+                            {foreach $terms as $term}
+                                <a href="{$content->taxonomyLinks[ $tax ][ $term ]}" class="btn btn-primary btn-sm">{$term|replace: ['-' => ' ']}</a>
+                            {/foreach}
+                            </div>
                         </div>
                     {/foreach}
                     </div>
