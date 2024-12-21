@@ -23,7 +23,7 @@ Even though Matt was the one who went up on stage at WCEU and essentially picked
 
 Matt was actually one of the individuals who first inspired me to contribute to WordPress.  Him and I first met at a [conference in Vancouver called "Northern Voice"](https://ma.tt/2008/02/northern-voice/) in 2008.  A mutual friend of ours, Boris Mann (who I met during my high tech days in Ottawa when I worked at JDS Uniphase in 2000-2002 as a manufacturing engineer), introduced us after Matt's talk.  After that, I doubled down on WordPress, and helped create one of the first mobile plugins for WordPress, WPtouch, along with a smattering of others. Two of the plugins Dale Mugford and myself created, WPtouch and WordTwit, [were voted the #1 and #p lugins for WordPress by users at WordCamp San Francisco in 2009](https://youtube.com/clip/UgkxLBxSsGgjzdGQnVdL7tDGp_tQHsyACDvH?si=ycfB7f2k0ivKks_f). I also helped organize three WordCamps in the Vancouver area during my time there. 
 
-That's why it's been so painful watching what's occurred the last few months, where basically the steward of the open-source WordPress project has basically weaponized a huge chunk of it and shown most of us, in my opinion, that not only are our opinions not valued, but our contributions to WordPress, however large or small, aren't really valued.  
+That's why it's been so painful watching what's occurred the last few months, where basically the steward of the open-source WordPress project has basically weaponized a huge chunk of it and shown most of us, in my opinion, that not only are our opinions not valued, but our contributions to WordPress, however large or small, aren't really valued either.  
 
 ### The Way Forward
 
