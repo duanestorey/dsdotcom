@@ -87,7 +87,7 @@ If anyone wants to follow along, I'll be updating all three repos over the next 
 
 Just to be clear, nobody will be forcibly moved from WordPress.org to a new repository. Whatever I come up with will involve the website owner having informed consent that a new, signed version exists, and will require them to voluntarily agree to move to the new repository. That's a lot more than WP Engine's users were given, and the bare minimum that should be required to change code on someone's server.
 
-As always, you can find me over on [X](https://x.com/duanestorey) or [Bluesky)(https://bsky.app/profile/duanestorey.com) - hit me up there to have timely responses to any of this.  
+As always, you can find me over on [X](https://x.com/duanestorey) or [Bluesky](https://bsky.app/profile/duanestorey.com) - hit me up there to have timely responses to any of this.  
 
 And on that note, it's time to code.
 
