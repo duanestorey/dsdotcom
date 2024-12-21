@@ -49,7 +49,7 @@ With that in mind, I'm going to go on a marathon coding session for the next 48 
 
 ### What Happens Next
 
-My goal with what I'm about to build is to hopefully provide a proof of concept to generate some ideas.  If it doesn't stick, or a replacement comes around right away that the community rallies behind, that's great.  Before Matt got on stage at WCUE and started this battle, I was happily eating paella on the Valencian coast in Spain. I've only performed my Ali-like return to the ring due to his actions, and my desire to help the community survive his assaults.  I'm quite happy to help generate some new ideas, and to work tireless to help get the community back to a safe position, and then return to my paella-fuelled life. 
+My goal with what I'm about to build is to hopefully provide a proof of concept to generate some ideas.  If it doesn't stick, or a replacement comes around right away that the community rallies behind, that's great.  Before Matt got on stage at WCUE and started this battle, I was happily eating paella on the Valencian coast in Spain. I've only performed my Ali-like return to the ring due to his actions, and my desire to help the community survive his assaults.  I'm quite happy to help generate some new ideas, and to work tirelessly to help get the community back to a safe position, and then return to my paella-fuelled life. 
 
 I no longer have any commercial plugins, nor any real skin in the game with WordPress. I've spent most of the last year playing with hardware, not software.  What I do have is a 15 year history with a community that I have come to love and appreciate, one that is being fractured by the very person who we all thought was supposed to protect it.  If and when proper governance emerges, I'm happy to turn over whatever I write to them, which isn't really necessary since it's all GPL anyways.  But based on what I'm trying to achieve, once it's released it no longer depends on me at all, since it'll effectively propagate itself anyways. 
 
@@ -69,7 +69,7 @@ This is going to be a very light-weight, mostly statically generated, self-mirro
 
 This piece has the coveted Juniper "Berry" designator, which is our favourite flavouring addition to Gin. Juniper/Berry will pull from a list of multiple Juniper/Server instances, or even private ones if desired. Like DNS, I'll try and make it automatically failover, so if one or more of these disappear, things will proceed as normal.  
 
-It may be possible to ditch Juniper/Server at some point, but at this point I think it's necessary evil and will offload some of the larger data processing away from the client and onto the server to create the master lists.  I plan to use a page-rank type algorithm incorporating Github stars, issues, and a new method I'm considering involving a new plugin and theme header, "Endorses:".  This is basically a way for plugin and theme authors to endorse other plugin and theme authors, helping propagate trust through the eco-system.  This isn't an admission that a plugin or theme doesn't have security issues in their code, or that their plugin or theme won't break your site.  But it is an endorsement that this plugin or theme author generally does good work and likely has created something useful, enough so that it should be given a slightly higher weight in a curated list.
+It may be possible to ditch Juniper/Server at some point, but at this point I think it's a necessary evil and will offload some of the larger data processing away from the client and onto the server to create the master lists.  I plan to use a page-rank type algorithm incorporating Github stars, issues, and a new method I'm considering involving a new plugin and theme header, "Endorses:".  This is basically a way for plugin and theme authors to endorse other plugin and theme authors, helping propagate trust through the eco-system.  This isn't an admission that a plugin or theme doesn't have security issues in their code, or that their plugin or theme won't break your site.  But it is an endorsement that this plugin or theme author generally does good work and likely has created something useful, enough so that it should be given a slightly higher weight in a curated list.
 
 ### Let's Fucking Go
 
@@ -81,9 +81,9 @@ If anyone wants to follow along, I'll be updating all three repos over the next 
 
 [Robert DeVore](https://x.com/deviorobert) has already gracious offered to help with a bit of testing, but if anyone else has a bit of free time this weekend, I can use some help with testing from the following three groups:
 
-1) People who don't mind standing up a bare-metal PHP instance to run a mirrored copy of Juniper/Server
-2) People who have plugins or themes exclusively on GitHub that want to be a part of the initial curated list of plugins
-3) People who have a plugin or theme dual-released on WordPress.org and Github, who want to help test the life-raft functionality.
+1. People who don't mind standing up a bare-metal PHP instance to run a mirrored copy of Juniper/Server
+2. People who have plugins or themes exclusively on GitHub that want to be a part of the initial curated list of plugins
+3. People who have a plugin or theme dual-released on WordPress.org and Github, who want to help test the life-raft functionality.
 
 Just to be clear, nobody will be forcibly moved from WordPress.org to a new repository. Whatever I come up with will involve the website owner having informed consent that a new, signed version exists, and will require them to voluntarily agree to move to the new repository. That's a lot more than WP Engine's users were given, and the bare minimum that should be required to change code on someone's server.
 
