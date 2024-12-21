@@ -53,7 +53,7 @@ My goal with what I'm about to build is to hopefully provide a proof of concept 
 
 I no longer have any commercial plugins, nor any real skin in the game with WordPress. I've spent most of the last year playing with hardware, not software.  What I do have is a 15 year history with a community that I have come to love and appreciate, one that is being fractured by the very person who we all thought was supposed to protect it.  If and when proper governance emerges, I'm happy to turn over whatever I write to them, which isn't really necessary since it's all GPL anyways.  But based on what I'm trying to achieve, once it's released it no longer depends on me at all, since it'll effectively propagate itself anyways. 
 
-### Want To Help?
+### Coding Goals
 
 I'm going to be coding mostly in real-time this weekend.  I've set up three repositories over at [NotWPorg](https://github.com/notwporg) on Github.  There are three pieces to this in my head.  Because all projects need a name, and I'm likely to have a bit of Gin by the fire while coding this weekend, I've affectionately called this 'Project Juniper'
 
