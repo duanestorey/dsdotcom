@@ -19,7 +19,7 @@ The client-side plugin and theme management plugin I created to help with the re
 
 Since I have full access to the Github API, I also pulled in all the issues and releases. The releases can be cryptographically signed using a private key, which at some point will allow the future Juniper/Berry plugin to confirm that a release is legitimate before installing it.  
 
-This mechanism would protected against a supply-chain attack, similar to what happened with the Advanced Custom Fields takeover.  In that scenario, the Secure Custom Fields plugin would not have been automatically installed because it would have failed the digital signature check (since the private key would not have been available to sign it).
+This mechanism would protect against a supply-chain attack, similar to what happened with the Advanced Custom Fields takeover.  In that scenario, the Secure Custom Fields plugin would not have been automatically installed because it would have failed the digital signature check (since the private key would not have been available to sign it).
 
 What's next is as follows:
 - Right now updating the Github information is time consuming, so there is a manual button to push for updates.  I'll be making this automatic soon
