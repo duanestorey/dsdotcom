@@ -88,7 +88,7 @@ The first thing I personally want to do is provide more funding opportunities fo
 
 Recently the [WP Community Collective](https://www.thewpcommunitycollective.com/) launched, which is a non-profit that has transparent budgeting.  So I want to work in something similar into the repositories, even if that's just bringing more exposure to the ability to sponsor authors via Github sponsors, which is a tried and true system with transparency.
 
-If you like where this is going and want to help support its development, you can find a sponsor button on the main [Juniper/Server](https://notwp.org/plugins/duanestorey/juniper-server). You can also find sponsorship buttons on the pages of all the other plugins there too, which I hope inspires some people or corporations to support projects they support.
+If you like where this is going and want to help support its development, you can find a sponsor button on the main [Juniper/Author](https://notwp.org/plugins/duanestorey/juniper-author). You can also find sponsorship buttons on the pages of all the other plugins there too, which I hope inspires some people or corporations to support projects they support.
 
 And on that note, Merry Christmas!  I'm having turkey and pierogis with the family today, and will be doing a bit of coding in front of the TV later.  I hope everyone has a great day, and that the future for all of you, and the WordPress community, will be bright.
 
