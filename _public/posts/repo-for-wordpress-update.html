@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="/assets/lumen.css?v=0b00bd9e76240391fba9e64916a6f712">
+        <title>Juniper: An Update On A New Repository For WordPress - The Duane Storey</title>
+        <link rel="icon" type="image/x-icon" href="/assets/favicon.ico?v=0b00bd9e76240391fba9e64916a6f712">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" media="print" onload="this.media='all'">
+
+        <meta charset="utf-8">
+        <meta name="generator" content="Crossroads 1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="canonical" href="https://duanestorey.com/posts/repo-for-wordpress-update.html">
+
+        <meta name="description" content="I set out last week to try and build a bare-bones repository of WordPress plugins and themes and an associated management">
+        <meta name="og:description" content="I set out last week to try and build a bare-bones repository of WordPress plugins and themes and an associated management">
+        <meta property="og:title" content="Juniper: An Update On A New Repository For WordPress - The Duane Storey">
+        <meta property="og:url" content="https://duanestorey.com/posts/repo-for-wordpress-update.html">
+        <meta property="og:type" content="article">
+        <meta name="twitter:card" content="summary_large_image">   
+        <meta name="twitter:title" content="Juniper: An Update On A New Repository For WordPress - The Duane Storey">
+        <meta name="twitter:description" content="I set out last week to try and build a bare-bones repository of WordPress plugins and themes and an associated management">
+        <meta name="twitter:creator" content="@duanestorey">
+        <meta name="twitter:image" content="https://duanestorey.com/assets/posts/2024/2024-repo-shot.jpeg">
+        <meta property="og:image" content="https://duanestorey.com/assets/posts/2024/2024-repo-shot.jpeg">
+        <meta property="og:image:width" content="1764">
+        <meta property="og:image:height" content="806">
+
+    </head>
+    <body class="posts posts-repo-for-wordpress-update">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="/">The Duane Storey</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <ul class="nav navbar-nav me-auto">
+                        <li><a class="nav-item nav-link" href="/">Home</a></li>
+                        <li><a class="nav-item nav-link" href="/hiking.html">Hiking</a></li>
+                        <li><a class="nav-item nav-link" href="/building-a-custom-hi-fi-5-1-amplifier-with-dts-dolby-decoding.html">Hi-Fi Amp</a></li>
+                        <li><a class="nav-item nav-link" href="/curriculum-vitae.html">CV</a></li>
+                        <li><a class="nav-item nav-link" href="/about.html">About</a></li>
+                        <li><a class="nav-item nav-link" href="/contact.html">Contact</a></li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar">
+                        <li class="nav-item me-3 me-lg-0  d-none d-lg-block">
+                            <a class="nav-link" rel="nofollow" href="https://x.com/duanestorey" aria-label="Twitter">
+                                <i class="fa-brands fa-x-twitter text-white"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item me-3 me-lg-0  d-none d-lg-block">
+                            <a class="nav-link" rel="nofollow" href="https://instagram.com/duanestorey" aria-label="Instagram">
+                                <i class="fa-brands fa-instagram text-white"></i>
+                            </a>
+                        </li>
+                            <li class="nav-item me-3 me-lg-0  d-none d-lg-block">
+                            <a class="nav-link" rel="nofollow" href="https://bsky.app/profile/duanestorey.com" aria-label="Bluesky">
+                                <i class="fa-brands fa-bluesky text-white"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+    <div class="container slim mt-4">
+        <article>    
+            <h1 class="mt-4">Juniper: An Update On A New Repository For WordPress</h1>
+            <div class="meta mb-2 text-primary fs-6 fw-light">
+                Published on <time>December 25th, 2024</time> &middot; <span>6 minutes to read</span>
+            </div>
+
+            <div class="content mt-3">
+                    <div class="featured mt-4 mb-4">
+                        <picture>
+                                <source media="(max-width: 320px)" srcset="/assets/posts/2024/2024-repo-shot-320w.jpeg">
+                                <source media="(max-width: 480px)" srcset="/assets/posts/2024/2024-repo-shot-480w.jpeg">
+                                <source media="(max-width: 640px)" srcset="/assets/posts/2024/2024-repo-shot-640w.jpeg">
+                                <source media="(max-width: 960px)" srcset="/assets/posts/2024/2024-repo-shot-960w.jpeg">
+                                <source media="(max-width: 1360px)" srcset="/assets/posts/2024/2024-repo-shot-1360w.jpeg">
+                                <source media="(max-width: 1600px)" srcset="/assets/posts/2024/2024-repo-shot-1600w.jpeg">
+                                <source media="(min-width: 1601px)" srcset="/assets/posts/2024/2024-repo-shot.jpeg">
+                            <img src="/assets/posts/2024/2024-repo-shot.jpeg" width="1764" height="806" alt="Featured Image" class="img-fluid">
+                        </picture>
+                    </div>
+                                
+                <p>I set out <a href="/posts/a-prototype-for-a-new-plugin-and-theme-update-mechanism.html">last week to try and build a bare-bones repository</a> of WordPress plugins and themes and an associated management plugin.  For the most part, I think I managed to get done what I wanted, although I still haven't started the actual update mechanism for it.  There are already great Github updaters, including Github Updater and Repoman.  But at some point I want to add the ability to verify cryptographically signed ZIP archives, and that will require some code on the client site.</p>
+<p>But the results of that marathon coding session are now available online at <a href="https://notwp.org">The Not WP Repository</a>.</p>
+<h2>Juniper/Author</h2>
+<p>The client-side plugin and theme management plugin I created to help with the repository is called <a href="https://notwp.org/plugins/duanestorey/juniper-author/">Juniper/Author</a>, and it has the ability to automatically determine all plugins on Github for a particular user, and submit those to the public repository.  I've made some improvements over the past few days, and it's almost working without any intervention on my part. </p>
+<p><img loading="lazy" srcset="/assets/posts/2024/2024-juniper-author-320w.jpeg 320w,/assets/posts/2024/2024-juniper-author-480w.jpeg 480w,/assets/posts/2024/2024-juniper-author-640w.jpeg 640w,/assets/posts/2024/2024-juniper-author-960w.jpeg 960w,/assets/posts/2024/2024-juniper-author-1360w.jpeg 1360w,/assets/posts/2024/2024-juniper-author-1600w.jpeg 1600w" src="/assets/posts/2024/2024-juniper-author.jpeg" alt="Admin view of Juniper/Author"></p>
+<p>Since I have full access to the Github API, I also pulled in all the issues and releases. The releases can be cryptographically signed using a private key, which at some point will allow the future Juniper/Berry plugin to confirm that a release is legitimate before installing it.  </p>
+<p>This mechanism would protected against a supply-chain attack, similar to what happened with the Advanced Custom Fields takeover.  In that scenario, the Secure Custom Fields plugin would not have been automatically installed because it would have failed the digital signature check (since the private key would not have been available to sign it).</p>
+<p>What's next is as follows:</p>
+<ul>
+<li>Right now updating the Github information is time consuming, so there is a manual button to push for updates.  I'll be making this automatic soon</li>
+<li>Code signing is half-baked, so I'm going to put it back in the oven and finish it off</li>
+<li>I want to pull in a bit more Github data and expose that via the XML API that Juniper/Server uses.  That way the repository site can continue to have more information for end-users (including links to author X/Bluesky accounts etc).</li>
+</ul>
+<h2>Juniper/Server</h2>
+<p>The repository is a mostly-statically generated series of HTML files generated using the <a href="!https://latte.nette.org/en/">Latte templating engine</a>. I say mostly, as adding a new site to the repository does include a simple PHP file that isn't static, but it doesn't depend on WordPress and it just adds the new site in the local database to be included during the next build, which is currently happening every ten minutes.</p>
+<p><img loading="lazy" srcset="/assets/posts/2024/2024-juniper-server-320w.jpeg 320w,/assets/posts/2024/2024-juniper-server-480w.jpeg 480w,/assets/posts/2024/2024-juniper-server-640w.jpeg 640w,/assets/posts/2024/2024-juniper-server-960w.jpeg 960w,/assets/posts/2024/2024-juniper-server-1360w.jpeg 1360w,/assets/posts/2024/2024-juniper-server-1600w.jpeg 1600w" src="/assets/posts/2024/2024-juniper-server.jpeg" alt="Build process view of Juniper/Server"></p>
+<p>Juniper/Server pulls all the data from the Juniper/Author APIs, stores it locally in a Sqlite database, and then generates the entire repository statically in just a few seconds. As part of this process, the ZIP files are downloaded locally and the SHA256 hash is generated for each file (since Github doesn't provide it). That allows someone to verify if the ZIP file has been tampered with.</p>
+<p>For example, let's say you received a copy of <a href="https://notwp.org/plugins/robertdevore/benchpress/">Robert's new Benchpress plugin via ZIP</a>, but aren't sure it's legit. </p>
+<p>On the website you can look and see that the current hash is:</p>
+<pre><code>cf3d6d379edacd093d37a9f56cb5e56a162cfbbf84ed5b1b5764c8abe927cf59</code></pre>
+<p>If you're on a Mac, you could open terminal and run the following, supplying the name of the ZIP file you downloaded:</p>
+<pre><code>sha256 benchpress-1.1.0.zip 
+</code></pre>
+<p>Which in my case returned:</p>
+<pre><code>SHA256 (benchpress-1.1.0.zip) = cf3d6d379edacd093d37a9f56cb5e56a162cfbbf84ed5b1b5764c8abe927cf59</code></pre>
+<p>As you can see, the hashes match, which means it's a binary exact copy of the original file. If someone had changed the file, or if this had been a Pro plugin that had been nulled, the hash would not have matched. At that point you know it's not legitimate, and would be looking for a better source from the original author.</p>
+<h3>Easy Mirroring</h3>
+<p>I wanted to support repository mirroring out of the box, so I baked in that support from the beginning.  Because I used a simple Sqlite database for the content, all a mirror had to do was grab the entire database in one transaction (by downloading it from the source website), and then execute the build process. </p>
+<p>There is a single site.yaml configuration file for the server that has a producer field.  The main website has producer equal to 1, which is a master site. Simply changing producer to 0 will tell the build process it is not a master, which will trigger the Sqlite download from consumer_source and start the build process.</p>
+<pre><code>  role:
+    producer: 1
+# change producer to 0 to product a mirror of the 'consumer_source' target
+    consumer_source: https://notwp.org</code></pre>
+<p>I tested out the mirroring process by setting up a quick PHP website at <a href="https://mirror1.notwp.org/">mirror1.notwp.org</a>, which worked flawlessly.</p>
+<p>The last piece of the puzzle was to make the repo address be configurable in Juniper/Author, which it now is.  So conceivably there could be mirrors at different locations or within an organization.  For example, a host like WP Engine could set up a mirror and make the default repository location in Juniper/Author on their installs point at their mirror instead.</p>
+<p>This configuration would also work for completely private repositories.  I have a bit more work to do in Juniper/Author for that, but there isn't any reason someone couldn't stand up their own version of Juniper/Server, for their organization for example, and put all their private plugins there within an internal network.</p>
+<p>Someone sent me a private X message asking why I was doing this, and if I was trying to consolidate power.  I'm actually trying to do the opposite, and distribute that power instead. Once this is done, I don't have to be involved at all. If I decided to take down <a href="https://notwp.org">https://notwp.org</a> one day because I was grumpy, one of the mirrors could simply change <em>producer: 0</em> to <em>producer: 1</em> in their site.yaml, and at that point they are in charge.  This would necessitate a simple config change in Juniper/Author (adding the new repository in the backend), but it would be a minor blip and that's it.  The plugin authors themselves are the ones in charge of their own data, and that remains the same irregardless of the mirror or repository site.</p>
+<p>The next stage is to add more content for WordPress itself, and also build out the author pages.  I also want to add a site-wide &quot;Sponsor&quot; page which will highlight the plugins or themes that are looking for financial backing.  And at that point I hope some of the larger corporate entities might take a look and try to contribute to a few of them, even if it's a monthly coffee budget for a project that they support.</p>
+<h2>Future Work And Discussions</h2>
+<p>It sounds like there will be some discussions in the new year, possibly hosted by Joost, regarding future infrastructure. The point of this project was mostly a proof of concept to show what types of things can be done.  I'm going to continue to build it out over the next few weeks, as there are a few items I really want to include.  I'm still looking for individuals and corporations that want to add their plugins to the repository, as it gives me more data to play with and to generate additional ideas for the future.</p>
+<p>The first thing I personally want to do is provide more funding opportunities for plugin and theme developers. As a plugin developer myself, I know that a lot of people contributing free plugins and themes do so because they care about WordPress and want to give back to the community, often working on these projects in the late evenings. That said, I'm sure life would be a lot easier for those people if they had opportunities to receive funding directly. These were ideas that were floated to Matt back In 2018 and 2019, and were mostly met with silence. But in an ideal open-source project, funding would be received by everyone contributing if possible, not just plugin and theme authors, but security researchers, content providers, etc. That's a great goal for whatever happens in 2025.</p>
+<p>Recently the <a href="https://www.thewpcommunitycollective.com/">WP Community Collective</a> launched, which is a non-profit that has transparent budgeting.  So I want to work in something similar into the repositories, even if that's just bringing more exposure to the ability to sponsor authors via Github sponsors, which is a tried and true system with transparency.</p>
+<p>If you like where this is going and want to help support its development, you can find a sponsor button on the main <a href="https://notwp.org/plugins/duanestorey/juniper-server">Juniper/Server</a>. You can also find sponsorship buttons on the pages of all the other plugins there too, which I hope inspires some people or corporations to support projects they support.</p>
+<p>And on that note, Merry Christmas!  I'm having turkey and pierogis with the family today, and will be doing a bit of coding in front of the TV later.  I hope everyone has a great day, and that the future for all of you, and the WordPress community, will be bright.</p>
+
+            </div>
+
+            <div class="comments mt-4 pt-4">
+                <div id="disqus_thread"></div>
+            </div>
+        </article>  
+    </div>
+
+
+        <footer class="bg-dark pt-4 pb-4 mt-4 mb-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="text-start text-white">
+                            Rendered using Crossroads SSG
+                            <br><a href="https://github.com/duanestorey/crossroads">View on Github</a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="text-end text-white">
+                            All content copyright &copy; 2007-2024<br>By Duane Storey
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script defer src="/assets/lumen.min.js?v=0b00bd9e76240391fba9e64916a6f712"></script>
+        </footer>   
+    </body>
+</html>
