@@ -22,5 +22,5 @@ const observer = new IntersectionObserver((entries, observer) => {
 // Start listening:
 const mountNode = document.querySelector( "#disqus_thread" );
 if ( mountNode != null ) {
-    observer.observe( mountNode );
+//    observer.observe( mountNode );
 }
